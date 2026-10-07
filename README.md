@@ -1,4 +1,6 @@
-# uCore RISC-V lab0 到 lab1
+# NKU2026OS_NO.30
+
+uCore RISC-V lab0 到 lab1。
 
 已在 Windows 的 Ubuntu 22.04（WSL2）中完成环境配置、内核编译、QEMU 运行及 GDB 启动跟踪。实验答案见 [lab1 实验报告](lab1-report.md)，原始记录见 [evidence](evidence/)。
 
