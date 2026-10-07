@@ -1,0 +1,1423 @@
+
+<!DOCTYPE HTML>
+
+<html lang="zh-hans">
+<head>
+<meta charset="utf-8"/>
+<title>开搞：搭建实验环境 · riscv64-ucore 操作系统实验指导书</title>
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="" name="description"/>
+<meta content="HonKit 6.2.2" name="generator"/>
+<link href="../gitbook/style.css" rel="stylesheet"/>
+<link href="../gitbook/honkit-plugin-prism/prism-tomorrow.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-search/search.css" rel="stylesheet"/>
+<link href="../gitbook/@honkit/honkit-plugin-fontsettings/website.css" rel="stylesheet"/>
+<link href="../styles/website.css" rel="stylesheet"/>
+<meta content="true" name="HandheldFriendly">
+<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+<link href="../gitbook/images/apple-touch-icon-precomposed-152.png" rel="apple-touch-icon-precomposed" sizes="152x152"/>
+<link href="../gitbook/images/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+<link href="../lab0.5/intro.html" rel="next">
+<link href="softwares.html" rel="prev">
+</link></link></meta></meta></head>
+<body>
+<div class="book honkit-cloak">
+<div class="book-summary">
+<div id="book-search-input" role="search">
+<input placeholder="输入并搜索" type="text"/>
+</div>
+<nav role="navigation">
+<ul class="summary">
+<li class="chapter" data-level="1.1" data-path="../">
+<a href="../index.html">
+            
+                    
+                    欢迎来到ucore step-by-step的世界
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.2" data-path="intro.html">
+<a href="intro.html">
+            
+                    
+                    lab0: 预备起
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.2.1" data-path="1_history.html">
+<a href="1_history.html">
+            
+                    
+                    溯源: ucore的历史
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.2.2" data-path="2_overview.html">
+<a href="2_overview.html">
+            
+                    
+                    概览: 指导书的结构
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.2.3" data-path="0_Linux.html">
+<a href="0_Linux.html">
+            
+                    
+                    预备：Linux安装与熟悉
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.2.4" data-path="softwares.html">
+<a href="softwares.html">
+            
+                    
+                    起步：常用软件熟悉
+            
+                </a>
+</li>
+<li class="chapter active" data-level="1.2.5" data-path="3_startdash.html">
+<a href="3_startdash.html">
+            
+                    
+                    开搞：搭建实验环境
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.3" data-path="../lab0.5/intro.html">
+<a href="../lab0.5/intro.html">
+            
+                    
+                    lab0.5: AI驱动的操作系统实验
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.3.1" data-path="../lab0.5/0_environment_setup.html">
+<a href="../lab0.5/0_environment_setup.html">
+            
+                    
+                    环境准备：让 AI 参与到 OS 开发中
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.3.2" data-path="../lab0.5/1_paradigm_shift.html">
+<a href="../lab0.5/1_paradigm_shift.html">
+            
+                    
+                    范式转变：从传统编程到AI协作
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.3.3" data-path="../lab0.5/2_prompt_engineering.html">
+<a href="../lab0.5/2_prompt_engineering.html">
+            
+                    
+                    提示词工程：写给AI的需求规格
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.3.4" data-path="../lab0.5/3_prompt_structure.html">
+<a href="../lab0.5/3_prompt_structure.html">
+            
+                    
+                    本实验的标准提示词结构
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.3.5" data-path="../lab0.5/4_practice_guide.html">
+<a href="../lab0.5/4_practice_guide.html">
+            
+                    
+                    实践指南：如何与AI一起开发操作系统
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.4" data-path="../lab1/lab1.html">
+<a href="../lab1/lab1.html">
+            
+                    
+                    lab1: 比麻雀更小的麻雀（最小可执行内核）
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.4.1" data-path="../lab1/lab1_1_goals.html">
+<a href="../lab1/lab1_1_goals.html">
+            
+                    
+                    实验目的
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.4.2" data-path="../lab1/lab1_2_labs.html">
+<a href="../lab1/lab1_2_labs.html">
+            
+                    
+                    实验内容
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.4.2.1" data-path="../lab1/lab1_2_1_exercise.html">
+<a href="../lab1/lab1_2_1_exercise.html">
+            
+                    
+                    练习
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.4.2.2" data-path="../lab1/lab1_2_2_file.html">
+<a href="../lab1/lab1_2_2_file.html">
+            
+                    
+                    项目组成和执行流
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.4.3" data-path="../lab1/lab1_3_booting.html">
+<a href="../lab1/lab1_3_booting.html">
+            
+                    
+                    从机器启动到操作系统运行的过程
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.4.3.1" data-path="../lab1/lab1_3_1_layout.html">
+<a href="../lab1/lab1_3_1_layout.html">
+            
+                    
+                    OpenSBI, bin, elf
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.4.3.2" data-path="../lab1/lab1_3_2_linkerscript.html">
+<a href="../lab1/lab1_3_2_linkerscript.html">
+            
+                    
+                    内存布局，链接脚本，入口点
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.4.3.3" data-path="../lab1/lab1_3_3_sbi_io.html">
+<a href="../lab1/lab1_3_3_sbi_io.html">
+            
+                    
+                    从SBI到stdio
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.4.3.4" data-path="../lab1/lab1_3_4_makeit.html">
+<a href="../lab1/lab1_3_4_makeit.html">
+            
+                    
+                    Just make it
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.4.4" data-path="../lab1/lab1_4_gdb.html">
+<a href="../lab1/lab1_4_gdb.html">
+            
+                    
+                    GDB调试工具使用体验
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.4.5" data-path="../lab1/lab1_5_requirement.html">
+<a href="../lab1/lab1_5_requirement.html">
+            
+                    
+                    实验报告要求
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.5" data-path="../lab2/lab2.html">
+<a href="../lab2/lab2.html">
+            
+                    
+                    lab2: 物理内存和页表
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.5.1" data-path="../lab2/lab2_1_goal.html">
+<a href="../lab2/lab2_1_goal.html">
+            
+                    
+                    实验目的
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.5.2" data-path="../lab2/lab2_2_contents.html">
+<a href="../lab2/lab2_2_contents.html">
+            
+                    
+                    实验内容
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.5.2.1" data-path="../lab2/lab2_2_1_exercise.html">
+<a href="../lab2/lab2_2_1_exercise.html">
+            
+                    
+                    练习
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.5.2.2" data-path="../lab2/lab2_2_2_files.html">
+<a href="../lab2/lab2_2_2_files.html">
+            
+                    
+                    项目组成
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.5.3" data-path="../lab2/lab2_3_pmpt.html">
+<a href="../lab2/lab2_3_pmpt.html">
+            
+                    
+                    物理内存管理
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.5.3.1" data-path="../lab2/lab2_3_1_principles.html">
+<a href="../lab2/lab2_3_1_principles.html">
+            
+                    
+                    基本原理概述
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.5.3.2" data-path="../lab2/lab2_3_2_phymem_page.html">
+<a href="../lab2/lab2_3_2_phymem_page.html">
+            
+                    
+                    以页为单位管理物理内存
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.5.3.3" data-path="../lab2/lab2_3_3_phymem_tlb.html">
+<a href="../lab2/lab2_3_3_phymem_tlb.html">
+            
+                    
+                    建立快表以加快访问效率
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.5.3.4" data-path="../lab2/lab2_3_4_page.html">
+<a href="../lab2/lab2_3_4_page.html">
+            
+                    
+                    分页机制的设计思路
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.5.3.4.1" data-path="../lab2/lab2_3_4_1_key_problems_in_seg_page.html">
+<a href="../lab2/lab2_3_4_1_key_problems_in_seg_page.html">
+            
+                    
+                    建立段页式管理中需要考虑的关键问题
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.5.3.4.2" data-path="../lab2/lab2_3_4_2_kernel_initialization.html">
+<a href="../lab2/lab2_3_4_2_kernel_initialization.html">
+            
+                    
+                    实现分页机制
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.5.3.5" data-path="../lab2/lab2_3_5_pmpt.html">
+<a href="../lab2/lab2_3_5_pmpt.html">
+            
+                    
+                    物理内存管理的设计思路
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.5.3.5.1" data-path="../lab2/lab2_3_5_1_pmm_init.html">
+<a href="../lab2/lab2_3_5_1_pmm_init.html">
+            
+                    
+                    物理内存管理的实现
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.5.3.5.2" data-path="../lab2/lab2_3_5_2_search_phymem_layout.html">
+<a href="../lab2/lab2_3_5_2_search_phymem_layout.html">
+            
+                    
+                    物理内存探测
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.5.3.5.3" data-path="../lab2/lab2_3_5_3_phymem_allocation.html">
+<a href="../lab2/lab2_3_5_3_phymem_allocation.html">
+            
+                    
+                    页面分配算法
+            
+                </a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.5.4" data-path="../lab2/lab2_4_qemu_mmu_debug.html">
+<a href="../lab2/lab2_4_qemu_mmu_debug.html">
+            
+                    
+                    分支任务：gdb 调试页表查询过程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.5.5" data-path="../lab2/lab2_5_labs_requirement.html">
+<a href="../lab2/lab2_5_labs_requirement.html">
+            
+                    
+                    实验报告要求
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.6" data-path="../lab3/lab3.html">
+<a href="../lab3/lab3.html">
+            
+                    
+                    lab3: 断,都可以断
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.6.1" data-path="../lab3/lab3_1_goals.html">
+<a href="../lab3/lab3_1_goals.html">
+            
+                    
+                    实验目的
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.6.2" data-path="../lab3/lab3_2_labs.html">
+<a href="../lab3/lab3_2_labs.html">
+            
+                    
+                    实验内容
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.6.2.1" data-path="../lab3/lab3_2_1_exercise.html">
+<a href="../lab3/lab3_2_1_exercise.html">
+            
+                    
+                    练习
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.6.2.2" data-path="../lab3/lab3_2_2_files.html">
+<a href="../lab3/lab3_2_2_files.html">
+            
+                    
+                    项目组成和执行流
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.6.3" data-path="../lab3/lab3_3_interrupt.html">
+<a href="../lab3/lab3_3_interrupt.html">
+            
+                    
+                    中断与中断处理流程
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.6.3.1" data-path="../lab3/lab3_3_1_introduce.html">
+<a href="../lab3/lab3_3_1_introduce.html">
+            
+                    
+                    riscv64 中断介绍
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.6.3.2" data-path="../lab3/lab3_3_2_trapentry.html">
+<a href="../lab3/lab3_3_2_trapentry.html">
+            
+                    
+                    掉进兔子洞(中断入口点)
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.6.3.3" data-path="../lab3/lab3_3_3_trap.html">
+<a href="../lab3/lab3_3_3_trap.html">
+            
+                    
+                    中断处理程序
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.6.3.4" data-path="../lab3/lab3_3_4_clock.html">
+<a href="../lab3/lab3_3_4_clock.html">
+            
+                    
+                    滴答滴答（时钟中断）
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.6.3.5" data-path="../lab3/lab3_3_5_atomic.html">
+<a href="../lab3/lab3_3_5_atomic.html">
+            
+                    
+                    断亦有断(中断的关闭和开启)
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.6.4" data-path="../lab3/lab3_4_lab_requirement.html">
+<a href="../lab3/lab3_4_lab_requirement.html">
+            
+                    
+                    实验报告要求
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.7" data-path="../lab4/lab4.html">
+<a href="../lab4/lab4.html">
+            
+                    
+                    lab4: 进程管理
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.7.1" data-path="../lab4/lab4_1_goals.html">
+<a href="../lab4/lab4_1_goals.html">
+            
+                    
+                    实验目的
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.7.2" data-path="../lab4/lab4_2_labs.html">
+<a href="../lab4/lab4_2_labs.html">
+            
+                    
+                    实验内容
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.7.2.1" data-path="../lab4/lab4_2_1_exercises.html">
+<a href="../lab4/lab4_2_1_exercises.html">
+            
+                    
+                    练习
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.7.2.2" data-path="../lab4/lab4_2_2_files.html">
+<a href="../lab4/lab4_2_2_files.html">
+            
+                    
+                    项目组成
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.7.3" data-path="../lab4/lab4_3_vmm.html">
+<a href="../lab4/lab4_3_vmm.html">
+            
+                    
+                    虚拟内存管理
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.7.3.1" data-path="../lab4/lab4_3_1_vmm_principles.html">
+<a href="../lab4/lab4_3_1_vmm_principles.html">
+            
+                    
+                    基本原理概述
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.7.3.2" data-path="../lab4/lab4_3_2_page_table_entry.html">
+<a href="../lab4/lab4_3_2_page_table_entry.html">
+            
+                    
+                    页表项设计思路
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.7.3.3" data-path="../lab4/lab4_3_3_multilevel_page_tables.html">
+<a href="../lab4/lab4_3_3_multilevel_page_tables.html">
+            
+                    
+                    使用多级页表实现虚拟存储
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.7.4" data-path="../lab4/lab4_4_kernel_thread_management.html">
+<a href="../lab4/lab4_4_kernel_thread_management.html">
+            
+                    
+                    内核线程管理
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.7.4.1" data-path="../lab4/lab4_4_1_pcb.html">
+<a href="../lab4/lab4_4_1_pcb.html">
+            
+                    
+                    设计关键数据结构
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.7.4.2" data-path="../lab4/lab4_4_2_create_exec_kernel_thread.html">
+<a href="../lab4/lab4_4_2_create_exec_kernel_thread.html">
+            
+                    
+                    创建并执行内核线程
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.7.4.2.1" data-path="../lab4/lab4_4_2_1_create_kthread_idleproc.html">
+<a href="../lab4/lab4_4_2_1_create_kthread_idleproc.html">
+            
+                    
+                    创建第 0 个内核线程 idleproc
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.7.4.2.2" data-path="../lab4/lab4_4_2_2_create_kthread_initproc.html">
+<a href="../lab4/lab4_4_2_2_create_kthread_initproc.html">
+            
+                    
+                    创建第 1 个内核线程 initproc
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.7.4.2.3" data-path="../lab4/lab4_4_2_3_sched_run_kthread.html">
+<a href="../lab4/lab4_4_2_3_sched_run_kthread.html">
+            
+                    
+                    调度并执行内核线程 initproc
+            
+                </a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.7.5" data-path="../lab4/lab4_5_labs_requirement.html">
+<a href="../lab4/lab4_5_labs_requirement.html">
+            
+                    
+                    实验报告要求
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.8" data-path="../lab5/lab5.html">
+<a href="../lab5/lab5.html">
+            
+                    
+                    lab5: 用户程序
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.8.1" data-path="../lab5/lab5_1_goals.html">
+<a href="../lab5/lab5_1_goals.html">
+            
+                    
+                    实验目的
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.8.2" data-path="../lab5/lab5_2_labs.html">
+<a href="../lab5/lab5_2_labs.html">
+            
+                    
+                    实验内容
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.8.2.1" data-path="../lab5/lab5_2_1_exercises.html">
+<a href="../lab5/lab5_2_1_exercises.html">
+            
+                    
+                    练习
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.8.2.2" data-path="../lab5/lab5_2_2_files.html">
+<a href="../lab5/lab5_2_2_files.html">
+            
+                    
+                    项目组成
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.8.3" data-path="../lab5/lab5_3_user_process.html">
+<a href="../lab5/lab5_3_user_process.html">
+            
+                    
+                    用户进程管理
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.8.3.1" data-path="../lab5/lab5_3_1_lab_steps.html">
+<a href="../lab5/lab5_3_1_lab_steps.html">
+            
+                    
+                    实验流程概述
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.8.3.2" data-path="../lab5/lab5_3_2_create_user_process.html">
+<a href="../lab5/lab5_3_2_create_user_process.html">
+            
+                    
+                    用户进程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.8.3.3" data-path="../lab5/lab5_3_3_syscall.html">
+<a href="../lab5/lab5_3_3_syscall.html">
+            
+                    
+                    系统调用实现
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.8.3.4" data-path="../lab5/lab5_3_4_first_user.html">
+<a href="../lab5/lab5_3_4_first_user.html">
+            
+                    
+                    第一次进入用户态
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.8.3.5" data-path="../lab5/lab5_3_5_trap_process.html">
+<a href="../lab5/lab5_3_5_trap_process.html">
+            
+                    
+                    中断处理
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.8.3.6" data-path="../lab5/lab5_3_6_process_exit.html">
+<a href="../lab5/lab5_3_6_process_exit.html">
+            
+                    
+                    进程退出
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.8.4" data-path="../lab5/lab5_4_gdb_ecall.html">
+<a href="../lab5/lab5_4_gdb_ecall.html">
+            
+                    
+                    分支任务：gdb 调试系统调用以及返回
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.8.5" data-path="../lab5/lab5_5_lab_requirement.html">
+<a href="../lab5/lab5_5_lab_requirement.html">
+            
+                    
+                    实验报告要求
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.9" data-path="../lab6/lab6.html">
+<a href="../lab6/lab6.html">
+            
+                    
+                    lab6: 进程调度
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.9.1" data-path="../lab6/lab6_1_goals.html">
+<a href="../lab6/lab6_1_goals.html">
+            
+                    
+                    实验目的
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.9.2" data-path="../lab6/lab6_2_lab_content.html">
+<a href="../lab6/lab6_2_lab_content.html">
+            
+                    
+                    实验内容
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.9.2.1" data-path="../lab6/lab6_2_1_exercises.html">
+<a href="../lab6/lab6_2_1_exercises.html">
+            
+                    
+                    练习
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.9.2.2" data-path="../lab6/lab6_2_2_structure.html">
+<a href="../lab6/lab6_2_2_structure.html">
+            
+                    
+                    项目组成
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.9.3" data-path="../lab6/lab6_3_schedule_design.html">
+<a href="../lab6/lab6_3_schedule_design.html">
+            
+                    
+                    调度框架和调度算法设计与实现
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.9.3.1" data-path="../lab6/lab6_3_1_intro.html">
+<a href="../lab6/lab6_3_1_intro.html">
+            
+                    
+                    进程状态
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.9.3.2" data-path="../lab6/lab6_3_2_switch.html">
+<a href="../lab6/lab6_3_2_switch.html">
+            
+                    
+                    深入理解进程切换
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.9.3.3" data-path="../lab6/lab6_3_3_schedule.html">
+<a href="../lab6/lab6_3_3_schedule.html">
+            
+                    
+                    调度算法框架
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.9.3.4" data-path="../lab6/lab6_3_4_RR.html">
+<a href="../lab6/lab6_3_4_RR.html">
+            
+                    
+                    RR调度算法实现
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.9.3.5" data-path="../lab6/lab6_3_5_stride.html">
+<a href="../lab6/lab6_3_5_stride.html">
+            
+                    
+                    stride调度算法
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.9.3.5.1" data-path="../lab6/lab6_3_5_1_base_method.html">
+<a href="../lab6/lab6_3_5_1_base_method.html">
+            
+                    
+                    基本思路
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.9.3.5.2" data-path="../lab6/lab6_3_5_2_priority_queue.html">
+<a href="../lab6/lab6_3_5_2_priority_queue.html">
+            
+                    
+                    使用优先队列实现 Stride Scheduling
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.9.3.5.3" data-path="../lab6/lab6_3_5_3_execution_result.html">
+<a href="../lab6/lab6_3_5_3_execution_result.html">
+            
+                    
+                    stride调度算法执行 make qemu 的大致输出
+            
+                </a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.9.4" data-path="../lab6/lab6_5_labs_requirement.html">
+<a href="../lab6/lab6_5_labs_requirement.html">
+            
+                    
+                    实验报告要求
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.10" data-path="../lab7/lab7.html">
+<a href="../lab7/lab7.html">
+            
+                    
+                    lab7: 同步互斥
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.10.1" data-path="../lab7/lab7_1_goals.html">
+<a href="../lab7/lab7_1_goals.html">
+            
+                    
+                    实验目的
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.10.2" data-path="../lab7/lab7_2_labs.html">
+<a href="../lab7/lab7_2_labs.html">
+            
+                    
+                    实验内容
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.10.2.1" data-path="../lab7/lab7_2_1_exercises.html">
+<a href="../lab7/lab7_2_1_exercises.html">
+            
+                    
+                    练习
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.10.2.2" data-path="../lab7/lab7_2_2_files.html">
+<a href="../lab7/lab7_2_2_files.html">
+            
+                    
+                    项目组成
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.10.3" data-path="../lab7/lab7_3_concept.html">
+<a href="../lab7/lab7_3_concept.html">
+            
+                    
+                    同步互斥的一些基本概念
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.10.4" data-path="../lab7/lab7_4_semaphore.html">
+<a href="../lab7/lab7_4_semaphore.html">
+            
+                    
+                    信号量
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.10.5" data-path="../lab7/lab7_5_monitor.html">
+<a href="../lab7/lab7_5_monitor.html">
+            
+                    
+                    管程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.10.6" data-path="../lab7/lab7_6_lab_requirement.html">
+<a href="../lab7/lab7_6_lab_requirement.html">
+            
+                    
+                    实验报告要求
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.11" data-path="../lab8/lab8.html">
+<a href="../lab8/lab8.html">
+            
+                    
+                    lab8: 文件系统
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.11.1" data-path="../lab8/lab8_1_goals.html">
+<a href="../lab8/lab8_1_goals.html">
+            
+                    
+                    实验目的
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.11.2" data-path="../lab8/lab8_2_labs.html">
+<a href="../lab8/lab8_2_labs.html">
+            
+                    
+                    实验内容
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.11.2.1" data-path="../lab8/lab8_2_1_exercises.html">
+<a href="../lab8/lab8_2_1_exercises.html">
+            
+                    
+                    练习
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.11.2.2" data-path="../lab8/lab8_2_2_files.html">
+<a href="../lab8/lab8_2_2_files.html">
+            
+                    
+                    项目组成
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.11.3" data-path="../lab8/lab8_3_FS.html">
+<a href="../lab8/lab8_3_FS.html">
+            
+                    
+                    文件系统
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.11.3.1" data-path="../lab8/lab8_3_1_fs_introduction.html">
+<a href="../lab8/lab8_3_1_fs_introduction.html">
+            
+                    
+                    文件系统概述
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.11.3.2" data-path="../lab8/lab8_3_2_vfs.html">
+<a href="../lab8/lab8_3_2_vfs.html">
+            
+                    
+                    文件系统抽象层VFS
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.11.3.3" data-path="../lab8/lab8_3_3_sfs.html">
+<a href="../lab8/lab8_3_3_sfs.html">
+            
+                    
+                    硬盘文件系统SFS
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.11.3.4" data-path="../lab8/lab8_3_4_device.html">
+<a href="../lab8/lab8_3_4_device.html">
+            
+                    
+                    设备
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.11.3.5" data-path="../lab8/lab8_3_5_file_open.html">
+<a href="../lab8/lab8_3_5_file_open.html">
+            
+                    
+                    open 系统调用的执行过程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.11.3.6" data-path="../lab8/lab8_3_6_file_read.html">
+<a href="../lab8/lab8_3_6_file_read.html">
+            
+                    
+                    read 系统调用的执行过程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.11.3.7" data-path="../lab8/lab8_3_7_execve_shell.html">
+<a href="../lab8/lab8_3_7_execve_shell.html">
+            
+                    
+                    用户程序加载与终端执行
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.11.4" data-path="../lab8/lab8_4_lab_requirement.html">
+<a href="../lab8/lab8_4_lab_requirement.html">
+            
+                    
+                    实验报告要求
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.12" data-path="../lab9/lab9.html">
+<a href="../lab9/lab9.html">
+            
+                    
+                    lab9: 页面置换与内存映射
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.12.1" data-path="../lab9/lab9_1_goals.html">
+<a href="../lab9/lab9_1_goals.html">
+            
+                    
+                    实验目的
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.12.2" data-path="../lab9/lab9_2_lab_contents.html">
+<a href="../lab9/lab9_2_lab_contents.html">
+            
+                    
+                    实验内容
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.12.2.1" data-path="../lab9/lab9_2_1_exercises.html">
+<a href="../lab9/lab9_2_1_exercises.html">
+            
+                    
+                    练习
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.12.2.2" data-path="../lab9/lab9_2_2_filses.html">
+<a href="../lab9/lab9_2_2_filses.html">
+            
+                    
+                    项目组成
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.12.3" data-path="../lab9/lab9_3_swaping.html">
+<a href="../lab9/lab9_3_swaping.html">
+            
+                    
+                    页面置换机制的实现
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.12.3.1" data-path="../lab9/lab9_3_1_driver_and_storage.html">
+<a href="../lab9/lab9_3_1_driver_and_storage.html">
+            
+                    
+                    页面置换后的驱动和存储
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.12.3.2" data-path="../lab9/lab9_3_2_page_fault_handler.html">
+<a href="../lab9/lab9_3_2_page_fault_handler.html">
+            
+                    
+                    处理缺页异常
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.12.3.3" data-path="../lab9/lab9_3_3_page_swapping.html">
+<a href="../lab9/lab9_3_3_page_swapping.html">
+            
+                    
+                    页替换算法和机制实现
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.12.3.4" data-path="../lab9/lab9_3_4_page_swapping_principles.html">
+<a href="../lab9/lab9_3_4_page_swapping_principles.html">
+            
+                    
+                    FIFO页面置换算法
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.12.4" data-path="../lab9/lab9_4_mmap.html">
+<a href="../lab9/lab9_4_mmap.html">
+            
+                    
+                    内存映射机制的实现
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.12.5" data-path="../lab9/lab9_5_labs_requirement.html">
+<a href="../lab9/lab9_5_labs_requirement.html">
+            
+                    
+                    实验报告要求
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.13" data-path="../appendix/intro.html">
+<a href="../appendix/intro.html">
+            
+                    
+                    附录
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.13.1" data-path="../appendix/1_makefile.html">
+<a href="../appendix/1_makefile.html">
+            
+                    
+                    makefile 简介
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.13.2" data-path="../appendix/4_process_overview.html">
+<a href="../appendix/4_process_overview.html">
+            
+                    
+                    【原理】进程的属性与特征解析
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.13.3" data-path="../appendix/5_user_process.html">
+<a href="../appendix/5_user_process.html">
+            
+                    
+                    【原理】用户进程的特征
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="divider"></li>
+<li>
+<a class="gitbook-link" href="https://github.com/honkit/honkit" target="blank">
+            本书使用 HonKit 发布
+        </a>
+</li>
+</ul>
+</nav>
+</div>
+<div class="book-body">
+<div class="body-inner">
+<div class="book-header" role="navigation">
+<!-- Title -->
+<h1>
+<i class="fa fa-circle-o-notch fa-spin"></i>
+<a href="../index.html">开搞：搭建实验环境</a>
+</h1>
+</div>
+<div class="page-wrapper" role="main" tabindex="-1">
+<div class="page-inner">
+<div id="book-search-results">
+<div class="search-noresults">
+<section class="normal markdown-section">
+<html><head></head><body><h1 id="开搞：搭建实验环境">开搞：搭建实验环境</h1>
+<p>说了这么多，现在该动手了。Make your hands dirty!</p>
+<p>方便起见，可以先创建一个文件夹，作为你安装所有和<code>riscv</code>有关的软件的路径(例如<code>/opt/riscv</code>)就行。后面安装的各个项目最好也放在上面的的路径里面。</p>
+<p>最小的软件开发环境需要：能够编译程序，能够运行程序。开发操作系统这样的系统软件也不例外。</p>
+<h2 id="编译器">编译器</h2>
+<p>我们使用的计算机都是基于x86架构的。如何把程序编译到riscv64架构的汇编呢？这需要我们使用“目标语言为riscv64机器码的编译器”，在我们的电脑上进行<strong>交叉编译</strong>。</p>
+<p>放心，这里不需要你自己写编译器。我们使用现有的riscv-gcc编译器即可。从<a href="https://github.com/riscv/riscv-gcc" target="_blank">https://github.com/riscv/riscv-gcc</a> clone下来，然后在x86架构上编译riscv-gcc编译器为可执行的x86程序，就可以运行它，来把你的程序源代码编译成riscv架构的可执行文件了。这有点像绕口令，但只要有一点编译原理的基础就可以理解。不过，这个riscv-gcc仓库很大，而且自己编译工具链总是一件麻烦的事。</p>
+<p>其实，没必要那么麻烦，我们大可以使用别人已经编译好的编译器的可执行文件，也就是所谓的<strong>预编译（prebuilt）</strong> 工具链，下载下来，放在你喜欢的地方（比如之前定义的$RISCV），配好路径（把编译器的位置加到系统的 <strong>PATH</strong> 环境变量里），就能在终端使用了。我们推荐使用sifive公司提供的预编译工具链，进入<a href="https://github.com/sifive/freedom-tools/releases" target="_blank">https://github.com/sifive/freedom-tools/releases</a> ，找到并且下载适合你的操作系统的版本即可。(注意，如果你是wsl, 需要下载适合ubuntu版本的编译器)
+将安装包下的bin 添加到 bashrc当中。</p>
+<p>对于编辑器的选择，<strong>Ubuntu虚拟机</strong>中，可以使用较为简单的图形化的gedit作为编辑器。</p>
+<p>首先利用gedit进入~/.bashrc文档，运行以下命令：</p>
+<pre class="language-"><code class="lang-sh">gedit ~/.bashrc
+</code></pre>
+<p>在bashrc的最后添加路径</p>
+<pre class="language-"><code class="lang-shell"><span class="token builtin class-name">export</span> <span class="token assign-left variable">RISCV</span><span class="token operator">=</span>PATH_TO_INSTALL（你RISCV预编译链下载的路径）
+<span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span><span class="token variable">$RISCV</span>/bin:<span class="token environment constant">$PATH</span>
+</code></pre>
+<p>路径添加好了，点击保存并关闭~/.bashrc。</p>
+<p><strong>WSL</strong>中无法使用图形化编辑器，推荐使用nano编辑器。</p>
+<p>首先利用在终端输入以下命令编辑 ~/.bashrc 文件：</p>
+<pre class="language-"><code class="lang-sh"><span class="token function">nano</span> ~/.bashrc
+</code></pre>
+<p>在 nano 中，按下 Ctrl + _，然后按下 Ctrl + V，这会将光标直接跳到文件的最后一行。</p>
+<p>在文件的最后一行，输入修改内容。你需要添加以下两行来设置路径：</p>
+<pre class="language-"><code class="lang-shell"><span class="token builtin class-name">export</span> <span class="token assign-left variable">RISCV</span><span class="token operator">=</span>PATH_TO_INSTALL（你RISCV预编译链下载的路径）
+<span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span><span class="token variable">$RISCV</span>/bin:<span class="token environment constant">$PATH</span>
+</code></pre>
+<p>输入完成后，按下 Ctrl + O 来保存文件，系统会提示你确认文件名，直接按 Enter 键确认保存。保存文件后，按下 Ctrl + X 退出 nano。</p>
+<p>ps:使用<strong>vscode</strong>打开虚机/wsl的根目录，找到.bashrc文件并添加以上内容，可以实现同样的效果。</p>
+<p>不管是虚拟机还是WSL，注意配置现在<strong>还没有生效</strong>！需要使用source命令使其生效：</p>
+<pre class="language-"><code class="lang-shell"><span class="token builtin class-name">source</span> ~/.bashrc
+</code></pre>
+<p>配置好后，在终端输入<code>riscv64-unknown-elf-gcc -v</code>查看安装的gcc版本, 如果输出一大堆东西且最后一行有<code>gcc version 某个数字.某个数字.某个数字</code>，说明gcc配置成功，否则需要检查一下哪里做错了，比如环境变量<strong>PATH</strong>配置是否正确。一般需要把一个形如<code>..../bin</code>的目录加到<strong>PATH</strong>里。 </p>
+<blockquote>
+<p><strong>须知</strong></p>
+<p><strong>环境变量</strong>是操作系统中用来存储系统配置和运行参数的一种方式。它们通常用于存储关于用户、系统、运行环境等的信息，可以在操作系统的各个进程中共享和使用。例如，常见的环境变量有 PATH、HOME、USER 等。</p>
+<p>那么为什么需要环境变量呢？</p>
+<p>环境变量让我们可以在命令行中使用方便的别名或快捷方式，而不必每次都输入完整的路径。例如，系统会根据 PATH 环境变量来查找程序的位置。当你在终端输入一个命令时，操作系统会根据 PATH 中列出的路径去查找对应的可执行文件。</p>
+<p>在这次实验中，我们创建了一个名为 RISCV 的环境变量，它用于指定你安装 RISC-V 相关软件的位置。这是为了让系统能够知道 RISC-V 工具链（比如编译器、调试工具等）在哪里，从而可以在终端中方便地执行相关命令。比如你在终端输入 <code>$RISCV=/opt/riscv</code> 时，操作系统就知道 RISCV 指定的路径在哪，它会根据这个路径找到所需要的工具，避免你每次都要手动输入完整路径。</p>
+<p>总结来说，设置 RISCV 环境变量后，你可以随时在任何地方使用它来访问和执行 RISC-V 相关的软件工具，而不需要关心它们的具体位置。这种方法能够让开发过程更加高效和清晰。</p>
+</blockquote>
+<h2 id="模拟器">模拟器</h2>
+<p>如何运行 riscv64 的代码？我们当然可以给大家每个人发一块 riscv64 架构处理器的开发板，再给大家一人一根 JTAG 线，让大家把程序烧写到上面去跑，然后各凭本事 debug（手动狗头）。但这种方式太笨重了，开发效率也低。更方便的方式是使用 <strong>模拟器（emulator）</strong>。</p>
+<p>所谓模拟器，就是在 x86 架构的计算机上，用软件 <strong>模拟出一台 riscv64 架构的计算机</strong>，从而能够运行 riscv64 的目标代码。它的好处是，你不需要真正买一块开发板，也能在本机完成 OS 的开发与调试。</p>
+<h3 id="模拟器的原理">模拟器的原理</h3>
+<p>一台真实的计算机通常由 <strong>CPU、内存、外设（硬盘、串口、网卡等）</strong> 组成。模拟器的作用就是用软件去“假装”这一切：</p>
+<p>对于 CPU 模拟，模拟器能够解析 riscv64 指令，然后通过解释或动态翻译的方式在 x86 CPU 上执行。换句话说，你写的 RISC-V 程序的每一条指令，都会在模拟器里被翻译成宿主机能理解的动作。</p>
+<p>对于内存模拟，模拟器会在宿主机的内存里开辟一块区域，把它当作“riscv64 的物理内存”。当 riscv 程序访问某个地址时，模拟器就会把这个访问转到对应的宿主机内存地址上。</p>
+<p>对于外设模拟，硬盘、串口、网卡等外设在真实硬件中通常通过寄存器和中断与 CPU 交互。模拟器会虚拟出这些寄存器接口，拦截指令并转化为宿主机上的操作。比如：模拟的“串口”输出会映射到你的终端。串口（Serial Port）是一种最简单的计算机输入输出接口，它通过一根数据线一位一位地传输信息，像 QEMU 这样的模拟器会虚拟出一块串口设备，把内核的串口输出直接映射到宿主机终端；模拟的“硬盘”其实对应宿主机上的一个镜像文件。在 QEMU 这种模拟器里，它并没有真正的 RISC-V 硬盘，而是用宿主机上的一个文件来“假装”是硬盘。这个文件通常叫“镜像文件”（image），它里面存储的就是硬盘的原始字节内容。模拟器会拦截客体系统发出的“硬盘读写请求”，把它转换成对镜像文件的读写；模拟的“时钟”则是用宿主机的计时器来实现。</p>
+<p>简而言之：<strong>模拟器就是一台用软件写出来的“假计算机”</strong>。只要模拟得足够逼真，我们就能像在真实硬件上一样开发和调试操作系统。</p>
+<p>下面我们从<a href="https://rcore-os.github.io/rCore_tutorial_doc/chapter2/part5.html" target="_blank">rCore tutorial</a>抄写了一段qemu安装的教程。</p>
+<h3 id="安装模拟器-qemu">安装模拟器 Qemu</h3>
+<p>如果你在使用 Linux (Ubuntu) ，需要到 Qemu 官方网站下载源码并自行编译，因为 Ubuntu 自带的软件包管理器 <code>apt</code> 中的 Qemu 的版本过低无法使用。参考命令如下：</p>
+<pre class="language-"><code class="lang-sh">$ <span class="token function">wget</span> https://download.qemu.org/qemu-4.1.1.tar.xz
+$ <span class="token function">tar</span> xvJf qemu-4.1.1.tar.xz
+$ <span class="token builtin class-name">cd</span> qemu-4.1.1
+$ ./configure --target-list<span class="token operator">=</span>riscv32-softmmu,riscv64-softmmu
+$ <span class="token function">make</span> <span class="token parameter variable">-j</span>
+$ <span class="token function">sudo</span> <span class="token function">make</span> <span class="token function">install</span>
+</code></pre>
+<p>可查看<a href="https://github.com/riscv/riscv-qemu/wiki" target="_blank">更详细的安装和使用命令</a>。</p>
+<p>如果你在使用 macOS，只需要 Homebrew 一个命令即可：</p>
+<pre class="language-"><code class="lang-sh">$ brew <span class="token function">install</span> qemu
+</code></pre>
+<p>最后确认一下 Qemu 已经安装好，且版本在 4.1.0 以上：</p>
+<pre class="language-"><code class="lang-bash">$ qemu-system-riscv64 <span class="token parameter variable">--version</span>
+QEMU emulator version <span class="token number">4.1</span>.1
+Copyright <span class="token punctuation">(</span>c<span class="token punctuation">)</span> <span class="token number">2003</span>-2019 Fabrice Bellard and the QEMU Project developers
+</code></pre>
+<h3 id="使用-opensbi">使用 OpenSBI</h3>
+<p>新版 Qemu 中内置了 <a href="https://github.com/riscv/opensbi" target="_blank">OpenSBI</a> 固件（firmware），它主要负责在操作系统运行前的硬件初始化和加载操作系统的功能。我们使用以下命令尝试运行一下：</p>
+<pre class="language-"><code class="lang-bash">$ qemu-system-riscv64 <span class="token punctuation">\</span>
+  <span class="token parameter variable">--machine</span> virt <span class="token punctuation">\</span>
+  <span class="token parameter variable">--nographic</span> <span class="token punctuation">\</span>
+  <span class="token parameter variable">--bios</span> default
+
+OpenSBI v0.4 <span class="token punctuation">(</span>Jul  <span class="token number">2</span> <span class="token number">2019</span> <span class="token number">11</span>:53:53<span class="token punctuation">)</span>
+   ____                    _____ ____ _____
+  / __ <span class="token punctuation">\</span>                  / ____<span class="token operator">|</span>  _ <span class="token punctuation">\</span>_   _<span class="token operator">|</span>
+ <span class="token operator">|</span> <span class="token operator">|</span>  <span class="token operator">|</span> <span class="token operator">|</span>_ __   ___ _ __ <span class="token operator">|</span> <span class="token punctuation">(</span>___ <span class="token operator">|</span> <span class="token operator">|</span>_<span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token operator">|</span>
+ <span class="token operator">|</span> <span class="token operator">|</span>  <span class="token operator">|</span> <span class="token operator">|</span> <span class="token string">'_ \ / _ \ '</span>_ <span class="token punctuation">\</span> <span class="token punctuation">\</span>___ <span class="token punctuation">\</span><span class="token operator">|</span>  _ <span class="token operator">&lt;</span> <span class="token operator">|</span> <span class="token operator">|</span>
+ <span class="token operator">|</span> <span class="token operator">|</span>__<span class="token operator">|</span> <span class="token operator">|</span> <span class="token operator">|</span>_<span class="token punctuation">)</span> <span class="token operator">|</span>  __/ <span class="token operator">|</span> <span class="token operator">|</span> <span class="token operator">|</span>____<span class="token punctuation">)</span> <span class="token operator">|</span> <span class="token operator">|</span>_<span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token operator">|</span>_
+  <span class="token punctuation">\</span>____/<span class="token operator">|</span> .__/ <span class="token punctuation">\</span>___<span class="token operator">|</span>_<span class="token operator">|</span> <span class="token operator">|</span>_<span class="token operator">|</span>_____/<span class="token operator">|</span>____/_____<span class="token operator">|</span>
+        <span class="token operator">|</span> <span class="token operator">|</span>
+        <span class="token operator">|</span>_<span class="token operator">|</span>
+
+Platform Name          <span class="token builtin class-name">:</span> QEMU Virt Machine
+Platform HART Features <span class="token builtin class-name">:</span> RV64ACDFIMSU
+Platform Max HARTs     <span class="token builtin class-name">:</span> <span class="token number">8</span>
+Current Hart           <span class="token builtin class-name">:</span> <span class="token number">0</span>
+Firmware Base          <span class="token builtin class-name">:</span> 0x80000000
+Firmware Size          <span class="token builtin class-name">:</span> <span class="token number">112</span> KB
+Runtime SBI Version    <span class="token builtin class-name">:</span> <span class="token number">0.1</span>
+
+PMP0: 0x0000000080000000-0x000000008001ffff <span class="token punctuation">(</span>A<span class="token punctuation">)</span>
+PMP1: 0x0000000000000000-0xffffffffffffffff <span class="token punctuation">(</span>A,R,W,X<span class="token punctuation">)</span>
+</code></pre>
+<p>可以看到我们已经在 <code>qemu-system-riscv64</code> 模拟的 <code>virt machine</code> 硬件上将 <code>OpenSBI</code> 这个固件 跑起来了。Qemu 可以使用 <code>Ctrl+a</code> 再按下 <code>x</code> 退出（注意要松开<code>Ctrl</code>再单独按<code>x</code>）。</p>
+<p>如果无法正常使用 Qemu，可以尝试下面这个命令。</p>
+<pre class="language-"><code class="lang-bash">$ <span class="token function">sudo</span> <span class="token function">sysctl</span> <span class="token assign-left variable">vm.overcommit_memory</span><span class="token operator">=</span><span class="token number">1</span>
+</code></pre>
+<blockquote>
+<p><strong>扩展</strong></p>
+<p>如果对 <code>OpenSBI</code> 的内部实现感兴趣，可以看看<a href="https://content.riscv.org/wp-content/uploads/2019/06/13.30-RISCV_OpenSBI_Deep_Dive_v5.pdf" target="_blank">RISCV OpenSBI Deep_Dive 介绍文档</a>。</p>
+</blockquote>
+</body></html>
+</section>
+</div>
+<div class="search-results">
+<div class="has-results">
+<h1 class="search-results-title"><span class="search-results-count"></span> results matching "<span class="search-query"></span>"</h1>
+<ul class="search-results-list"></ul>
+</div>
+<div class="no-results">
+<h1 class="search-results-title">No results matching "<span class="search-query"></span>"</h1>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<a aria-label="Previous page: 起步：常用软件熟悉" class="navigation navigation-prev" href="softwares.html">
+<i class="fa fa-angle-left"></i>
+</a>
+<a aria-label="Next page: lab0.5: AI驱动的操作系统实验" class="navigation navigation-next" href="../lab0.5/intro.html">
+<i class="fa fa-angle-right"></i>
+</a>
+</div>
+<script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"开搞：搭建实验环境","level":"1.2.5","depth":2,"next":{"title":"lab0.5: AI驱动的操作系统实验","level":"1.3","depth":1,"path":"lab0.5/intro.md","ref":"lab0.5/intro.md","articles":[{"title":"环境准备：让 AI 参与到 OS 开发中","level":"1.3.1","depth":2,"path":"lab0.5/0_environment_setup.md","ref":"lab0.5/0_environment_setup.md","articles":[]},{"title":"范式转变：从传统编程到AI协作","level":"1.3.2","depth":2,"path":"lab0.5/1_paradigm_shift.md","ref":"lab0.5/1_paradigm_shift.md","articles":[]},{"title":"提示词工程：写给AI的需求规格","level":"1.3.3","depth":2,"path":"lab0.5/2_prompt_engineering.md","ref":"lab0.5/2_prompt_engineering.md","articles":[]},{"title":"本实验的标准提示词结构","level":"1.3.4","depth":2,"path":"lab0.5/3_prompt_structure.md","ref":"lab0.5/3_prompt_structure.md","articles":[]},{"title":"实践指南：如何与AI一起开发操作系统","level":"1.3.5","depth":2,"path":"lab0.5/4_practice_guide.md","ref":"lab0.5/4_practice_guide.md","articles":[]}]},"previous":{"title":"起步：常用软件熟悉","level":"1.2.4","depth":2,"path":"lab0/softwares.md","ref":"lab0/softwares.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-highlight","prism"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"riscv64-ucore 操作系统实验指导书","language":"zh-hans","gitbook":"*"},"file":{"path":"lab0/3_startdash.md","mtime":"2026-09-20T09:37:39.663Z","type":"markdown"},"gitbook":{"version":"6.2.2","time":"2026-09-22T10:28:40.776Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+<noscript>
+<style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+</noscript>
+<script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+<script src="../gitbook/gitbook.js"></script>
+<script src="../gitbook/theme.js"></script>
+<script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+<script src="../gitbook/gitbook-plugin-search/search.js"></script>
+<script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+<script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+<script src="../gitbook/@honkit/honkit-plugin-fontsettings/fontsettings.js"></script>
+</body>
+</html>

@@ -1,0 +1,1451 @@
+
+<!DOCTYPE HTML>
+
+<html lang="zh-hans">
+<head>
+<meta charset="utf-8"/>
+<title>环境准备：让 AI 参与到 OS 开发中 · riscv64-ucore 操作系统实验指导书</title>
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="" name="description"/>
+<meta content="HonKit 6.2.2" name="generator"/>
+<link href="../gitbook/style.css" rel="stylesheet"/>
+<link href="../gitbook/honkit-plugin-prism/prism-tomorrow.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-search/search.css" rel="stylesheet"/>
+<link href="../gitbook/@honkit/honkit-plugin-fontsettings/website.css" rel="stylesheet"/>
+<link href="../styles/website.css" rel="stylesheet"/>
+<meta content="true" name="HandheldFriendly">
+<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+<link href="../gitbook/images/apple-touch-icon-precomposed-152.png" rel="apple-touch-icon-precomposed" sizes="152x152"/>
+<link href="../gitbook/images/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+<link href="1_paradigm_shift.html" rel="next">
+<link href="intro.html" rel="prev">
+</link></link></meta></meta></head>
+<body>
+<div class="book honkit-cloak">
+<div class="book-summary">
+<div id="book-search-input" role="search">
+<input placeholder="输入并搜索" type="text"/>
+</div>
+<nav role="navigation">
+<ul class="summary">
+<li class="chapter" data-level="1.1" data-path="../">
+<a href="../index.html">
+            
+                    
+                    欢迎来到ucore step-by-step的世界
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.2" data-path="../lab0/intro.html">
+<a href="../lab0/intro.html">
+            
+                    
+                    lab0: 预备起
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.2.1" data-path="../lab0/1_history.html">
+<a href="../lab0/1_history.html">
+            
+                    
+                    溯源: ucore的历史
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.2.2" data-path="../lab0/2_overview.html">
+<a href="../lab0/2_overview.html">
+            
+                    
+                    概览: 指导书的结构
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.2.3" data-path="../lab0/0_Linux.html">
+<a href="../lab0/0_Linux.html">
+            
+                    
+                    预备：Linux安装与熟悉
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.2.4" data-path="../lab0/softwares.html">
+<a href="../lab0/softwares.html">
+            
+                    
+                    起步：常用软件熟悉
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.2.5" data-path="../lab0/3_startdash.html">
+<a href="../lab0/3_startdash.html">
+            
+                    
+                    开搞：搭建实验环境
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.3" data-path="intro.html">
+<a href="intro.html">
+            
+                    
+                    lab0.5: AI驱动的操作系统实验
+            
+                </a>
+<ul class="articles">
+<li class="chapter active" data-level="1.3.1" data-path="0_environment_setup.html">
+<a href="0_environment_setup.html">
+            
+                    
+                    环境准备：让 AI 参与到 OS 开发中
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.3.2" data-path="1_paradigm_shift.html">
+<a href="1_paradigm_shift.html">
+            
+                    
+                    范式转变：从传统编程到AI协作
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.3.3" data-path="2_prompt_engineering.html">
+<a href="2_prompt_engineering.html">
+            
+                    
+                    提示词工程：写给AI的需求规格
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.3.4" data-path="3_prompt_structure.html">
+<a href="3_prompt_structure.html">
+            
+                    
+                    本实验的标准提示词结构
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.3.5" data-path="4_practice_guide.html">
+<a href="4_practice_guide.html">
+            
+                    
+                    实践指南：如何与AI一起开发操作系统
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.4" data-path="../lab1/lab1.html">
+<a href="../lab1/lab1.html">
+            
+                    
+                    lab1: 比麻雀更小的麻雀（最小可执行内核）
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.4.1" data-path="../lab1/lab1_1_goals.html">
+<a href="../lab1/lab1_1_goals.html">
+            
+                    
+                    实验目的
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.4.2" data-path="../lab1/lab1_2_labs.html">
+<a href="../lab1/lab1_2_labs.html">
+            
+                    
+                    实验内容
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.4.2.1" data-path="../lab1/lab1_2_1_exercise.html">
+<a href="../lab1/lab1_2_1_exercise.html">
+            
+                    
+                    练习
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.4.2.2" data-path="../lab1/lab1_2_2_file.html">
+<a href="../lab1/lab1_2_2_file.html">
+            
+                    
+                    项目组成和执行流
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.4.3" data-path="../lab1/lab1_3_booting.html">
+<a href="../lab1/lab1_3_booting.html">
+            
+                    
+                    从机器启动到操作系统运行的过程
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.4.3.1" data-path="../lab1/lab1_3_1_layout.html">
+<a href="../lab1/lab1_3_1_layout.html">
+            
+                    
+                    OpenSBI, bin, elf
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.4.3.2" data-path="../lab1/lab1_3_2_linkerscript.html">
+<a href="../lab1/lab1_3_2_linkerscript.html">
+            
+                    
+                    内存布局，链接脚本，入口点
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.4.3.3" data-path="../lab1/lab1_3_3_sbi_io.html">
+<a href="../lab1/lab1_3_3_sbi_io.html">
+            
+                    
+                    从SBI到stdio
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.4.3.4" data-path="../lab1/lab1_3_4_makeit.html">
+<a href="../lab1/lab1_3_4_makeit.html">
+            
+                    
+                    Just make it
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.4.4" data-path="../lab1/lab1_4_gdb.html">
+<a href="../lab1/lab1_4_gdb.html">
+            
+                    
+                    GDB调试工具使用体验
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.4.5" data-path="../lab1/lab1_5_requirement.html">
+<a href="../lab1/lab1_5_requirement.html">
+            
+                    
+                    实验报告要求
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.5" data-path="../lab2/lab2.html">
+<a href="../lab2/lab2.html">
+            
+                    
+                    lab2: 物理内存和页表
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.5.1" data-path="../lab2/lab2_1_goal.html">
+<a href="../lab2/lab2_1_goal.html">
+            
+                    
+                    实验目的
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.5.2" data-path="../lab2/lab2_2_contents.html">
+<a href="../lab2/lab2_2_contents.html">
+            
+                    
+                    实验内容
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.5.2.1" data-path="../lab2/lab2_2_1_exercise.html">
+<a href="../lab2/lab2_2_1_exercise.html">
+            
+                    
+                    练习
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.5.2.2" data-path="../lab2/lab2_2_2_files.html">
+<a href="../lab2/lab2_2_2_files.html">
+            
+                    
+                    项目组成
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.5.3" data-path="../lab2/lab2_3_pmpt.html">
+<a href="../lab2/lab2_3_pmpt.html">
+            
+                    
+                    物理内存管理
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.5.3.1" data-path="../lab2/lab2_3_1_principles.html">
+<a href="../lab2/lab2_3_1_principles.html">
+            
+                    
+                    基本原理概述
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.5.3.2" data-path="../lab2/lab2_3_2_phymem_page.html">
+<a href="../lab2/lab2_3_2_phymem_page.html">
+            
+                    
+                    以页为单位管理物理内存
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.5.3.3" data-path="../lab2/lab2_3_3_phymem_tlb.html">
+<a href="../lab2/lab2_3_3_phymem_tlb.html">
+            
+                    
+                    建立快表以加快访问效率
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.5.3.4" data-path="../lab2/lab2_3_4_page.html">
+<a href="../lab2/lab2_3_4_page.html">
+            
+                    
+                    分页机制的设计思路
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.5.3.4.1" data-path="../lab2/lab2_3_4_1_key_problems_in_seg_page.html">
+<a href="../lab2/lab2_3_4_1_key_problems_in_seg_page.html">
+            
+                    
+                    建立段页式管理中需要考虑的关键问题
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.5.3.4.2" data-path="../lab2/lab2_3_4_2_kernel_initialization.html">
+<a href="../lab2/lab2_3_4_2_kernel_initialization.html">
+            
+                    
+                    实现分页机制
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.5.3.5" data-path="../lab2/lab2_3_5_pmpt.html">
+<a href="../lab2/lab2_3_5_pmpt.html">
+            
+                    
+                    物理内存管理的设计思路
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.5.3.5.1" data-path="../lab2/lab2_3_5_1_pmm_init.html">
+<a href="../lab2/lab2_3_5_1_pmm_init.html">
+            
+                    
+                    物理内存管理的实现
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.5.3.5.2" data-path="../lab2/lab2_3_5_2_search_phymem_layout.html">
+<a href="../lab2/lab2_3_5_2_search_phymem_layout.html">
+            
+                    
+                    物理内存探测
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.5.3.5.3" data-path="../lab2/lab2_3_5_3_phymem_allocation.html">
+<a href="../lab2/lab2_3_5_3_phymem_allocation.html">
+            
+                    
+                    页面分配算法
+            
+                </a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.5.4" data-path="../lab2/lab2_4_qemu_mmu_debug.html">
+<a href="../lab2/lab2_4_qemu_mmu_debug.html">
+            
+                    
+                    分支任务：gdb 调试页表查询过程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.5.5" data-path="../lab2/lab2_5_labs_requirement.html">
+<a href="../lab2/lab2_5_labs_requirement.html">
+            
+                    
+                    实验报告要求
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.6" data-path="../lab3/lab3.html">
+<a href="../lab3/lab3.html">
+            
+                    
+                    lab3: 断,都可以断
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.6.1" data-path="../lab3/lab3_1_goals.html">
+<a href="../lab3/lab3_1_goals.html">
+            
+                    
+                    实验目的
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.6.2" data-path="../lab3/lab3_2_labs.html">
+<a href="../lab3/lab3_2_labs.html">
+            
+                    
+                    实验内容
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.6.2.1" data-path="../lab3/lab3_2_1_exercise.html">
+<a href="../lab3/lab3_2_1_exercise.html">
+            
+                    
+                    练习
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.6.2.2" data-path="../lab3/lab3_2_2_files.html">
+<a href="../lab3/lab3_2_2_files.html">
+            
+                    
+                    项目组成和执行流
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.6.3" data-path="../lab3/lab3_3_interrupt.html">
+<a href="../lab3/lab3_3_interrupt.html">
+            
+                    
+                    中断与中断处理流程
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.6.3.1" data-path="../lab3/lab3_3_1_introduce.html">
+<a href="../lab3/lab3_3_1_introduce.html">
+            
+                    
+                    riscv64 中断介绍
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.6.3.2" data-path="../lab3/lab3_3_2_trapentry.html">
+<a href="../lab3/lab3_3_2_trapentry.html">
+            
+                    
+                    掉进兔子洞(中断入口点)
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.6.3.3" data-path="../lab3/lab3_3_3_trap.html">
+<a href="../lab3/lab3_3_3_trap.html">
+            
+                    
+                    中断处理程序
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.6.3.4" data-path="../lab3/lab3_3_4_clock.html">
+<a href="../lab3/lab3_3_4_clock.html">
+            
+                    
+                    滴答滴答（时钟中断）
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.6.3.5" data-path="../lab3/lab3_3_5_atomic.html">
+<a href="../lab3/lab3_3_5_atomic.html">
+            
+                    
+                    断亦有断(中断的关闭和开启)
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.6.4" data-path="../lab3/lab3_4_lab_requirement.html">
+<a href="../lab3/lab3_4_lab_requirement.html">
+            
+                    
+                    实验报告要求
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.7" data-path="../lab4/lab4.html">
+<a href="../lab4/lab4.html">
+            
+                    
+                    lab4: 进程管理
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.7.1" data-path="../lab4/lab4_1_goals.html">
+<a href="../lab4/lab4_1_goals.html">
+            
+                    
+                    实验目的
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.7.2" data-path="../lab4/lab4_2_labs.html">
+<a href="../lab4/lab4_2_labs.html">
+            
+                    
+                    实验内容
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.7.2.1" data-path="../lab4/lab4_2_1_exercises.html">
+<a href="../lab4/lab4_2_1_exercises.html">
+            
+                    
+                    练习
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.7.2.2" data-path="../lab4/lab4_2_2_files.html">
+<a href="../lab4/lab4_2_2_files.html">
+            
+                    
+                    项目组成
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.7.3" data-path="../lab4/lab4_3_vmm.html">
+<a href="../lab4/lab4_3_vmm.html">
+            
+                    
+                    虚拟内存管理
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.7.3.1" data-path="../lab4/lab4_3_1_vmm_principles.html">
+<a href="../lab4/lab4_3_1_vmm_principles.html">
+            
+                    
+                    基本原理概述
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.7.3.2" data-path="../lab4/lab4_3_2_page_table_entry.html">
+<a href="../lab4/lab4_3_2_page_table_entry.html">
+            
+                    
+                    页表项设计思路
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.7.3.3" data-path="../lab4/lab4_3_3_multilevel_page_tables.html">
+<a href="../lab4/lab4_3_3_multilevel_page_tables.html">
+            
+                    
+                    使用多级页表实现虚拟存储
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.7.4" data-path="../lab4/lab4_4_kernel_thread_management.html">
+<a href="../lab4/lab4_4_kernel_thread_management.html">
+            
+                    
+                    内核线程管理
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.7.4.1" data-path="../lab4/lab4_4_1_pcb.html">
+<a href="../lab4/lab4_4_1_pcb.html">
+            
+                    
+                    设计关键数据结构
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.7.4.2" data-path="../lab4/lab4_4_2_create_exec_kernel_thread.html">
+<a href="../lab4/lab4_4_2_create_exec_kernel_thread.html">
+            
+                    
+                    创建并执行内核线程
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.7.4.2.1" data-path="../lab4/lab4_4_2_1_create_kthread_idleproc.html">
+<a href="../lab4/lab4_4_2_1_create_kthread_idleproc.html">
+            
+                    
+                    创建第 0 个内核线程 idleproc
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.7.4.2.2" data-path="../lab4/lab4_4_2_2_create_kthread_initproc.html">
+<a href="../lab4/lab4_4_2_2_create_kthread_initproc.html">
+            
+                    
+                    创建第 1 个内核线程 initproc
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.7.4.2.3" data-path="../lab4/lab4_4_2_3_sched_run_kthread.html">
+<a href="../lab4/lab4_4_2_3_sched_run_kthread.html">
+            
+                    
+                    调度并执行内核线程 initproc
+            
+                </a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.7.5" data-path="../lab4/lab4_5_labs_requirement.html">
+<a href="../lab4/lab4_5_labs_requirement.html">
+            
+                    
+                    实验报告要求
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.8" data-path="../lab5/lab5.html">
+<a href="../lab5/lab5.html">
+            
+                    
+                    lab5: 用户程序
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.8.1" data-path="../lab5/lab5_1_goals.html">
+<a href="../lab5/lab5_1_goals.html">
+            
+                    
+                    实验目的
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.8.2" data-path="../lab5/lab5_2_labs.html">
+<a href="../lab5/lab5_2_labs.html">
+            
+                    
+                    实验内容
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.8.2.1" data-path="../lab5/lab5_2_1_exercises.html">
+<a href="../lab5/lab5_2_1_exercises.html">
+            
+                    
+                    练习
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.8.2.2" data-path="../lab5/lab5_2_2_files.html">
+<a href="../lab5/lab5_2_2_files.html">
+            
+                    
+                    项目组成
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.8.3" data-path="../lab5/lab5_3_user_process.html">
+<a href="../lab5/lab5_3_user_process.html">
+            
+                    
+                    用户进程管理
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.8.3.1" data-path="../lab5/lab5_3_1_lab_steps.html">
+<a href="../lab5/lab5_3_1_lab_steps.html">
+            
+                    
+                    实验流程概述
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.8.3.2" data-path="../lab5/lab5_3_2_create_user_process.html">
+<a href="../lab5/lab5_3_2_create_user_process.html">
+            
+                    
+                    用户进程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.8.3.3" data-path="../lab5/lab5_3_3_syscall.html">
+<a href="../lab5/lab5_3_3_syscall.html">
+            
+                    
+                    系统调用实现
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.8.3.4" data-path="../lab5/lab5_3_4_first_user.html">
+<a href="../lab5/lab5_3_4_first_user.html">
+            
+                    
+                    第一次进入用户态
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.8.3.5" data-path="../lab5/lab5_3_5_trap_process.html">
+<a href="../lab5/lab5_3_5_trap_process.html">
+            
+                    
+                    中断处理
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.8.3.6" data-path="../lab5/lab5_3_6_process_exit.html">
+<a href="../lab5/lab5_3_6_process_exit.html">
+            
+                    
+                    进程退出
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.8.4" data-path="../lab5/lab5_4_gdb_ecall.html">
+<a href="../lab5/lab5_4_gdb_ecall.html">
+            
+                    
+                    分支任务：gdb 调试系统调用以及返回
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.8.5" data-path="../lab5/lab5_5_lab_requirement.html">
+<a href="../lab5/lab5_5_lab_requirement.html">
+            
+                    
+                    实验报告要求
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.9" data-path="../lab6/lab6.html">
+<a href="../lab6/lab6.html">
+            
+                    
+                    lab6: 进程调度
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.9.1" data-path="../lab6/lab6_1_goals.html">
+<a href="../lab6/lab6_1_goals.html">
+            
+                    
+                    实验目的
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.9.2" data-path="../lab6/lab6_2_lab_content.html">
+<a href="../lab6/lab6_2_lab_content.html">
+            
+                    
+                    实验内容
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.9.2.1" data-path="../lab6/lab6_2_1_exercises.html">
+<a href="../lab6/lab6_2_1_exercises.html">
+            
+                    
+                    练习
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.9.2.2" data-path="../lab6/lab6_2_2_structure.html">
+<a href="../lab6/lab6_2_2_structure.html">
+            
+                    
+                    项目组成
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.9.3" data-path="../lab6/lab6_3_schedule_design.html">
+<a href="../lab6/lab6_3_schedule_design.html">
+            
+                    
+                    调度框架和调度算法设计与实现
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.9.3.1" data-path="../lab6/lab6_3_1_intro.html">
+<a href="../lab6/lab6_3_1_intro.html">
+            
+                    
+                    进程状态
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.9.3.2" data-path="../lab6/lab6_3_2_switch.html">
+<a href="../lab6/lab6_3_2_switch.html">
+            
+                    
+                    深入理解进程切换
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.9.3.3" data-path="../lab6/lab6_3_3_schedule.html">
+<a href="../lab6/lab6_3_3_schedule.html">
+            
+                    
+                    调度算法框架
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.9.3.4" data-path="../lab6/lab6_3_4_RR.html">
+<a href="../lab6/lab6_3_4_RR.html">
+            
+                    
+                    RR调度算法实现
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.9.3.5" data-path="../lab6/lab6_3_5_stride.html">
+<a href="../lab6/lab6_3_5_stride.html">
+            
+                    
+                    stride调度算法
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.9.3.5.1" data-path="../lab6/lab6_3_5_1_base_method.html">
+<a href="../lab6/lab6_3_5_1_base_method.html">
+            
+                    
+                    基本思路
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.9.3.5.2" data-path="../lab6/lab6_3_5_2_priority_queue.html">
+<a href="../lab6/lab6_3_5_2_priority_queue.html">
+            
+                    
+                    使用优先队列实现 Stride Scheduling
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.9.3.5.3" data-path="../lab6/lab6_3_5_3_execution_result.html">
+<a href="../lab6/lab6_3_5_3_execution_result.html">
+            
+                    
+                    stride调度算法执行 make qemu 的大致输出
+            
+                </a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.9.4" data-path="../lab6/lab6_5_labs_requirement.html">
+<a href="../lab6/lab6_5_labs_requirement.html">
+            
+                    
+                    实验报告要求
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.10" data-path="../lab7/lab7.html">
+<a href="../lab7/lab7.html">
+            
+                    
+                    lab7: 同步互斥
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.10.1" data-path="../lab7/lab7_1_goals.html">
+<a href="../lab7/lab7_1_goals.html">
+            
+                    
+                    实验目的
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.10.2" data-path="../lab7/lab7_2_labs.html">
+<a href="../lab7/lab7_2_labs.html">
+            
+                    
+                    实验内容
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.10.2.1" data-path="../lab7/lab7_2_1_exercises.html">
+<a href="../lab7/lab7_2_1_exercises.html">
+            
+                    
+                    练习
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.10.2.2" data-path="../lab7/lab7_2_2_files.html">
+<a href="../lab7/lab7_2_2_files.html">
+            
+                    
+                    项目组成
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.10.3" data-path="../lab7/lab7_3_concept.html">
+<a href="../lab7/lab7_3_concept.html">
+            
+                    
+                    同步互斥的一些基本概念
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.10.4" data-path="../lab7/lab7_4_semaphore.html">
+<a href="../lab7/lab7_4_semaphore.html">
+            
+                    
+                    信号量
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.10.5" data-path="../lab7/lab7_5_monitor.html">
+<a href="../lab7/lab7_5_monitor.html">
+            
+                    
+                    管程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.10.6" data-path="../lab7/lab7_6_lab_requirement.html">
+<a href="../lab7/lab7_6_lab_requirement.html">
+            
+                    
+                    实验报告要求
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.11" data-path="../lab8/lab8.html">
+<a href="../lab8/lab8.html">
+            
+                    
+                    lab8: 文件系统
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.11.1" data-path="../lab8/lab8_1_goals.html">
+<a href="../lab8/lab8_1_goals.html">
+            
+                    
+                    实验目的
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.11.2" data-path="../lab8/lab8_2_labs.html">
+<a href="../lab8/lab8_2_labs.html">
+            
+                    
+                    实验内容
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.11.2.1" data-path="../lab8/lab8_2_1_exercises.html">
+<a href="../lab8/lab8_2_1_exercises.html">
+            
+                    
+                    练习
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.11.2.2" data-path="../lab8/lab8_2_2_files.html">
+<a href="../lab8/lab8_2_2_files.html">
+            
+                    
+                    项目组成
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.11.3" data-path="../lab8/lab8_3_FS.html">
+<a href="../lab8/lab8_3_FS.html">
+            
+                    
+                    文件系统
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.11.3.1" data-path="../lab8/lab8_3_1_fs_introduction.html">
+<a href="../lab8/lab8_3_1_fs_introduction.html">
+            
+                    
+                    文件系统概述
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.11.3.2" data-path="../lab8/lab8_3_2_vfs.html">
+<a href="../lab8/lab8_3_2_vfs.html">
+            
+                    
+                    文件系统抽象层VFS
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.11.3.3" data-path="../lab8/lab8_3_3_sfs.html">
+<a href="../lab8/lab8_3_3_sfs.html">
+            
+                    
+                    硬盘文件系统SFS
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.11.3.4" data-path="../lab8/lab8_3_4_device.html">
+<a href="../lab8/lab8_3_4_device.html">
+            
+                    
+                    设备
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.11.3.5" data-path="../lab8/lab8_3_5_file_open.html">
+<a href="../lab8/lab8_3_5_file_open.html">
+            
+                    
+                    open 系统调用的执行过程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.11.3.6" data-path="../lab8/lab8_3_6_file_read.html">
+<a href="../lab8/lab8_3_6_file_read.html">
+            
+                    
+                    read 系统调用的执行过程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.11.3.7" data-path="../lab8/lab8_3_7_execve_shell.html">
+<a href="../lab8/lab8_3_7_execve_shell.html">
+            
+                    
+                    用户程序加载与终端执行
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.11.4" data-path="../lab8/lab8_4_lab_requirement.html">
+<a href="../lab8/lab8_4_lab_requirement.html">
+            
+                    
+                    实验报告要求
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.12" data-path="../lab9/lab9.html">
+<a href="../lab9/lab9.html">
+            
+                    
+                    lab9: 页面置换与内存映射
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.12.1" data-path="../lab9/lab9_1_goals.html">
+<a href="../lab9/lab9_1_goals.html">
+            
+                    
+                    实验目的
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.12.2" data-path="../lab9/lab9_2_lab_contents.html">
+<a href="../lab9/lab9_2_lab_contents.html">
+            
+                    
+                    实验内容
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.12.2.1" data-path="../lab9/lab9_2_1_exercises.html">
+<a href="../lab9/lab9_2_1_exercises.html">
+            
+                    
+                    练习
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.12.2.2" data-path="../lab9/lab9_2_2_filses.html">
+<a href="../lab9/lab9_2_2_filses.html">
+            
+                    
+                    项目组成
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.12.3" data-path="../lab9/lab9_3_swaping.html">
+<a href="../lab9/lab9_3_swaping.html">
+            
+                    
+                    页面置换机制的实现
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.12.3.1" data-path="../lab9/lab9_3_1_driver_and_storage.html">
+<a href="../lab9/lab9_3_1_driver_and_storage.html">
+            
+                    
+                    页面置换后的驱动和存储
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.12.3.2" data-path="../lab9/lab9_3_2_page_fault_handler.html">
+<a href="../lab9/lab9_3_2_page_fault_handler.html">
+            
+                    
+                    处理缺页异常
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.12.3.3" data-path="../lab9/lab9_3_3_page_swapping.html">
+<a href="../lab9/lab9_3_3_page_swapping.html">
+            
+                    
+                    页替换算法和机制实现
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.12.3.4" data-path="../lab9/lab9_3_4_page_swapping_principles.html">
+<a href="../lab9/lab9_3_4_page_swapping_principles.html">
+            
+                    
+                    FIFO页面置换算法
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.12.4" data-path="../lab9/lab9_4_mmap.html">
+<a href="../lab9/lab9_4_mmap.html">
+            
+                    
+                    内存映射机制的实现
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.12.5" data-path="../lab9/lab9_5_labs_requirement.html">
+<a href="../lab9/lab9_5_labs_requirement.html">
+            
+                    
+                    实验报告要求
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.13" data-path="../appendix/intro.html">
+<a href="../appendix/intro.html">
+            
+                    
+                    附录
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.13.1" data-path="../appendix/1_makefile.html">
+<a href="../appendix/1_makefile.html">
+            
+                    
+                    makefile 简介
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.13.2" data-path="../appendix/4_process_overview.html">
+<a href="../appendix/4_process_overview.html">
+            
+                    
+                    【原理】进程的属性与特征解析
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.13.3" data-path="../appendix/5_user_process.html">
+<a href="../appendix/5_user_process.html">
+            
+                    
+                    【原理】用户进程的特征
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="divider"></li>
+<li>
+<a class="gitbook-link" href="https://github.com/honkit/honkit" target="blank">
+            本书使用 HonKit 发布
+        </a>
+</li>
+</ul>
+</nav>
+</div>
+<div class="book-body">
+<div class="body-inner">
+<div class="book-header" role="navigation">
+<!-- Title -->
+<h1>
+<i class="fa fa-circle-o-notch fa-spin"></i>
+<a href="../index.html">环境准备：让 AI 参与到 OS 开发中</a>
+</h1>
+</div>
+<div class="page-wrapper" role="main" tabindex="-1">
+<div class="page-inner">
+<div id="book-search-results">
+<div class="search-noresults">
+<section class="normal markdown-section">
+<html><head></head><body><h1 id="环境准备：让-ai-参与到-os-开发中">环境准备：让 AI 参与到 OS 开发中</h1>
+<p>在正式开始 Vibe Coding 之前，我们需要先建立一条完整的 AI 辅助开发流程：选择合适的大模型，准备 API，安装一个能够访问项目文件的 AI 编程工具，然后通过编译和测试验证修改结果。</p>
+<h2 id="认识大模型、api-与-ai-编程工具">认识大模型、API 与 AI 编程工具</h2>
+<p>先把几个容易混淆的概念理清楚。</p>
+<p><strong>大模型</strong>负责理解自然语言、阅读代码并生成回答或代码。常见的模型系列或服务品牌包括 GPT、Claude、DeepSeek、Kimi。模型通常运行在服务商的服务器上，不能简单地当作普通软件安装到电脑里。</p>
+<p><strong>API</strong>是程序访问模型服务的接口。API Key 是调用接口所需的凭据，API 地址（Base URL）和模型名称则决定请求发往哪里、使用哪个模型。不同服务商的配置项和计费规则可能不同，应以各自的最新文档为准。</p>
+<p><strong>AI 编程工具</strong>（也可以称为 Agent）负责把模型接入实际的开发流程。例如 Codex、Claude Code、DeepSeek Harness，以及 VS Code 中的 Cline、Continue 等插件，都可以在获得授权后读取项目文件、搜索代码、运行命令，并提出或执行修改。</p>
+<p>简单来说：<strong>模型负责思考，API 负责通信，工具负责把思考落实到项目中</strong>。普通网页聊天通常不能直接访问你本地的完整项目；要让 AI 直接读取和修改 uCore，还需要一个拥有项目工作区访问能力的编程工具，并且必须由你审查它的改动。</p>
+<h2 id="选择一个可用的大模型">选择一个可用的大模型</h2>
+<p>本实验不绑定特定模型。DeepSeek、Claude、GPT、Kimi 或其他模型都可以，只要它能够：</p>
+<ul>
+<li>阅读 C 语言和操作系统代码，理解物理内存管理、页表、中断等概念；</li>
+<li>根据自然语言需求生成代码；</li>
+<li>通过 AI 编程工具访问项目文件并协助修改，而不只是复制粘贴代码。</li>
+</ul>
+<p>不同模型在代码理解能力、生成质量、响应速度上可能有差异，但只要能完成上述基本任务，就可以用于本实验。你甚至可以在不同实验中尝试不同的模型，对比它们的表现。</p>
+<p>如果使用海外服务的官方产品，可能需要满足服务商的注册、网络或支付要求。也可以选择在本地网络可用的模型服务；本实验重点是学习如何与 AI 协作，而不是绑定某一家产品。</p>
+<h2 id="获取-api">获取 API</h2>
+<p>通常的流程是：在模型服务商官网注册账号，进入控制台或开发者页面，创建 API Key，查看 API 地址、可用模型和计费说明。</p>
+<p>API Key 应当像密码一样保管。创建后请立即复制并保存到安全位置，不要写进项目代码、提交到 Git 仓库或发送给他人。若服务商支持额度限制或密钥分级，建议一并设置，避免误用产生费用。密钥是否只显示一次取决于服务商；忘记保存时通常需要重新创建。</p>
+<p>本教程以 DeepSeek 为例：</p>
+<ul>
+<li>开放平台：<a href="https://platform.deepseek.com/" target="_blank">https://platform.deepseek.com/</a></li>
+<li>API 文档和价格：<a href="https://api-docs.deepseek.com/" target="_blank">https://api-docs.deepseek.com/</a></li>
+</ul>
+<p>模型名称、价格和接口路径会随服务商更新，配置时不要直接照搬过时的示例。</p>
+<h2 id="安装基础工具">安装基础工具</h2>
+<p>安装任何 Agent 前，先准备 Node.js (18 或更高版本) 和 Git。Node.js 用于安装许多命令行工具，Git 用于保存修改、查看 Diff 和恢复错误操作。</p>
+<p>先检查是否已经安装：</p>
+<pre class="language-"><code class="lang-bash"><span class="token function">node</span> <span class="token parameter variable">-v</span>
+<span class="token function">npm</span> <span class="token parameter variable">-v</span>       <span class="token comment"># npm 通常随 Node.js 一起安装</span>
+<span class="token function">git</span> <span class="token parameter variable">--version</span>
+</code></pre>
+<p>如果命令不存在，或 Node.js 版本低于所用工具要求的版本，请从官网安装 LTS 版本：</p>
+<ul>
+<li>Node.js：<a href="https://nodejs.org/" target="_blank">https://nodejs.org/</a></li>
+<li>Git：<a href="https://git-scm.com/" target="_blank">https://git-scm.com/</a></li>
+</ul>
+<p>不同 Agent 的最低 Node.js 版本可能变化，安装前请查看对应项目的最新说明。</p>
+<p>在wsl中：</p>
+<pre class="language-"><code class="lang-bash"><span class="token comment"># 安装 nvm</span>
+<span class="token function">curl</span> -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh <span class="token operator">|</span> <span class="token function">bash</span>
+
+<span class="token comment"># 让 nvm 命令在当前终端生效</span>
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">NVM_DIR</span><span class="token operator">=</span><span class="token string">"<span class="token environment constant">$HOME</span>/.nvm"</span>
+<span class="token punctuation">[</span> <span class="token parameter variable">-s</span> <span class="token string">"<span class="token variable">$NVM_DIR</span>/nvm.sh"</span> <span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">\</span>. <span class="token string">"<span class="token variable">$NVM_DIR</span>/nvm.sh"</span>
+<span class="token punctuation">[</span> <span class="token parameter variable">-s</span> <span class="token string">"<span class="token variable">$NVM_DIR</span>/bash_completion"</span> <span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">\</span>. <span class="token string">"<span class="token variable">$NVM_DIR</span>/bash_completion"</span>
+
+<span class="token comment"># 安装并使用 Node.js 22</span>
+nvm <span class="token function">install</span> <span class="token number">22</span>
+nvm use <span class="token number">22</span>
+nvm <span class="token builtin class-name">alias</span> default <span class="token number">22</span>
+</code></pre>
+<h2 id="将模型接入-ai-编程工具">将模型接入 AI 编程工具</h2>
+<p>你可以根据自己的工作习惯选择终端、编辑器、桌面应用或浏览器界面。在选择入口之前，先决定如何保存和切换 API 配置。</p>
+<h3 id="api-配置管理（可选）">API 配置管理（可选）</h3>
+<p>如果需要在多个模型之间切换，可以使用 <code>ccswitch</code> 这类 API 管理工具。它可以集中保存不同服务商的 API Key、API 地址和模型配置，并按工具的格式写入或加载配置，减少手动编辑配置文件的工作。</p>
+<p>下载地址：<a href="https://ccswitch.io/zh/download" target="_blank">https://ccswitch.io/zh/download</a></p>
+<p>使用第三方管理工具时，仍要确认其凭据保存位置和权限；不要把包含密钥的配置文件提交到仓库。若不使用 <code>ccswitch</code>，也可以按照各 Agent 的官方文档手动配置：例如 Claude Code 常用环境变量，Codex 使用 TOML 配置，其他工具可能使用 JSON 或 <code>.env</code> 文件，不能混用配置格式。</p>
+<p>在wsl中下载：</p>
+<pre class="language-"><code class="lang-bash"><span class="token function">curl</span> <span class="token parameter variable">-fsSL</span> https://github.com/SaladDay/cc-switch-cli/releases/latest/download/install.sh <span class="token operator">|</span> <span class="token function">bash</span>
+
+<span class="token builtin class-name">echo</span> <span class="token string">'export PATH="$HOME/.local/bin:$PATH"'</span> <span class="token operator">&gt;&gt;</span> ~/.bashrc
+<span class="token builtin class-name">source</span> ~/.bashrc
+
+cc-switch
+</code></pre>
+<h3 id="方式一：终端-agent">方式一：终端 Agent</h3>
+<p>如果你更喜欢在终端工作，或者想体验更加自动化的开发模式，可以使用 Claude Code、Codex 等终端 Agent。这种方式完全在命令行中操作，Agent 可以自主调用工具：读取文件、搜索代码、运行命令。适合那些本来就习惯命令行工作的人，以及想进一步探索 AI Agent 能力的学生。</p>
+<p>以 Claude Code 为例，安装命令为：</p>
+<pre class="language-"><code class="lang-bash"><span class="token function">npm</span> <span class="token function">install</span> <span class="token parameter variable">-g</span> @anthropic-ai/claude-code
+claude <span class="token parameter variable">--version</span>
+</code></pre>
+<p>安装后，按照 Claude Code 和所选模型服务的最新接入文档配置 API Key、API 地址和模型。也可以让 <code>ccswitch</code> 负责切换这些配置。配置完成后，在 uCore 项目根目录启动：</p>
+<pre class="language-"><code class="lang-bash"><span class="token builtin class-name">cd</span> /path/to/ucore
+claude
+</code></pre>
+<p>Windows PowerShell、Linux 和 macOS 设置环境变量的语法不同；不要直接把 <code>export</code> 命令复制到 PowerShell，应按照当前系统和工具文档操作。</p>
+<h3 id="方式二：vs-code-插件">方式二：VS Code 插件</h3>
+<p>这是最直观的方式，也是最符合本实验 Vibe Coding 开发模式的方式。简单来说就是在 VS Code 里装个插件，然后你就可以在写代码的同时跟 AI 对话，让它帮你读代码、改代码。</p>
+<p>推荐这种方式是因为它把所有操作都集成在 VS Code 里了。你打开 uCore 项目，AI 可以直接阅读整个项目的代码，理解代码结构。当你提出需求后，AI 修改文件，你能看到清晰的 Diff（就像 Git 那样的对比视图），可以逐个文件审查改了什么。如果觉得哪里不对，可以直接拒绝某个修改。修改完了直接在终端运行 make qemu 和 make grade，看到测试结果后继续跟 AI 对话，让它改进代码。整个流程不需要切换窗口，对话历史也保留着，方便后续迭代。</p>
+<p>在 VS Code 扩展市场搜索并安装 Cline、Continue 或其他你信任的 AI 编程插件，在插件设置中选择模型服务，填写 API Key、API 地址和模型名称，然后打开 uCore 项目目录。</p>
+<p>以 Claude Code 为例，可以安装<code>Claude Code for VS Code</code>插件。</p>
+<h3 id="方式三：桌面应用">方式三：桌面应用</h3>
+<p>Codex、Claude 等工具也提供桌面应用。桌面应用适合不想一直使用终端的用户，但仍需确认所选应用是否支持当前操作系统、模型服务和项目目录访问。例如 Claude 的下载页面是 <a href="https://claude.com/download" target="_blank">https://claude.com/download</a>；其他产品请从各自官网获取，避免安装来源不明的软件。</p>
+<h3 id="方式四：浏览器-agent">方式四：浏览器 Agent</h3>
+<p>还有一种方法是浏览器里的 Agent，代表工具是 DeepSeek Harness。它会在你自己的机器上启动一个只监听本机地址的 Web 服务，你在浏览器里打开它打印出来的地址，就能看到一个完整的 Agent 界面：一边是对话，一边是文件改动，底部是它执行的命令和输出。它和方式 B 一样能自主读取文件、搜索代码、运行命令，区别在于整个过程都呈现在大家熟悉的 Web 图形界面里（就像你在浏览器中访问 DeepSeek、ChatGPT那样），改动有清晰的 Diff，能直接观察到 System Prompt、思维链、上下文内容和执行过程。</p>
+<p>下面给出详细的操作方案：</p>
+<p>DeepSeek Harness 是 DeepSeek 官方推出的 Agent 运行环境，提供浏览器界面。你也可以参考<a href="https://www.deepseek.com/harness/" target="_blank">官方文档</a>一键安装。</p>
+<h4 id="安装">安装</h4>
+<pre class="language-"><code class="lang-bash"><span class="token function">npm</span> <span class="token function">install</span> <span class="token parameter variable">-g</span> @deepseek-ai/dsh
+dsh <span class="token parameter variable">--version</span>
+</code></pre>
+<h4 id="在任意位置启动">在任意位置启动</h4>
+<p>与 Claude Code 这样的命令行 Agent 不同，DeepSeek Harness 是一个 Web 服务。你可以在任意目录启动它，然后在浏览器里打开它打印出来的地址。启动命令如下：</p>
+<pre class="language-"><code class="lang-bash"><span class="token builtin class-name">cd</span> /path/whatever
+dsh web
+</code></pre>
+<p>终端会打印一行形如 <code>dsh web: http://127.0.0.1:3080/?token=...</code> 的地址，并<strong>自动</strong>用默认浏览器打开。这个服务只监听本机的回环地址，不会暴露到网络上，地址里的 token 是本次启动的访问凭据，不要转发给别人。如果 3080 端口被占用，可以使用 <code>--port</code> 换一个：</p>
+<pre class="language-"><code class="lang-bash">dsh web <span class="token parameter variable">--port</span> <span class="token number">8080</span>
+</code></pre>
+<h4 id="配置-api-key">配置 API Key</h4>
+<p>启动之后可以直接在 Web 界面里配置。打开左下角设置的“模型”，然后“添加提供方”选择 DeepSeek，填入你的 API Key。DeepSeek Harness 会把 Key 保存到凭据文件里，之后每次启动都会自动读取。</p>
+<h4 id="开始使用">开始使用</h4>
+<p>DeepSeek Harness 的界面分为三部分：左边是工作区目录和 Session 列表，中间是对话区，右边是文件预览区。使用时需要先添加一个工作区（也就是项目目录），然后在对话区里输入提示词，Agent 会读取工作区里的文件，理解代码结构，然后修改文件。</p>
+<p>作为浏览器界面的 Agent，DeepSeek Harness 的优势在于图形化的面板和输出区，让你更直观地看到 AI 的操作过程。</p>
+<p><img alt="dsh" src="dsh_example.png"/></p>
+<h2 id="一套可直接采用的配置思路">一套可直接采用的配置思路</h2>
+<p>如果你还没有偏好，可以按下面的顺序开始：</p>
+<ol>
+<li>安装 Node.js 和 Git，并确认三个版本命令都能运行；</li>
+<li>在 DeepSeek 开放平台创建 API Key，记录当前可用的模型和 API 地址；</li>
+<li>使用 <code>ccswitch</code> 集中配置 API，或者按照所选 Agent 的官方文档手动配置；</li>
+<li>选择 VS Code 插件、终端 Agent 或浏览器 Agent 之一，打开 uCore 项目；</li>
+<li>先做环境验证，再开始实验任务。</li>
+</ol>
+<h2 id="两件必须养成的习惯">两件必须养成的习惯</h2>
+<p>第一是用 Git 保护项目。开始修改前先用 <code>git status</code> 确认工作区状态，每完成一个小目标就提交一次；用 <code>git diff</code> 检查已跟踪文件的改动，必要时使用 <code>git restore</code> 等命令恢复。恢复命令可能丢弃未提交内容，执行前要确认目标文件和当前 Diff。</p>
+<p>第二是控制 Agent 权限。优先只授予当前项目工作区的读写权限，并保留对删除文件、执行危险命令和访问项目外路径的确认。不要把 API Key 放进仓库，也不要让 Agent 在你不知情的情况下修改系统文件。</p>
+<h2 id="环境验证">环境验证</h2>
+<p>配置完成之后，别急着开始做实验，先花五分钟确认整个闭环能跑通。下面三个测试从易到难，任何一个卡住了都说明环境还有问题。</p>
+<p>第一个测试验证 Agent 能不能读到项目代码。进入 uCore 项目目录，让它读一个文件并解释：</p>
+<pre class="language-"><code>读取 kern/init/init.c，说明 kern_init 函数的作用
+</code></pre><p>第二个测试验证 Agent 能不能修改文件，以及你能不能看到和控制改动。让它做一个明确的、可撤销的改动：</p>
+<pre class="language-"><code>在项目根目录创建一个 notes/ai-test.md，写入三行文字，说明这是环境验证的测试文件
+</code></pre><p>改动完成后，去检查文件是否真的出现了。在 Claude Code 里可以直接让它 <code>git diff</code> 给你看；在 DeepSeek Harness 里界面会展示这次改动。确认无误后把文件删掉，或者尝试用 <code>git checkout</code> 还原。</p>
+<p>第三个测试，也是最重要的测试，验证 Agent 能不能执行命令行操作。让它运行 <code>make qemu</code> 和 <code>make grade</code>，确认编译和测试命令能运行。</p>
+<p>如果它能结合测试结果给出具体的分析，说明“修改、编译、测试、反馈、再修改”这个循环已经建立起来了，环境准备完成。</p>
+<h2 id="工具准备完成，下一步呢？">工具准备完成，下一步呢？</h2>
+<p>完成环境验证后，你就建立了一个完整的 AI 辅助开发流程。工具层面的准备已经就绪：模型可以访问，API 能够通信，开发工具能读取项目、修改文件、运行测试。</p>
+<p>但在真正开始动手之前，还有一个更重要的问题需要思考：<strong>AI 驱动的开发和传统的编程有什么不同？</strong></p>
+<p>如果只是把 AI 当成“自动写代码的工具”，把提示词当成“更方便的复制粘贴”，那你很快就会遇到挫折：AI 生成的代码编译不过，测试跑不通，或者看起来能用但逻辑全错。</p>
+<p>接下来，我们需要先理解它们之间的区别。理解了这一点，你才能真正发挥 AI 的威力。</p>
+</body></html>
+</section>
+</div>
+<div class="search-results">
+<div class="has-results">
+<h1 class="search-results-title"><span class="search-results-count"></span> results matching "<span class="search-query"></span>"</h1>
+<ul class="search-results-list"></ul>
+</div>
+<div class="no-results">
+<h1 class="search-results-title">No results matching "<span class="search-query"></span>"</h1>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<a aria-label="Previous page: lab0.5: AI驱动的操作系统实验" class="navigation navigation-prev" href="intro.html">
+<i class="fa fa-angle-left"></i>
+</a>
+<a aria-label="Next page: 范式转变：从传统编程到AI协作" class="navigation navigation-next" href="1_paradigm_shift.html">
+<i class="fa fa-angle-right"></i>
+</a>
+</div>
+<script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"环境准备：让 AI 参与到 OS 开发中","level":"1.3.1","depth":2,"next":{"title":"范式转变：从传统编程到AI协作","level":"1.3.2","depth":2,"path":"lab0.5/1_paradigm_shift.md","ref":"lab0.5/1_paradigm_shift.md","articles":[]},"previous":{"title":"lab0.5: AI驱动的操作系统实验","level":"1.3","depth":1,"path":"lab0.5/intro.md","ref":"lab0.5/intro.md","articles":[{"title":"环境准备：让 AI 参与到 OS 开发中","level":"1.3.1","depth":2,"path":"lab0.5/0_environment_setup.md","ref":"lab0.5/0_environment_setup.md","articles":[]},{"title":"范式转变：从传统编程到AI协作","level":"1.3.2","depth":2,"path":"lab0.5/1_paradigm_shift.md","ref":"lab0.5/1_paradigm_shift.md","articles":[]},{"title":"提示词工程：写给AI的需求规格","level":"1.3.3","depth":2,"path":"lab0.5/2_prompt_engineering.md","ref":"lab0.5/2_prompt_engineering.md","articles":[]},{"title":"本实验的标准提示词结构","level":"1.3.4","depth":2,"path":"lab0.5/3_prompt_structure.md","ref":"lab0.5/3_prompt_structure.md","articles":[]},{"title":"实践指南：如何与AI一起开发操作系统","level":"1.3.5","depth":2,"path":"lab0.5/4_practice_guide.md","ref":"lab0.5/4_practice_guide.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-highlight","prism"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"riscv64-ucore 操作系统实验指导书","language":"zh-hans","gitbook":"*"},"file":{"path":"lab0.5/0_environment_setup.md","mtime":"2026-09-22T10:14:39.844Z","type":"markdown"},"gitbook":{"version":"6.2.2","time":"2026-09-22T10:28:40.776Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+<noscript>
+<style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+</noscript>
+<script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+<script src="../gitbook/gitbook.js"></script>
+<script src="../gitbook/theme.js"></script>
+<script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+<script src="../gitbook/gitbook-plugin-search/search.js"></script>
+<script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+<script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+<script src="../gitbook/@honkit/honkit-plugin-fontsettings/fontsettings.js"></script>
+</body>
+</html>

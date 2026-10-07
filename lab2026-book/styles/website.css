@@ -1,0 +1,37 @@
+/*
+ * 自定义站点样式
+ *
+ * 当前作用：把 lab2 到 lab9 从左侧目录中隐藏起来。
+ * 这些页面仍然会被正常构建，直接输入网址也能打开，
+ * 只是不再出现在侧边栏里。这样做的原因是 HonKit 只为
+ * SUMMARY.md 中登记的页面生成 HTML，如果直接把条目从目录里删掉，
+ * 对应页面会变成 404，无法再通过网址访问。
+ *
+ * 每个章节需要两条选择器，因为 GitBook 侧边栏里的 data-path
+ * 会随当前页面所在位置改变写法：
+ *   - 在首页以及该章节自己的页面里，形如 lab2/lab2.html 或 lab2.html
+ *   - 在其他章节的页面里，形如 ../lab2/lab2.html
+ * 因此 ^= 负责匹配本目录下的条目，*= 负责匹配带 ../ 前缀的条目，
+ * 两者缺一不可。
+ *
+ * 日后要放开某一章，把该章对应的两行选择器连同逗号一并删除即可。
+ */
+
+.book-summary li.chapter[data-path^="lab2"],
+.book-summary li.chapter[data-path*="/lab2/"],
+.book-summary li.chapter[data-path^="lab3"],
+.book-summary li.chapter[data-path*="/lab3/"],
+.book-summary li.chapter[data-path^="lab4"],
+.book-summary li.chapter[data-path*="/lab4/"],
+.book-summary li.chapter[data-path^="lab5"],
+.book-summary li.chapter[data-path*="/lab5/"],
+.book-summary li.chapter[data-path^="lab6"],
+.book-summary li.chapter[data-path*="/lab6/"],
+.book-summary li.chapter[data-path^="lab7"],
+.book-summary li.chapter[data-path*="/lab7/"],
+.book-summary li.chapter[data-path^="lab8"],
+.book-summary li.chapter[data-path*="/lab8/"],
+.book-summary li.chapter[data-path^="lab9"],
+.book-summary li.chapter[data-path*="/lab9/"] {
+    display: none;
+}

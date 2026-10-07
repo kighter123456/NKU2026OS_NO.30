@@ -1,0 +1,203 @@
+0x0000000000001000 in ?? ()
+The target architecture is set to "riscv:rv64".
+
+=== Reset ROM ===
+PASS: reset PC is 0x1000
+=> 0x1000:	auipc	t0,0x0
+   0x1004:	addi	a2,t0,40
+   0x1008:	csrr	a0,mhartid
+   0x100c:	ld	a1,32(t0)
+   0x1010:	ld	t0,24(t0)
+   0x1014:	jr	t0
+PASS: QEMU loaded the kernel before the first CPU instruction
+0x0000000000001004 in ?? ()
+=> 0x0000000000001004:	13 86 82 02	addi	a2,t0,40
+0x0000000000001008 in ?? ()
+=> 0x0000000000001008:	73 25 40 f1	csrr	a0,mhartid
+0x000000000000100c in ?? ()
+=> 0x000000000000100c:	83 b5 02 02	ld	a1,32(t0)
+0x0000000000001010 in ?? ()
+=> 0x0000000000001010:	83 b2 82 01	ld	t0,24(t0)
+0x0000000000001014 in ?? ()
+=> 0x0000000000001014:	67 80 02 00	jr	t0
+0x0000000080000000 in ?? ()
+=> 0x0000000080000000:	33 04 05 00	add	s0,a0,zero
+PASS: reset ROM transfers control to OpenSBI
+pc             0x80000000	0x80000000
+a0             0x0	0
+a1             0x87000000	2264924160
+a2             0x1028	4136
+=> 0x80000000:	add	s0,a0,zero
+   0x80000004:	add	s1,a1,zero
+   0x80000008:	add	s2,a2,zero
+   0x8000000c:	jal	ra,0x800006a0
+   0x80000010:	add	a6,a0,zero
+   0x80000014:	add	a0,s0,zero
+   0x80000018:	add	a1,s1,zero
+   0x8000001c:	add	a2,s2,zero
+
+=== Kernel entry ===
+Hardware assisted breakpoint 1 at 0x80200000: file kern/init/entry.S, line 7.
+
+Temporary breakpoint 1, kern_entry () at kern/init/entry.S:7
+7	    la sp, bootstacktop
+=> 0x0000000080200000 <kern_entry+0>:	17 31 00 00	auipc	sp,0x3
+   0x0000000080200004 <kern_entry+4>:	13 01 01 00	mv	sp,sp
+PASS: kern_entry is reached at 0x80200000
+pc             0x80200000	0x80200000 <kern_entry>
+sp             0x80017ee0	0x80017ee0
+ra             0x800078cc	0x800078cc
+a0             0x0	0
+a1             0x87000000	2264924160
+mstatus        0x8000000a00006080	SD:1 VM:00 MXR:0 PUM:0 MPRV:0 XS:0 FS:3 MPP:0 HPP:0 SPP:0 MPIE:1 HPIE:0 SPIE:0 UPIE:0 MIE:0 HIE:0 SIE:0 UIE:0
+mepc           0x80200000	2149580800
+satp           0x0	0
+=> 0x80200000 <kern_entry>:	auipc	sp,0x3
+   0x80200004 <kern_entry+4>:	mv	sp,sp
+   0x80200008 <kern_entry+8>:	j	0x8020000a <kern_init>
+   0x8020000a <kern_init>:	auipc	a0,0x3
+   0x8020000e <kern_init+4>:	addi	a0,a0,-2
+   0x80200012 <kern_init+8>:	auipc	a2,0x3
+   0x80200016 <kern_init+12>:	addi	a2,a2,-10
+   0x8020001a <kern_init+16>:	addi	sp,sp,-16
+PASS: boot stack reserves two 4096-byte pages
+PASS: boot stack satisfies the 16-byte ABI alignment
+0x0000000080200004 in kern_entry () at kern/init/entry.S:7
+7	    la sp, bootstacktop
+   0x0000000080200000 <kern_entry+0>:	17 31 00 00	auipc	sp,0x3
+=> 0x0000000080200004 <kern_entry+4>:	13 01 01 00	mv	sp,sp
+9	    tail kern_init
+=> 0x0000000080200008 <kern_entry+8>:	09 a0	j	0x8020000a <kern_init>
+kern_init () at kern/init/init.c:8
+8	    memset(edata, 0, end - edata);
+=> 0x000000008020000a <kern_init+0>:	17 35 00 00	auipc	a0,0x3
+   0x000000008020000e <kern_init+4>:	13 05 e5 ff	addi	a0,a0,-2 # 0x80203008
+PASS: tail reaches kern_init
+PASS: la sp initializes sp to bootstacktop
+PASS: tail does not overwrite ra
+pc             0x8020000a	0x8020000a <kern_init>
+sp             0x80203000	0x80203000 <SBI_CONSOLE_PUTCHAR>
+ra             0x800078cc	0x800078cc
+
+=== C initialization and SBI console ===
+Hardware assisted breakpoint 2 at 0x80200056: file kern/libs/stdio.c, line 40.
+
+Temporary breakpoint 2, cprintf (fmt=fmt@entry=0x802004e8 "%s\n\n") at kern/libs/stdio.c:40
+40	    va_start(ap, fmt);
+=> 0x0000000080200056 <cprintf+0>:	1d 71	addi	sp,sp,-96
+PASS: BSS boundaries are ordered
+PASS: BSS is zero at the first cprintf (size=0)
+Hardware assisted breakpoint 3 at 0x80200480: file libs/sbi.c, line 18.
+
+Temporary breakpoint 3, sbi_console_putchar (ch=40 '(') at libs/sbi.c:33
+33	    sbi_call(SBI_CONSOLE_PUTCHAR, ch, 0, 0);
+PASS: the first console character is '('
+0x0000000080200482 in sbi_call (arg2=0, arg1=0, arg0=40, sbi_type=1) at libs/sbi.c:18
+18	    __asm__ volatile (
+   0x0000000080200480 <sbi_console_putchar+0>:	81 47	li	a5,0
+=> 0x0000000080200482 <sbi_console_putchar+2>:	17 37 00 00	auipc	a4,0x3
+   0x0000000080200486 <sbi_console_putchar+6>:	03 37 e7 b7	ld	a4,-1154(a4) # 0x80203000 <SBI_CONSOLE_PUTCHAR>
+   0x000000008020048a <sbi_console_putchar+10>:	ba 88	mv	a7,a4
+   0x000000008020048c <sbi_console_putchar+12>:	2a 85	mv	a0,a0
+   0x000000008020048e <sbi_console_putchar+14>:	be 85	mv	a1,a5
+   0x0000000080200490 <sbi_console_putchar+16>:	3e 86	mv	a2,a5
+   0x0000000080200492 <sbi_console_putchar+18>:	73 00 00 00	ecall
+   0x0000000080200496 <sbi_console_putchar+22>:	aa 87	mv	a5,a0
+0x0000000080200486	18	    __asm__ volatile (
+   0x0000000080200480 <sbi_console_putchar+0>:	81 47	li	a5,0
+   0x0000000080200482 <sbi_console_putchar+2>:	17 37 00 00	auipc	a4,0x3
+=> 0x0000000080200486 <sbi_console_putchar+6>:	03 37 e7 b7	ld	a4,-1154(a4) # 0x80203000 <SBI_CONSOLE_PUTCHAR>
+   0x000000008020048a <sbi_console_putchar+10>:	ba 88	mv	a7,a4
+   0x000000008020048c <sbi_console_putchar+12>:	2a 85	mv	a0,a0
+   0x000000008020048e <sbi_console_putchar+14>:	be 85	mv	a1,a5
+   0x0000000080200490 <sbi_console_putchar+16>:	3e 86	mv	a2,a5
+   0x0000000080200492 <sbi_console_putchar+18>:	73 00 00 00	ecall
+   0x0000000080200496 <sbi_console_putchar+22>:	aa 87	mv	a5,a0
+0x000000008020048a	18	    __asm__ volatile (
+   0x0000000080200480 <sbi_console_putchar+0>:	81 47	li	a5,0
+   0x0000000080200482 <sbi_console_putchar+2>:	17 37 00 00	auipc	a4,0x3
+   0x0000000080200486 <sbi_console_putchar+6>:	03 37 e7 b7	ld	a4,-1154(a4) # 0x80203000 <SBI_CONSOLE_PUTCHAR>
+=> 0x000000008020048a <sbi_console_putchar+10>:	ba 88	mv	a7,a4
+   0x000000008020048c <sbi_console_putchar+12>:	2a 85	mv	a0,a0
+   0x000000008020048e <sbi_console_putchar+14>:	be 85	mv	a1,a5
+   0x0000000080200490 <sbi_console_putchar+16>:	3e 86	mv	a2,a5
+   0x0000000080200492 <sbi_console_putchar+18>:	73 00 00 00	ecall
+   0x0000000080200496 <sbi_console_putchar+22>:	aa 87	mv	a5,a0
+0x000000008020048c	18	    __asm__ volatile (
+   0x0000000080200480 <sbi_console_putchar+0>:	81 47	li	a5,0
+   0x0000000080200482 <sbi_console_putchar+2>:	17 37 00 00	auipc	a4,0x3
+   0x0000000080200486 <sbi_console_putchar+6>:	03 37 e7 b7	ld	a4,-1154(a4) # 0x80203000 <SBI_CONSOLE_PUTCHAR>
+   0x000000008020048a <sbi_console_putchar+10>:	ba 88	mv	a7,a4
+=> 0x000000008020048c <sbi_console_putchar+12>:	2a 85	mv	a0,a0
+   0x000000008020048e <sbi_console_putchar+14>:	be 85	mv	a1,a5
+   0x0000000080200490 <sbi_console_putchar+16>:	3e 86	mv	a2,a5
+   0x0000000080200492 <sbi_console_putchar+18>:	73 00 00 00	ecall
+   0x0000000080200496 <sbi_console_putchar+22>:	aa 87	mv	a5,a0
+0x000000008020048e	18	    __asm__ volatile (
+   0x0000000080200480 <sbi_console_putchar+0>:	81 47	li	a5,0
+   0x0000000080200482 <sbi_console_putchar+2>:	17 37 00 00	auipc	a4,0x3
+   0x0000000080200486 <sbi_console_putchar+6>:	03 37 e7 b7	ld	a4,-1154(a4) # 0x80203000 <SBI_CONSOLE_PUTCHAR>
+   0x000000008020048a <sbi_console_putchar+10>:	ba 88	mv	a7,a4
+   0x000000008020048c <sbi_console_putchar+12>:	2a 85	mv	a0,a0
+=> 0x000000008020048e <sbi_console_putchar+14>:	be 85	mv	a1,a5
+   0x0000000080200490 <sbi_console_putchar+16>:	3e 86	mv	a2,a5
+   0x0000000080200492 <sbi_console_putchar+18>:	73 00 00 00	ecall
+   0x0000000080200496 <sbi_console_putchar+22>:	aa 87	mv	a5,a0
+0x0000000080200490	18	    __asm__ volatile (
+   0x0000000080200480 <sbi_console_putchar+0>:	81 47	li	a5,0
+   0x0000000080200482 <sbi_console_putchar+2>:	17 37 00 00	auipc	a4,0x3
+   0x0000000080200486 <sbi_console_putchar+6>:	03 37 e7 b7	ld	a4,-1154(a4) # 0x80203000 <SBI_CONSOLE_PUTCHAR>
+   0x000000008020048a <sbi_console_putchar+10>:	ba 88	mv	a7,a4
+   0x000000008020048c <sbi_console_putchar+12>:	2a 85	mv	a0,a0
+   0x000000008020048e <sbi_console_putchar+14>:	be 85	mv	a1,a5
+=> 0x0000000080200490 <sbi_console_putchar+16>:	3e 86	mv	a2,a5
+   0x0000000080200492 <sbi_console_putchar+18>:	73 00 00 00	ecall
+   0x0000000080200496 <sbi_console_putchar+22>:	aa 87	mv	a5,a0
+0x0000000080200492	18	    __asm__ volatile (
+   0x0000000080200480 <sbi_console_putchar+0>:	81 47	li	a5,0
+   0x0000000080200482 <sbi_console_putchar+2>:	17 37 00 00	auipc	a4,0x3
+   0x0000000080200486 <sbi_console_putchar+6>:	03 37 e7 b7	ld	a4,-1154(a4) # 0x80203000 <SBI_CONSOLE_PUTCHAR>
+   0x000000008020048a <sbi_console_putchar+10>:	ba 88	mv	a7,a4
+   0x000000008020048c <sbi_console_putchar+12>:	2a 85	mv	a0,a0
+   0x000000008020048e <sbi_console_putchar+14>:	be 85	mv	a1,a5
+   0x0000000080200490 <sbi_console_putchar+16>:	3e 86	mv	a2,a5
+=> 0x0000000080200492 <sbi_console_putchar+18>:	73 00 00 00	ecall
+   0x0000000080200496 <sbi_console_putchar+22>:	aa 87	mv	a5,a0
+PASS: console output reaches ecall
+PASS: legacy SBI console uses a7=1 and a0=character
+pc             0x80200492	0x80200492 <sbi_console_putchar+18>
+a0             0x28	40
+a1             0x0	0
+a2             0x0	0
+a7             0x1	1
+stvec          0x80200000	2149580800
+mtvec          0x80000520	2147484960
+Hardware assisted breakpoint 4 at 0x80000520
+
+Temporary breakpoint 4, 0x0000000080000520 in ?? ()
+=> 0x0000000080000520:	73 12 02 34	csrrw	tp,mscratch,tp
+PASS: SBI call enters the machine trap vector
+PASS: ecall from S mode traps to M mode with mcause=9
+PASS: mepc records the ecall instruction address
+PASS: MPP records the previous S mode
+pc             0x80000520	0x80000520
+mcause         0x9	9
+mepc           0x80200492	2149581970
+mstatus        0x8000000a00006800	SD:1 VM:00 MXR:0 PUM:0 MPRV:0 XS:0 FS:3 MPP:1 HPP:0 SPP:0 MPIE:0 HPIE:0 SPIE:0 UPIE:0 MIE:0 HIE:0 SIE:0 UIE:0
+Hardware assisted breakpoint 5 at 0x80200496: file libs/sbi.c, line 18.
+
+Temporary breakpoint 5, 0x0000000080200496 in sbi_call (arg2=0, arg1=0, arg0=0, sbi_type=1) at libs/sbi.c:18
+18	    __asm__ volatile (
+   0x0000000080200480 <sbi_console_putchar+0>:	81 47	li	a5,0
+   0x0000000080200482 <sbi_console_putchar+2>:	17 37 00 00	auipc	a4,0x3
+   0x0000000080200486 <sbi_console_putchar+6>:	03 37 e7 b7	ld	a4,-1154(a4) # 0x80203000 <SBI_CONSOLE_PUTCHAR>
+   0x000000008020048a <sbi_console_putchar+10>:	ba 88	mv	a7,a4
+   0x000000008020048c <sbi_console_putchar+12>:	2a 85	mv	a0,a0
+   0x000000008020048e <sbi_console_putchar+14>:	be 85	mv	a1,a5
+   0x0000000080200490 <sbi_console_putchar+16>:	3e 86	mv	a2,a5
+   0x0000000080200492 <sbi_console_putchar+18>:	73 00 00 00	ecall
+=> 0x0000000080200496 <sbi_console_putchar+22>:	aa 87	mv	a5,a0
+PASS: OpenSBI returns to the instruction after ecall
+
+LAB1 BOOT CHECKS PASSED
+[Inferior 1 (process 1) detached]

@@ -1,0 +1,1601 @@
+{
+  "source": "http://8.135.34.58/lab2026/_book/",
+  "downloaded_at": "2026-10-07T07:05:25.976881+00:00",
+  "offline_adjustments": [
+    "Local navigation uses regular page loads on file URLs",
+    "Search index embedded in the local Lunr search plugin"
+  ],
+  "chapters": [
+    {
+      "title": "欢迎来到ucore step-by-step的世界",
+      "path": "index.html"
+    },
+    {
+      "title": "lab0: 预备起",
+      "path": "lab0/intro.html"
+    },
+    {
+      "title": "溯源: ucore的历史",
+      "path": "lab0/1_history.html"
+    },
+    {
+      "title": "概览: 指导书的结构",
+      "path": "lab0/2_overview.html"
+    },
+    {
+      "title": "预备：Linux安装与熟悉",
+      "path": "lab0/0_Linux.html"
+    },
+    {
+      "title": "起步：常用软件熟悉",
+      "path": "lab0/softwares.html"
+    },
+    {
+      "title": "开搞：搭建实验环境",
+      "path": "lab0/3_startdash.html"
+    },
+    {
+      "title": "lab0.5: AI驱动的操作系统实验",
+      "path": "lab0.5/intro.html"
+    },
+    {
+      "title": "环境准备：让 AI 参与到 OS 开发中",
+      "path": "lab0.5/0_environment_setup.html"
+    },
+    {
+      "title": "范式转变：从传统编程到AI协作",
+      "path": "lab0.5/1_paradigm_shift.html"
+    },
+    {
+      "title": "提示词工程：写给AI的需求规格",
+      "path": "lab0.5/2_prompt_engineering.html"
+    },
+    {
+      "title": "本实验的标准提示词结构",
+      "path": "lab0.5/3_prompt_structure.html"
+    },
+    {
+      "title": "实践指南：如何与AI一起开发操作系统",
+      "path": "lab0.5/4_practice_guide.html"
+    },
+    {
+      "title": "lab1: 比麻雀更小的麻雀（最小可执行内核）",
+      "path": "lab1/lab1.html"
+    },
+    {
+      "title": "实验目的",
+      "path": "lab1/lab1_1_goals.html"
+    },
+    {
+      "title": "实验内容",
+      "path": "lab1/lab1_2_labs.html"
+    },
+    {
+      "title": "练习",
+      "path": "lab1/lab1_2_1_exercise.html"
+    },
+    {
+      "title": "项目组成和执行流",
+      "path": "lab1/lab1_2_2_file.html"
+    },
+    {
+      "title": "从机器启动到操作系统运行的过程",
+      "path": "lab1/lab1_3_booting.html"
+    },
+    {
+      "title": "OpenSBI, bin, elf",
+      "path": "lab1/lab1_3_1_layout.html"
+    },
+    {
+      "title": "内存布局，链接脚本，入口点",
+      "path": "lab1/lab1_3_2_linkerscript.html"
+    },
+    {
+      "title": "从SBI到stdio",
+      "path": "lab1/lab1_3_3_sbi_io.html"
+    },
+    {
+      "title": "Just make it",
+      "path": "lab1/lab1_3_4_makeit.html"
+    },
+    {
+      "title": "GDB调试工具使用体验",
+      "path": "lab1/lab1_4_gdb.html"
+    },
+    {
+      "title": "实验报告要求",
+      "path": "lab1/lab1_5_requirement.html"
+    },
+    {
+      "title": "lab2: 物理内存和页表",
+      "path": "lab2/lab2.html"
+    },
+    {
+      "title": "实验目的",
+      "path": "lab2/lab2_1_goal.html"
+    },
+    {
+      "title": "实验内容",
+      "path": "lab2/lab2_2_contents.html"
+    },
+    {
+      "title": "练习",
+      "path": "lab2/lab2_2_1_exercise.html"
+    },
+    {
+      "title": "项目组成",
+      "path": "lab2/lab2_2_2_files.html"
+    },
+    {
+      "title": "物理内存管理",
+      "path": "lab2/lab2_3_pmpt.html"
+    },
+    {
+      "title": "基本原理概述",
+      "path": "lab2/lab2_3_1_principles.html"
+    },
+    {
+      "title": "以页为单位管理物理内存",
+      "path": "lab2/lab2_3_2_phymem_page.html"
+    },
+    {
+      "title": "建立快表以加快访问效率",
+      "path": "lab2/lab2_3_3_phymem_tlb.html"
+    },
+    {
+      "title": "分页机制的设计思路",
+      "path": "lab2/lab2_3_4_page.html"
+    },
+    {
+      "title": "建立段页式管理中需要考虑的关键问题",
+      "path": "lab2/lab2_3_4_1_key_problems_in_seg_page.html"
+    },
+    {
+      "title": "实现分页机制",
+      "path": "lab2/lab2_3_4_2_kernel_initialization.html"
+    },
+    {
+      "title": "物理内存管理的设计思路",
+      "path": "lab2/lab2_3_5_pmpt.html"
+    },
+    {
+      "title": "物理内存管理的实现",
+      "path": "lab2/lab2_3_5_1_pmm_init.html"
+    },
+    {
+      "title": "物理内存探测",
+      "path": "lab2/lab2_3_5_2_search_phymem_layout.html"
+    },
+    {
+      "title": "页面分配算法",
+      "path": "lab2/lab2_3_5_3_phymem_allocation.html"
+    },
+    {
+      "title": "分支任务：gdb 调试页表查询过程",
+      "path": "lab2/lab2_4_qemu_mmu_debug.html"
+    },
+    {
+      "title": "实验报告要求",
+      "path": "lab2/lab2_5_labs_requirement.html"
+    },
+    {
+      "title": "lab3: 断,都可以断",
+      "path": "lab3/lab3.html"
+    },
+    {
+      "title": "实验目的",
+      "path": "lab3/lab3_1_goals.html"
+    },
+    {
+      "title": "实验内容",
+      "path": "lab3/lab3_2_labs.html"
+    },
+    {
+      "title": "练习",
+      "path": "lab3/lab3_2_1_exercise.html"
+    },
+    {
+      "title": "项目组成和执行流",
+      "path": "lab3/lab3_2_2_files.html"
+    },
+    {
+      "title": "中断与中断处理流程",
+      "path": "lab3/lab3_3_interrupt.html"
+    },
+    {
+      "title": "riscv64 中断介绍",
+      "path": "lab3/lab3_3_1_introduce.html"
+    },
+    {
+      "title": "掉进兔子洞(中断入口点)",
+      "path": "lab3/lab3_3_2_trapentry.html"
+    },
+    {
+      "title": "中断处理程序",
+      "path": "lab3/lab3_3_3_trap.html"
+    },
+    {
+      "title": "滴答滴答（时钟中断）",
+      "path": "lab3/lab3_3_4_clock.html"
+    },
+    {
+      "title": "断亦有断(中断的关闭和开启)",
+      "path": "lab3/lab3_3_5_atomic.html"
+    },
+    {
+      "title": "实验报告要求",
+      "path": "lab3/lab3_4_lab_requirement.html"
+    },
+    {
+      "title": "lab4: 进程管理",
+      "path": "lab4/lab4.html"
+    },
+    {
+      "title": "实验目的",
+      "path": "lab4/lab4_1_goals.html"
+    },
+    {
+      "title": "实验内容",
+      "path": "lab4/lab4_2_labs.html"
+    },
+    {
+      "title": "练习",
+      "path": "lab4/lab4_2_1_exercises.html"
+    },
+    {
+      "title": "项目组成",
+      "path": "lab4/lab4_2_2_files.html"
+    },
+    {
+      "title": "虚拟内存管理",
+      "path": "lab4/lab4_3_vmm.html"
+    },
+    {
+      "title": "基本原理概述",
+      "path": "lab4/lab4_3_1_vmm_principles.html"
+    },
+    {
+      "title": "页表项设计思路",
+      "path": "lab4/lab4_3_2_page_table_entry.html"
+    },
+    {
+      "title": "使用多级页表实现虚拟存储",
+      "path": "lab4/lab4_3_3_multilevel_page_tables.html"
+    },
+    {
+      "title": "内核线程管理",
+      "path": "lab4/lab4_4_kernel_thread_management.html"
+    },
+    {
+      "title": "设计关键数据结构",
+      "path": "lab4/lab4_4_1_pcb.html"
+    },
+    {
+      "title": "创建并执行内核线程",
+      "path": "lab4/lab4_4_2_create_exec_kernel_thread.html"
+    },
+    {
+      "title": "创建第 0 个内核线程 idleproc",
+      "path": "lab4/lab4_4_2_1_create_kthread_idleproc.html"
+    },
+    {
+      "title": "创建第 1 个内核线程 initproc",
+      "path": "lab4/lab4_4_2_2_create_kthread_initproc.html"
+    },
+    {
+      "title": "调度并执行内核线程 initproc",
+      "path": "lab4/lab4_4_2_3_sched_run_kthread.html"
+    },
+    {
+      "title": "实验报告要求",
+      "path": "lab4/lab4_5_labs_requirement.html"
+    },
+    {
+      "title": "lab5: 用户程序",
+      "path": "lab5/lab5.html"
+    },
+    {
+      "title": "实验目的",
+      "path": "lab5/lab5_1_goals.html"
+    },
+    {
+      "title": "实验内容",
+      "path": "lab5/lab5_2_labs.html"
+    },
+    {
+      "title": "练习",
+      "path": "lab5/lab5_2_1_exercises.html"
+    },
+    {
+      "title": "项目组成",
+      "path": "lab5/lab5_2_2_files.html"
+    },
+    {
+      "title": "用户进程管理",
+      "path": "lab5/lab5_3_user_process.html"
+    },
+    {
+      "title": "实验流程概述",
+      "path": "lab5/lab5_3_1_lab_steps.html"
+    },
+    {
+      "title": "用户进程",
+      "path": "lab5/lab5_3_2_create_user_process.html"
+    },
+    {
+      "title": "系统调用实现",
+      "path": "lab5/lab5_3_3_syscall.html"
+    },
+    {
+      "title": "第一次进入用户态",
+      "path": "lab5/lab5_3_4_first_user.html"
+    },
+    {
+      "title": "中断处理",
+      "path": "lab5/lab5_3_5_trap_process.html"
+    },
+    {
+      "title": "进程退出",
+      "path": "lab5/lab5_3_6_process_exit.html"
+    },
+    {
+      "title": "分支任务：gdb 调试系统调用以及返回",
+      "path": "lab5/lab5_4_gdb_ecall.html"
+    },
+    {
+      "title": "实验报告要求",
+      "path": "lab5/lab5_5_lab_requirement.html"
+    },
+    {
+      "title": "lab6: 进程调度",
+      "path": "lab6/lab6.html"
+    },
+    {
+      "title": "实验目的",
+      "path": "lab6/lab6_1_goals.html"
+    },
+    {
+      "title": "实验内容",
+      "path": "lab6/lab6_2_lab_content.html"
+    },
+    {
+      "title": "练习",
+      "path": "lab6/lab6_2_1_exercises.html"
+    },
+    {
+      "title": "项目组成",
+      "path": "lab6/lab6_2_2_structure.html"
+    },
+    {
+      "title": "调度框架和调度算法设计与实现",
+      "path": "lab6/lab6_3_schedule_design.html"
+    },
+    {
+      "title": "进程状态",
+      "path": "lab6/lab6_3_1_intro.html"
+    },
+    {
+      "title": "深入理解进程切换",
+      "path": "lab6/lab6_3_2_switch.html"
+    },
+    {
+      "title": "调度算法框架",
+      "path": "lab6/lab6_3_3_schedule.html"
+    },
+    {
+      "title": "RR调度算法实现",
+      "path": "lab6/lab6_3_4_RR.html"
+    },
+    {
+      "title": "stride调度算法",
+      "path": "lab6/lab6_3_5_stride.html"
+    },
+    {
+      "title": "基本思路",
+      "path": "lab6/lab6_3_5_1_base_method.html"
+    },
+    {
+      "title": "使用优先队列实现 Stride Scheduling",
+      "path": "lab6/lab6_3_5_2_priority_queue.html"
+    },
+    {
+      "title": "stride调度算法执行 make qemu 的大致输出",
+      "path": "lab6/lab6_3_5_3_execution_result.html"
+    },
+    {
+      "title": "实验报告要求",
+      "path": "lab6/lab6_5_labs_requirement.html"
+    },
+    {
+      "title": "lab7: 同步互斥",
+      "path": "lab7/lab7.html"
+    },
+    {
+      "title": "实验目的",
+      "path": "lab7/lab7_1_goals.html"
+    },
+    {
+      "title": "实验内容",
+      "path": "lab7/lab7_2_labs.html"
+    },
+    {
+      "title": "练习",
+      "path": "lab7/lab7_2_1_exercises.html"
+    },
+    {
+      "title": "项目组成",
+      "path": "lab7/lab7_2_2_files.html"
+    },
+    {
+      "title": "同步互斥的一些基本概念",
+      "path": "lab7/lab7_3_concept.html"
+    },
+    {
+      "title": "信号量",
+      "path": "lab7/lab7_4_semaphore.html"
+    },
+    {
+      "title": "管程",
+      "path": "lab7/lab7_5_monitor.html"
+    },
+    {
+      "title": "实验报告要求",
+      "path": "lab7/lab7_6_lab_requirement.html"
+    },
+    {
+      "title": "lab8: 文件系统",
+      "path": "lab8/lab8.html"
+    },
+    {
+      "title": "实验目的",
+      "path": "lab8/lab8_1_goals.html"
+    },
+    {
+      "title": "实验内容",
+      "path": "lab8/lab8_2_labs.html"
+    },
+    {
+      "title": "练习",
+      "path": "lab8/lab8_2_1_exercises.html"
+    },
+    {
+      "title": "项目组成",
+      "path": "lab8/lab8_2_2_files.html"
+    },
+    {
+      "title": "文件系统",
+      "path": "lab8/lab8_3_FS.html"
+    },
+    {
+      "title": "文件系统概述",
+      "path": "lab8/lab8_3_1_fs_introduction.html"
+    },
+    {
+      "title": "文件系统抽象层VFS",
+      "path": "lab8/lab8_3_2_vfs.html"
+    },
+    {
+      "title": "硬盘文件系统SFS",
+      "path": "lab8/lab8_3_3_sfs.html"
+    },
+    {
+      "title": "设备",
+      "path": "lab8/lab8_3_4_device.html"
+    },
+    {
+      "title": "open 系统调用的执行过程",
+      "path": "lab8/lab8_3_5_file_open.html"
+    },
+    {
+      "title": "read 系统调用的执行过程",
+      "path": "lab8/lab8_3_6_file_read.html"
+    },
+    {
+      "title": "用户程序加载与终端执行",
+      "path": "lab8/lab8_3_7_execve_shell.html"
+    },
+    {
+      "title": "实验报告要求",
+      "path": "lab8/lab8_4_lab_requirement.html"
+    },
+    {
+      "title": "lab9: 页面置换与内存映射",
+      "path": "lab9/lab9.html"
+    },
+    {
+      "title": "实验目的",
+      "path": "lab9/lab9_1_goals.html"
+    },
+    {
+      "title": "实验内容",
+      "path": "lab9/lab9_2_lab_contents.html"
+    },
+    {
+      "title": "练习",
+      "path": "lab9/lab9_2_1_exercises.html"
+    },
+    {
+      "title": "项目组成",
+      "path": "lab9/lab9_2_2_filses.html"
+    },
+    {
+      "title": "页面置换机制的实现",
+      "path": "lab9/lab9_3_swaping.html"
+    },
+    {
+      "title": "页面置换后的驱动和存储",
+      "path": "lab9/lab9_3_1_driver_and_storage.html"
+    },
+    {
+      "title": "处理缺页异常",
+      "path": "lab9/lab9_3_2_page_fault_handler.html"
+    },
+    {
+      "title": "页替换算法和机制实现",
+      "path": "lab9/lab9_3_3_page_swapping.html"
+    },
+    {
+      "title": "FIFO页面置换算法",
+      "path": "lab9/lab9_3_4_page_swapping_principles.html"
+    },
+    {
+      "title": "内存映射机制的实现",
+      "path": "lab9/lab9_4_mmap.html"
+    },
+    {
+      "title": "实验报告要求",
+      "path": "lab9/lab9_5_labs_requirement.html"
+    },
+    {
+      "title": "附录",
+      "path": "appendix/intro.html"
+    },
+    {
+      "title": "makefile 简介",
+      "path": "appendix/1_makefile.html"
+    },
+    {
+      "title": "【原理】进程的属性与特征解析",
+      "path": "appendix/4_process_overview.html"
+    },
+    {
+      "title": "【原理】用户进程的特征",
+      "path": "appendix/5_user_process.html"
+    }
+  ],
+  "files": [
+    {
+      "url": "http://8.135.34.58/lab2026/_book/appendix/1_makefile.html",
+      "path": "appendix/1_makefile.html",
+      "bytes": 71099,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/appendix/4_process_overview.html",
+      "path": "appendix/4_process_overview.html",
+      "bytes": 47819,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/appendix/5_user_process.html",
+      "path": "appendix/5_user_process.html",
+      "bytes": 53837,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/appendix/intro.html",
+      "path": "appendix/intro.html",
+      "bytes": 41436,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/gitbook/@honkit/honkit-plugin-fontsettings/fontsettings.js",
+      "path": "gitbook/@honkit/honkit-plugin-fontsettings/fontsettings.js",
+      "bytes": 6378,
+      "html": false
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/gitbook/@honkit/honkit-plugin-fontsettings/website.css",
+      "path": "gitbook/@honkit/honkit-plugin-fontsettings/website.css",
+      "bytes": 9778,
+      "html": false
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/gitbook/fonts/fontawesome/fontawesome-webfont.eot",
+      "path": "gitbook/fonts/fontawesome/fontawesome-webfont.eot",
+      "bytes": 76518,
+      "html": false
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/gitbook/fonts/fontawesome/fontawesome-webfont.svg",
+      "path": "gitbook/fonts/fontawesome/fontawesome-webfont.svg",
+      "bytes": 391622,
+      "html": false
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/gitbook/fonts/fontawesome/fontawesome-webfont.ttf",
+      "path": "gitbook/fonts/fontawesome/fontawesome-webfont.ttf",
+      "bytes": 152796,
+      "html": false
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/gitbook/fonts/fontawesome/fontawesome-webfont.woff",
+      "path": "gitbook/fonts/fontawesome/fontawesome-webfont.woff",
+      "bytes": 90412,
+      "html": false
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/gitbook/fonts/fontawesome/fontawesome-webfont.woff2",
+      "path": "gitbook/fonts/fontawesome/fontawesome-webfont.woff2",
+      "bytes": 71896,
+      "html": false
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/gitbook/gitbook-plugin-lunr/lunr.min.js",
+      "path": "gitbook/gitbook-plugin-lunr/lunr.min.js",
+      "bytes": 15005,
+      "html": false
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/gitbook/gitbook-plugin-lunr/search-lunr.js",
+      "path": "gitbook/gitbook-plugin-lunr/search-lunr.js",
+      "bytes": 7758647,
+      "html": false
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/gitbook/gitbook-plugin-search/search-engine.js",
+      "path": "gitbook/gitbook-plugin-search/search-engine.js",
+      "bytes": 1268,
+      "html": false
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/gitbook/gitbook-plugin-search/search.css",
+      "path": "gitbook/gitbook-plugin-search/search.css",
+      "bytes": 974,
+      "html": false
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/gitbook/gitbook-plugin-search/search.js",
+      "path": "gitbook/gitbook-plugin-search/search.js",
+      "bytes": 6368,
+      "html": false
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/gitbook/gitbook.js",
+      "path": "gitbook/gitbook.js",
+      "bytes": 148723,
+      "html": false
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/gitbook/honkit-plugin-prism/prism-tomorrow.css",
+      "path": "gitbook/honkit-plugin-prism/prism-tomorrow.css",
+      "bytes": 1766,
+      "html": false
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/gitbook/images/apple-touch-icon-precomposed-152.png",
+      "path": "gitbook/images/apple-touch-icon-precomposed-152.png",
+      "bytes": 5262,
+      "html": false
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/gitbook/images/favicon.ico",
+      "path": "gitbook/images/favicon.ico",
+      "bytes": 15406,
+      "html": false
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/gitbook/style.css",
+      "path": "gitbook/style.css",
+      "bytes": 53515,
+      "html": false
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/gitbook/theme.js",
+      "path": "gitbook/theme.js",
+      "bytes": 154058,
+      "html": false
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/",
+      "path": "index.html",
+      "bytes": 40847,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab0.5/0_environment_setup.html",
+      "path": "lab0.5/0_environment_setup.html",
+      "bytes": 59666,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab0.5/1_paradigm_shift.html",
+      "path": "lab0.5/1_paradigm_shift.html",
+      "bytes": 46043,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab0.5/2_prompt_engineering.html",
+      "path": "lab0.5/2_prompt_engineering.html",
+      "bytes": 48460,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab0.5/3_prompt_structure.html",
+      "path": "lab0.5/3_prompt_structure.html",
+      "bytes": 57309,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab0.5/4_practice_guide.html",
+      "path": "lab0.5/4_practice_guide.html",
+      "bytes": 46847,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab0.5/dsh_example.png",
+      "path": "lab0.5/dsh_example.png",
+      "bytes": 393848,
+      "html": false
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab0.5/intro.html",
+      "path": "lab0.5/intro.html",
+      "bytes": 42242,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab0/0_Linux.html",
+      "path": "lab0/0_Linux.html",
+      "bytes": 63314,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab0/1_history.html",
+      "path": "lab0/1_history.html",
+      "bytes": 44607,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab0/2_overview.html",
+      "path": "lab0/2_overview.html",
+      "bytes": 43232,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab0/3_startdash.html",
+      "path": "lab0/3_startdash.html",
+      "bytes": 57962,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab0/intro.html",
+      "path": "lab0/intro.html",
+      "bytes": 41738,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab0/softwares.html",
+      "path": "lab0/softwares.html",
+      "bytes": 46186,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab1/lab1.html",
+      "path": "lab1/lab1.html",
+      "bytes": 43323,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab1/lab1_1_goals.html",
+      "path": "lab1/lab1_1_goals.html",
+      "bytes": 43337,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab1/lab1_2_1_exercise.html",
+      "path": "lab1/lab1_2_1_exercise.html",
+      "bytes": 44041,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab1/lab1_2_2_file.html",
+      "path": "lab1/lab1_2_2_file.html",
+      "bytes": 46049,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab1/lab1_2_labs.html",
+      "path": "lab1/lab1_2_labs.html",
+      "bytes": 41438,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab1/lab1_3_1_layout.html",
+      "path": "lab1/lab1_3_1_layout.html",
+      "bytes": 52566,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab1/lab1_3_2_linkerscript.html",
+      "path": "lab1/lab1_3_2_linkerscript.html",
+      "bytes": 59866,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab1/lab1_3_3_sbi_io.html",
+      "path": "lab1/lab1_3_3_sbi_io.html",
+      "bytes": 67106,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab1/lab1_3_4_makeit.html",
+      "path": "lab1/lab1_3_4_makeit.html",
+      "bytes": 45802,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab1/lab1_3_booting.html",
+      "path": "lab1/lab1_3_booting.html",
+      "bytes": 41547,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab1/lab1_4_gdb.html",
+      "path": "lab1/lab1_4_gdb.html",
+      "bytes": 56169,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab1/lab1_5_requirement.html",
+      "path": "lab1/lab1_5_requirement.html",
+      "bytes": 44411,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab1/program_memory_layout.png",
+      "path": "lab1/program_memory_layout.png",
+      "bytes": 15750,
+      "html": false
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab2/lab2.html",
+      "path": "lab2/lab2.html",
+      "bytes": 43664,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab2/lab2_1_goal.html",
+      "path": "lab2/lab2_1_goal.html",
+      "bytes": 43647,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab2/lab2_2_1_exercise.html",
+      "path": "lab2/lab2_2_1_exercise.html",
+      "bytes": 49787,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab2/lab2_2_2_files.html",
+      "path": "lab2/lab2_2_2_files.html",
+      "bytes": 49614,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab2/lab2_2_contents.html",
+      "path": "lab2/lab2_2_contents.html",
+      "bytes": 41584,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab2/lab2_3_1_principles.html",
+      "path": "lab2/lab2_3_1_principles.html",
+      "bytes": 46898,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab2/lab2_3_2_phymem_page.html",
+      "path": "lab2/lab2_3_2_phymem_page.html",
+      "bytes": 50784,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab2/lab2_3_3_phymem_tlb.html",
+      "path": "lab2/lab2_3_3_phymem_tlb.html",
+      "bytes": 42425,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab2/lab2_3_4_1_key_problems_in_seg_page.html",
+      "path": "lab2/lab2_3_4_1_key_problems_in_seg_page.html",
+      "bytes": 41990,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab2/lab2_3_4_2_kernel_initialization.html",
+      "path": "lab2/lab2_3_4_2_kernel_initialization.html",
+      "bytes": 54015,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab2/lab2_3_4_page.html",
+      "path": "lab2/lab2_3_4_page.html",
+      "bytes": 41367,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab2/lab2_3_5_1_pmm_init.html",
+      "path": "lab2/lab2_3_5_1_pmm_init.html",
+      "bytes": 71436,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab2/lab2_3_5_2_search_phymem_layout.html",
+      "path": "lab2/lab2_3_5_2_search_phymem_layout.html",
+      "bytes": 78627,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab2/lab2_3_5_3_phymem_allocation.html",
+      "path": "lab2/lab2_3_5_3_phymem_allocation.html",
+      "bytes": 69020,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab2/lab2_3_5_pmpt.html",
+      "path": "lab2/lab2_3_5_pmpt.html",
+      "bytes": 41417,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab2/lab2_3_pmpt.html",
+      "path": "lab2/lab2_3_pmpt.html",
+      "bytes": 42379,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab2/lab2_4_qemu_mmu_debug.html",
+      "path": "lab2/lab2_4_qemu_mmu_debug.html",
+      "bytes": 58683,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab2/lab2_5_labs_requirement.html",
+      "path": "lab2/lab2_5_labs_requirement.html",
+      "bytes": 43882,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab3/lab3.html",
+      "path": "lab3/lab3.html",
+      "bytes": 42879,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab3/lab3_1_goals.html",
+      "path": "lab3/lab3_1_goals.html",
+      "bytes": 43284,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab3/lab3_2_1_exercise.html",
+      "path": "lab3/lab3_2_1_exercise.html",
+      "bytes": 50734,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab3/lab3_2_2_files.html",
+      "path": "lab3/lab3_2_2_files.html",
+      "bytes": 45515,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab3/lab3_2_labs.html",
+      "path": "lab3/lab3_2_labs.html",
+      "bytes": 41532,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab3/lab3_3_1_introduce.html",
+      "path": "lab3/lab3_3_1_introduce.html",
+      "bytes": 59837,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab3/lab3_3_2_trapentry.html",
+      "path": "lab3/lab3_3_2_trapentry.html",
+      "bytes": 66599,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab3/lab3_3_3_trap.html",
+      "path": "lab3/lab3_3_3_trap.html",
+      "bytes": 51609,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab3/lab3_3_4_clock.html",
+      "path": "lab3/lab3_3_4_clock.html",
+      "bytes": 53557,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab3/lab3_3_5_atomic.html",
+      "path": "lab3/lab3_3_5_atomic.html",
+      "bytes": 49885,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab3/lab3_3_interrupt.html",
+      "path": "lab3/lab3_3_interrupt.html",
+      "bytes": 41651,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab3/lab3_4_lab_requirement.html",
+      "path": "lab3/lab3_4_lab_requirement.html",
+      "bytes": 44732,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab3/scause1.jpg",
+      "path": "lab3/scause1.jpg",
+      "bytes": 110376,
+      "html": false
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab3/scause2.jpg",
+      "path": "lab3/scause2.jpg",
+      "bytes": 182024,
+      "html": false
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab4/find.png",
+      "path": "lab4/find.png",
+      "bytes": 127343,
+      "html": false
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab4/lab4.html",
+      "path": "lab4/lab4.html",
+      "bytes": 43776,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab4/lab4_1_goals.html",
+      "path": "lab4/lab4_1_goals.html",
+      "bytes": 43480,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab4/lab4_2_1_exercises.html",
+      "path": "lab4/lab4_2_1_exercises.html",
+      "bytes": 60519,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab4/lab4_2_2_files.html",
+      "path": "lab4/lab4_2_2_files.html",
+      "bytes": 46401,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab4/lab4_2_labs.html",
+      "path": "lab4/lab4_2_labs.html",
+      "bytes": 43647,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab4/lab4_3_1_vmm_principles.html",
+      "path": "lab4/lab4_3_1_vmm_principles.html",
+      "bytes": 43396,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab4/lab4_3_2_page_table_entry.html",
+      "path": "lab4/lab4_3_2_page_table_entry.html",
+      "bytes": 57649,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab4/lab4_3_3_multilevel_page_tables.html",
+      "path": "lab4/lab4_3_3_multilevel_page_tables.html",
+      "bytes": 60783,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab4/lab4_3_vmm.html",
+      "path": "lab4/lab4_3_vmm.html",
+      "bytes": 41287,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab4/lab4_4_1_pcb.html",
+      "path": "lab4/lab4_4_1_pcb.html",
+      "bytes": 52092,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab4/lab4_4_2_1_create_kthread_idleproc.html",
+      "path": "lab4/lab4_4_2_1_create_kthread_idleproc.html",
+      "bytes": 44050,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab4/lab4_4_2_2_create_kthread_initproc.html",
+      "path": "lab4/lab4_4_2_2_create_kthread_initproc.html",
+      "bytes": 45995,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab4/lab4_4_2_3_sched_run_kthread.html",
+      "path": "lab4/lab4_4_2_3_sched_run_kthread.html",
+      "bytes": 47625,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab4/lab4_4_2_create_exec_kernel_thread.html",
+      "path": "lab4/lab4_4_2_create_exec_kernel_thread.html",
+      "bytes": 42236,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab4/lab4_4_kernel_thread_management.html",
+      "path": "lab4/lab4_4_kernel_thread_management.html",
+      "bytes": 46782,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab4/lab4_5_labs_requirement.html",
+      "path": "lab4/lab4_5_labs_requirement.html",
+      "bytes": 44218,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab5/lab5.html",
+      "path": "lab5/lab5.html",
+      "bytes": 42902,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab5/lab5_1_goals.html",
+      "path": "lab5/lab5_1_goals.html",
+      "bytes": 43002,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab5/lab5_2_1_exercises.html",
+      "path": "lab5/lab5_2_1_exercises.html",
+      "bytes": 74472,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab5/lab5_2_2_files.html",
+      "path": "lab5/lab5_2_2_files.html",
+      "bytes": 45331,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab5/lab5_2_labs.html",
+      "path": "lab5/lab5_2_labs.html",
+      "bytes": 41498,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab5/lab5_3_1_lab_steps.html",
+      "path": "lab5/lab5_3_1_lab_steps.html",
+      "bytes": 45036,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab5/lab5_3_2_create_user_process.html",
+      "path": "lab5/lab5_3_2_create_user_process.html",
+      "bytes": 69046,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab5/lab5_3_3_syscall.html",
+      "path": "lab5/lab5_3_3_syscall.html",
+      "bytes": 57246,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab5/lab5_3_4_first_user.html",
+      "path": "lab5/lab5_3_4_first_user.html",
+      "bytes": 45775,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab5/lab5_3_5_trap_process.html",
+      "path": "lab5/lab5_3_5_trap_process.html",
+      "bytes": 65184,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab5/lab5_3_6_process_exit.html",
+      "path": "lab5/lab5_3_6_process_exit.html",
+      "bytes": 42496,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab5/lab5_3_user_process.html",
+      "path": "lab5/lab5_3_user_process.html",
+      "bytes": 41687,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab5/lab5_4_gdb_ecall.html",
+      "path": "lab5/lab5_4_gdb_ecall.html",
+      "bytes": 54136,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab5/lab5_5_lab_requirement.html",
+      "path": "lab5/lab5_5_lab_requirement.html",
+      "bytes": 44455,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab6/image001.png",
+      "path": "lab6/image001.png",
+      "bytes": 15833,
+      "html": false
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab6/image002.png",
+      "path": "lab6/image002.png",
+      "bytes": 15385,
+      "html": false
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab6/lab6.html",
+      "path": "lab6/lab6.html",
+      "bytes": 42857,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab6/lab6_1_goals.html",
+      "path": "lab6/lab6_1_goals.html",
+      "bytes": 43281,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab6/lab6_2_1_exercises.html",
+      "path": "lab6/lab6_2_1_exercises.html",
+      "bytes": 63310,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab6/lab6_2_2_structure.html",
+      "path": "lab6/lab6_2_2_structure.html",
+      "bytes": 46668,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab6/lab6_2_lab_content.html",
+      "path": "lab6/lab6_2_lab_content.html",
+      "bytes": 42516,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab6/lab6_3_1_intro.html",
+      "path": "lab6/lab6_3_1_intro.html",
+      "bytes": 44028,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab6/lab6_3_2_switch.html",
+      "path": "lab6/lab6_3_2_switch.html",
+      "bytes": 44751,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab6/lab6_3_3_schedule.html",
+      "path": "lab6/lab6_3_3_schedule.html",
+      "bytes": 48059,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab6/lab6_3_4_RR.html",
+      "path": "lab6/lab6_3_4_RR.html",
+      "bytes": 43999,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab6/lab6_3_5_1_base_method.html",
+      "path": "lab6/lab6_3_5_1_base_method.html",
+      "bytes": 46503,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab6/lab6_3_5_2_priority_queue.html",
+      "path": "lab6/lab6_3_5_2_priority_queue.html",
+      "bytes": 46384,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab6/lab6_3_5_3_execution_result.html",
+      "path": "lab6/lab6_3_5_3_execution_result.html",
+      "bytes": 42249,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab6/lab6_3_5_stride.html",
+      "path": "lab6/lab6_3_5_stride.html",
+      "bytes": 41325,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab6/lab6_3_schedule_design.html",
+      "path": "lab6/lab6_3_schedule_design.html",
+      "bytes": 42113,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab6/lab6_5_labs_requirement.html",
+      "path": "lab6/lab6_5_labs_requirement.html",
+      "bytes": 43489,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab7/1.png",
+      "path": "lab7/1.png",
+      "bytes": 48068,
+      "html": false
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab7/2.png",
+      "path": "lab7/2.png",
+      "bytes": 42740,
+      "html": false
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab7/lab7.html",
+      "path": "lab7/lab7.html",
+      "bytes": 41957,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab7/lab7_1_goals.html",
+      "path": "lab7/lab7_1_goals.html",
+      "bytes": 42541,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab7/lab7_2_1_exercises.html",
+      "path": "lab7/lab7_2_1_exercises.html",
+      "bytes": 55682,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab7/lab7_2_2_files.html",
+      "path": "lab7/lab7_2_2_files.html",
+      "bytes": 45665,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab7/lab7_2_labs.html",
+      "path": "lab7/lab7_2_labs.html",
+      "bytes": 42434,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab7/lab7_3_concept.html",
+      "path": "lab7/lab7_3_concept.html",
+      "bytes": 59639,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab7/lab7_4_semaphore.html",
+      "path": "lab7/lab7_4_semaphore.html",
+      "bytes": 50756,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab7/lab7_5_monitor.html",
+      "path": "lab7/lab7_5_monitor.html",
+      "bytes": 47963,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab7/lab7_6_lab_requirement.html",
+      "path": "lab7/lab7_6_lab_requirement.html",
+      "bytes": 44184,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab8/fs1.png",
+      "path": "lab8/fs1.png",
+      "bytes": 113278,
+      "html": false
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab8/fs2.png",
+      "path": "lab8/fs2.png",
+      "bytes": 107546,
+      "html": false
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab8/image004.png",
+      "path": "lab8/image004.png",
+      "bytes": 36032,
+      "html": false
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab8/lab8.html",
+      "path": "lab8/lab8.html",
+      "bytes": 43281,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab8/lab8_1_goals.html",
+      "path": "lab8/lab8_1_goals.html",
+      "bytes": 43111,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab8/lab8_2_1_exercises.html",
+      "path": "lab8/lab8_2_1_exercises.html",
+      "bytes": 62621,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab8/lab8_2_2_files.html",
+      "path": "lab8/lab8_2_2_files.html",
+      "bytes": 50747,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab8/lab8_2_labs.html",
+      "path": "lab8/lab8_2_labs.html",
+      "bytes": 42569,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab8/lab8_3_1_fs_introduction.html",
+      "path": "lab8/lab8_3_1_fs_introduction.html",
+      "bytes": 59335,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab8/lab8_3_2_vfs.html",
+      "path": "lab8/lab8_3_2_vfs.html",
+      "bytes": 53310,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab8/lab8_3_3_sfs.html",
+      "path": "lab8/lab8_3_3_sfs.html",
+      "bytes": 77659,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab8/lab8_3_4_device.html",
+      "path": "lab8/lab8_3_4_device.html",
+      "bytes": 104335,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab8/lab8_3_5_file_open.html",
+      "path": "lab8/lab8_3_5_file_open.html",
+      "bytes": 89985,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab8/lab8_3_6_file_read.html",
+      "path": "lab8/lab8_3_6_file_read.html",
+      "bytes": 70230,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab8/lab8_3_7_execve_shell.html",
+      "path": "lab8/lab8_3_7_execve_shell.html",
+      "bytes": 110714,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab8/lab8_3_FS.html",
+      "path": "lab8/lab8_3_FS.html",
+      "bytes": 41976,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab8/lab8_4_lab_requirement.html",
+      "path": "lab8/lab8_4_lab_requirement.html",
+      "bytes": 44059,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab8/onedrive.jpg",
+      "path": "lab8/onedrive.jpg",
+      "bytes": 46474,
+      "html": false
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab9/lab9.html",
+      "path": "lab9/lab9.html",
+      "bytes": 42766,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab9/lab9_1_goals.html",
+      "path": "lab9/lab9_1_goals.html",
+      "bytes": 43121,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab9/lab9_2_1_exercises.html",
+      "path": "lab9/lab9_2_1_exercises.html",
+      "bytes": 68992,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab9/lab9_2_2_filses.html",
+      "path": "lab9/lab9_2_2_filses.html",
+      "bytes": 47694,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab9/lab9_2_lab_contents.html",
+      "path": "lab9/lab9_2_lab_contents.html",
+      "bytes": 43669,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab9/lab9_3_1_driver_and_storage.html",
+      "path": "lab9/lab9_3_1_driver_and_storage.html",
+      "bytes": 65667,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab9/lab9_3_2_page_fault_handler.html",
+      "path": "lab9/lab9_3_2_page_fault_handler.html",
+      "bytes": 69239,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab9/lab9_3_3_page_swapping.html",
+      "path": "lab9/lab9_3_3_page_swapping.html",
+      "bytes": 100335,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab9/lab9_3_4_page_swapping_principles.html",
+      "path": "lab9/lab9_3_4_page_swapping_principles.html",
+      "bytes": 84632,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab9/lab9_3_swaping.html",
+      "path": "lab9/lab9_3_swaping.html",
+      "bytes": 41635,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab9/lab9_4_mmap.html",
+      "path": "lab9/lab9_4_mmap.html",
+      "bytes": 59091,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/lab9/lab9_5_labs_requirement.html",
+      "path": "lab9/lab9_5_labs_requirement.html",
+      "bytes": 42805,
+      "html": true
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/search_index.json",
+      "path": "search_index.json",
+      "bytes": 6105327,
+      "html": false
+    },
+    {
+      "url": "http://8.135.34.58/lab2026/_book/styles/website.css",
+      "path": "styles/website.css",
+      "bytes": 1664,
+      "html": false
+    }
+  ],
+  "failures": []
+}

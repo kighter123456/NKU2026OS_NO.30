@@ -1,0 +1,1604 @@
+
+<!DOCTYPE HTML>
+
+<html lang="zh-hans">
+<head>
+<meta charset="utf-8"/>
+<title>open 系统调用的执行过程 · riscv64-ucore 操作系统实验指导书</title>
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="" name="description"/>
+<meta content="HonKit 6.2.2" name="generator"/>
+<link href="../gitbook/style.css" rel="stylesheet"/>
+<link href="../gitbook/honkit-plugin-prism/prism-tomorrow.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-search/search.css" rel="stylesheet"/>
+<link href="../gitbook/@honkit/honkit-plugin-fontsettings/website.css" rel="stylesheet"/>
+<link href="../styles/website.css" rel="stylesheet"/>
+<meta content="true" name="HandheldFriendly">
+<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+<link href="../gitbook/images/apple-touch-icon-precomposed-152.png" rel="apple-touch-icon-precomposed" sizes="152x152"/>
+<link href="../gitbook/images/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+<link href="lab8_3_6_file_read.html" rel="next">
+<link href="lab8_3_4_device.html" rel="prev">
+</link></link></meta></meta></head>
+<body>
+<div class="book honkit-cloak">
+<div class="book-summary">
+<div id="book-search-input" role="search">
+<input placeholder="输入并搜索" type="text"/>
+</div>
+<nav role="navigation">
+<ul class="summary">
+<li class="chapter" data-level="1.1" data-path="../">
+<a href="../index.html">
+            
+                    
+                    欢迎来到ucore step-by-step的世界
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.2" data-path="../lab0/intro.html">
+<a href="../lab0/intro.html">
+            
+                    
+                    lab0: 预备起
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.2.1" data-path="../lab0/1_history.html">
+<a href="../lab0/1_history.html">
+            
+                    
+                    溯源: ucore的历史
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.2.2" data-path="../lab0/2_overview.html">
+<a href="../lab0/2_overview.html">
+            
+                    
+                    概览: 指导书的结构
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.2.3" data-path="../lab0/0_Linux.html">
+<a href="../lab0/0_Linux.html">
+            
+                    
+                    预备：Linux安装与熟悉
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.2.4" data-path="../lab0/softwares.html">
+<a href="../lab0/softwares.html">
+            
+                    
+                    起步：常用软件熟悉
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.2.5" data-path="../lab0/3_startdash.html">
+<a href="../lab0/3_startdash.html">
+            
+                    
+                    开搞：搭建实验环境
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.3" data-path="../lab0.5/intro.html">
+<a href="../lab0.5/intro.html">
+            
+                    
+                    lab0.5: AI驱动的操作系统实验
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.3.1" data-path="../lab0.5/0_environment_setup.html">
+<a href="../lab0.5/0_environment_setup.html">
+            
+                    
+                    环境准备：让 AI 参与到 OS 开发中
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.3.2" data-path="../lab0.5/1_paradigm_shift.html">
+<a href="../lab0.5/1_paradigm_shift.html">
+            
+                    
+                    范式转变：从传统编程到AI协作
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.3.3" data-path="../lab0.5/2_prompt_engineering.html">
+<a href="../lab0.5/2_prompt_engineering.html">
+            
+                    
+                    提示词工程：写给AI的需求规格
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.3.4" data-path="../lab0.5/3_prompt_structure.html">
+<a href="../lab0.5/3_prompt_structure.html">
+            
+                    
+                    本实验的标准提示词结构
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.3.5" data-path="../lab0.5/4_practice_guide.html">
+<a href="../lab0.5/4_practice_guide.html">
+            
+                    
+                    实践指南：如何与AI一起开发操作系统
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.4" data-path="../lab1/lab1.html">
+<a href="../lab1/lab1.html">
+            
+                    
+                    lab1: 比麻雀更小的麻雀（最小可执行内核）
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.4.1" data-path="../lab1/lab1_1_goals.html">
+<a href="../lab1/lab1_1_goals.html">
+            
+                    
+                    实验目的
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.4.2" data-path="../lab1/lab1_2_labs.html">
+<a href="../lab1/lab1_2_labs.html">
+            
+                    
+                    实验内容
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.4.2.1" data-path="../lab1/lab1_2_1_exercise.html">
+<a href="../lab1/lab1_2_1_exercise.html">
+            
+                    
+                    练习
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.4.2.2" data-path="../lab1/lab1_2_2_file.html">
+<a href="../lab1/lab1_2_2_file.html">
+            
+                    
+                    项目组成和执行流
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.4.3" data-path="../lab1/lab1_3_booting.html">
+<a href="../lab1/lab1_3_booting.html">
+            
+                    
+                    从机器启动到操作系统运行的过程
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.4.3.1" data-path="../lab1/lab1_3_1_layout.html">
+<a href="../lab1/lab1_3_1_layout.html">
+            
+                    
+                    OpenSBI, bin, elf
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.4.3.2" data-path="../lab1/lab1_3_2_linkerscript.html">
+<a href="../lab1/lab1_3_2_linkerscript.html">
+            
+                    
+                    内存布局，链接脚本，入口点
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.4.3.3" data-path="../lab1/lab1_3_3_sbi_io.html">
+<a href="../lab1/lab1_3_3_sbi_io.html">
+            
+                    
+                    从SBI到stdio
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.4.3.4" data-path="../lab1/lab1_3_4_makeit.html">
+<a href="../lab1/lab1_3_4_makeit.html">
+            
+                    
+                    Just make it
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.4.4" data-path="../lab1/lab1_4_gdb.html">
+<a href="../lab1/lab1_4_gdb.html">
+            
+                    
+                    GDB调试工具使用体验
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.4.5" data-path="../lab1/lab1_5_requirement.html">
+<a href="../lab1/lab1_5_requirement.html">
+            
+                    
+                    实验报告要求
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.5" data-path="../lab2/lab2.html">
+<a href="../lab2/lab2.html">
+            
+                    
+                    lab2: 物理内存和页表
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.5.1" data-path="../lab2/lab2_1_goal.html">
+<a href="../lab2/lab2_1_goal.html">
+            
+                    
+                    实验目的
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.5.2" data-path="../lab2/lab2_2_contents.html">
+<a href="../lab2/lab2_2_contents.html">
+            
+                    
+                    实验内容
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.5.2.1" data-path="../lab2/lab2_2_1_exercise.html">
+<a href="../lab2/lab2_2_1_exercise.html">
+            
+                    
+                    练习
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.5.2.2" data-path="../lab2/lab2_2_2_files.html">
+<a href="../lab2/lab2_2_2_files.html">
+            
+                    
+                    项目组成
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.5.3" data-path="../lab2/lab2_3_pmpt.html">
+<a href="../lab2/lab2_3_pmpt.html">
+            
+                    
+                    物理内存管理
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.5.3.1" data-path="../lab2/lab2_3_1_principles.html">
+<a href="../lab2/lab2_3_1_principles.html">
+            
+                    
+                    基本原理概述
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.5.3.2" data-path="../lab2/lab2_3_2_phymem_page.html">
+<a href="../lab2/lab2_3_2_phymem_page.html">
+            
+                    
+                    以页为单位管理物理内存
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.5.3.3" data-path="../lab2/lab2_3_3_phymem_tlb.html">
+<a href="../lab2/lab2_3_3_phymem_tlb.html">
+            
+                    
+                    建立快表以加快访问效率
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.5.3.4" data-path="../lab2/lab2_3_4_page.html">
+<a href="../lab2/lab2_3_4_page.html">
+            
+                    
+                    分页机制的设计思路
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.5.3.4.1" data-path="../lab2/lab2_3_4_1_key_problems_in_seg_page.html">
+<a href="../lab2/lab2_3_4_1_key_problems_in_seg_page.html">
+            
+                    
+                    建立段页式管理中需要考虑的关键问题
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.5.3.4.2" data-path="../lab2/lab2_3_4_2_kernel_initialization.html">
+<a href="../lab2/lab2_3_4_2_kernel_initialization.html">
+            
+                    
+                    实现分页机制
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.5.3.5" data-path="../lab2/lab2_3_5_pmpt.html">
+<a href="../lab2/lab2_3_5_pmpt.html">
+            
+                    
+                    物理内存管理的设计思路
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.5.3.5.1" data-path="../lab2/lab2_3_5_1_pmm_init.html">
+<a href="../lab2/lab2_3_5_1_pmm_init.html">
+            
+                    
+                    物理内存管理的实现
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.5.3.5.2" data-path="../lab2/lab2_3_5_2_search_phymem_layout.html">
+<a href="../lab2/lab2_3_5_2_search_phymem_layout.html">
+            
+                    
+                    物理内存探测
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.5.3.5.3" data-path="../lab2/lab2_3_5_3_phymem_allocation.html">
+<a href="../lab2/lab2_3_5_3_phymem_allocation.html">
+            
+                    
+                    页面分配算法
+            
+                </a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.5.4" data-path="../lab2/lab2_4_qemu_mmu_debug.html">
+<a href="../lab2/lab2_4_qemu_mmu_debug.html">
+            
+                    
+                    分支任务：gdb 调试页表查询过程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.5.5" data-path="../lab2/lab2_5_labs_requirement.html">
+<a href="../lab2/lab2_5_labs_requirement.html">
+            
+                    
+                    实验报告要求
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.6" data-path="../lab3/lab3.html">
+<a href="../lab3/lab3.html">
+            
+                    
+                    lab3: 断,都可以断
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.6.1" data-path="../lab3/lab3_1_goals.html">
+<a href="../lab3/lab3_1_goals.html">
+            
+                    
+                    实验目的
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.6.2" data-path="../lab3/lab3_2_labs.html">
+<a href="../lab3/lab3_2_labs.html">
+            
+                    
+                    实验内容
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.6.2.1" data-path="../lab3/lab3_2_1_exercise.html">
+<a href="../lab3/lab3_2_1_exercise.html">
+            
+                    
+                    练习
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.6.2.2" data-path="../lab3/lab3_2_2_files.html">
+<a href="../lab3/lab3_2_2_files.html">
+            
+                    
+                    项目组成和执行流
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.6.3" data-path="../lab3/lab3_3_interrupt.html">
+<a href="../lab3/lab3_3_interrupt.html">
+            
+                    
+                    中断与中断处理流程
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.6.3.1" data-path="../lab3/lab3_3_1_introduce.html">
+<a href="../lab3/lab3_3_1_introduce.html">
+            
+                    
+                    riscv64 中断介绍
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.6.3.2" data-path="../lab3/lab3_3_2_trapentry.html">
+<a href="../lab3/lab3_3_2_trapentry.html">
+            
+                    
+                    掉进兔子洞(中断入口点)
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.6.3.3" data-path="../lab3/lab3_3_3_trap.html">
+<a href="../lab3/lab3_3_3_trap.html">
+            
+                    
+                    中断处理程序
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.6.3.4" data-path="../lab3/lab3_3_4_clock.html">
+<a href="../lab3/lab3_3_4_clock.html">
+            
+                    
+                    滴答滴答（时钟中断）
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.6.3.5" data-path="../lab3/lab3_3_5_atomic.html">
+<a href="../lab3/lab3_3_5_atomic.html">
+            
+                    
+                    断亦有断(中断的关闭和开启)
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.6.4" data-path="../lab3/lab3_4_lab_requirement.html">
+<a href="../lab3/lab3_4_lab_requirement.html">
+            
+                    
+                    实验报告要求
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.7" data-path="../lab4/lab4.html">
+<a href="../lab4/lab4.html">
+            
+                    
+                    lab4: 进程管理
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.7.1" data-path="../lab4/lab4_1_goals.html">
+<a href="../lab4/lab4_1_goals.html">
+            
+                    
+                    实验目的
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.7.2" data-path="../lab4/lab4_2_labs.html">
+<a href="../lab4/lab4_2_labs.html">
+            
+                    
+                    实验内容
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.7.2.1" data-path="../lab4/lab4_2_1_exercises.html">
+<a href="../lab4/lab4_2_1_exercises.html">
+            
+                    
+                    练习
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.7.2.2" data-path="../lab4/lab4_2_2_files.html">
+<a href="../lab4/lab4_2_2_files.html">
+            
+                    
+                    项目组成
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.7.3" data-path="../lab4/lab4_3_vmm.html">
+<a href="../lab4/lab4_3_vmm.html">
+            
+                    
+                    虚拟内存管理
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.7.3.1" data-path="../lab4/lab4_3_1_vmm_principles.html">
+<a href="../lab4/lab4_3_1_vmm_principles.html">
+            
+                    
+                    基本原理概述
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.7.3.2" data-path="../lab4/lab4_3_2_page_table_entry.html">
+<a href="../lab4/lab4_3_2_page_table_entry.html">
+            
+                    
+                    页表项设计思路
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.7.3.3" data-path="../lab4/lab4_3_3_multilevel_page_tables.html">
+<a href="../lab4/lab4_3_3_multilevel_page_tables.html">
+            
+                    
+                    使用多级页表实现虚拟存储
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.7.4" data-path="../lab4/lab4_4_kernel_thread_management.html">
+<a href="../lab4/lab4_4_kernel_thread_management.html">
+            
+                    
+                    内核线程管理
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.7.4.1" data-path="../lab4/lab4_4_1_pcb.html">
+<a href="../lab4/lab4_4_1_pcb.html">
+            
+                    
+                    设计关键数据结构
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.7.4.2" data-path="../lab4/lab4_4_2_create_exec_kernel_thread.html">
+<a href="../lab4/lab4_4_2_create_exec_kernel_thread.html">
+            
+                    
+                    创建并执行内核线程
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.7.4.2.1" data-path="../lab4/lab4_4_2_1_create_kthread_idleproc.html">
+<a href="../lab4/lab4_4_2_1_create_kthread_idleproc.html">
+            
+                    
+                    创建第 0 个内核线程 idleproc
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.7.4.2.2" data-path="../lab4/lab4_4_2_2_create_kthread_initproc.html">
+<a href="../lab4/lab4_4_2_2_create_kthread_initproc.html">
+            
+                    
+                    创建第 1 个内核线程 initproc
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.7.4.2.3" data-path="../lab4/lab4_4_2_3_sched_run_kthread.html">
+<a href="../lab4/lab4_4_2_3_sched_run_kthread.html">
+            
+                    
+                    调度并执行内核线程 initproc
+            
+                </a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.7.5" data-path="../lab4/lab4_5_labs_requirement.html">
+<a href="../lab4/lab4_5_labs_requirement.html">
+            
+                    
+                    实验报告要求
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.8" data-path="../lab5/lab5.html">
+<a href="../lab5/lab5.html">
+            
+                    
+                    lab5: 用户程序
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.8.1" data-path="../lab5/lab5_1_goals.html">
+<a href="../lab5/lab5_1_goals.html">
+            
+                    
+                    实验目的
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.8.2" data-path="../lab5/lab5_2_labs.html">
+<a href="../lab5/lab5_2_labs.html">
+            
+                    
+                    实验内容
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.8.2.1" data-path="../lab5/lab5_2_1_exercises.html">
+<a href="../lab5/lab5_2_1_exercises.html">
+            
+                    
+                    练习
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.8.2.2" data-path="../lab5/lab5_2_2_files.html">
+<a href="../lab5/lab5_2_2_files.html">
+            
+                    
+                    项目组成
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.8.3" data-path="../lab5/lab5_3_user_process.html">
+<a href="../lab5/lab5_3_user_process.html">
+            
+                    
+                    用户进程管理
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.8.3.1" data-path="../lab5/lab5_3_1_lab_steps.html">
+<a href="../lab5/lab5_3_1_lab_steps.html">
+            
+                    
+                    实验流程概述
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.8.3.2" data-path="../lab5/lab5_3_2_create_user_process.html">
+<a href="../lab5/lab5_3_2_create_user_process.html">
+            
+                    
+                    用户进程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.8.3.3" data-path="../lab5/lab5_3_3_syscall.html">
+<a href="../lab5/lab5_3_3_syscall.html">
+            
+                    
+                    系统调用实现
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.8.3.4" data-path="../lab5/lab5_3_4_first_user.html">
+<a href="../lab5/lab5_3_4_first_user.html">
+            
+                    
+                    第一次进入用户态
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.8.3.5" data-path="../lab5/lab5_3_5_trap_process.html">
+<a href="../lab5/lab5_3_5_trap_process.html">
+            
+                    
+                    中断处理
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.8.3.6" data-path="../lab5/lab5_3_6_process_exit.html">
+<a href="../lab5/lab5_3_6_process_exit.html">
+            
+                    
+                    进程退出
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.8.4" data-path="../lab5/lab5_4_gdb_ecall.html">
+<a href="../lab5/lab5_4_gdb_ecall.html">
+            
+                    
+                    分支任务：gdb 调试系统调用以及返回
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.8.5" data-path="../lab5/lab5_5_lab_requirement.html">
+<a href="../lab5/lab5_5_lab_requirement.html">
+            
+                    
+                    实验报告要求
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.9" data-path="../lab6/lab6.html">
+<a href="../lab6/lab6.html">
+            
+                    
+                    lab6: 进程调度
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.9.1" data-path="../lab6/lab6_1_goals.html">
+<a href="../lab6/lab6_1_goals.html">
+            
+                    
+                    实验目的
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.9.2" data-path="../lab6/lab6_2_lab_content.html">
+<a href="../lab6/lab6_2_lab_content.html">
+            
+                    
+                    实验内容
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.9.2.1" data-path="../lab6/lab6_2_1_exercises.html">
+<a href="../lab6/lab6_2_1_exercises.html">
+            
+                    
+                    练习
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.9.2.2" data-path="../lab6/lab6_2_2_structure.html">
+<a href="../lab6/lab6_2_2_structure.html">
+            
+                    
+                    项目组成
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.9.3" data-path="../lab6/lab6_3_schedule_design.html">
+<a href="../lab6/lab6_3_schedule_design.html">
+            
+                    
+                    调度框架和调度算法设计与实现
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.9.3.1" data-path="../lab6/lab6_3_1_intro.html">
+<a href="../lab6/lab6_3_1_intro.html">
+            
+                    
+                    进程状态
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.9.3.2" data-path="../lab6/lab6_3_2_switch.html">
+<a href="../lab6/lab6_3_2_switch.html">
+            
+                    
+                    深入理解进程切换
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.9.3.3" data-path="../lab6/lab6_3_3_schedule.html">
+<a href="../lab6/lab6_3_3_schedule.html">
+            
+                    
+                    调度算法框架
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.9.3.4" data-path="../lab6/lab6_3_4_RR.html">
+<a href="../lab6/lab6_3_4_RR.html">
+            
+                    
+                    RR调度算法实现
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.9.3.5" data-path="../lab6/lab6_3_5_stride.html">
+<a href="../lab6/lab6_3_5_stride.html">
+            
+                    
+                    stride调度算法
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.9.3.5.1" data-path="../lab6/lab6_3_5_1_base_method.html">
+<a href="../lab6/lab6_3_5_1_base_method.html">
+            
+                    
+                    基本思路
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.9.3.5.2" data-path="../lab6/lab6_3_5_2_priority_queue.html">
+<a href="../lab6/lab6_3_5_2_priority_queue.html">
+            
+                    
+                    使用优先队列实现 Stride Scheduling
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.9.3.5.3" data-path="../lab6/lab6_3_5_3_execution_result.html">
+<a href="../lab6/lab6_3_5_3_execution_result.html">
+            
+                    
+                    stride调度算法执行 make qemu 的大致输出
+            
+                </a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.9.4" data-path="../lab6/lab6_5_labs_requirement.html">
+<a href="../lab6/lab6_5_labs_requirement.html">
+            
+                    
+                    实验报告要求
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.10" data-path="../lab7/lab7.html">
+<a href="../lab7/lab7.html">
+            
+                    
+                    lab7: 同步互斥
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.10.1" data-path="../lab7/lab7_1_goals.html">
+<a href="../lab7/lab7_1_goals.html">
+            
+                    
+                    实验目的
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.10.2" data-path="../lab7/lab7_2_labs.html">
+<a href="../lab7/lab7_2_labs.html">
+            
+                    
+                    实验内容
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.10.2.1" data-path="../lab7/lab7_2_1_exercises.html">
+<a href="../lab7/lab7_2_1_exercises.html">
+            
+                    
+                    练习
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.10.2.2" data-path="../lab7/lab7_2_2_files.html">
+<a href="../lab7/lab7_2_2_files.html">
+            
+                    
+                    项目组成
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.10.3" data-path="../lab7/lab7_3_concept.html">
+<a href="../lab7/lab7_3_concept.html">
+            
+                    
+                    同步互斥的一些基本概念
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.10.4" data-path="../lab7/lab7_4_semaphore.html">
+<a href="../lab7/lab7_4_semaphore.html">
+            
+                    
+                    信号量
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.10.5" data-path="../lab7/lab7_5_monitor.html">
+<a href="../lab7/lab7_5_monitor.html">
+            
+                    
+                    管程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.10.6" data-path="../lab7/lab7_6_lab_requirement.html">
+<a href="../lab7/lab7_6_lab_requirement.html">
+            
+                    
+                    实验报告要求
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.11" data-path="lab8.html">
+<a href="lab8.html">
+            
+                    
+                    lab8: 文件系统
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.11.1" data-path="lab8_1_goals.html">
+<a href="lab8_1_goals.html">
+            
+                    
+                    实验目的
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.11.2" data-path="lab8_2_labs.html">
+<a href="lab8_2_labs.html">
+            
+                    
+                    实验内容
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.11.2.1" data-path="lab8_2_1_exercises.html">
+<a href="lab8_2_1_exercises.html">
+            
+                    
+                    练习
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.11.2.2" data-path="lab8_2_2_files.html">
+<a href="lab8_2_2_files.html">
+            
+                    
+                    项目组成
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.11.3" data-path="lab8_3_FS.html">
+<a href="lab8_3_FS.html">
+            
+                    
+                    文件系统
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.11.3.1" data-path="lab8_3_1_fs_introduction.html">
+<a href="lab8_3_1_fs_introduction.html">
+            
+                    
+                    文件系统概述
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.11.3.2" data-path="lab8_3_2_vfs.html">
+<a href="lab8_3_2_vfs.html">
+            
+                    
+                    文件系统抽象层VFS
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.11.3.3" data-path="lab8_3_3_sfs.html">
+<a href="lab8_3_3_sfs.html">
+            
+                    
+                    硬盘文件系统SFS
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.11.3.4" data-path="lab8_3_4_device.html">
+<a href="lab8_3_4_device.html">
+            
+                    
+                    设备
+            
+                </a>
+</li>
+<li class="chapter active" data-level="1.11.3.5" data-path="lab8_3_5_file_open.html">
+<a href="lab8_3_5_file_open.html">
+            
+                    
+                    open 系统调用的执行过程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.11.3.6" data-path="lab8_3_6_file_read.html">
+<a href="lab8_3_6_file_read.html">
+            
+                    
+                    read 系统调用的执行过程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.11.3.7" data-path="lab8_3_7_execve_shell.html">
+<a href="lab8_3_7_execve_shell.html">
+            
+                    
+                    用户程序加载与终端执行
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.11.4" data-path="lab8_4_lab_requirement.html">
+<a href="lab8_4_lab_requirement.html">
+            
+                    
+                    实验报告要求
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.12" data-path="../lab9/lab9.html">
+<a href="../lab9/lab9.html">
+            
+                    
+                    lab9: 页面置换与内存映射
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.12.1" data-path="../lab9/lab9_1_goals.html">
+<a href="../lab9/lab9_1_goals.html">
+            
+                    
+                    实验目的
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.12.2" data-path="../lab9/lab9_2_lab_contents.html">
+<a href="../lab9/lab9_2_lab_contents.html">
+            
+                    
+                    实验内容
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.12.2.1" data-path="../lab9/lab9_2_1_exercises.html">
+<a href="../lab9/lab9_2_1_exercises.html">
+            
+                    
+                    练习
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.12.2.2" data-path="../lab9/lab9_2_2_filses.html">
+<a href="../lab9/lab9_2_2_filses.html">
+            
+                    
+                    项目组成
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.12.3" data-path="../lab9/lab9_3_swaping.html">
+<a href="../lab9/lab9_3_swaping.html">
+            
+                    
+                    页面置换机制的实现
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.12.3.1" data-path="../lab9/lab9_3_1_driver_and_storage.html">
+<a href="../lab9/lab9_3_1_driver_and_storage.html">
+            
+                    
+                    页面置换后的驱动和存储
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.12.3.2" data-path="../lab9/lab9_3_2_page_fault_handler.html">
+<a href="../lab9/lab9_3_2_page_fault_handler.html">
+            
+                    
+                    处理缺页异常
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.12.3.3" data-path="../lab9/lab9_3_3_page_swapping.html">
+<a href="../lab9/lab9_3_3_page_swapping.html">
+            
+                    
+                    页替换算法和机制实现
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.12.3.4" data-path="../lab9/lab9_3_4_page_swapping_principles.html">
+<a href="../lab9/lab9_3_4_page_swapping_principles.html">
+            
+                    
+                    FIFO页面置换算法
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.12.4" data-path="../lab9/lab9_4_mmap.html">
+<a href="../lab9/lab9_4_mmap.html">
+            
+                    
+                    内存映射机制的实现
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.12.5" data-path="../lab9/lab9_5_labs_requirement.html">
+<a href="../lab9/lab9_5_labs_requirement.html">
+            
+                    
+                    实验报告要求
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="chapter" data-level="1.13" data-path="../appendix/intro.html">
+<a href="../appendix/intro.html">
+            
+                    
+                    附录
+            
+                </a>
+<ul class="articles">
+<li class="chapter" data-level="1.13.1" data-path="../appendix/1_makefile.html">
+<a href="../appendix/1_makefile.html">
+            
+                    
+                    makefile 简介
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.13.2" data-path="../appendix/4_process_overview.html">
+<a href="../appendix/4_process_overview.html">
+            
+                    
+                    【原理】进程的属性与特征解析
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.13.3" data-path="../appendix/5_user_process.html">
+<a href="../appendix/5_user_process.html">
+            
+                    
+                    【原理】用户进程的特征
+            
+                </a>
+</li>
+</ul>
+</li>
+<li class="divider"></li>
+<li>
+<a class="gitbook-link" href="https://github.com/honkit/honkit" target="blank">
+            本书使用 HonKit 发布
+        </a>
+</li>
+</ul>
+</nav>
+</div>
+<div class="book-body">
+<div class="body-inner">
+<div class="book-header" role="navigation">
+<!-- Title -->
+<h1>
+<i class="fa fa-circle-o-notch fa-spin"></i>
+<a href="../index.html">open 系统调用的执行过程</a>
+</h1>
+</div>
+<div class="page-wrapper" role="main" tabindex="-1">
+<div class="page-inner">
+<div id="book-search-results">
+<div class="search-noresults">
+<section class="normal markdown-section">
+<html><head></head><body><h3 id="open-系统调用的执行过程">open 系统调用的执行过程</h3>
+<p>下面我们通过打开文件的系统调用<code>open()</code>的执行过程, 看看文件系统的不同层次是如何交互的。</p>
+<h4 id="通用文件访问接口层的处理流程"><strong>通用文件访问接口层的处理流程</strong></h4>
+<p>首先，经过<code>syscall.c</code>的处理之后，进入内核态，执行<code>sysfile_open()</code>函数</p>
+<pre class="language-"><code class="lang-c"><span class="token comment">// kern/fs/sysfile.c</span>
+<span class="token comment">/* sysfile_open - open file */</span>
+<span class="token keyword">int</span> <span class="token function">sysfile_open</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>__path<span class="token punctuation">,</span> <span class="token class-name">uint32_t</span> open_flags<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> ret<span class="token punctuation">;</span>
+    <span class="token keyword">char</span> <span class="token operator">*</span>path<span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>ret <span class="token operator">=</span> <span class="token function">copy_path</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>path<span class="token punctuation">,</span> __path<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> ret<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    ret <span class="token operator">=</span> <span class="token function">file_open</span><span class="token punctuation">(</span>path<span class="token punctuation">,</span> open_flags<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">kfree</span><span class="token punctuation">(</span>path<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> ret<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>到了这里，需要把位于用户空间的字符串<code>__path</code>拷贝到内核空间中的字符串<code>path</code>中，然后调用了<code>file_open</code>， <code>file_open</code>调用了<code>vfs_open</code>， 使用了VFS的接口,进入到文件系统抽象层的处理流程完成进一步的打开文件操作中。</p>
+<h4 id="文件系统抽象层的处理流程"><strong>文件系统抽象层的处理流程</strong></h4>
+<p>1、分配一个空闲的<code>file</code>数据结构变量<code>file</code>在文件系统抽象层的处理中，首先调用的是<code>file_open</code>函数，它要给这个即将打开的文件分配一个<code>file</code>数据结构的变量，这个变量其实是当前进程的打开文件数组<code>current-&gt;filesp-&gt;fd_array[]</code>中的一个空闲元素（即还没用于一个打开的文件），而这个元素的索引值就是最终要返回到用户进程并赋值给变量<code>fd</code>。到了这一步还仅仅是给当前用户进程分配了一个<code>file</code>数据结构的变量，还没有找到对应的文件索引节点。</p>
+<pre class="language-"><code class="lang-c"><span class="token comment">// kern/fs/file.c</span>
+<span class="token comment">// open file</span>
+<span class="token keyword">int</span> <span class="token function">file_open</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span>path<span class="token punctuation">,</span> <span class="token class-name">uint32_t</span> open_flags<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    bool readable <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> writable <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">switch</span> <span class="token punctuation">(</span>open_flags <span class="token operator">&amp;</span> O_ACCMODE<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">//解析 open_flags</span>
+    <span class="token keyword">case</span> O_RDONLY<span class="token operator">:</span> readable <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token keyword">case</span> O_WRONLY<span class="token operator">:</span> writable <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token keyword">case</span> O_RDWR<span class="token operator">:</span>
+        readable <span class="token operator">=</span> writable <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token keyword">default</span><span class="token operator">:</span>
+        <span class="token keyword">return</span> <span class="token operator">-</span>E_INVAL<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">int</span> ret<span class="token punctuation">;</span>
+    <span class="token keyword">struct</span> <span class="token class-name">file</span> <span class="token operator">*</span>file<span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>ret <span class="token operator">=</span> <span class="token function">fd_array_alloc</span><span class="token punctuation">(</span>NO_FD<span class="token punctuation">,</span> <span class="token operator">&amp;</span>file<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">//在当前进程分配file descriptor</span>
+        <span class="token keyword">return</span> ret<span class="token punctuation">;</span> 
+    <span class="token punctuation">}</span>
+    <span class="token keyword">struct</span> <span class="token class-name">inode</span> <span class="token operator">*</span>node<span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>ret <span class="token operator">=</span> <span class="token function">vfs_open</span><span class="token punctuation">(</span>path<span class="token punctuation">,</span> open_flags<span class="token punctuation">,</span> <span class="token operator">&amp;</span>node<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">//打开文件的工作在vfs_open完成</span>
+        <span class="token function">fd_array_free</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//打开失败，释放file descriptor</span>
+        <span class="token keyword">return</span> ret<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    file<span class="token operator">-&gt;</span>pos <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>open_flags <span class="token operator">&amp;</span> O_APPEND<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">struct</span> <span class="token class-name">stat</span> __stat<span class="token punctuation">,</span> <span class="token operator">*</span>stat <span class="token operator">=</span> <span class="token operator">&amp;</span>__stat<span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>ret <span class="token operator">=</span> <span class="token function">vop_fstat</span><span class="token punctuation">(</span>node<span class="token punctuation">,</span> stat<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">vfs_close</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">fd_array_free</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> ret<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        file<span class="token operator">-&gt;</span>pos <span class="token operator">=</span> stat<span class="token operator">-&gt;</span>st_size<span class="token punctuation">;</span> <span class="token comment">//追加写模式，设置当前位置为文件尾</span>
+    <span class="token punctuation">}</span>
+    file<span class="token operator">-&gt;</span>node <span class="token operator">=</span> node<span class="token punctuation">;</span>
+    file<span class="token operator">-&gt;</span>readable <span class="token operator">=</span> readable<span class="token punctuation">;</span>
+    file<span class="token operator">-&gt;</span>writable <span class="token operator">=</span> writable<span class="token punctuation">;</span>
+    <span class="token function">fd_array_open</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//设置该文件的状态为“打开”</span>
+    <span class="token keyword">return</span> file<span class="token operator">-&gt;</span>fd<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>为此需要进一步调用<code>vfs_open</code>函数来找到<code>path</code>指出的文件所对应的基于<code>inode</code>数据结构的VFS索引节点<code>node</code>。<code>vfs_open</code>函数需要完成两件事情：通过<code>vfs_lookup</code>找到<code>path</code>对应文件的<code>inode</code>；调用<code>vop_open</code>函数打开文件。<code>vfs_open</code>是一个比较复杂的函数，这里我们使用的打开文件的<code>flags</code>， 基本是参照linux，如果希望详细了解，可以阅读<a href="https://man7.org/linux/man-pages/man2/open.2.html" target="_blank">linux manual: open</a>。</p>
+<pre class="language-"><code class="lang-c">
+<span class="token comment">// kern/fs/vfs/vfsfile.c</span>
+
+<span class="token comment">// open file in vfs, get/create inode for file with filename path.</span>
+<span class="token keyword">int</span> <span class="token function">vfs_open</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span>path<span class="token punctuation">,</span> <span class="token class-name">uint32_t</span> open_flags<span class="token punctuation">,</span> <span class="token keyword">struct</span> <span class="token class-name">inode</span> <span class="token operator">*</span><span class="token operator">*</span>node_store<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    bool can_write <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token comment">// 解析open_flags并做合法性检查</span>
+    <span class="token keyword">switch</span> <span class="token punctuation">(</span>open_flags <span class="token operator">&amp;</span> O_ACCMODE<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">case</span> O_RDONLY<span class="token operator">:</span>
+        <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token keyword">case</span> O_WRONLY<span class="token operator">:</span>
+    <span class="token keyword">case</span> O_RDWR<span class="token operator">:</span>
+        can_write <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token keyword">default</span><span class="token operator">:</span>
+        <span class="token keyword">return</span> <span class="token operator">-</span>E_INVAL<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>open_flags <span class="token operator">&amp;</span> O_TRUNC<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>can_write<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token operator">-</span>E_INVAL<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token comment">/*
+linux manual
+       O_TRUNC
+              If the file already exists and is a regular file and the
+              access mode allows writing (i.e., is O_RDWR or O_WRONLY) it
+              will be truncated to length 0.  If the file is a FIFO or ter‐
+              minal device file, the O_TRUNC flag is ignored.  Otherwise,
+              the effect of O_TRUNC is unspecified.
+*/</span>
+    <span class="token keyword">int</span> ret<span class="token punctuation">;</span> 
+    <span class="token keyword">struct</span> <span class="token class-name">inode</span> <span class="token operator">*</span>node<span class="token punctuation">;</span>
+    bool excl <span class="token operator">=</span> <span class="token punctuation">(</span>open_flags <span class="token operator">&amp;</span> O_EXCL<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    bool create <span class="token operator">=</span> <span class="token punctuation">(</span>open_flags <span class="token operator">&amp;</span> O_CREAT<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    ret <span class="token operator">=</span> <span class="token function">vfs_lookup</span><span class="token punctuation">(</span>path<span class="token punctuation">,</span> <span class="token operator">&amp;</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// vfs_lookup根据路径构造inode</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>ret <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token comment">//要打开的文件还不存在，可能出错，也可能需要创建新文件</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>ret <span class="token operator">==</span> <span class="token operator">-</span>E_NOENT <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>create<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">char</span> <span class="token operator">*</span>name<span class="token punctuation">;</span>
+            <span class="token keyword">struct</span> <span class="token class-name">inode</span> <span class="token operator">*</span>dir<span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>ret <span class="token operator">=</span> <span class="token function">vfs_lookup_parent</span><span class="token punctuation">(</span>path<span class="token punctuation">,</span> <span class="token operator">&amp;</span>dir<span class="token punctuation">,</span> <span class="token operator">&amp;</span>name<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">return</span> ret<span class="token punctuation">;</span><span class="token comment">//需要在已经存在的目录下创建文件，目录不存在，则出错</span>
+            <span class="token punctuation">}</span>
+            ret <span class="token operator">=</span> <span class="token function">vop_create</span><span class="token punctuation">(</span>dir<span class="token punctuation">,</span> name<span class="token punctuation">,</span> excl<span class="token punctuation">,</span> <span class="token operator">&amp;</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//创建新文件</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">return</span> ret<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>excl <span class="token operator">&amp;&amp;</span> create<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token operator">-</span>E_EXISTS<span class="token punctuation">;</span>
+        <span class="token comment">/*
+        linux manual
+              O_EXCL Ensure that this call creates the file: if this flag is
+              specified in conjunction with O_CREAT, and pathname already
+              exists, then open() fails with the error EEXIST.
+        */</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">assert</span><span class="token punctuation">(</span>node <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>ret <span class="token operator">=</span> <span class="token function">vop_open</span><span class="token punctuation">(</span>node<span class="token punctuation">,</span> open_flags<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+        <span class="token function">vop_ref_dec</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> ret<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token function">vop_open_inc</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>open_flags <span class="token operator">&amp;</span> O_TRUNC <span class="token operator">||</span> create<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>ret <span class="token operator">=</span> <span class="token function">vop_truncate</span><span class="token punctuation">(</span>node<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">vop_open_dec</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">vop_ref_dec</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> ret<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token operator">*</span>node_store <span class="token operator">=</span> node<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><code>vfs_lookup</code>函数是一个针对目录的操作函数，它会调用<code>vop_lookup</code>函数来找到SFS文件系统中的目录下的文件。为此，<code>vfs_lookup</code>函数首先调用<code>get_device</code>函数，并进一步调用<code>vfs_get_bootfs</code>函数（其实调用了）来找到根目录<code>“/”</code>对应的<code>inode</code>。这个<code>inode</code>就是位于<code>vfs.c</code>中的<code>inode</code>变量<code>bootfs_node</code>。这个变量在<code>init_main</code>函数（位于<code>kern/process/proc.c</code>）执行时获得了赋值。通过调用<code>vop_lookup</code>函数来查找到根目录<code>“/”</code>下对应文件<code>sfs_filetest1</code>的索引节点，，如果找到就返回此索引节点。</p>
+<pre class="language-"><code class="lang-c">
+<span class="token comment">/*
+ * get_device- Common code to pull the device name, if any, off the front of a
+ *             path and choose the inode to begin the name lookup relative to.
+ */</span>
+
+<span class="token keyword">static</span> <span class="token keyword">int</span> <span class="token function">get_device</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span>path<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token operator">*</span><span class="token operator">*</span>subpath<span class="token punctuation">,</span> <span class="token keyword">struct</span> <span class="token class-name">inode</span> <span class="token operator">*</span><span class="token operator">*</span>node_store<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> i<span class="token punctuation">,</span> slash <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> colon <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> path<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">!=</span> <span class="token char">'\0'</span><span class="token punctuation">;</span> i <span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>path<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token char">':'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> colon <span class="token operator">=</span> i<span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>path<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token char">'/'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> slash <span class="token operator">=</span> i<span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>colon <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> slash <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">/* *
+      * No colon before a slash, so no device name specified, and the slash isn't leading
+      * or is also absent, so this is a relative path or just a bare filename. Start from
+      * the current directory, and use the whole thing as the subpath.
+      * */</span>
+        <span class="token operator">*</span>subpath <span class="token operator">=</span> path<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token function">vfs_get_curdir</span><span class="token punctuation">(</span>node_store<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//把当前目录的inode存到node_store</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>colon <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">/* device:path - get root of device's filesystem */</span>
+        path<span class="token punctuation">[</span>colon<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token char">'\0'</span><span class="token punctuation">;</span>
+
+        <span class="token comment">/* device:/path - skip slash, treat as device:path */</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>path<span class="token punctuation">[</span><span class="token operator">++</span> colon<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token char">'/'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token operator">*</span>subpath <span class="token operator">=</span> path <span class="token operator">+</span> colon<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token function">vfs_get_root</span><span class="token punctuation">(</span>path<span class="token punctuation">,</span> node_store<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/* *
+     * we have either /path or :path
+     * /path is a path relative to the root of the "boot filesystem"
+     * :path is a path relative to the root of the current filesystem
+     * */</span>
+    <span class="token keyword">int</span> ret<span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">*</span>path <span class="token operator">==</span> <span class="token char">'/'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>ret <span class="token operator">=</span> <span class="token function">vfs_get_bootfs</span><span class="token punctuation">(</span>node_store<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> ret<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token function">assert</span><span class="token punctuation">(</span><span class="token operator">*</span>path <span class="token operator">==</span> <span class="token char">':'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">struct</span> <span class="token class-name">inode</span> <span class="token operator">*</span>node<span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>ret <span class="token operator">=</span> <span class="token function">vfs_get_curdir</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>node<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> ret<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment">/* The current directory may not be a device, so it must have a fs. */</span>
+        <span class="token function">assert</span><span class="token punctuation">(</span>node<span class="token operator">-&gt;</span>in_fs <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token operator">*</span>node_store <span class="token operator">=</span> <span class="token function">fsop_get_root</span><span class="token punctuation">(</span>node<span class="token operator">-&gt;</span>in_fs<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">vop_ref_dec</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/* ///... or :/... */</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token operator">++</span> path<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token char">'/'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token operator">*</span>subpath <span class="token operator">=</span> path<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/*
+ * vfs_lookup - get the inode according to the path filename
+ */</span>
+<span class="token keyword">int</span> <span class="token function">vfs_lookup</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span>path<span class="token punctuation">,</span> <span class="token keyword">struct</span> <span class="token class-name">inode</span> <span class="token operator">*</span><span class="token operator">*</span>node_store<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> ret<span class="token punctuation">;</span>
+    <span class="token keyword">struct</span> <span class="token class-name">inode</span> <span class="token operator">*</span>node<span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>ret <span class="token operator">=</span> <span class="token function">get_device</span><span class="token punctuation">(</span>path<span class="token punctuation">,</span> <span class="token operator">&amp;</span>path<span class="token punctuation">,</span> <span class="token operator">&amp;</span>node<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> ret<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">*</span>path <span class="token operator">!=</span> <span class="token char">'\0'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        ret <span class="token operator">=</span> <span class="token function">vop_lookup</span><span class="token punctuation">(</span>node<span class="token punctuation">,</span> path<span class="token punctuation">,</span> node_store<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">vop_ref_dec</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> ret<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token operator">*</span>node_store <span class="token operator">=</span> node<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/*
+ * vfs_lookup_parent - Name-to-vnode translation.
+ *  (In BSD, both of these are subsumed by namei().)
+ */</span>
+<span class="token keyword">int</span> <span class="token function">vfs_lookup_parent</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span>path<span class="token punctuation">,</span> <span class="token keyword">struct</span> <span class="token class-name">inode</span> <span class="token operator">*</span><span class="token operator">*</span>node_store<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token operator">*</span><span class="token operator">*</span>endp<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">int</span> ret<span class="token punctuation">;</span>
+    <span class="token keyword">struct</span> <span class="token class-name">inode</span> <span class="token operator">*</span>node<span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>ret <span class="token operator">=</span> <span class="token function">get_device</span><span class="token punctuation">(</span>path<span class="token punctuation">,</span> <span class="token operator">&amp;</span>path<span class="token punctuation">,</span> <span class="token operator">&amp;</span>node<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> ret<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token operator">*</span>endp <span class="token operator">=</span> path<span class="token punctuation">;</span>
+    <span class="token operator">*</span>node_store <span class="token operator">=</span> node<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>我们注意到，这个流程中，有大量以<code>vop</code>开头的函数，它们都通过一些宏和函数的转发，最后变成对<code>inode</code>结构体里的<code>inode_ops</code>结构体的“成员函数”（实际上是函数指针）的调用。对于SFS文件系统的<code>inode</code>来说，会变成对<code>sfs</code>文件系统的具体操作。</p>
+<h4 id="sfs文件系统层的处理流程">SFS文件系统层的处理流程</h4>
+<p>这里需要分析文件系统抽象层中没有彻底分析的<code>vop_lookup</code>函数到底做了啥。下面我们来看看。在<code>sfs_inode.c</code>中的<code>sfs_node_dirops</code>变量定义了“.vop_lookup = sfs_lookup”，所以我们重点分析<code>sfs_lookup</code>的实现。注意：在lab8中，为简化代码，<code>sfs_lookup</code>函数中并没有实现能够对多级目录进行查找的控制逻辑（在ucore_plus中有实现）。</p>
+<pre class="language-"><code class="lang-c"><span class="token comment">/*
+ * sfs_lookup - Parse path relative to the passed directory
+ *              DIR, and hand back the inode for the file it
+ *              refers to.
+ */</span>
+<span class="token keyword">static</span> <span class="token keyword">int</span>
+<span class="token function">sfs_lookup</span><span class="token punctuation">(</span><span class="token keyword">struct</span> <span class="token class-name">inode</span> <span class="token operator">*</span>node<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token operator">*</span>path<span class="token punctuation">,</span> <span class="token keyword">struct</span> <span class="token class-name">inode</span> <span class="token operator">*</span><span class="token operator">*</span>node_store<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">struct</span> <span class="token class-name">sfs_fs</span> <span class="token operator">*</span>sfs <span class="token operator">=</span> <span class="token function">fsop_info</span><span class="token punctuation">(</span><span class="token function">vop_fs</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">,</span> sfs<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">assert</span><span class="token punctuation">(</span><span class="token operator">*</span>path <span class="token operator">!=</span> <span class="token char">'\0'</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">*</span>path <span class="token operator">!=</span> <span class="token char">'/'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">vop_ref_inc</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">struct</span> <span class="token class-name">sfs_inode</span> <span class="token operator">*</span>sin <span class="token operator">=</span> <span class="token function">vop_info</span><span class="token punctuation">(</span>node<span class="token punctuation">,</span> sfs_inode<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>sin<span class="token operator">-&gt;</span>din<span class="token operator">-&gt;</span>type <span class="token operator">!=</span> SFS_TYPE_DIR<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">vop_ref_dec</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token operator">-</span>E_NOTDIR<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">struct</span> <span class="token class-name">inode</span> <span class="token operator">*</span>subnode<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> ret <span class="token operator">=</span> <span class="token function">sfs_lookup_once</span><span class="token punctuation">(</span>sfs<span class="token punctuation">,</span> sin<span class="token punctuation">,</span> path<span class="token punctuation">,</span> <span class="token operator">&amp;</span>subnode<span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">vop_ref_dec</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>ret <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> ret<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token operator">*</span>node_store <span class="token operator">=</span> subnode<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><code>sfs_lookup</code>有三个参数：<code>node</code>，<code>path</code>，<code>node_store</code>。其中<code>node</code>是根目录<code>“/”</code>所对应的<code>inode</code>节点；<code>path</code>是文件<code>sfs_filetest1</code>的绝对路径<code>/sfs_filetest1</code>而<code>node_store</code>是经过查找获得的<code>sfs_filetest1</code>所对应的<code>inode</code>节点。</p>
+<p><code>sfs_lookup</code>函数以<code>“/”</code>为分割符，从左至右逐一分解<code>path</code>获得各个子目录和最终文件对应的<code>inode</code>节点。在本例中是调用<code>sfs_lookup_once</code>查找以根目录下的文件<code>sfs_filetest1</code>所对应的<code>inode</code>节点。当无法分解<code>path</code>后，就意味着找到了<code>sfs_filetest1</code>对应的<code>inode</code>节点，就可顺利返回了。</p>
+<pre class="language-"><code class="lang-c"><span class="token comment">/*
+ * sfs_lookup_once - find inode corresponding the file name in DIR's sin inode 
+ * @sfs:        sfs file system
+ * @sin:        DIR sfs inode in memory
+ * @name:       the file name in DIR
+ * @node_store: the inode corresponding the file name in DIR
+ * @slot:       the logical index of file entry
+ */</span>
+<span class="token keyword">static</span> <span class="token keyword">int</span>
+<span class="token function">sfs_lookup_once</span><span class="token punctuation">(</span><span class="token keyword">struct</span> <span class="token class-name">sfs_fs</span> <span class="token operator">*</span>sfs<span class="token punctuation">,</span> <span class="token keyword">struct</span> <span class="token class-name">sfs_inode</span> <span class="token operator">*</span>sin<span class="token punctuation">,</span> <span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>name<span class="token punctuation">,</span> <span class="token keyword">struct</span> <span class="token class-name">inode</span> <span class="token operator">*</span><span class="token operator">*</span>node_store<span class="token punctuation">,</span> <span class="token keyword">int</span> <span class="token operator">*</span>slot<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> ret<span class="token punctuation">;</span>
+    <span class="token class-name">uint32_t</span> ino<span class="token punctuation">;</span>
+    <span class="token function">lock_sin</span><span class="token punctuation">(</span>sin<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">{</span>   <span class="token comment">// find the NO. of disk block and logical index of file entry</span>
+        ret <span class="token operator">=</span> <span class="token function">sfs_dirent_search_nolock</span><span class="token punctuation">(</span>sfs<span class="token punctuation">,</span> sin<span class="token punctuation">,</span> name<span class="token punctuation">,</span> <span class="token operator">&amp;</span>ino<span class="token punctuation">,</span> slot<span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">unlock_sin</span><span class="token punctuation">(</span>sin<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>ret <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// load the content of inode with the the NO. of disk block</span>
+        ret <span class="token operator">=</span> <span class="token function">sfs_load_inode</span><span class="token punctuation">(</span>sfs<span class="token punctuation">,</span> node_store<span class="token punctuation">,</span> ino<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> ret<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>当然这里讲得还比较简单，<code>sfs_lookup_once</code>将调用<code>sfs_dirent_search_nolock</code>函数来查找与路径名匹配的目录项，如果找到目录项，则根据目录项中记录的<code>inode</code>所处的数据块索引值找到路径名对应的SFS磁盘<code>inode</code>，并读入SFS磁盘<code>inode</code>对的内容，创建SFS内存<code>inode</code>。</p>
+</body></html>
+</section>
+</div>
+<div class="search-results">
+<div class="has-results">
+<h1 class="search-results-title"><span class="search-results-count"></span> results matching "<span class="search-query"></span>"</h1>
+<ul class="search-results-list"></ul>
+</div>
+<div class="no-results">
+<h1 class="search-results-title">No results matching "<span class="search-query"></span>"</h1>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<a aria-label="Previous page: 设备" class="navigation navigation-prev" href="lab8_3_4_device.html">
+<i class="fa fa-angle-left"></i>
+</a>
+<a aria-label="Next page: read 系统调用的执行过程" class="navigation navigation-next" href="lab8_3_6_file_read.html">
+<i class="fa fa-angle-right"></i>
+</a>
+</div>
+<script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"open 系统调用的执行过程","level":"1.11.3.5","depth":3,"next":{"title":"read 系统调用的执行过程","level":"1.11.3.6","depth":3,"path":"lab8/lab8_3_6_file_read.md","ref":"lab8/lab8_3_6_file_read.md","articles":[]},"previous":{"title":"设备","level":"1.11.3.4","depth":3,"path":"lab8/lab8_3_4_device.md","ref":"lab8/lab8_3_4_device.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-highlight","prism"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"riscv64-ucore 操作系统实验指导书","language":"zh-hans","gitbook":"*"},"file":{"path":"lab8/lab8_3_5_file_open.md","mtime":"2026-09-20T09:37:39.683Z","type":"markdown"},"gitbook":{"version":"6.2.2","time":"2026-09-22T10:28:40.776Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+<noscript>
+<style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+</noscript>
+<script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+<script src="../gitbook/gitbook.js"></script>
+<script src="../gitbook/theme.js"></script>
+<script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+<script src="../gitbook/gitbook-plugin-search/search.js"></script>
+<script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+<script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+<script src="../gitbook/@honkit/honkit-plugin-fontsettings/fontsettings.js"></script>
+</body>
+</html>

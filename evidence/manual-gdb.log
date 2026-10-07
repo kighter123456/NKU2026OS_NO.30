@@ -1,0 +1,7 @@
+gdb-multiarch -batch \
+    -ex 'file bin/kernel' \
+    -ex 'set arch riscv:rv64' \
+    -ex 'target remote localhost:1234'
+The target architecture is set to "riscv:rv64".
+0x0000000000001000 in ?? ()
+[Inferior 1 (process 1) detached]
