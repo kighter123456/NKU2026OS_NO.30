@@ -74,4 +74,4 @@ info registers pc sp ra
 
 ## Git 仓库
 
-小组仓库：[NKU2026OS_NO.30](https://github.com/kighter123456/NKU2026OS_NO.30)。源码、实验报告和原始验证记录纳入版本管理；离线指导书 `lab2026-book/` 仅保留在本地，不上传。`bin/`、`obj/` 及 Python 缓存也由 `.gitignore` 排除，克隆后运行 `make` 即可重新生成内核镜像。
+小组仓库：[NKU2026OS_NO.30](https://github.com/kighter123456/NKU2026OS_NO.30)。源码、实验报告和原始验证记录纳入版本管理；离线指导书 `lab2026-book/` 及其压缩包 `lab2026-book.zip` 仅保留在本地，不上传。`bin/`、`obj/` 及 Python 缓存也由 `.gitignore` 排除，克隆后运行 `make` 即可重新生成内核镜像。

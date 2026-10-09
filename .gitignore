@@ -1,6 +1,7 @@
 /bin/
 /obj/
 /lab2026-book/
+/lab2026-book.zip
 __pycache__/
 *.py[cod]
 /.gdb.in
