@@ -2,7 +2,7 @@
 
 实验日期：2026-10-07。基于文件夹中的原始 uCore 环境，按本地指导书 `lab2026-book/` 中的 lab0 环境配置、lab1 练习及报告要求完成。指导书仅保留在本地，不上传仓库。本文的地址和寄存器数值来自实际编译、运行与调试，不是照抄指导书示例。
 
-报告核对日期：2026-10-09。小组仓库为 [NKU2026OS_NO.30](https://github.com/kighter123456/NKU2026OS_NO.30)。本文保存在实验项目根目录，与 `Makefile`、`kern/`、`libs/` 同级；本机目录名为 `OSLab/lab1`，对应指导书中的 `labcodes/lab1`，无需为了目录名再复制一份源码。
+报告核对日期：2026-10-09。小组仓库为 [NKU2026OS_NO.30](https://github.com/kighter123456/NKU2026OS_NO.30)。本文保存在仓库的 `lab1/` 实验目录中，与 `Makefile`、`kern/`、`libs/` 同级，对应指导书中的 `labcodes/lab1`。
 
 报告以文本解释为主，表格用于归纳，汇编及日志摘录用于支持观察结果。各项要求的对应位置如下：
 
@@ -18,7 +18,7 @@
 
 ## 1. 从 lab0 开始配置环境
 
-宿主机为 Windows，使用已有 Ubuntu WSL2 作为 Linux 开发环境，源码位置对应 `/mnt/e/桌面/OSLab/lab1`。交叉编译器在 x86_64 上执行，生成 RV64 机器码；QEMU 模拟 RISC-V CPU、内存、串口及固件。
+宿主机为 Windows，使用已有 Ubuntu WSL2 作为 Linux 开发环境。目录整理后，仓库根目录对应 `/mnt/e/桌面/OSLab/lab1`，实验源码位于其 `lab1/` 子目录，即 `/mnt/e/桌面/OSLab/lab1/lab1`；本文中的源码和证据路径均相对于实验源码目录。交叉编译器在 x86_64 上执行，生成 RV64 机器码；QEMU 模拟 RISC-V CPU、内存、串口及固件。
 
 | 工具 | 实际版本 | 用途 |
 | --- | --- | --- |
@@ -296,7 +296,7 @@ Path P-001：配置 Linux 工具（版本记录）-> 编译与检查布局（E-0
 最短复现命令，在 PowerShell 执行：
 
 ```powershell
-wsl -d Ubuntu --cd "E:\桌面\OSLab\lab1" --exec make grade
+wsl -d Ubuntu --cd "E:\桌面\OSLab\lab1\lab1" --exec make grade
 ```
 
 ## 9. AI 协作与提交状态
