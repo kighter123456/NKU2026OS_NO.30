@@ -7,3 +7,6 @@ __pycache__/
 .gdb.in
 .qemu.out
 proj*-handin.tar.gz
+/output/
+/.playwright-cli/
+/实验报告模板.md
