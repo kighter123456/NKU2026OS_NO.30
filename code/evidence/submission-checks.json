@@ -1,0 +1,7 @@
+{
+  "checked_at": "2026-10-10T17:23:48+08:00",
+  "full_build": "passed",
+  "gdb_boot_checks": "passed",
+  "qemu_startup_message": "observed",
+  "screenshot_source": "browser display of actual logs"
+}
