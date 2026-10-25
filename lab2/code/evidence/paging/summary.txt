@@ -1,0 +1,25 @@
+Lab2 paging (guide-minimal) evidence
+date: 2026-10-25T08:50:32Z
+toolchain: riscv64-unknown-elf-gcc (g1b306039ac4) 15.1.0
+qemu: QEMU emulator version 10.2.1 (Debian 1:10.2.1+ds-1ubuntu3.2)
+
+Build: PASS (Best-Fit / First-Fit / Buddy)
+Boot 128M Best-Fit:
+  satp virtual address: 0xffffffffc0207000
+  satp physical address: 0x0000000080207000
+  LAB2 B SELFTESTS PASSED: best_fit_pmm_manager
+Boot 256M Best-Fit:
+  DTB: hart=0 pa=0x000000008fe00000 RAM=[0x0000000080000000,0x0000000090000000) size=256 MiB
+  MANAGED: [0x0000000080000000,0x0000000088000000) 128 MiB (capped at 128 MiB)
+  satp virtual address: 0xffffffffc0207000
+  LAB2 B SELFTESTS PASSED: best_fit_pmm_manager
+First-Fit / Buddy 128M:
+  first_fit  satp=1 bpass=1 panic=0
+  buddy      satp=1 bpass=1 panic=0
+
+B grade: best_fit PASS, first_fit PASS, buddy PASS
+
+GDB:
+  AT kern_init: pc=0xffffffffc0200032 sp=0xffffffffc0207000 satp=0x8000000000080207
+  satp MODE=8 PPN=0x80207
+  boot PTE[2]=0x200000cf PTE[511]=0x200000cf

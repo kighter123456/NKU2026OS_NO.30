@@ -4,9 +4,9 @@
 #define KSTACKPAGE          2                           // # of pages in kernel stack
 #define KSTACKSIZE          (KSTACKPAGE * PGSIZE)       // sizeof kernel stack
 
-/* lab2: 2414067. B validates in Bare mode; A/C must set this before paging. */
+/* lab2: A enables Sv39 at boot; VA - PA for the kernel direct map. */
 #ifndef KERNEL_VA_PA_OFFSET
-#define KERNEL_VA_PA_OFFSET 0ULL
+#define KERNEL_VA_PA_OFFSET 0xffffffff40000000
 #endif
 #ifndef __ASSEMBLER__
 #include <defs.h>

@@ -4,6 +4,8 @@
 
 **当前为 Bare 模式下的 B 独立验证，不是 A/C 完成集成后的完整 Lab2。**不写 satp，不建立虚拟地址映射。测试均为自建，没有课程提供的 basic_check/best_fit_check 或官方评分脚本。
 
+> 2026-10-25 更新：A 已接入启动分页（Sv39），内核从 `kern_entry` 起就在页表下运行。本文中“Bare 模式”“不写 satp”等描述是 B 阶段的历史状态；当前分页行为见 [report-a.md](../report/report-a.md) 和 [handoff.md](../report/handoff.md)。
+
 ## 环境
 
 WSL2 Ubuntu 24.04.4；RISC-V GCC 13.2.0、binutils 2.42、QEMU 8.2.2、gdb-multiarch 15.1、Make 4.3、Python 3.12.3。直接使用当前软件源版本，无降级。

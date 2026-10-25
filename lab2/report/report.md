@@ -4,6 +4,8 @@
 
 验收范围：B 在 Bare 模式下独立验证。不声称完成 A 的分页、C 的 QEMU 源码调试或课程原测试。以 lab1/code 为起点，补齐用户批准的 B 基础，lab1 保持原样。
 
+> 2026-10-25 说明：本报告是 B 阶段（Bare）的物理内存报告。A 已在同一代码树上接入启动分页，文中的 Bare 描述是 B 阶段状态；分页改动见 [report-a.md](report-a.md)。
+
 ## 1. 整体执行逻辑
 
 QEMU 复位 → OpenSBI → kern_entry → kern_init → 清 BSS → DTB → pmm_init → 分配回收测试 → 空循环。
