@@ -1,0 +1,251 @@
+{
+  "self_written": true,
+  "complete": true,
+  "results": [
+    {
+      "backend": "first_fit",
+      "memory": "64M",
+      "case": 0,
+      "result": "passed",
+      "log": "first_fit-64M-case0.log"
+    },
+    {
+      "backend": "first_fit",
+      "memory": "128M",
+      "case": 0,
+      "result": "passed",
+      "log": "first_fit-128M-case0.log"
+    },
+    {
+      "backend": "first_fit",
+      "memory": "256M",
+      "case": 0,
+      "result": "passed",
+      "log": "first_fit-256M-case0.log"
+    },
+    {
+      "backend": "best_fit",
+      "memory": "64M",
+      "case": 0,
+      "result": "passed",
+      "log": "best_fit-64M-case0.log"
+    },
+    {
+      "backend": "best_fit",
+      "memory": "128M",
+      "case": 0,
+      "result": "passed",
+      "log": "best_fit-128M-case0.log"
+    },
+    {
+      "backend": "best_fit",
+      "memory": "256M",
+      "case": 0,
+      "result": "passed",
+      "log": "best_fit-256M-case0.log"
+    },
+    {
+      "backend": "buddy",
+      "memory": "64M",
+      "case": 0,
+      "result": "passed",
+      "log": "buddy-64M-case0.log"
+    },
+    {
+      "backend": "buddy",
+      "memory": "128M",
+      "case": 0,
+      "result": "passed",
+      "log": "buddy-128M-case0.log"
+    },
+    {
+      "backend": "buddy",
+      "memory": "256M",
+      "case": 0,
+      "result": "passed",
+      "log": "buddy-256M-case0.log"
+    },
+    {
+      "backend": "first_fit",
+      "memory": "128M",
+      "case": 1,
+      "result": "expected rejection",
+      "log": "first_fit-128M-case1.log"
+    },
+    {
+      "backend": "first_fit",
+      "memory": "128M",
+      "case": 2,
+      "result": "expected rejection",
+      "log": "first_fit-128M-case2.log"
+    },
+    {
+      "backend": "first_fit",
+      "memory": "128M",
+      "case": 3,
+      "result": "expected rejection",
+      "log": "first_fit-128M-case3.log"
+    },
+    {
+      "backend": "first_fit",
+      "memory": "128M",
+      "case": 5,
+      "result": "expected rejection",
+      "log": "first_fit-128M-case5.log"
+    },
+    {
+      "backend": "first_fit",
+      "memory": "128M",
+      "case": 6,
+      "result": "expected rejection",
+      "log": "first_fit-128M-case6.log"
+    },
+    {
+      "backend": "first_fit",
+      "memory": "128M",
+      "case": 7,
+      "result": "expected rejection",
+      "log": "first_fit-128M-case7.log"
+    },
+    {
+      "backend": "first_fit",
+      "memory": "128M",
+      "case": 8,
+      "result": "expected rejection",
+      "log": "first_fit-128M-case8.log"
+    },
+    {
+      "backend": "first_fit",
+      "memory": "128M",
+      "case": 10,
+      "result": "expected rejection",
+      "log": "first_fit-128M-case10.log"
+    },
+    {
+      "backend": "best_fit",
+      "memory": "128M",
+      "case": 1,
+      "result": "expected rejection",
+      "log": "best_fit-128M-case1.log"
+    },
+    {
+      "backend": "best_fit",
+      "memory": "128M",
+      "case": 2,
+      "result": "expected rejection",
+      "log": "best_fit-128M-case2.log"
+    },
+    {
+      "backend": "best_fit",
+      "memory": "128M",
+      "case": 3,
+      "result": "expected rejection",
+      "log": "best_fit-128M-case3.log"
+    },
+    {
+      "backend": "best_fit",
+      "memory": "128M",
+      "case": 5,
+      "result": "expected rejection",
+      "log": "best_fit-128M-case5.log"
+    },
+    {
+      "backend": "best_fit",
+      "memory": "128M",
+      "case": 6,
+      "result": "expected rejection",
+      "log": "best_fit-128M-case6.log"
+    },
+    {
+      "backend": "best_fit",
+      "memory": "128M",
+      "case": 7,
+      "result": "expected rejection",
+      "log": "best_fit-128M-case7.log"
+    },
+    {
+      "backend": "best_fit",
+      "memory": "128M",
+      "case": 8,
+      "result": "expected rejection",
+      "log": "best_fit-128M-case8.log"
+    },
+    {
+      "backend": "best_fit",
+      "memory": "128M",
+      "case": 10,
+      "result": "expected rejection",
+      "log": "best_fit-128M-case10.log"
+    },
+    {
+      "backend": "buddy",
+      "memory": "128M",
+      "case": 1,
+      "result": "expected rejection",
+      "log": "buddy-128M-case1.log"
+    },
+    {
+      "backend": "buddy",
+      "memory": "128M",
+      "case": 2,
+      "result": "expected rejection",
+      "log": "buddy-128M-case2.log"
+    },
+    {
+      "backend": "buddy",
+      "memory": "128M",
+      "case": 3,
+      "result": "expected rejection",
+      "log": "buddy-128M-case3.log"
+    },
+    {
+      "backend": "buddy",
+      "memory": "128M",
+      "case": 5,
+      "result": "expected rejection",
+      "log": "buddy-128M-case5.log"
+    },
+    {
+      "backend": "buddy",
+      "memory": "128M",
+      "case": 6,
+      "result": "expected rejection",
+      "log": "buddy-128M-case6.log"
+    },
+    {
+      "backend": "buddy",
+      "memory": "128M",
+      "case": 7,
+      "result": "expected rejection",
+      "log": "buddy-128M-case7.log"
+    },
+    {
+      "backend": "buddy",
+      "memory": "128M",
+      "case": 8,
+      "result": "expected rejection",
+      "log": "buddy-128M-case8.log"
+    },
+    {
+      "backend": "buddy",
+      "memory": "128M",
+      "case": 10,
+      "result": "expected rejection",
+      "log": "buddy-128M-case10.log"
+    },
+    {
+      "backend": "buddy",
+      "memory": "128M",
+      "case": 4,
+      "result": "expected rejection",
+      "log": "buddy-128M-case4.log"
+    },
+    {
+      "backend": "buddy",
+      "memory": "128M",
+      "case": 9,
+      "result": "expected rejection",
+      "log": "buddy-128M-case9.log"
+    }
+  ]
+}

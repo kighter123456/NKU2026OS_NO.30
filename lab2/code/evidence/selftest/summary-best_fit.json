@@ -1,0 +1,13 @@
+{
+  "self_written": true,
+  "complete": true,
+  "results": [
+    {
+      "backend": "best_fit",
+      "memory": "128M",
+      "case": 0,
+      "result": "passed",
+      "log": "best_fit-128M-case0.log"
+    }
+  ]
+}

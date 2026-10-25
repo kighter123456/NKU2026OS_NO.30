@@ -1,0 +1,2 @@
+PASS: reset ROM -> OpenSBI -> kern_entry -> kern_init -> SBI console
+Logs: evidence/environment.txt, evidence/gdb.log, evidence/qemu.log
