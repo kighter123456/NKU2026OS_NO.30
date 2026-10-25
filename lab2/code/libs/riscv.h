@@ -125,9 +125,10 @@
 #define VM_MBARE 0
 #define VM_MBB   1
 #define VM_MBBID 2
-#define VM_SV32  8
-#define VM_SV39  9
-#define VM_SV48  10
+/* satp.MODE encodings from the ratified privileged ISA. */
+#define VM_SV32  1
+#define VM_SV39  8
+#define VM_SV48  9
 
 #define IRQ_U_SOFT   0
 #define IRQ_S_SOFT   1

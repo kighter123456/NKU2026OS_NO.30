@@ -1,4 +1,4 @@
 $ make -j2 PMM=best_fit TEST_CASE=0
-make[1]: Entering directory '/home/dowser47/OS/NKU2026OS_NO.30/lab2/code'
+make[1]: Entering directory '/mnt/e/桌面/OSLab/lab2/code'
 make[1]: Nothing to be done for 'TARGETS'.
-make[1]: Leaving directory '/home/dowser47/OS/NKU2026OS_NO.30/lab2/code'
+make[1]: Leaving directory '/mnt/e/桌面/OSLab/lab2/code'

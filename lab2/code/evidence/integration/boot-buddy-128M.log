@@ -1,0 +1,2 @@
+PASS: reset -> Bare physical entry -> Sv39 high entry -> SBI -> PMM/selftests
+Logs: /mnt/e/桌面/OSLab/lab2/code/evidence/integration/boot-buddy-128M

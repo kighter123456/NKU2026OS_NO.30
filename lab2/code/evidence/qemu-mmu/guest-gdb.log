@@ -1,0 +1,46 @@
+$ gdb-multiarch -q -nx -batch /mnt/e/桌面/OSLab/lab2/code/bin/best_fit/0/kernel -ex set pagination off -ex set confirm off -ex target remote 127.0.0.1:46547 -ex thbreak *0x80200000 -ex continue -ex info registers pc satp -ex thbreak kern_init -ex continue -ex info registers pc sp satp -ex x/6i $pc -ex thbreak memset -ex continue -ex x/12i $pc -ex info registers a0 a1 a2 -ex thbreak run_selftests -ex continue -ex info registers pc satp -ex detach
+0x0000000000001000 in ?? ()
+Hardware assisted breakpoint 1 at 0x80200000
+
+Temporary breakpoint 1, 0x0000000080200000 in ?? ()
+pc             0x80200000	0x80200000
+satp           0x0	0
+Hardware assisted breakpoint 2 at 0xffffffffc0200032: file kern/init/init.c, line 12.
+
+Temporary breakpoint 2, kern_init (hartid=0, dtb_pa=2264924160) at kern/init/init.c:12
+12	    memset(edata, 0, end - edata);
+pc             0xffffffffc0200032	0xffffffffc0200032 <kern_init>
+sp             0xffffffffc0207000	0xffffffffc0207000
+satp           0x8000000000080207	-9223372036854251001
+=> 0xffffffffc0200032 <kern_init>:	addi	sp,sp,-32
+   0xffffffffc0200034 <kern_init+2>:	auipc	a5,0x8
+   0xffffffffc0200038 <kern_init+6>:	addi	a5,a5,-36
+   0xffffffffc020003c <kern_init+10>:	auipc	a2,0x50
+   0xffffffffc0200040 <kern_init+14>:	addi	a2,a2,372
+   0xffffffffc0200044 <kern_init+18>:	sub	a2,a2,a5
+Hardware assisted breakpoint 3 at 0xffffffffc02031f4: file libs/string.c, line 275.
+
+Temporary breakpoint 3, memset (s=0xffffffffc0208010 <memory>, c=c@entry=0 '\000', n=295328) at libs/string.c:275
+275	    while (n -- > 0) {
+=> 0xffffffffc02031f4 <memset>:	beqz	a2,0xffffffffc0203204 <memset+16>
+   0xffffffffc02031f6 <memset+2>:	add	a2,a2,a0
+   0xffffffffc02031f8 <memset+4>:	mv	a5,a0
+   0xffffffffc02031fa <memset+6>:	addi	a5,a5,1
+   0xffffffffc02031fc <memset+8>:	sb	a1,-1(a5)
+   0xffffffffc0203200 <memset+12>:	bne	a5,a2,0xffffffffc02031fa <memset+6>
+   0xffffffffc0203204 <memset+16>:	ret
+   0xffffffffc0203206 <memcpy>:	beqz	a2,0xffffffffc020321c <memcpy+22>
+   0xffffffffc0203208 <memcpy+2>:	add	a2,a2,a1
+   0xffffffffc020320a <memcpy+4>:	mv	a5,a0
+   0xffffffffc020320c <memcpy+6>:	lbu	a4,0(a1)
+   0xffffffffc0203210 <memcpy+10>:	addi	a1,a1,1
+a0             0xffffffffc0208010	-1071611888
+a1             0x0	0
+a2             0x481a0	295328
+Hardware assisted breakpoint 4 at 0xffffffffc0202652: file kern/mm/selftest.c, line 220.
+
+Temporary breakpoint 4, run_selftests () at kern/mm/selftest.c:220
+220	    cprintf("SELFTEST: self-written B tests; not course grading\n");
+pc             0xffffffffc0202652	0xffffffffc0202652 <run_selftests>
+satp           0x8000000000080207	-9223372036854251001
+[Inferior 1 (process 1) detached]

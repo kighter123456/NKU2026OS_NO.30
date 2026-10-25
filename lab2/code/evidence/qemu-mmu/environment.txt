@@ -1,0 +1,8 @@
+Ubuntu 22.04.1 LTS
+GNU gdb (Ubuntu 12.1-0ubuntu1~22.04.2) 12.1
+Copyright (C) 2022 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+/home/kighter/.cache/oslab/qemu-6.2.0/build-debug/qemu-system-riscv64: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=3335d34feb80a83e4229d6ae50ef64ad4afb1907, for GNU/Linux 3.2.0, with debug_info, not stripped
+68e15d8e45ac56326e0b9a4afa8b49a3dfe8aba3488221d098c84698bca65b45  /home/kighter/.cache/oslab/qemu-6.2.0.tar.xz

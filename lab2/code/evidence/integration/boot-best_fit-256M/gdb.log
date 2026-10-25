@@ -1,0 +1,126 @@
+0x0000000000001000 in ?? ()
+The target architecture is set to "riscv:rv64".
+
+=== Reset and physical entry (Bare) ===
+PASS: reset PC=0x1000, satp=0
+PASS: image loaded at PA 0x80200000
+Hardware assisted breakpoint 1 at 0x80000000
+
+Temporary breakpoint 1, 0x0000000080000000 in ?? ()
+PASS: reached 0x80000000
+Hardware assisted breakpoint 2 at 0x80200000
+
+Temporary breakpoint 2, 0x0000000080200000 in ?? ()
+PASS: reached 0x80200000
+PASS: OpenSBI enters the kernel in Bare mode
+pc             0x80200000	0x80200000
+a0             0x0	0
+a1             0x8f000000	2399141888
+satp           0x0	0
+=> 0x80200000:	lui	t0,0xc0207
+   0x80200004:	addiw	t1,zero,-3
+   0x80200008:	slli	t1,t1,0x1e
+   0x8020000a:	sub	t0,t0,t1
+   0x8020000e:	srli	t0,t0,0xc
+   0x80200012:	addiw	t1,zero,-1
+   0x80200016:	slli	t1,t1,0x3f
+   0x80200018:	or	t0,t0,t1
+   0x8020001c:	csrw	satp,t0
+   0x80200020:	sfence.vma
+   0x80200024:	lui	sp,0xc0207
+   0x80200028:	lui	t0,0xc0200
+   0x8020002c:	addi	t0,t0,50
+   0x80200030:	jr	t0
+
+=== Sv39 high entry and boot page table ===
+Hardware assisted breakpoint 3 at 0xffffffffc0200032: file kern/init/init.c, line 12.
+
+Temporary breakpoint 3, kern_init (hartid=0, dtb_pa=2399141888) at kern/init/init.c:12
+12	    memset(edata, 0, end - edata);
+PASS: reached 0xffffffffc0200032
+PASS: satp.MODE=8 (Sv39)
+PASS: satp.PPN points to boot root physical address
+PASS: root is page aligned
+PASS: high stack is ABI aligned
+PASS: stack size is 8192 bytes
+PASS: hart ID and DTB PA preserved across paging
+pc             0xffffffffc0200032	0xffffffffc0200032 <kern_init>
+sp             0xffffffffc0207000	0xffffffffc0207000
+a0             0x0	0
+a1             0x8f000000	2399141888
+satp           0x8000000000080207	-9223372036854251001
+PASS: only boot root entries 2 and 511 are valid
+WALK VA=0x0000000080000000 level=2 index=2 PTE=0x200000cf
+PASS: leaf W implies R
+PASS: superpage physical alignment
+PASS: boot VA 0x80000000 -> PA 0x80000000, 1GiB leaf V/R/W/X/A/D
+WALK VA=0x00000000bfffffff level=2 index=2 PTE=0x200000cf
+PASS: leaf W implies R
+PASS: superpage physical alignment
+PASS: boot VA 0xbfffffff -> PA 0xbfffffff, 1GiB leaf V/R/W/X/A/D
+WALK VA=0xffffffffc0000000 level=2 index=511 PTE=0x200000cf
+PASS: leaf W implies R
+PASS: superpage physical alignment
+PASS: boot VA 0xffffffffc0000000 -> PA 0x80000000, 1GiB leaf V/R/W/X/A/D
+WALK VA=0xffffffffffffffff level=2 index=511 PTE=0x200000cf
+PASS: leaf W implies R
+PASS: superpage physical alignment
+PASS: boot VA 0xffffffffffffffff -> PA 0xbfffffff, 1GiB leaf V/R/W/X/A/D
+WALK VA=0xffffffffc0200032 level=2 index=511 PTE=0x200000cf
+PASS: leaf W implies R
+PASS: superpage physical alignment
+PASS: boot VA 0xffffffffc0200032 -> PA 0x80200032, 1GiB leaf V/R/W/X/A/D
+WALK VA=0xffffffffcf000000 level=2 index=511 PTE=0x200000cf
+PASS: leaf W implies R
+PASS: superpage physical alignment
+PASS: boot VA 0xffffffffcf000000 -> PA 0x8f000000, 1GiB leaf V/R/W/X/A/D
+WALK VA=0x0000000040000000 level=2 index=1 PTE=0x0
+PASS: unmapped region has invalid PTE
+
+=== BSS and SBI console ===
+Hardware assisted breakpoint 4 at 0xffffffffc02000b8: file kern/libs/stdio.c, line 40.
+
+Temporary breakpoint 4, cprintf (fmt=fmt@entry=0xffffffffc0203268 "%s\n\n") at kern/libs/stdio.c:40
+40	    va_start(ap, fmt);
+PASS: reached 0xffffffffc02000b8
+PASS: BSS cleared before first print
+Hardware assisted breakpoint 5 at 0xffffffffc0203160: file libs/sbi.c, line 18.
+
+Temporary breakpoint 5, sbi_call (arg2=0, arg1=0, arg0=40, sbi_type=1) at libs/sbi.c:18
+18	    __asm__ volatile (
+PASS: reached 0xffffffffc0203160
+PASS: first character is opening parenthesis
+0xffffffffc0203162	18	    __asm__ volatile (
+0xffffffffc0203166	18	    __asm__ volatile (
+0xffffffffc020316a	18	    __asm__ volatile (
+0xffffffffc020316c	18	    __asm__ volatile (
+0xffffffffc020316e	18	    __asm__ volatile (
+0xffffffffc0203170	18	    __asm__ volatile (
+0xffffffffc0203172	18	    __asm__ volatile (
+PASS: console reaches ecall
+PASS: legacy SBI console extension is 1
+Hardware assisted breakpoint 6 at 0x80000520
+
+Temporary breakpoint 6, 0x0000000080000520 in ?? ()
+PASS: reached 0x80000520
+PASS: S-mode ecall traps into M mode with cause 9
+Hardware assisted breakpoint 7 at 0xffffffffc0203176: file libs/sbi.c, line 18.
+
+Temporary breakpoint 7, 0xffffffffc0203176 in sbi_call (arg2=0, arg1=0, arg0=0, sbi_type=1) at libs/sbi.c:18
+18	    __asm__ volatile (
+PASS: reached 0xffffffffc0203176
+
+=== DTB -> descriptors -> allocator -> selftests ===
+Hardware assisted breakpoint 8 at 0xffffffffc0202652: file kern/mm/selftest.c, line 220.
+
+Temporary breakpoint 8, run_selftests () at kern/mm/selftest.c:220
+220	    cprintf("SELFTEST: self-written B tests; not course grading\n");
+PASS: reached 0xffffffffc0202652
+PASS: PMM uses the boot high mapping offset
+PASS: PFN base/end contract
+PASS: kernel and descriptors are reserved
+PASS: free range aligned and capped at 128MiB
+PMM descriptors=[0x80251000,0x80411000) free=[0x80411000,0x88000000)
+
+LAB2 BOOT CHECKS PASSED
+[Inferior 1 (process 1) detached]

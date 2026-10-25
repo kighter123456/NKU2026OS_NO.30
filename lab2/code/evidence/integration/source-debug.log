@@ -1,0 +1,4 @@
+make[1]: Entering directory '/mnt/e/桌面/OSLab/lab2/code'
+make[1]: Nothing to be done for 'TARGETS'.
+make[1]: Leaving directory '/mnt/e/桌面/OSLab/lab2/code'
+PASS: Bare/Sv39 source stepping, PTE, TLB miss/fill/hit, dual GDB and kernel selftests

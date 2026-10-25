@@ -1,0 +1,2223 @@
+/usr/bin/ninja  build.ninja && touch build.ninja.stamp
+ninja: no work to do.
+/usr/bin/python3 -B /home/kighter/.cache/oslab/qemu-6.2.0/meson/meson.py introspect --targets --tests --benchmarks | /usr/bin/python3 -B scripts/mtest2make.py > Makefile.mtest
+  AS      multiboot.o
+  AS      multiboot_dma.o
+  AS      linuxboot.o
+  CC      linuxboot_dma.o
+  AS      kvmvapic.o
+  AS      pvh.o
+  CC      pvh_main.o
+  BUILD   multiboot.img
+  BUILD   multiboot_dma.img
+  BUILD   linuxboot.img
+  BUILD   linuxboot_dma.img
+  BUILD   kvmvapic.img
+  BUILD   pvh.img
+  BUILD   multiboot.raw
+  BUILD   multiboot_dma.raw
+  BUILD   linuxboot.raw
+  BUILD   linuxboot_dma.raw
+  BUILD   kvmvapic.raw
+  BUILD   pvh.raw
+  SIGN    multiboot.bin
+  SIGN    multiboot_dma.bin
+[1/2195] Compiling C object libcapstone.a.p/capstone_MCInstrDesc.c.o
+  SIGN    linuxboot.bin
+  SIGN    linuxboot_dma.bin
+  SIGN    kvmvapic.bin
+[2/2195] Compiling C object libcapstone.a.p/capstone_MCRegisterInfo.c.o
+  SIGN    pvh.bin
+[3/2195] Compiling C object libcapstone.a.p/capstone_MCInst.c.o
+[4/2195] Compiling C object libcapstone.a.p/capstone_SStream.c.o
+[5/2195] Compiling C object libcapstone.a.p/capstone_cs.c.o
+[6/2195] Compiling C object libcapstone.a.p/capstone_utils.c.o
+[7/2195] Compiling C object libcapstone.a.p/capstone_arch_X86_X86Disassembler.c.o
+[8/2195] Compiling C object libcapstone.a.p/capstone_arch_X86_X86ATTInstPrinter.c.o
+[9/2195] Compiling C object libcapstone.a.p/capstone_arch_X86_X86InstPrinterCommon.c.o
+[10/2195] Compiling C object libcapstone.a.p/capstone_arch_X86_X86IntelInstPrinter.c.o
+[11/2195] Compiling C object libcapstone.a.p/capstone_arch_X86_X86Module.c.o
+[12/2195] Compiling C object libcapstone.a.p/capstone_arch_X86_X86DisassemblerDecoder.c.o
+[13/2195] Compiling C object libslirp.a.p/slirp_src_arp_table.c.o
+[14/2195] Compiling C object libslirp.a.p/slirp_src_cksum.c.o
+[15/2195] Compiling C object libslirp.a.p/slirp_src_bootp.c.o
+[16/2195] Compiling C object libslirp.a.p/slirp_src_dhcpv6.c.o
+[17/2195] Compiling C object libslirp.a.p/slirp_src_dnssearch.c.o
+[18/2195] Compiling C object libcapstone.a.p/capstone_arch_X86_X86Mapping.c.o
+[19/2195] Linking static target libcapstone.a
+[20/2195] Compiling C object libslirp.a.p/slirp_src_if.c.o
+[21/2195] Compiling C object libslirp.a.p/slirp_src_ip6_icmp.c.o
+[22/2195] Compiling C object libslirp.a.p/slirp_src_ip6_input.c.o
+[23/2195] Compiling C object libslirp.a.p/slirp_src_ip6_output.c.o
+[24/2195] Compiling C object libslirp.a.p/slirp_src_ip_icmp.c.o
+[25/2195] Compiling C object libslirp.a.p/slirp_src_ip_output.c.o
+[26/2195] Compiling C object libslirp.a.p/slirp_src_ip_input.c.o
+[27/2195] Compiling C object libslirp.a.p/slirp_src_mbuf.c.o
+[28/2195] Compiling C object libslirp.a.p/slirp_src_ncsi.c.o
+[29/2195] Compiling C object libslirp.a.p/slirp_src_misc.c.o
+[30/2195] Compiling C object libslirp.a.p/slirp_src_ndp_table.c.o
+[31/2195] Compiling C object libslirp.a.p/slirp_src_sbuf.c.o
+[32/2195] Compiling C object libslirp.a.p/slirp_src_slirp.c.o
+[33/2195] Compiling C object libslirp.a.p/slirp_src_state.c.o
+[34/2195] Compiling C object libslirp.a.p/slirp_src_socket.c.o
+[35/2195] Compiling C object libslirp.a.p/slirp_src_stream.c.o
+[36/2195] Compiling C object libslirp.a.p/slirp_src_tcp_output.c.o
+[37/2195] Compiling C object libslirp.a.p/slirp_src_tcp_input.c.o
+[38/2195] Compiling C object libslirp.a.p/slirp_src_tcp_subr.c.o
+[39/2195] Compiling C object libslirp.a.p/slirp_src_tcp_timer.c.o
+[40/2195] Compiling C object libslirp.a.p/slirp_src_tftp.c.o
+[41/2195] Compiling C object libslirp.a.p/slirp_src_udp.c.o
+[42/2195] Compiling C object libslirp.a.p/slirp_src_udp6.c.o
+[43/2195] Compiling C object libslirp.a.p/slirp_src_version.c.o
+[44/2195] Compiling C object libslirp.a.p/slirp_src_util.c.o
+[45/2195] Compiling C object libfdt.a.p/dtc_libfdt_fdt.c.o
+[46/2195] Compiling C object libfdt.a.p/dtc_libfdt_fdt_wip.c.o
+[47/2195] Compiling C object libfdt.a.p/dtc_libfdt_fdt_ro.c.o
+[48/2195] Compiling C object libslirp.a.p/slirp_src_vmstate.c.o
+[49/2195] Linking static target libslirp.a
+[50/2195] Compiling C object libfdt.a.p/dtc_libfdt_fdt_sw.c.o
+[51/2195] Compiling C object libfdt.a.p/dtc_libfdt_fdt_strerror.c.o
+[52/2195] Compiling C object libfdt.a.p/dtc_libfdt_fdt_rw.c.o
+[53/2195] Compiling C object libfdt.a.p/dtc_libfdt_fdt_empty_tree.c.o
+[54/2195] Compiling C object libfdt.a.p/dtc_libfdt_fdt_addresses.c.o
+[55/2195] Compiling C object libfdt.a.p/dtc_libfdt_fdt_check.c.o
+[56/2195] Compiling C object libfdt.a.p/dtc_libfdt_fdt_overlay.c.o
+[57/2195] Linking static target libfdt.a
+[58/2195] Generating qemu-version.h with a custom command (wrapped by meson to capture output)
+[59/2195] Generating qemu-img-cmds.h with a custom command (wrapped by meson to capture output)
+[60/2195] Generating qemu-options.def with a custom command (wrapped by meson to capture output)
+[61/2195] Generating hmp-commands-info.h with a custom command (wrapped by meson to capture output)
+[62/2195] Generating hmp-commands.h with a custom command (wrapped by meson to capture output)
+[63/2195] Compiling C object subprojects/libvhost-user/link-test.p/link-test.c.o
+[64/2195] Generating trace-backends_tpm.h with a custom command
+[65/2195] Generating trace-backends_tpm.c with a custom command
+[66/2195] Compiling C object subprojects/libvhost-user/libvhost-user-glib.a.p/libvhost-user-glib.c.o
+[67/2195] Linking static target subprojects/libvhost-user/libvhost-user-glib.a
+[68/2195] Generating trace-chardev.h with a custom command
+[69/2195] Compiling C object subprojects/libvhost-user/libvhost-user.a.p/libvhost-user.c.o
+[70/2195] Linking static target subprojects/libvhost-user/libvhost-user.a
+[71/2195] Generating trace-backends.c with a custom command
+[72/2195] Generating trace-hw_xen.h with a custom command
+[73/2195] Generating trace-ebpf.c with a custom command
+[74/2195] Generating trace-backends.h with a custom command
+[75/2195] Generating trace-root.c with a custom command
+[76/2195] Generating trace-crypto.h with a custom command
+[77/2195] Generating trace-crypto.c with a custom command
+[78/2195] Generating trace-qapi.h with a custom command
+[79/2195] Generating trace-audio.c with a custom command
+[80/2195] Generating trace-qapi.c with a custom command
+[81/2195] Generating trace-qom.h with a custom command
+[82/2195] Generating trace-qom.c with a custom command
+[83/2195] Generating trace-monitor.h with a custom command
+[84/2195] Generating trace-root.h with a custom command
+[85/2195] Generating trace-chardev.c with a custom command
+[86/2195] Generating trace-ebpf.h with a custom command
+[87/2195] Generating trace-monitor.c with a custom command
+[88/2195] Generating trace-util.h with a custom command
+[89/2195] Generating trace-util.c with a custom command
+[90/2195] Generating trace-authz.h with a custom command
+[91/2195] Linking target subprojects/libvhost-user/link-test
+[92/2195] Generating trace-authz.c with a custom command
+[93/2195] Generating trace-block.c with a custom command
+[94/2195] Generating trace-block.h with a custom command
+[95/2195] Generating trace-io.h with a custom command
+[96/2195] Generating trace-io.c with a custom command
+[97/2195] Generating trace-nbd.c with a custom command
+[98/2195] Generating trace-nbd.h with a custom command
+[99/2195] Generating trace-scsi.h with a custom command
+[100/2195] Generating trace-scsi.c with a custom command
+[101/2195] Generating trace-accel_kvm.h with a custom command
+[102/2195] Generating trace-accel_kvm.c with a custom command
+[103/2195] Generating trace-audio.h with a custom command
+[104/2195] Generating trace-hw_i386_xen.c with a custom command
+[105/2195] Generating trace-hw_9pfs.c with a custom command
+[106/2195] Generating trace-hw_9pfs.h with a custom command
+[107/2195] Generating trace-hw_acpi.h with a custom command
+[108/2195] Generating trace-hw_acpi.c with a custom command
+[109/2195] Generating trace-hw_adc.h with a custom command
+[110/2195] Generating trace-hw_adc.c with a custom command
+[111/2195] Generating trace-hw_alpha.h with a custom command
+[112/2195] Generating trace-hw_alpha.c with a custom command
+[113/2195] Generating trace-hw_arm.h with a custom command
+[114/2195] Generating trace-hw_arm.c with a custom command
+[115/2195] Generating trace-hw_audio.h with a custom command
+[116/2195] Generating trace-hw_audio.c with a custom command
+[117/2195] Generating trace-hw_block.c with a custom command
+[118/2195] Generating trace-hw_block.h with a custom command
+[119/2195] Generating trace-hw_block_dataplane.h with a custom command
+[120/2195] Generating trace-hw_block_dataplane.c with a custom command
+[121/2195] Generating trace-hw_char.c with a custom command
+[122/2195] Generating trace-hw_char.h with a custom command
+[123/2195] Generating trace-hw_display.c with a custom command
+[124/2195] Generating trace-hw_display.h with a custom command
+[125/2195] Generating trace-hw_dma.h with a custom command
+[126/2195] Generating trace-hw_dma.c with a custom command
+[127/2195] Generating trace-hw_hppa.h with a custom command
+[128/2195] Generating trace-hw_hppa.c with a custom command
+[129/2195] Generating trace-hw_hyperv.h with a custom command
+[130/2195] Generating shared QAPI source files with a custom command
+[131/2195] Generating trace-hw_hyperv.c with a custom command
+[132/2195] Generating trace-hw_i2c.h with a custom command
+[133/2195] Generating input-keymap-xorgxwin-to-qcode.c.inc with a custom command (wrapped by meson to capture output)
+[134/2195] Generating trace-hw_i2c.c with a custom command
+[135/2195] Generating input-keymap-osx-to-qcode.c.inc with a custom command (wrapped by meson to capture output)
+[136/2195] Generating trace-hw_i386.h with a custom command
+[137/2195] Generating trace-hw_i386.c with a custom command
+[138/2195] Generating trace-hw_i386_xen.h with a custom command
+[139/2195] Generating trace-hw_watchdog.c with a custom command
+[140/2195] Generating trace-hw_ide.c with a custom command
+[141/2195] Generating trace-hw_ide.h with a custom command
+[142/2195] Generating trace-hw_input.h with a custom command
+[143/2195] Generating trace-hw_input.c with a custom command
+[144/2195] Generating trace-hw_intc.c with a custom command
+[145/2195] Generating trace-hw_isa.h with a custom command
+[146/2195] Generating trace-hw_intc.h with a custom command
+[147/2195] Generating trace-hw_isa.c with a custom command
+[148/2195] Generating trace-hw_mem.c with a custom command
+[149/2195] Generating trace-hw_mem.h with a custom command
+[150/2195] Generating trace-hw_mips.c with a custom command
+[151/2195] Generating trace-hw_mips.h with a custom command
+[152/2195] Generating trace-hw_misc.h with a custom command
+[153/2195] Generating trace-hw_misc_macio.h with a custom command
+[154/2195] Generating trace-hw_misc.c with a custom command
+[155/2195] Generating trace-hw_misc_macio.c with a custom command
+[156/2195] Generating trace-hw_net.c with a custom command
+[157/2195] Generating trace-hw_net_can.h with a custom command
+[158/2195] Generating trace-hw_net_can.c with a custom command
+[159/2195] Generating trace-hw_net.h with a custom command
+[160/2195] Generating trace-hw_nubus.h with a custom command
+[161/2195] Generating trace-hw_nubus.c with a custom command
+[162/2195] Generating trace-hw_nvme.c with a custom command
+[163/2195] Generating trace-hw_nvme.h with a custom command
+[164/2195] Generating trace-hw_nvram.h with a custom command
+[165/2195] Generating trace-hw_nvram.c with a custom command
+[166/2195] Generating trace-hw_pci.h with a custom command
+[167/2195] Generating trace-hw_pci.c with a custom command
+[168/2195] Generating trace-hw_pci_host.h with a custom command
+[169/2195] Generating trace-hw_pci_host.c with a custom command
+[170/2195] Generating trace-hw_ppc.h with a custom command
+[171/2195] Generating trace-hw_ppc.c with a custom command
+[172/2195] Generating trace-hw_rdma.h with a custom command
+[173/2195] Generating trace-hw_rdma.c with a custom command
+[174/2195] Generating trace-hw_rdma_vmw.h with a custom command
+[175/2195] Generating trace-hw_rdma_vmw.c with a custom command
+[176/2195] Generating trace-hw_rtc.h with a custom command
+[177/2195] Generating trace-hw_rtc.c with a custom command
+[178/2195] Generating trace-hw_s390x.h with a custom command
+[179/2195] Generating trace-hw_s390x.c with a custom command
+[180/2195] Generating trace-hw_scsi.c with a custom command
+[181/2195] Generating trace-hw_sd.h with a custom command
+[182/2195] Generating trace-hw_scsi.h with a custom command
+[183/2195] Generating trace-hw_sd.c with a custom command
+[184/2195] Generating trace-hw_sh4.h with a custom command
+[185/2195] Generating trace-hw_sh4.c with a custom command
+[186/2195] Generating trace-hw_sparc.h with a custom command
+[187/2195] Generating trace-hw_sparc.c with a custom command
+[188/2195] Generating trace-hw_sparc64.h with a custom command
+[189/2195] Generating trace-hw_sparc64.c with a custom command
+[190/2195] Generating trace-hw_ssi.h with a custom command
+[191/2195] Generating trace-hw_ssi.c with a custom command
+[192/2195] Generating trace-hw_timer.c with a custom command
+[193/2195] Generating trace-hw_timer.h with a custom command
+[194/2195] Generating trace-hw_tpm.h with a custom command
+[195/2195] Generating trace-hw_tpm.c with a custom command
+[196/2195] Generating trace-hw_usb.c with a custom command
+[197/2195] Generating trace-hw_usb.h with a custom command
+[198/2195] Generating trace-hw_vfio.h with a custom command
+[199/2195] Generating trace-hw_vfio.c with a custom command
+[200/2195] Generating trace-hw_virtio.c with a custom command
+[201/2195] Generating trace-hw_virtio.h with a custom command
+[202/2195] Generating trace-hw_watchdog.h with a custom command
+[203/2195] Generating trace-hw_xen.c with a custom command
+[204/2195] Generating trace-hw_gpio.h with a custom command
+[205/2195] Generating trace-hw_gpio.c with a custom command
+[206/2195] Generating trace-net.h with a custom command
+[207/2195] Generating trace-migration.c with a custom command
+[208/2195] Generating trace-migration.h with a custom command
+[209/2195] Generating trace-net.c with a custom command
+[210/2195] Generating trace-softmmu.h with a custom command
+[211/2195] Generating trace-softmmu.c with a custom command
+[212/2195] Generating trace-ui.c with a custom command
+[213/2195] Generating trace-ui.h with a custom command
+[214/2195] Generating trace-hw_remote.h with a custom command
+[215/2195] Generating trace-hw_remote.c with a custom command
+[216/2195] Generating trace-accel_tcg.h with a custom command
+[217/2195] Generating trace-accel_tcg.c with a custom command
+[218/2195] Generating trace-hw_core.h with a custom command
+[219/2195] Generating trace-hw_core.c with a custom command
+[220/2195] Generating trace-target_arm.h with a custom command
+[221/2195] Generating trace-target_arm.c with a custom command
+[222/2195] Generating trace-target_arm_hvf.h with a custom command
+[223/2195] Generating trace-target_arm_hvf.c with a custom command
+[224/2195] Generating trace-target_hppa.h with a custom command
+[225/2195] Generating trace-target_hppa.c with a custom command
+[226/2195] Generating trace-target_i386.h with a custom command
+[227/2195] Generating trace-target_i386.c with a custom command
+[228/2195] Generating trace-target_i386_kvm.h with a custom command
+[229/2195] Generating trace-target_i386_kvm.c with a custom command
+[230/2195] Generating trace-target_mips_tcg.h with a custom command
+[231/2195] Generating trace-target_mips_tcg.c with a custom command
+[232/2195] Generating trace-target_ppc.h with a custom command
+[233/2195] Generating trace-target_ppc.c with a custom command
+[234/2195] Generating trace-target_riscv.h with a custom command
+[235/2195] Generating trace-target_riscv.c with a custom command
+[236/2195] Generating trace-target_s390x.h with a custom command
+[237/2195] Generating trace-target_s390x.c with a custom command
+[238/2195] Generating trace-target_s390x_kvm.h with a custom command
+[239/2195] Generating trace-target_s390x_kvm.c with a custom command
+[240/2195] Generating trace-target_sparc.h with a custom command
+[241/2195] Generating trace-target_sparc.c with a custom command
+[242/2195] Generating input-keymap-xorgevdev-to-qcode.c.inc with a custom command (wrapped by meson to capture output)
+[243/2195] Generating input-keymap-xorgxquartz-to-qcode.c.inc with a custom command (wrapped by meson to capture output)
+[244/2195] Generating input-keymap-xorgkbd-to-qcode.c.inc with a custom command (wrapped by meson to capture output)
+[245/2195] Generating generated-tcg-tracers.h with a custom command
+[246/2195] Generating generated-helpers.c with a custom command
+[247/2195] Generating generated-helpers.h with a custom command
+[248/2195] Generating generated-helpers-wrappers.h with a custom command
+[249/2195] Generating trace-events-all with a custom command (wrapped by meson to capture output)
+[250/2195] Generating input-keymap-linux-to-qcode.c.inc with a custom command (wrapped by meson to capture output)
+[251/2195] Generating input-keymap-atset1-to-qcode.c.inc with a custom command (wrapped by meson to capture output)
+[252/2195] Generating input-keymap-qcode-to-atset1.c.inc with a custom command (wrapped by meson to capture output)
+[253/2195] Generating input-keymap-qcode-to-atset2.c.inc with a custom command (wrapped by meson to capture output)
+[254/2195] Generating input-keymap-qcode-to-atset3.c.inc with a custom command (wrapped by meson to capture output)
+[255/2195] Generating input-keymap-qcode-to-linux.c.inc with a custom command (wrapped by meson to capture output)
+[256/2195] Generating input-keymap-qcode-to-qnum.c.inc with a custom command (wrapped by meson to capture output)
+[257/2195] Generating input-keymap-qcode-to-sun.c.inc with a custom command (wrapped by meson to capture output)
+[258/2195] Generating input-keymap-qnum-to-qcode.c.inc with a custom command (wrapped by meson to capture output)
+[259/2195] Generating input-keymap-usb-to-qcode.c.inc with a custom command (wrapped by meson to capture output)
+[260/2195] Generating input-keymap-win32-to-qcode.c.inc with a custom command (wrapped by meson to capture output)
+[261/2195] Generating texture-blit-frag.h with a custom command (wrapped by meson to capture output)
+[262/2195] Generating input-keymap-x11-to-qcode.c.inc with a custom command (wrapped by meson to capture output)
+[263/2195] Generating texture-blit-vert.h with a custom command (wrapped by meson to capture output)
+[264/2195] Generating module_block.h with a custom command
+[265/2195] Generating block-gen.c with a custom command
+[266/2195] Generating 'libqemu-riscv64-softmmu.fa.p/decode-insn16.c.inc'.
+[267/2195] Generating 'libqemu-riscv64-softmmu.fa.p/decode-insn32.c.inc'.
+[268/2195] Generating texture-blit-flip-vert.h with a custom command (wrapped by meson to capture output)
+[269/2195] Generating QGA QAPI files with a custom command
+[270/2195] Generating riscv64-softmmu-gdbstub-xml.c with a custom command (wrapped by meson to capture output)
+[271/2195] Compiling C object libqemuutil.a.p/util_qemu-error.c.o
+[272/2195] Compiling C object libqemuutil.a.p/util_qemu-print.c.o
+[273/2195] Compiling C object libqemuutil.a.p/util_cutils.c.o
+[274/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-types-block.c.o
+[275/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-visit-introspect.c.o
+[276/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-commands-misc.c.o
+[277/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-commands-dump.c.o
+[278/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-types-authz.c.o
+[279/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-events-block.c.o
+[280/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-builtin-types.c.o
+[281/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-visit-ui.c.o
+[282/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-events-authz.c.o
+[283/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-visit-authz.c.o
+[284/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-commands-authz.c.o
+[285/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-commands-block-export.c.o
+[286/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-builtin-visit.c.o
+[287/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-commands-block.c.o
+[288/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-visit-block.c.o
+[289/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-types-pragma.c.o
+[290/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-events-transaction.c.o
+[291/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-types-control.c.o
+[292/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-events-block-core.c.o
+[293/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-commands-block-core.c.o
+[294/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-visit-block-export.c.o
+[295/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-types-block-core.c.o
+[296/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-events-block-export.c.o
+[297/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-types-block-export.c.o
+[298/2195] Compiling C object libblock.fa.p/block_qcow2.c.o
+[299/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-commands-tpm.c.o
+[300/2195] Compiling C object libblock.fa.p/block_throttle-groups.c.o
+[301/2195] Compiling C object libblock.fa.p/block_qcow2-snapshot.c.o
+[302/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-visit-net.c.o
+[303/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_virtio_vhost-vsock-pci.c.o
+[304/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-types-ui.c.o
+[305/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_virtio_vhost-user-blk-pci.c.o
+[306/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-commands-control.c.o
+[307/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-visit-char.c.o
+[308/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-visit-block-core.c.o
+[309/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-types-char.c.o
+[310/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_virtio_vhost-user-rng.c.o
+[311/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_virtio_vhost-user-rng-pci.c.o
+[312/2195] Compiling C object libblock.fa.p/block_quorum.c.o
+[313/2195] Compiling C object libqemuutil.a.p/util_qemu-thread-posix.c.o
+[314/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-events-char.c.o
+[315/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-events-common.c.o
+[316/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-types-common.c.o
+[317/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-visit-common.c.o
+[318/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-commands-char.c.o
+[319/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-commands-common.c.o
+[320/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-events-compat.c.o
+[321/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-commands-compat.c.o
+[322/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-visit-compat.c.o
+[323/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-types-compat.c.o
+[324/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-events-control.c.o
+[325/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-visit-control.c.o
+[326/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-types-crypto.c.o
+[327/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-visit-crypto.c.o
+[328/2195] Compiling C object qga/qemu-ga.p/meson-generated_.._qga-qapi-commands.c.o
+[329/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_virtio_vhost-user-scsi-pci.c.o
+[330/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-events-crypto.c.o
+[331/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_virtio_vhost-user-input-pci.c.o
+[332/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-events-dump.c.o
+[333/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-visit-dump.c.o
+[334/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-types-dump.c.o
+[335/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-commands-crypto.c.o
+[336/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-types-error.c.o
+[337/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-commands-error.c.o
+[338/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-types-introspect.c.o
+[339/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-events-qom.c.o
+[340/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-events-error.c.o
+[341/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-visit-error.c.o
+[342/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-events-introspect.c.o
+[343/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-visit-job.c.o
+[344/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-events-job.c.o
+[345/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-types-job.c.o
+[346/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-commands-introspect.c.o
+[347/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-commands-job.c.o
+[348/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-commands-machine.c.o
+[349/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-events-machine.c.o
+[350/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-visit-machine.c.o
+[351/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-types-machine.c.o
+[352/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-types-migration.c.o
+[353/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-types-misc.c.o
+[354/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-commands-migration.c.o
+[355/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-events-migration.c.o
+[356/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-events-misc.c.o
+[357/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-visit-misc.c.o
+[358/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-visit-migration.c.o
+[359/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-types-net.c.o
+[360/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-events-net.c.o
+[361/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_virtio_vhost-user-i2c-pci.c.o
+[362/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_virtio_vhost-user-i2c.c.o
+[363/2195] Compiling C object libblock.fa.p/block_raw-format.c.o
+[364/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-visit-pragma.c.o
+[365/2195] Compiling C object libblock.fa.p/block_snapshot.c.o
+[366/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-commands-net.c.o
+[367/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-commands-pragma.c.o
+[368/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-types-qom.c.o
+[369/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-events-pragma.c.o
+[370/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-visit-qom.c.o
+[371/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-commands-qom.c.o
+[372/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-visit-replay.c.o
+[373/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-events-replay.c.o
+[374/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-types-replay.c.o
+[375/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-events-run-state.c.o
+[376/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-types-run-state.c.o
+[377/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-visit-run-state.c.o
+[378/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-commands-replay.c.o
+[379/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-visit-yank.c.o
+[380/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-types-sockets.c.o
+[381/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-commands-run-state.c.o
+[382/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-visit-sockets.c.o
+[383/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-commands-sockets.c.o
+[384/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-types-trace.c.o
+[385/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-events-sockets.c.o
+[386/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-visit-trace.c.o
+[387/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-types-transaction.c.o
+[388/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-commands-trace.c.o
+[389/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-visit-transaction.c.o
+[390/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-events-trace.c.o
+[391/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-events-acpi.c.o
+[392/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-commands-acpi.c.o
+[393/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-commands-transaction.c.o
+[394/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-types-yank.c.o
+[395/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-events-yank.c.o
+[396/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-visit-acpi.c.o
+[397/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-types-acpi.c.o
+[398/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-commands-yank.c.o
+[399/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-events-rocker.c.o
+[400/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-types-audio.c.o
+[401/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-events-audio.c.o
+[402/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-visit-audio.c.o
+[403/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-commands-audio.c.o
+[404/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-events-qdev.c.o
+[405/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-commands-qdev.c.o
+[406/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-visit-qdev.c.o
+[407/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-types-pci.c.o
+[408/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-types-rdma.c.o
+[409/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-types-qdev.c.o
+[410/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-events-pci.c.o
+[411/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-commands-pci.c.o
+[412/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-visit-pci.c.o
+[413/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-visit-rdma.c.o
+[414/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-visit-tpm.c.o
+[415/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-types-rocker.c.o
+[416/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-commands-rdma.c.o
+[417/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-visit-rocker.c.o
+[418/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-events-rdma.c.o
+[419/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-commands-rocker.c.o
+[420/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-types-tpm.c.o
+[421/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-root.c.o
+[422/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-events-tpm.c.o
+[423/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-events-ui.c.o
+[424/2195] Compiling C object libqemuutil.a.p/meson-generated_.._qapi_qapi-commands-ui.c.o
+[425/2195] Compiling C object libqemuutil.a.p/util_memfd.c.o
+[426/2195] Compiling C object libqemuutil.a.p/util_qemu-timer-common.c.o
+[427/2195] Compiling C object libqemuutil.a.p/util_envlist.c.o
+[428/2195] Compiling C object libqemuutil.a.p/util_aio-posix.c.o
+[429/2195] Compiling C object libqemuutil.a.p/util_qemu-openpty.c.o
+[430/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-crypto.c.o
+[431/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-hw_pci_host.c.o
+[432/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-monitor.c.o
+[433/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-qom.c.o
+[434/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-util.c.o
+[435/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-qapi.c.o
+[436/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-authz.c.o
+[437/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-block.c.o
+[438/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-scsi.c.o
+[439/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-io.c.o
+[440/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-accel_kvm.c.o
+[441/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-nbd.c.o
+[442/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-audio.c.o
+[443/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-chardev.c.o
+[444/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-ebpf.c.o
+[445/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-backends.c.o
+[446/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-backends_tpm.c.o
+[447/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-hw_9pfs.c.o
+[448/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-hw_alpha.c.o
+[449/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-hw_arm.c.o
+[450/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-hw_adc.c.o
+[451/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-hw_audio.c.o
+[452/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-hw_acpi.c.o
+[453/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-hw_block_dataplane.c.o
+[454/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-hw_block.c.o
+[455/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-hw_char.c.o
+[456/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-hw_dma.c.o
+[457/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-hw_hppa.c.o
+[458/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-hw_display.c.o
+[459/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-hw_i2c.c.o
+[460/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-hw_i386.c.o
+[461/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-hw_hyperv.c.o
+[462/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-hw_i386_xen.c.o
+[463/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-hw_isa.c.o
+[464/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-hw_input.c.o
+[465/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-hw_intc.c.o
+[466/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-hw_mem.c.o
+[467/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-hw_ide.c.o
+[468/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-hw_misc_macio.c.o
+[469/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-hw_misc.c.o
+[470/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-hw_net.c.o
+[471/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-hw_mips.c.o
+[472/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-hw_net_can.c.o
+[473/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-hw_nvram.c.o
+[474/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-hw_pci.c.o
+[475/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-hw_nvme.c.o
+[476/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-hw_nubus.c.o
+[477/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-hw_rdma_vmw.c.o
+[478/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-hw_rtc.c.o
+[479/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-hw_rdma.c.o
+[480/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-hw_sparc64.c.o
+[481/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-hw_s390x.c.o
+[482/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-hw_ppc.c.o
+[483/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-hw_sh4.c.o
+[484/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-hw_sparc.c.o
+[485/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-hw_sd.c.o
+[486/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-hw_scsi.c.o
+[487/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-hw_timer.c.o
+[488/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-hw_usb.c.o
+[489/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-hw_tpm.c.o
+[490/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-hw_ssi.c.o
+[491/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-hw_vfio.c.o
+[492/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-hw_watchdog.c.o
+[493/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-hw_gpio.c.o
+[494/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-hw_xen.c.o
+[495/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-hw_virtio.c.o
+[496/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-migration.c.o
+[497/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-hw_remote.c.o
+[498/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-softmmu.c.o
+[499/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-net.c.o
+[500/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-ui.c.o
+[501/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-accel_tcg.c.o
+[502/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-target_arm_hvf.c.o
+[503/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-target_hppa.c.o
+[504/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-target_arm.c.o
+[505/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-hw_core.c.o
+[506/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-target_i386.c.o
+[507/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-target_riscv.c.o
+[508/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-target_mips_tcg.c.o
+[509/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-target_ppc.c.o
+[510/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-target_i386_kvm.c.o
+[511/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-target_s390x.c.o
+[512/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-target_sparc.c.o
+[513/2195] Compiling C object libqemuutil.a.p/meson-generated_.._trace_trace-target_s390x_kvm.c.o
+[514/2195] Compiling C object libqemuutil.a.p/qapi_qapi-dealloc-visitor.c.o
+[515/2195] Compiling C object libqemuutil.a.p/qapi_opts-visitor.c.o
+[516/2195] Compiling C object libqemuutil.a.p/qapi_qapi-clone-visitor.c.o
+[517/2195] Compiling C object libqemuutil.a.p/qapi_qapi-util.c.o
+[518/2195] Compiling C object libqemuutil.a.p/qapi_qapi-forward-visitor.c.o
+[519/2195] Compiling C object libqemuutil.a.p/qapi_qobject-output-visitor.c.o
+[520/2195] Compiling C object libqemuutil.a.p/qapi_string-input-visitor.c.o
+[521/2195] Compiling C object libqemuutil.a.p/qapi_qapi-visit-core.c.o
+[522/2195] Compiling C object libqemuutil.a.p/qapi_qobject-input-visitor.c.o
+[523/2195] Compiling C object libqemuutil.a.p/qapi_string-output-visitor.c.o
+[524/2195] Compiling C object libqemuutil.a.p/qapi_qmp-registry.c.o
+[525/2195] Compiling C object libqemuutil.a.p/qapi_qapi-type-helpers.c.o
+[526/2195] Compiling C object libqemuutil.a.p/qapi_qmp-dispatch.c.o
+[527/2195] Compiling C object libqemuutil.a.p/qobject_qnull.c.o
+[528/2195] Compiling C object libqemuutil.a.p/qapi_qmp-event.c.o
+[529/2195] Compiling C object libqemuutil.a.p/qobject_qstring.c.o
+[530/2195] Compiling C object libqemuutil.a.p/qobject_qlit.c.o
+[531/2195] Compiling C object libqemuutil.a.p/qobject_qnum.c.o
+[532/2195] Compiling C object libqemuutil.a.p/qobject_qlist.c.o
+[533/2195] Compiling C object libqemuutil.a.p/qobject_qbool.c.o
+[534/2195] Compiling C object libqemuutil.a.p/qobject_qdict.c.o
+[535/2195] Compiling C object libqemuutil.a.p/qobject_json-writer.c.o
+[536/2195] Compiling C object libqemuutil.a.p/qobject_qjson.c.o
+[537/2195] Compiling C object libqemuutil.a.p/qobject_json-lexer.c.o
+[538/2195] Compiling C object libqemuutil.a.p/qobject_qobject.c.o
+[539/2195] Compiling C object libqemuutil.a.p/qobject_block-qdict.c.o
+[540/2195] Compiling C object libqemuutil.a.p/qobject_json-streamer.c.o
+[541/2195] Compiling C object libqemuutil.a.p/qobject_json-parser.c.o
+[542/2195] Compiling C object libqemuutil.a.p/util_unicode.c.o
+[543/2195] Compiling C object libqemuutil.a.p/util_fdmon-epoll.c.o
+[544/2195] Compiling C object libqemuutil.a.p/util_osdep.c.o
+[545/2195] Compiling C object libqemuutil.a.p/util_fdmon-poll.c.o
+[546/2195] Compiling C object libqemuutil.a.p/util_path.c.o
+[547/2195] Compiling C object libcommon.fa.p/hw_char_virtio-console.c.o
+[548/2195] Compiling C object libcommon.fa.p/hw_char_serial-pci-multi.c.o
+[549/2195] Compiling C object libqemuutil.a.p/util_oslib-posix.c.o
+[550/2195] Compiling C object libqemuutil.a.p/util_event_notifier-posix.c.o
+[551/2195] Compiling C object libqemuutil.a.p/util_compatfd.c.o
+[552/2195] Compiling C object libqemuutil.a.p/util_mmap-alloc.c.o
+[553/2195] Compiling C object libqemuutil.a.p/util_id.c.o
+[554/2195] Compiling C object libqemuutil.a.p/util_qemu-option.c.o
+[555/2195] Compiling C object libqemuutil.a.p/util_host-utils.c.o
+[556/2195] Compiling C object libblock.fa.p/block_qcow2-threads.c.o
+[557/2195] Compiling C object libqemuutil.a.p/util_module.c.o
+[558/2195] Compiling C object libqemuutil.a.p/util_bitops.c.o
+[559/2195] Compiling C object libqemuutil.a.p/util_cacheflush.c.o
+[560/2195] Compiling C object libqemuutil.a.p/util_bitmap.c.o
+[561/2195] Compiling C object libqemuutil.a.p/util_error.c.o
+[562/2195] Compiling C object libqemuutil.a.p/util_cacheinfo.c.o
+[563/2195] Compiling C object libqemuutil.a.p/util_fifo8.c.o
+[564/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/tcg_tcg-op.c.o
+[565/2195] Compiling C object libqemuutil.a.p/util_qemu-config.c.o
+[566/2195] Compiling C object tests/qtest/libqos/libqos.fa.p/qgraph.c.o
+[567/2195] Compiling C object tests/qtest/libqos/libqos.fa.p/qos_external.c.o
+[568/2195] Compiling C object tests/qtest/libqos/libqos.fa.p/.._libqtest.c.o
+[569/2195] Compiling C object libcommon.fa.p/hw_timer_sifive_pwm.c.o
+[570/2195] Compiling C object libcommon.fa.p/hw_usb_combined-packet.c.o
+[571/2195] Compiling C object libcommon.fa.p/hw_ssi_sifive_spi.c.o
+[572/2195] Compiling C object libqemuutil.a.p/util_qemu-progress.c.o
+[573/2195] Compiling C object libcommon.fa.p/hw_usb_bus.c.o
+[574/2195] Compiling C object libqemuutil.a.p/util_notify.c.o
+[575/2195] Compiling C object libqemuutil.a.p/util_keyval.c.o
+[576/2195] Compiling C object libqemuutil.a.p/util_getauxval.c.o
+[577/2195] Compiling C object libqemuutil.a.p/util_uuid.c.o
+[578/2195] Compiling C object libqemuutil.a.p/util_crc32c.c.o
+[579/2195] Compiling C object libqemuutil.a.p/util_pagesize.c.o
+[580/2195] Compiling C object libqemuutil.a.p/util_rcu.c.o
+[581/2195] Compiling C object libqemuutil.a.p/util_log.c.o
+[582/2195] Compiling C object libqemuutil.a.p/util_qdist.c.o
+[583/2195] Compiling C object libqemuutil.a.p/util_stats64.c.o
+[584/2195] Compiling C object libqemuutil.a.p/util_qht.c.o
+[585/2195] Compiling C object libqemuutil.a.p/util_qsp.c.o
+[586/2195] Compiling C object libqemuutil.a.p/util_transactions.c.o
+[587/2195] Compiling C object libqemuutil.a.p/util_range.c.o
+[588/2195] Compiling C object libqemuutil.a.p/util_drm.c.o
+[589/2195] Compiling C object libqemuutil.a.p/util_systemd.c.o
+[590/2195] Compiling C object libqemuutil.a.p/util_yank.c.o
+[591/2195] Compiling C object libqemuutil.a.p/util_guest-random.c.o
+[592/2195] Compiling C object libqemuutil.a.p/util_dbus.c.o
+[593/2195] Compiling C object libqemuutil.a.p/util_userfaultfd.c.o
+[594/2195] Compiling C object libqemuutil.a.p/util_crc-ccitt.c.o
+[595/2195] Compiling C object libqemuutil.a.p/util_aiocb.c.o
+[596/2195] Compiling C object libqemuutil.a.p/util_async.c.o
+[597/2195] Compiling C object libqemuutil.a.p/util_base64.c.o
+[598/2195] Compiling C object libqemuutil.a.p/util_aio-wait.c.o
+[599/2195] Compiling C object libqemuutil.a.p/util_buffer.c.o
+[600/2195] Compiling C object libqemuutil.a.p/util_hexdump.c.o
+[601/2195] Compiling C object libqemuutil.a.p/util_iova-tree.c.o
+[602/2195] Compiling C object libqemuutil.a.p/util_hbitmap.c.o
+[603/2195] Compiling C object libqemuutil.a.p/util_bufferiszero.c.o
+[604/2195] Compiling C object libqemuutil.a.p/util_coroutine-ucontext.c.o
+[605/2195] Compiling C object libqemuutil.a.p/util_iov.c.o
+[606/2195] Compiling C object libqemuutil.a.p/util_lockcnt.c.o
+[607/2195] Compiling C object libqemuutil.a.p/util_main-loop.c.o
+[608/2195] Compiling C object libqemuutil.a.p/util_qemu-coroutine.c.o
+[609/2195] Compiling C object libqemuutil.a.p/util_uri.c.o
+[610/2195] Compiling C object libqemuutil.a.p/util_qemu-sockets.c.o
+[611/2195] Compiling C object libqemuutil.a.p/util_qemu-coroutine-io.c.o
+[612/2195] Compiling C object libqemuutil.a.p/util_nvdimm-utils.c.o
+[613/2195] Compiling C object libqemuutil.a.p/util_vhost-user-server.c.o
+[614/2195] Compiling C object libqemuutil.a.p/util_qemu-coroutine-sleep.c.o
+[615/2195] Compiling C object libqemuutil.a.p/util_qemu-coroutine-lock.c.o
+[616/2195] Compiling C object libqemuutil.a.p/util_block-helpers.c.o
+[617/2195] Compiling C object libqemuutil.a.p/util_readline.c.o
+[618/2195] Compiling C object libqemuutil.a.p/util_qemu-timer.c.o
+[619/2195] Compiling C object libqemuutil.a.p/util_thread-pool.c.o
+[620/2195] Compiling C object libqemuutil.a.p/util_qemu-co-shared-resource.c.o
+[621/2195] Compiling C object libqemuutil.a.p/util_timed-average.c.o
+[622/2195] Compiling C object libqemuutil.a.p/util_filemonitor-stub.c.o
+[623/2195] Compiling C object libqemuutil.a.p/util_throttle.c.o
+[624/2195] Compiling C object libqemuutil.a.p/util_vfio-helpers.c.o
+[625/2195] Compiling C object libqemuutil.a.p/crypto_init.c.o
+[626/2195] Compiling C object libqemuutil.a.p/crypto_aes.c.o
+[627/2195] Compiling C object libqemuutil.a.p/trace_qmp.c.o
+[628/2195] Compiling C object libqemuutil.a.p/stubs_bdrv-next-monitor-owned.c.o
+[629/2195] Compiling C object libqemuutil.a.p/crypto_random-platform.c.o
+[630/2195] Compiling C object libqemuutil.a.p/trace_control.c.o
+[631/2195] Compiling C object libqemuutil.a.p/stubs_blk-exp-close-all.c.o
+[632/2195] Compiling C object libqemuutil.a.p/stubs_change-state-handler.c.o
+[633/2195] Compiling C object libqemuutil.a.p/stubs_blk-commit-all.c.o
+[634/2195] Compiling C object libqemuutil.a.p/stubs_blockdev-close-all-bdrv-states.c.o
+[635/2195] Compiling C object libqemuutil.a.p/stubs_cmos.c.o
+[636/2195] Compiling C object libqemuutil.a.p/stubs_qemu-timer-notify-cb.c.o
+[637/2195] Compiling C object libqemuutil.a.p/stubs_cpus-get-virtual-clock.c.o
+[638/2195] Compiling C object libqemuutil.a.p/stubs_cpu-get-clock.c.o
+[639/2195] Compiling C object libqemuutil.a.p/stubs_icount.c.o
+[640/2195] Compiling C object libqemuutil.a.p/stubs_error-printf.c.o
+[641/2195] Compiling C object libqemuutil.a.p/stubs_dump.c.o
+[642/2195] Compiling C object libqemuutil.a.p/stubs_get-vm-name.c.o
+[643/2195] Compiling C object libqemuutil.a.p/stubs_fw_cfg.c.o
+[644/2195] Compiling C object libqemuutil.a.p/stubs_gdbstub.c.o
+[645/2195] Compiling C object libqemuutil.a.p/stubs_module-opts.c.o
+[646/2195] Compiling C object libqemuutil.a.p/stubs_fdset.c.o
+[647/2195] Compiling C object libqemuutil.a.p/stubs_migr-blocker.c.o
+[648/2195] Compiling C object libqemuutil.a.p/stubs_is-daemonized.c.o
+[649/2195] Compiling C object libqemuutil.a.p/stubs_isa-bus.c.o
+[650/2195] Compiling C object libqemuutil.a.p/stubs_iothread-lock.c.o
+[651/2195] Compiling C object libqemuutil.a.p/stubs_qmp-command-available.c.o
+[652/2195] Compiling C object libqemuutil.a.p/stubs_monitor.c.o
+[653/2195] Compiling C object libqemuutil.a.p/stubs_pci-bus.c.o
+[654/2195] Compiling C object libqemuutil.a.p/stubs_qmp_memory_device.c.o
+[655/2195] Compiling C object libqemuutil.a.p/stubs_ram-block.c.o
+[656/2195] Compiling C object libqemuutil.a.p/stubs_monitor-core.c.o
+[657/2195] Compiling C object libqemuutil.a.p/stubs_qtest.c.o
+[658/2195] Compiling C object libqemuutil.a.p/stubs_ramfb.c.o
+[659/2195] Compiling C object libqemuutil.a.p/stubs_qmp-quit.c.o
+[660/2195] Compiling C object libqemuutil.a.p/stubs_runstate-check.c.o
+[661/2195] Compiling C object libqemuutil.a.p/stubs_replay.c.o
+[662/2195] Compiling C object libqemuutil.a.p/stubs_sysbus.c.o
+[663/2195] Compiling C object libqemuutil.a.p/stubs_target-monitor-defs.c.o
+[664/2195] Compiling C object libqemuutil.a.p/stubs_target-get-monitor-def.c.o
+[665/2195] Compiling C object libqemuutil.a.p/stubs_uuid.c.o
+[666/2195] Compiling C object libqemuutil.a.p/stubs_trace-control.c.o
+[667/2195] Compiling C object libqemuutil.a.p/stubs_vmstate.c.o
+[668/2195] Compiling C object libqemuutil.a.p/stubs_win32-kbd-hook.c.o
+[669/2195] Compiling C object libqemuutil.a.p/stubs_vmgenid.c.o
+[670/2195] Compiling C object libqemuutil.a.p/stubs_vm-stop.c.o
+[671/2195] Compiling C object libqemuutil.a.p/stubs_replay-tools.c.o
+[672/2195] Compiling C object libqemuutil.a.p/stubs_usb-dev-stub.c.o
+[673/2195] Compiling C object libqemuutil.a.p/stubs_semihost.c.o
+[674/2195] Compiling C object libqemuutil.a.p/stubs_cpu-synchronize-state.c.o
+[675/2195] Compiling C object libqemuutil.a.p/stubs_xen-hw-stub.c.o
+[676/2195] Compiling C object tests/qtest/libqos/libqos.fa.p/pci.c.o
+[677/2195] Compiling C object tests/qtest/libqos/libqos.fa.p/fw_cfg.c.o
+[678/2195] Compiling C object tests/qtest/libqos/libqos.fa.p/malloc.c.o
+[679/2195] Linking static target libqemuutil.a
+[680/2195] Compiling C object tests/qtest/libqos/libqos.fa.p/libqos.c.o
+[681/2195] Compiling C object tests/qtest/libqos/libqos.fa.p/malloc-spapr.c.o
+[682/2195] Compiling C object tests/qtest/libqos/libqos.fa.p/sdhci-cmd.c.o
+[683/2195] Compiling C object tests/qtest/libqos/libqos.fa.p/libqos-spapr.c.o
+[684/2195] Compiling C object tests/qtest/libqos/libqos.fa.p/rtas.c.o
+[685/2195] Compiling C object tests/qtest/libqos/libqos.fa.p/pci-spapr.c.o
+[686/2195] Compiling C object tests/qtest/libqos/libqos.fa.p/pci-pc.c.o
+[687/2195] Compiling C object tests/qtest/libqos/libqos.fa.p/malloc-pc.c.o
+[688/2195] Compiling C object tests/qtest/libqos/libqos.fa.p/libqos-pc.c.o
+[689/2195] Compiling C object tests/qtest/libqos/libqos.fa.p/usb.c.o
+[690/2195] Compiling C object tests/qtest/libqos/libqos.fa.p/ahci.c.o
+[691/2195] Compiling C object tests/qtest/libqos/libqos.fa.p/e1000e.c.o
+[692/2195] Compiling C object tests/qtest/libqos/libqos.fa.p/i2c.c.o
+[693/2195] Compiling C object tests/qtest/libqos/libqos.fa.p/i2c-omap.c.o
+[694/2195] Compiling C object tests/qtest/libqos/libqos.fa.p/i2c-imx.c.o
+[695/2195] Compiling C object tests/qtest/libqos/libqos.fa.p/tpci200.c.o
+[696/2195] Compiling C object tests/qtest/libqos/libqos.fa.p/sdhci.c.o
+[697/2195] Compiling C object tests/qtest/libqos/libqos.fa.p/virtio.c.o
+[698/2195] Compiling C object tests/qtest/libqos/libqos.fa.p/virtio-balloon.c.o
+[699/2195] Compiling C object tests/qtest/libqos/libqos.fa.p/virtio-9p.c.o
+[700/2195] Compiling C object tests/qtest/libqos/libqos.fa.p/virtio-blk.c.o
+[701/2195] Compiling C object tests/qtest/libqos/libqos.fa.p/vhost-user-blk.c.o
+[702/2195] Compiling C object tests/qtest/libqos/libqos.fa.p/virtio-mmio.c.o
+[703/2195] Compiling C object tests/qtest/libqos/libqos.fa.p/virtio-net.c.o
+[704/2195] Compiling C object tests/qtest/libqos/libqos.fa.p/virtio-pci-modern.c.o
+[705/2195] Compiling C object tests/qtest/libqos/libqos.fa.p/virtio-rng.c.o
+[706/2195] Compiling C object tests/qtest/libqos/libqos.fa.p/virtio-pci.c.o
+[707/2195] Compiling C object tests/qtest/libqos/libqos.fa.p/virtio-scsi.c.o
+[708/2195] Compiling C object tests/qtest/libqos/libqos.fa.p/virtio-serial.c.o
+[709/2195] Compiling C object tests/qtest/libqos/libqos.fa.p/aarch64-xlnx-zcu102-machine.c.o
+[710/2195] Compiling C object tests/qtest/libqos/libqos.fa.p/arm-imx25-pdk-machine.c.o
+[711/2195] Compiling C object tests/qtest/libqos/libqos.fa.p/arm-n800-machine.c.o
+[712/2195] Compiling C object tests/qtest/libqos/libqos.fa.p/arm-raspi2-machine.c.o
+[713/2195] Compiling C object tests/qtest/libqos/libqos.fa.p/arm-sabrelite-machine.c.o
+[714/2195] Compiling C object tests/qtest/libqos/libqos.fa.p/arm-smdkc210-machine.c.o
+[715/2195] Compiling C object tests/qtest/libqos/libqos.fa.p/arm-virt-machine.c.o
+[716/2195] Compiling C object tests/qtest/libqos/libqos.fa.p/arm-xilinx-zynq-a9-machine.c.o
+[717/2195] Compiling C object tests/qtest/libqos/libqos.fa.p/ppc64_pseries-machine.c.o
+[718/2195] Compiling C object tests/qtest/libqos/libqos.fa.p/x86_64_pc-machine.c.o
+[719/2195] Linking static target tests/qtest/libqos/libqos.fa
+[720/2195] Compiling C object libauthz.fa.p/authz_list.c.o
+[721/2195] Generating block.syms with a custom command (wrapped by meson to capture output)
+[722/2195] Generating qemu.syms with a custom command (wrapped by meson to capture output)
+[723/2195] Compiling C object libqom.fa.p/qom_container.c.o
+[724/2195] Compiling C object libqom.fa.p/qom_object_interfaces.c.o
+[725/2195] Compiling C object libqom.fa.p/qom_qom-qobject.c.o
+[726/2195] Compiling C object libqom.fa.p/qom_object.c.o
+[727/2195] Compiling C object libauthz.fa.p/authz_base.c.o
+[728/2195] Compiling C object libqom.fa.p/hw_nvram_fw_cfg-interface.c.o
+[729/2195] Linking static target libqom.fa
+[730/2195] Compiling C object libauthz.fa.p/authz_listfile.c.o
+[731/2195] Compiling C object libcrypto.fa.p/crypto_afsplit.c.o
+[732/2195] Compiling C object libauthz.fa.p/authz_simple.c.o
+[733/2195] Linking static target libauthz.fa
+[734/2195] Compiling C object libcrypto.fa.p/crypto_block-qcow.c.o
+[735/2195] Compiling C object libcrypto.fa.p/crypto_block.c.o
+[736/2195] Compiling C object libcrypto.fa.p/crypto_block-luks.c.o
+[737/2195] Compiling C object libcrypto.fa.p/crypto_cipher.c.o
+[738/2195] Compiling C object libcrypto.fa.p/crypto_hash.c.o
+[739/2195] Compiling C object libcrypto.fa.p/crypto_hmac.c.o
+[740/2195] Compiling C object libcrypto.fa.p/crypto_ivgen-essiv.c.o
+[741/2195] Compiling C object libcrypto.fa.p/crypto_ivgen-plain.c.o
+[742/2195] Compiling C object libcrypto.fa.p/crypto_ivgen-plain64.c.o
+[743/2195] Compiling C object libcrypto.fa.p/crypto_ivgen.c.o
+[744/2195] Compiling C object libcrypto.fa.p/crypto_pbkdf.c.o
+[745/2195] Compiling C object libcrypto.fa.p/crypto_secret_common.c.o
+[746/2195] Compiling C object libcrypto.fa.p/crypto_tlscreds.c.o
+[747/2195] Compiling C object libcrypto.fa.p/crypto_secret.c.o
+[748/2195] Compiling C object libcrypto.fa.p/crypto_tlscredspsk.c.o
+[749/2195] Compiling C object libcrypto.fa.p/crypto_tlscredsanon.c.o
+[750/2195] Compiling C object libcrypto.fa.p/crypto_tlscredsx509.c.o
+[751/2195] Compiling C object libcrypto.fa.p/crypto_hash-glib.c.o
+[752/2195] Compiling C object libcrypto.fa.p/crypto_tlssession.c.o
+[753/2195] Compiling C object libcrypto.fa.p/crypto_hmac-glib.c.o
+[754/2195] Compiling C object libcrypto.fa.p/crypto_pbkdf-stub.c.o
+[755/2195] Compiling C object libcrypto.fa.p/crypto_secret_keyring.c.o
+[756/2195] Linking static target libcrypto.fa
+[757/2195] Compiling C object libio.fa.p/io_channel-buffer.c.o
+[758/2195] Compiling C object libio.fa.p/io_channel-command.c.o
+[759/2195] Compiling C object libio.fa.p/io_channel-file.c.o
+[760/2195] Compiling C object libio.fa.p/io_channel-socket.c.o
+[761/2195] Compiling C object libio.fa.p/io_channel-tls.c.o
+[762/2195] Compiling C object libio.fa.p/io_channel-util.c.o
+[763/2195] Compiling C object libio.fa.p/io_channel-watch.c.o
+[764/2195] Compiling C object libio.fa.p/io_channel.c.o
+[765/2195] Compiling C object libio.fa.p/io_dns-resolver.c.o
+[766/2195] Compiling C object libio.fa.p/io_channel-websock.c.o
+[767/2195] Compiling C object libio.fa.p/io_net-listener.c.o
+[768/2195] Compiling C object libio.fa.p/io_task.c.o
+[769/2195] Linking static target libio.fa
+[770/2195] Compiling C object libmigration.fa.p/migration_page_cache.c.o
+[771/2195] Compiling C object libmigration.fa.p/migration_xbzrle.c.o
+[772/2195] Compiling C object libmigration.fa.p/migration_qemu-file-channel.c.o
+[773/2195] Compiling C object libmigration.fa.p/migration_vmstate-types.c.o
+[774/2195] Compiling C object libmigration.fa.p/migration_vmstate.c.o
+[775/2195] Compiling C object libmigration.fa.p/migration_yank_functions.c.o
+[776/2195] Compiling C object libblock.fa.p/meson-generated_.._block_block-gen.c.o
+[777/2195] Compiling C object libmigration.fa.p/migration_qemu-file.c.o
+[778/2195] Linking static target libmigration.fa
+[779/2195] Compiling C object libblock.fa.p/job.c.o
+[780/2195] Compiling C object libblock.fa.p/blockjob.c.o
+[781/2195] Compiling C object libblock.fa.p/replication.c.o
+[782/2195] Compiling C object libblock.fa.p/block.c.o
+[783/2195] Compiling C object libblock.fa.p/qemu-io-cmds.c.o
+[784/2195] Compiling C object libblock.fa.p/nbd_client-connection.c.o
+[785/2195] Compiling C object libblock.fa.p/nbd_common.c.o
+[786/2195] Compiling C object libblock.fa.p/nbd_client.c.o
+[787/2195] Compiling C object libblock.fa.p/scsi_utils.c.o
+[788/2195] Compiling C object libblock.fa.p/scsi_pr-manager.c.o
+[789/2195] Compiling C object libblock.fa.p/scsi_pr-manager-helper.c.o
+[790/2195] Compiling C object libblock.fa.p/block_accounting.c.o
+[791/2195] Compiling C object libblock.fa.p/block_aio_task.c.o
+[792/2195] Compiling C object libblock.fa.p/block_amend.c.o
+[793/2195] Compiling C object libblock.fa.p/block_backup.c.o
+[794/2195] Compiling C object libblock.fa.p/block_copy-before-write.c.o
+[795/2195] Compiling C object libblock.fa.p/block_blkdebug.c.o
+[796/2195] Compiling C object libblock.fa.p/block_blkverify.c.o
+[797/2195] Compiling C object libblock.fa.p/block_blklogwrites.c.o
+[798/2195] Compiling C object libblock.fa.p/block_commit.c.o
+[799/2195] Compiling C object libblock.fa.p/block_block-copy.c.o
+[800/2195] Compiling C object libblock.fa.p/block_block-backend.c.o
+[801/2195] Compiling C object libblock.fa.p/block_progress_meter.c.o
+[802/2195] Compiling C object libblock.fa.p/block_copy-on-read.c.o
+[803/2195] Compiling C object libblock.fa.p/block_preallocate.c.o
+[804/2195] Compiling C object libblock.fa.p/block_create.c.o
+[805/2195] Compiling C object libblock.fa.p/block_crypto.c.o
+[806/2195] Compiling C object libblock.fa.p/block_dirty-bitmap.c.o
+[807/2195] Compiling C object libblock.fa.p/block_filter-compress.c.o
+[808/2195] Compiling C object libblock.fa.p/block_mirror.c.o
+[809/2195] Compiling C object libblock.fa.p/block_io.c.o
+[810/2195] Compiling C object libblock.fa.p/block_nbd.c.o
+[811/2195] Compiling C object libblock.fa.p/block_null.c.o
+[812/2195] Compiling C object libblock.fa.p/block_qapi.c.o
+[813/2195] Compiling C object libblock.fa.p/block_qcow2-bitmap.c.o
+[814/2195] Compiling C object libblock.fa.p/block_qcow2-cache.c.o
+[815/2195] Compiling C object libblock.fa.p/block_throttle.c.o
+[816/2195] Compiling C object libblock.fa.p/block_qcow2-cluster.c.o
+[817/2195] Compiling C object libblock.fa.p/block_vhdx-endian.c.o
+[818/2195] Compiling C object libblockdev.fa.p/block_export_export.c.o
+[819/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_virtio_virtio-iommu.c.o
+[820/2195] Compiling C object libblock.fa.p/block_vhdx-log.c.o
+[821/2195] Compiling C object libblock.fa.p/block_qcow2-refcount.c.o
+[822/2195] Compiling C object libblock.fa.p/block_vpc.c.o
+[823/2195] Compiling C object libblock.fa.p/block_vhdx.c.o
+[824/2195] Compiling C object libblock.fa.p/block_vmdk.c.o
+[825/2195] Compiling C object libblock.fa.p/block_write-threshold.c.o
+[826/2195] Compiling C object libblock.fa.p/block_qcow.c.o
+[827/2195] Compiling C object libblock.fa.p/block_vdi.c.o
+[828/2195] Compiling C object libblock.fa.p/block_cloop.c.o
+[829/2195] Compiling C object libblock.fa.p/block_bochs.c.o
+[830/2195] Compiling C object libblock.fa.p/block_dmg.c.o
+[831/2195] Compiling C object libblock.fa.p/block_vvfat.c.o
+[832/2195] Compiling C object libblock.fa.p/block_qed-check.c.o
+[833/2195] Compiling C object libblock.fa.p/block_qed-cluster.c.o
+[834/2195] Compiling C object libblock.fa.p/block_qed-l2-cache.c.o
+[835/2195] Compiling C object libblock.fa.p/block_qed-table.c.o
+[836/2195] Compiling C object libblock.fa.p/block_qed.c.o
+[837/2195] Compiling C object libblock.fa.p/block_file-posix.c.o
+[838/2195] Compiling C object libblockdev.fa.p/nbd_server.c.o
+[839/2195] Compiling C object libblock.fa.p/block_stream.c.o
+[840/2195] Compiling C object libblock.fa.p/block_nvme.c.o
+[841/2195] Compiling C object libblock.fa.p/block_replication.c.o
+[842/2195] Compiling C object libblock.fa.p/block_monitor_bitmap-qmp-cmds.c.o
+[843/2195] Linking static target libblock.fa
+[844/2195] Compiling C object libblockdev.fa.p/block_export_vhost-user-blk-server.c.o
+[845/2195] Compiling C object libblockdev.fa.p/blockdev-nbd.c.o
+[846/2195] Compiling C object libblockdev.fa.p/iothread.c.o
+[847/2195] Compiling C object libblockdev.fa.p/blockdev.c.o
+[848/2195] Compiling C object libblockdev.fa.p/os-posix.c.o
+[849/2195] Compiling C object libblockdev.fa.p/job-qmp.c.o
+[850/2195] Linking static target libblockdev.fa
+[851/2195] Compiling C object libqmp.fa.p/qom_qom-qmp-cmds.c.o
+[852/2195] Compiling C object libqmp.fa.p/monitor_monitor.c.o
+[853/2195] Compiling C object libqmp.fa.p/monitor_qmp.c.o
+[854/2195] Compiling C object libqmp.fa.p/monitor_qmp-cmds-control.c.o
+[855/2195] Linking static target libqmp.fa
+[856/2195] Compiling C object libchardev.fa.p/chardev_char-file.c.o
+[857/2195] Compiling C object libchardev.fa.p/chardev_char-fe.c.o
+[858/2195] Compiling C object libchardev.fa.p/chardev_char-io.c.o
+[859/2195] Compiling C object libchardev.fa.p/chardev_char-null.c.o
+[860/2195] Compiling C object libchardev.fa.p/chardev_char-pipe.c.o
+[861/2195] Compiling C object libchardev.fa.p/chardev_char-mux.c.o
+[862/2195] Compiling C object libchardev.fa.p/chardev_char-ringbuf.c.o
+[863/2195] Compiling C object libchardev.fa.p/chardev_char-serial.c.o
+[864/2195] Compiling C object libchardev.fa.p/chardev_char-stdio.c.o
+[865/2195] Compiling C object libchardev.fa.p/chardev_char-socket.c.o
+[866/2195] Compiling C object libchardev.fa.p/chardev_char-udp.c.o
+[867/2195] Compiling C object libchardev.fa.p/chardev_char-fd.c.o
+[868/2195] Compiling C object libchardev.fa.p/chardev_char-parallel.c.o
+[869/2195] Compiling C object libchardev.fa.p/chardev_char.c.o
+[870/2195] Compiling C object libchardev.fa.p/chardev_char-pty.c.o
+[871/2195] Linking static target libchardev.fa
+[872/2195] Compiling C object libhwcore.fa.p/hw_core_bus.c.o
+[873/2195] Compiling C object libhwcore.fa.p/hw_core_qdev-properties.c.o
+[874/2195] Compiling C object libhwcore.fa.p/hw_core_reset.c.o
+[875/2195] Compiling C object libhwcore.fa.p/hw_core_vmstate-if.c.o
+[876/2195] Compiling C object libhwcore.fa.p/hw_core_resettable.c.o
+[877/2195] Compiling C object libhwcore.fa.p/hw_core_qdev.c.o
+[878/2195] Compiling C object libhwcore.fa.p/hw_core_irq.c.o
+[879/2195] Compiling C object libhwcore.fa.p/hw_core_clock.c.o
+[880/2195] Compiling C object libhwcore.fa.p/hw_core_qdev-clock.c.o
+[881/2195] Compiling C object libhwcore.fa.p/hw_core_hotplug.c.o
+[882/2195] Compiling C object libcommon.fa.p/cpus-common.c.o
+[883/2195] Compiling C object libcommon.fa.p/page-vary-common.c.o
+[884/2195] Compiling C object libhwcore.fa.p/hw_core_qdev-hotplug.c.o
+[885/2195] Linking static target libhwcore.fa
+[886/2195] Compiling C object libcommon.fa.p/disas_capstone.c.o
+[887/2195] Compiling C object libcommon.fa.p/disas_riscv.c.o
+[888/2195] Compiling C object libcommon.fa.p/disas_i386.c.o
+[889/2195] Compiling C object libcommon.fa.p/hw_core_machine-smp.c.o
+[890/2195] Compiling C object libcommon.fa.p/hw_core_cpu-common.c.o
+[891/2195] Compiling C object libcommon.fa.p/qom_qom-hmp-cmds.c.o
+[892/2195] Compiling C object libcommon.fa.p/ui_clipboard.c.o
+[893/2195] Compiling C object libcommon.fa.p/ui_cursor.c.o
+[894/2195] Compiling C object libcommon.fa.p/ui_input-keymap.c.o
+[895/2195] Compiling C object libcommon.fa.p/ui_console.c.o
+[896/2195] Compiling C object libcommon.fa.p/ui_input-legacy.c.o
+[897/2195] Compiling C object libcommon.fa.p/ui_input-barrier.c.o
+[898/2195] Compiling C object libcommon.fa.p/ui_kbd-state.c.o
+[899/2195] Compiling C object libcommon.fa.p/ui_input.c.o
+[900/2195] Compiling C object libcommon.fa.p/ui_keymaps.c.o
+[901/2195] Compiling C object libcommon.fa.p/ui_qemu-pixman.c.o
+[902/2195] Compiling C object libcommon.fa.p/ui_spice-module.c.o
+[903/2195] Compiling C object libcommon.fa.p/ui_udmabuf.c.o
+[904/2195] Compiling C object libcommon.fa.p/ui_vnc-stubs.c.o
+[905/2195] Compiling C object libcommon.fa.p/ui_input-linux.c.o
+[906/2195] Compiling C object libcommon.fa.p/audio_audio_legacy.c.o
+[907/2195] Compiling C object libcommon.fa.p/audio_mixeng.c.o
+[908/2195] Compiling C object libcommon.fa.p/audio_noaudio.c.o
+[909/2195] Compiling C object libcommon.fa.p/audio_audio.c.o
+[910/2195] Compiling C object libcommon.fa.p/audio_wavaudio.c.o
+[911/2195] Compiling C object libcommon.fa.p/audio_wavcapture.c.o
+[912/2195] Compiling C object libcommon.fa.p/chardev_msmouse.c.o
+[913/2195] Compiling C object libcommon.fa.p/chardev_wctablet.c.o
+[914/2195] Compiling C object libcommon.fa.p/chardev_testdev.c.o
+[915/2195] Compiling C object libcommon.fa.p/fsdev_qemu-fsdev-opts.c.o
+[916/2195] Compiling C object libcommon.fa.p/fsdev_qemu-fsdev-throttle.c.o
+[917/2195] Compiling C object libcommon.fa.p/fsdev_qemu-fsdev-dummy.c.o
+[918/2195] Compiling C object libcommon.fa.p/dump_dump-hmp-cmds.c.o
+[919/2195] Compiling C object libcommon.fa.p/block_blkreplay.c.o
+[920/2195] Compiling C object libcommon.fa.p/block_qapi-sysemu.c.o
+[921/2195] Compiling C object libcommon.fa.p/block_monitor_block-hmp-cmds.c.o
+[922/2195] Compiling C object libcommon.fa.p/softmmu_bootdevice.c.o
+[923/2195] Compiling C object libcommon.fa.p/softmmu_dma-helpers.c.o
+[924/2195] Compiling C object libcommon.fa.p/softmmu_tpm.c.o
+[925/2195] Compiling C object libcommon.fa.p/softmmu_qdev-monitor.c.o
+[926/2195] Compiling C object libcommon.fa.p/backends_cryptodev-builtin.c.o
+[927/2195] Compiling C object libcommon.fa.p/softmmu_device_tree.c.o
+[928/2195] Compiling C object libcommon.fa.p/backends_cryptodev.c.o
+[929/2195] Compiling C object libcommon.fa.p/backends_hostmem-ram.c.o
+[930/2195] Compiling C object libcommon.fa.p/backends_hostmem.c.o
+[931/2195] Compiling C object libcommon.fa.p/backends_rng-builtin.c.o
+[932/2195] Compiling C object libcommon.fa.p/backends_rng-egd.c.o
+[933/2195] Compiling C object libcommon.fa.p/backends_confidential-guest-support.c.o
+[934/2195] Compiling C object libcommon.fa.p/backends_rng.c.o
+[935/2195] Compiling C object libcommon.fa.p/backends_rng-random.c.o
+[936/2195] Compiling C object libcommon.fa.p/backends_hostmem-file.c.o
+[937/2195] Compiling C object libcommon.fa.p/backends_hostmem-memfd.c.o
+[938/2195] Compiling C object libcommon.fa.p/backends_vhost-user.c.o
+[939/2195] Compiling C object libcommon.fa.p/backends_cryptodev-vhost.c.o
+[940/2195] Compiling C object libcommon.fa.p/backends_cryptodev-vhost-user.c.o
+[941/2195] Compiling C object libcommon.fa.p/backends_dbus-vmstate.c.o
+[942/2195] Compiling C object libcommon.fa.p/backends_tpm_tpm_backend.c.o
+[943/2195] Compiling C object libcommon.fa.p/backends_tpm_tpm_util.c.o
+[944/2195] Compiling C object libcommon.fa.p/migration_xbzrle.c.o
+[945/2195] Compiling C object libcommon.fa.p/migration_page_cache.c.o
+[946/2195] Compiling C object libcommon.fa.p/migration_vmstate-types.c.o
+[947/2195] Compiling C object libcommon.fa.p/migration_qemu-file-channel.c.o
+[948/2195] Compiling C object libcommon.fa.p/migration_vmstate.c.o
+[949/2195] Compiling C object libcommon.fa.p/migration_yank_functions.c.o
+[950/2195] Compiling C object libcommon.fa.p/migration_qemu-file.c.o
+[951/2195] Compiling C object libcommon.fa.p/migration_colo-failover.c.o
+[952/2195] Compiling C object libcommon.fa.p/migration_block-dirty-bitmap.c.o
+[953/2195] Compiling C object libcommon.fa.p/migration_channel.c.o
+[954/2195] Compiling C object libcommon.fa.p/migration_exec.c.o
+[955/2195] Compiling C object libcommon.fa.p/migration_fd.c.o
+[956/2195] Compiling C object libcommon.fa.p/migration_colo.c.o
+[957/2195] Compiling C object libcommon.fa.p/migration_global_state.c.o
+[958/2195] Compiling C object libcommon.fa.p/migration_multifd-zlib.c.o
+[959/2195] Compiling C object libcommon.fa.p/migration_multifd.c.o
+[960/2195] Compiling C object libcommon.fa.p/migration_migration.c.o
+[961/2195] Compiling C object libcommon.fa.p/migration_postcopy-ram.c.o
+[962/2195] Compiling C object libcommon.fa.p/migration_socket.c.o
+[963/2195] Compiling C object libcommon.fa.p/migration_savevm.c.o
+[964/2195] Compiling C object libcommon.fa.p/migration_tls.c.o
+[965/2195] Compiling C object libcommon.fa.p/migration_block.c.o
+[966/2195] Compiling C object libcommon.fa.p/monitor_hmp.c.o
+[967/2195] Compiling C object libcommon.fa.p/monitor_hmp-cmds.c.o
+[968/2195] Compiling C object libcommon.fa.p/monitor_qmp-cmds.c.o
+[969/2195] Compiling C object libcommon.fa.p/net_announce.c.o
+[970/2195] Compiling C object libcommon.fa.p/net_checksum.c.o
+[971/2195] Compiling C object libcommon.fa.p/net_colo.c.o
+[972/2195] Compiling C object libcommon.fa.p/net_dump.c.o
+[973/2195] Compiling C object libcommon.fa.p/net_eth.c.o
+[974/2195] Compiling C object libcommon.fa.p/net_colo-compare.c.o
+[975/2195] Compiling C object libcommon.fa.p/net_filter-buffer.c.o
+[976/2195] Compiling C object libcommon.fa.p/net_filter-rewriter.c.o
+[977/2195] Compiling C object libcommon.fa.p/net_filter-mirror.c.o
+[978/2195] Compiling C object libcommon.fa.p/hw_char_cadence_uart.c.o
+[979/2195] Compiling C object libcommon.fa.p/net_hub.c.o
+[980/2195] Compiling C object libcommon.fa.p/net_filter.c.o
+[981/2195] Compiling C object libcommon.fa.p/net_net.c.o
+[982/2195] Compiling C object libcommon.fa.p/net_queue.c.o
+[983/2195] Compiling C object libcommon.fa.p/net_socket.c.o
+[984/2195] Compiling C object libcommon.fa.p/net_util.c.o
+[985/2195] Compiling C object libcommon.fa.p/net_filter-replay.c.o
+[986/2195] Compiling C object libcommon.fa.p/net_l2tpv3.c.o
+[987/2195] Compiling C object libcommon.fa.p/net_vhost-user.c.o
+[988/2195] Compiling C object libcommon.fa.p/net_slirp.c.o
+[989/2195] Compiling C object libcommon.fa.p/net_tap-linux.c.o
+[990/2195] Compiling C object libcommon.fa.p/net_vhost-vdpa.c.o
+[991/2195] Compiling C object libcommon.fa.p/net_tap.c.o
+[992/2195] Compiling C object libcommon.fa.p/net_can_can_core.c.o
+[993/2195] Compiling C object libcommon.fa.p/net_can_can_host.c.o
+[994/2195] Compiling C object libcommon.fa.p/net_can_can_socketcan.c.o
+[995/2195] Compiling C object libcommon.fa.p/replay_replay.c.o
+[996/2195] Compiling C object libcommon.fa.p/replay_replay-internal.c.o
+[997/2195] Compiling C object libcommon.fa.p/replay_replay-time.c.o
+[998/2195] Compiling C object libcommon.fa.p/replay_replay-events.c.o
+[999/2195] Compiling C object libcommon.fa.p/replay_replay-input.c.o
+[1000/2195] Compiling C object libcommon.fa.p/replay_replay-char.c.o
+[1001/2195] Compiling C object libcommon.fa.p/replay_replay-snapshot.c.o
+[1002/2195] Compiling C object libcommon.fa.p/replay_replay-net.c.o
+[1003/2195] Compiling C object libcommon.fa.p/replay_replay-audio.c.o
+[1004/2195] Compiling C object libcommon.fa.p/replay_replay-random.c.o
+[1005/2195] Compiling C object libcommon.fa.p/replay_replay-debugging.c.o
+[1006/2195] Compiling C object libcommon.fa.p/hw_acpi_acpi-stub.c.o
+[1007/2195] Compiling C object libcommon.fa.p/hw_acpi_aml-build-stub.c.o
+[1008/2195] Compiling C object libcommon.fa.p/hw_acpi_ghes-stub.c.o
+[1009/2195] Compiling C object libcommon.fa.p/hw_audio_soundhw.c.o
+[1010/2195] Compiling C object libcommon.fa.p/hw_audio_es1370.c.o
+[1011/2195] Compiling C object libcommon.fa.p/hw_audio_ac97.c.o
+[1012/2195] Compiling C object libcommon.fa.p/hw_audio_intel-hda.c.o
+[1013/2195] Compiling C object libcommon.fa.p/hw_block_block.c.o
+[1014/2195] Compiling C object libcommon.fa.p/hw_audio_hda-codec.c.o
+[1015/2195] Compiling C object libcommon.fa.p/hw_block_cdrom.c.o
+[1016/2195] Compiling C object libcommon.fa.p/hw_block_hd-geometry.c.o
+[1017/2195] Compiling C object libcommon.fa.p/hw_block_pflash_cfi01.c.o
+[1018/2195] Compiling C object libcommon.fa.p/hw_block_m25p80.c.o
+[1019/2195] Compiling C object libcommon.fa.p/hw_char_serial.c.o
+[1020/2195] Compiling C object libcommon.fa.p/hw_char_ipoctal232.c.o
+[1021/2195] Compiling C object libcommon.fa.p/hw_char_shakti_uart.c.o
+[1022/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/meson-generated_.._qapi_qapi-types-misc-target.c.o
+[1023/2195] Compiling C object libcommon.fa.p/hw_char_serial-pci.c.o
+[1024/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/meson-generated_.._qapi_qapi-visit-misc-target.c.o
+[1025/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/meson-generated_.._riscv64-softmmu-gdbstub-xml.c.o
+[1026/2195] Compiling C object libcommon.fa.p/hw_ssi_ssi.c.o
+[1027/2195] Compiling C object tests/unit/test-crypto-afsplit.p/test-crypto-afsplit.c.o
+[1028/2195] Compiling C object tests/unit/test-blockjob-txn.p/iothread.c.o
+[1029/2195] Compiling C object libcommon.fa.p/hw_char_sifive_uart.c.o
+[1030/2195] Compiling C object libcommon.fa.p/hw_char_mchp_pfsoc_mmuart.c.o
+[1031/2195] Compiling C object libcommon.fa.p/hw_core_generic-loader.c.o
+[1032/2195] Compiling C object libcommon.fa.p/hw_core_guest-loader.c.o
+[1033/2195] Compiling C object libcommon.fa.p/hw_core_cpu-sysemu.c.o
+[1034/2195] Linking target tests/unit/test-crypto-afsplit
+[1035/2195] Compiling C object libcommon.fa.p/hw_core_fw-path-provider.c.o
+[1036/2195] Compiling C object libcommon.fa.p/hw_core_gpio.c.o
+[1037/2195] Compiling C object libcommon.fa.p/hw_core_machine-hmp-cmds.c.o
+[1038/2195] Compiling C object libcommon.fa.p/hw_core_loader.c.o
+[1039/2195] Compiling C object libcommon.fa.p/hw_core_machine.c.o
+[1040/2195] Compiling C object libcommon.fa.p/hw_core_nmi.c.o
+[1041/2195] Compiling C object libcommon.fa.p/hw_core_null-machine.c.o
+[1042/2195] Compiling C object libcommon.fa.p/hw_core_qdev-fw.c.o
+[1043/2195] Compiling C object libcommon.fa.p/hw_core_vm-change-state-handler.c.o
+[1044/2195] Compiling C object libcommon.fa.p/hw_core_qdev-properties-system.c.o
+[1045/2195] Compiling C object libcommon.fa.p/hw_core_sysbus.c.o
+[1046/2195] Compiling C object libcommon.fa.p/hw_core_clock-vmstate.c.o
+[1047/2195] Compiling C object libcommon.fa.p/hw_cpu_cluster.c.o
+[1048/2195] Compiling C object libcommon.fa.p/hw_cpu_core.c.o
+[1049/2195] Compiling C object libcommon.fa.p/hw_display_i2c-ddc.c.o
+[1050/2195] Compiling C object libcommon.fa.p/hw_display_edid-generate.c.o
+[1051/2195] Compiling C object libcommon.fa.p/hw_display_edid-region.c.o
+[1052/2195] Compiling C object libcommon.fa.p/hw_display_ramfb.c.o
+[1053/2195] Compiling C object libcommon.fa.p/hw_display_ramfb-standalone.c.o
+[1054/2195] Compiling C object libcommon.fa.p/hw_display_vga-pci.c.o
+[1055/2195] Compiling C object libcommon.fa.p/hw_display_vmware_vga.c.o
+[1056/2195] Compiling C object libcommon.fa.p/hw_display_bochs-display.c.o
+[1057/2195] Compiling C object libcommon.fa.p/hw_display_ati.c.o
+[1058/2195] Compiling C object libcommon.fa.p/hw_display_ati_2d.c.o
+[1059/2195] Compiling C object libcommon.fa.p/hw_display_ati_dbg.c.o
+[1060/2195] Compiling C object libcommon.fa.p/hw_dma_sifive_pdma.c.o
+[1061/2195] Compiling C object libcommon.fa.p/hw_display_cirrus_vga.c.o
+[1062/2195] Compiling C object libcommon.fa.p/hw_i2c_core.c.o
+[1063/2195] Compiling C object libcommon.fa.p/hw_gpio_sifive_gpio.c.o
+[1064/2195] Compiling C object libcommon.fa.p/hw_i2c_bitbang_i2c.c.o
+[1065/2195] Compiling C object libcommon.fa.p/hw_ide_ich.c.o
+[1066/2195] Compiling C object libcommon.fa.p/hw_ide_ahci.c.o
+[1067/2195] Compiling C object libcommon.fa.p/hw_ide_core.c.o
+[1068/2195] Compiling C object libcommon.fa.p/hw_ide_atapi.c.o
+[1069/2195] Compiling C object libcommon.fa.p/hw_input_hid.c.o
+[1070/2195] Compiling C object libcommon.fa.p/hw_ide_qdev.c.o
+[1071/2195] Compiling C object libcommon.fa.p/hw_input_virtio-input.c.o
+[1072/2195] Compiling C object libcommon.fa.p/hw_input_virtio-input-host.c.o
+[1073/2195] Compiling C object libcommon.fa.p/hw_input_virtio-input-hid.c.o
+[1074/2195] Compiling C object libcommon.fa.p/hw_intc_intc.c.o
+[1075/2195] Compiling C object libcommon.fa.p/hw_input_vhost-user-input.c.o
+[1076/2195] Compiling C object libcommon.fa.p/hw_ipack_ipack.c.o
+[1077/2195] Compiling C object libcommon.fa.p/hw_ipack_tpci200.c.o
+[1078/2195] Compiling C object libcommon.fa.p/hw_misc_edu.c.o
+[1079/2195] Compiling C object libcommon.fa.p/hw_misc_vmcoreinfo.c.o
+[1080/2195] Compiling C object libcommon.fa.p/hw_misc_unimp.c.o
+[1081/2195] Compiling C object libcommon.fa.p/hw_misc_pvpanic.c.o
+[1082/2195] Compiling C object libcommon.fa.p/hw_misc_pci-testdev.c.o
+[1083/2195] Compiling C object libcommon.fa.p/hw_misc_mchp_pfsoc_dmc.c.o
+[1084/2195] Compiling C object libcommon.fa.p/hw_misc_mchp_pfsoc_ioscb.c.o
+[1085/2195] Compiling C object libcommon.fa.p/hw_misc_mchp_pfsoc_sysreg.c.o
+[1086/2195] Compiling C object libcommon.fa.p/hw_misc_sifive_test.c.o
+[1087/2195] Compiling C object libcommon.fa.p/hw_misc_sifive_e_prci.c.o
+[1088/2195] Compiling C object libcommon.fa.p/hw_misc_sifive_u_otp.c.o
+[1089/2195] Compiling C object libcommon.fa.p/hw_misc_sifive_u_prci.c.o
+[1090/2195] Compiling C object libcommon.fa.p/hw_misc_pvpanic-pci.c.o
+[1091/2195] Compiling C object libcommon.fa.p/hw_misc_ivshmem.c.o
+[1092/2195] Compiling C object libcommon.fa.p/hw_net_ne2000.c.o
+[1093/2195] Compiling C object libcommon.fa.p/hw_net_ne2000-pci.c.o
+[1094/2195] Compiling C object libcommon.fa.p/hw_net_eepro100.c.o
+[1095/2195] Compiling C object libcommon.fa.p/hw_net_pcnet-pci.c.o
+[1096/2195] Compiling C object libcommon.fa.p/hw_net_pcnet.c.o
+[1097/2195] Compiling C object libcommon.fa.p/hw_net_e1000x_common.c.o
+[1098/2195] Compiling C object libcommon.fa.p/hw_net_net_tx_pkt.c.o
+[1099/2195] Compiling C object libcommon.fa.p/hw_net_e1000.c.o
+[1100/2195] Compiling C object libcommon.fa.p/hw_net_net_rx_pkt.c.o
+[1101/2195] Compiling C object libcommon.fa.p/hw_net_e1000e.c.o
+[1102/2195] Compiling C object libcommon.fa.p/hw_net_rtl8139.c.o
+[1103/2195] Compiling C object libcommon.fa.p/hw_net_e1000e_core.c.o
+[1104/2195] Compiling C object libcommon.fa.p/hw_net_tulip.c.o
+[1105/2195] Compiling C object libcommon.fa.p/hw_net_vmxnet3.c.o
+[1106/2195] Compiling C object libcommon.fa.p/hw_net_vhost_net.c.o
+[1107/2195] Compiling C object libcommon.fa.p/hw_net_cadence_gem.c.o
+[1108/2195] Compiling C object libcommon.fa.p/hw_net_rocker_rocker_desc.c.o
+[1109/2195] Compiling C object libcommon.fa.p/hw_net_rocker_rocker_fp.c.o
+[1110/2195] Compiling C object libcommon.fa.p/hw_net_rocker_rocker.c.o
+[1111/2195] Compiling C object libcommon.fa.p/hw_net_rocker_rocker_world.c.o
+[1112/2195] Compiling C object libcommon.fa.p/hw_net_can_can_sja1000.c.o
+[1113/2195] Compiling C object libcommon.fa.p/hw_net_rocker_rocker_of_dpa.c.o
+[1114/2195] Compiling C object libcommon.fa.p/hw_net_can_can_kvaser_pci.c.o
+[1115/2195] Compiling C object libcommon.fa.p/hw_net_can_can_pcm3680_pci.c.o
+[1116/2195] Compiling C object libcommon.fa.p/hw_net_can_can_mioe3680_pci.c.o
+[1117/2195] Compiling C object libcommon.fa.p/hw_net_can_ctucan_core.c.o
+[1118/2195] Compiling C object libcommon.fa.p/hw_net_can_ctucan_pci.c.o
+[1119/2195] Compiling C object libcommon.fa.p/hw_nvme_dif.c.o
+[1120/2195] Compiling C object libcommon.fa.p/hw_nvme_ns.c.o
+[1121/2195] Compiling C object libcommon.fa.p/hw_nvme_subsys.c.o
+[1122/2195] Compiling C object libcommon.fa.p/hw_nvram_eeprom93xx.c.o
+[1123/2195] Compiling C object libcommon.fa.p/hw_nvram_fw_cfg.c.o
+[1124/2195] Compiling C object libcommon.fa.p/hw_nvme_ctrl.c.o
+[1125/2195] Compiling C object libcommon.fa.p/hw_pci_pcie_port.c.o
+[1126/2195] Compiling C object libcommon.fa.p/hw_pci_pcie_host.c.o
+[1127/2195] Compiling C object libcommon.fa.p/hw_pci_msi.c.o
+[1128/2195] Compiling C object libcommon.fa.p/hw_pci_msix.c.o
+[1129/2195] Compiling C object libcommon.fa.p/hw_pci_pci_bridge.c.o
+[1130/2195] Compiling C object libcommon.fa.p/hw_pci_pci_host.c.o
+[1131/2195] Compiling C object libcommon.fa.p/hw_pci_pci.c.o
+[1132/2195] Compiling C object libcommon.fa.p/hw_pci_slotid_cap.c.o
+[1133/2195] Compiling C object libcommon.fa.p/hw_pci_shpc.c.o
+[1134/2195] Compiling C object libcommon.fa.p/hw_pci_pcie.c.o
+[1135/2195] Compiling C object libcommon.fa.p/hw_pci-bridge_pci_bridge_dev.c.o
+[1136/2195] Compiling C object libcommon.fa.p/hw_pci_pcie_aer.c.o
+[1137/2195] Compiling C object libcommon.fa.p/hw_pci-bridge_i82801b11.c.o
+[1138/2195] Compiling C object libcommon.fa.p/hw_pci-bridge_ioh3420.c.o
+[1139/2195] Compiling C object libcommon.fa.p/hw_pci-bridge_pcie_root_port.c.o
+[1140/2195] Compiling C object libcommon.fa.p/hw_pci-bridge_gen_pcie_root_port.c.o
+[1141/2195] Compiling C object libcommon.fa.p/hw_pci-bridge_pcie_pci_bridge.c.o
+[1142/2195] Compiling C object libcommon.fa.p/hw_pci-bridge_xio3130_upstream.c.o
+[1143/2195] Compiling C object libcommon.fa.p/hw_pci-bridge_xio3130_downstream.c.o
+[1144/2195] Compiling C object libcommon.fa.p/hw_rtc_goldfish_rtc.c.o
+[1145/2195] Compiling C object libcommon.fa.p/hw_pci-host_gpex.c.o
+[1146/2195] Compiling C object libcommon.fa.p/hw_scsi_emulation.c.o
+[1147/2195] Compiling C object libcommon.fa.p/hw_scsi_scsi-bus.c.o
+[1148/2195] Compiling C object libcommon.fa.p/hw_scsi_scsi-generic.c.o
+[1149/2195] Compiling C object libcommon.fa.p/hw_scsi_scsi-disk.c.o
+[1150/2195] Compiling C object libcommon.fa.p/hw_scsi_esp-pci.c.o
+[1151/2195] Compiling C object libcommon.fa.p/hw_scsi_esp.c.o
+[1152/2195] Compiling C object libcommon.fa.p/hw_scsi_lsi53c895a.c.o
+[1153/2195] Compiling C object libcommon.fa.p/hw_scsi_mptsas.c.o
+[1154/2195] Compiling C object libcommon.fa.p/hw_scsi_megasas.c.o
+[1155/2195] Compiling C object libcommon.fa.p/hw_scsi_mptconfig.c.o
+[1156/2195] Compiling C object libcommon.fa.p/hw_scsi_mptendian.c.o
+[1157/2195] Compiling C object libcommon.fa.p/hw_sd_core.c.o
+[1158/2195] Compiling C object libcommon.fa.p/hw_sd_sd.c.o
+[1159/2195] Compiling C object libcommon.fa.p/hw_scsi_vmw_pvscsi.c.o
+[1160/2195] Compiling C object libcommon.fa.p/hw_sd_sdmmc-internal.c.o
+[1161/2195] Compiling C object libcommon.fa.p/hw_sd_sdhci-pci.c.o
+[1162/2195] Compiling C object libcommon.fa.p/hw_sd_ssi-sd.c.o
+[1163/2195] Compiling C object libcommon.fa.p/hw_sd_sdhci.c.o
+[1164/2195] Compiling C object libcommon.fa.p/hw_smbios_smbios-stub.c.o
+[1165/2195] Compiling C object libcommon.fa.p/hw_sd_cadence_sdhci.c.o
+[1166/2195] Compiling C object libcommon.fa.p/hw_timer_cadence_ttc.c.o
+[1167/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_virtio_vhost-user-vsock-pci.c.o
+[1168/2195] Compiling C object libcommon.fa.p/hw_usb_core.c.o
+[1169/2195] Compiling C object libcommon.fa.p/hw_usb_desc-msos.c.o
+[1170/2195] Compiling C object libcommon.fa.p/hw_usb_desc.c.o
+[1171/2195] Compiling C object libcommon.fa.p/hw_usb_pcap.c.o
+[1172/2195] Compiling C object libcommon.fa.p/hw_usb_libhw.c.o
+[1173/2195] Compiling C object libcommon.fa.p/hw_usb_hcd-uhci.c.o
+[1174/2195] Compiling C object libcommon.fa.p/hw_usb_hcd-ohci-pci.c.o
+[1175/2195] Compiling C object libcommon.fa.p/hw_usb_hcd-ohci.c.o
+[1176/2195] Compiling C object libcommon.fa.p/hw_usb_hcd-ehci-pci.c.o
+[1177/2195] Compiling C object libcommon.fa.p/hw_usb_hcd-ehci.c.o
+[1178/2195] Compiling C object libcommon.fa.p/hw_usb_hcd-xhci-pci.c.o
+[1179/2195] Compiling C object libcommon.fa.p/hw_usb_hcd-xhci.c.o
+[1180/2195] Compiling C object libcommon.fa.p/hw_usb_hcd-xhci-nec.c.o
+[1181/2195] Compiling C object libcommon.fa.p/hw_usb_imx-usb-phy.c.o
+[1182/2195] Compiling C object libcommon.fa.p/hw_usb_dev-wacom.c.o
+[1183/2195] Compiling C object libcommon.fa.p/hw_usb_dev-hid.c.o
+[1184/2195] Compiling C object libcommon.fa.p/hw_usb_dev-hub.c.o
+[1185/2195] Compiling C object libcommon.fa.p/hw_usb_dev-storage-bot.c.o
+[1186/2195] Compiling C object libcommon.fa.p/hw_usb_dev-storage-classic.c.o
+[1187/2195] Compiling C object libcommon.fa.p/hw_usb_dev-storage.c.o
+[1188/2195] Compiling C object libcommon.fa.p/hw_usb_dev-audio.c.o
+[1189/2195] Compiling C object libcommon.fa.p/hw_usb_dev-uas.c.o
+[1190/2195] Compiling C object libcommon.fa.p/hw_usb_dev-serial.c.o
+[1191/2195] Compiling C object libcommon.fa.p/hw_usb_dev-network.c.o
+[1192/2195] Compiling C object libcommon.fa.p/hw_usb_dev-smartcard-reader.c.o
+[1193/2195] Compiling C object libcommon.fa.p/hw_usb_u2f.c.o
+[1194/2195] Compiling C object libcommon.fa.p/hw_usb_dev-mtp.c.o
+[1195/2195] Compiling C object libcommon.fa.p/hw_usb_u2f-passthru.c.o
+[1196/2195] Compiling C object libcommon.fa.p/hw_virtio_virtio-bus.c.o
+[1197/2195] Compiling C object libcommon.fa.p/hw_watchdog_watchdog.c.o
+[1198/2195] Compiling C object libcommon.fa.p/hw_virtio_virtio-mmio.c.o
+[1199/2195] Compiling C object libcommon.fa.p/hw_virtio_virtio-pci.c.o
+[1200/2195] Compiling C object libcommon.fa.p/ebpf_ebpf_rss-stub.c.o
+[1201/2195] Compiling C object libcommon.fa.p/hw_watchdog_wdt_i6300esb.c.o
+[1202/2195] Compiling C object libcommon.fa.p/accel_accel-softmmu.c.o
+[1203/2195] Compiling C object libcommon.fa.p/audio_ossaudio.c.o
+[1204/2195] Compiling C object libcommon.fa.p/audio_alsaaudio.c.o
+[1205/2195] Compiling C object libcommon.fa.p/audio_paaudio.c.o
+[1206/2195] Compiling C object libcommon.fa.p/hw_display_virtio-gpu-base.c.o
+[1207/2195] Compiling C object libcommon.fa.p/hw_display_virtio-gpu-udmabuf.c.o
+[1208/2195] Compiling C object libcommon.fa.p/hw_display_virtio-gpu.c.o
+[1209/2195] Compiling C object libcommon.fa.p/hw_display_vhost-user-gpu.c.o
+[1210/2195] Compiling C object libcommon.fa.p/hw_display_virtio-gpu-pci.c.o
+[1211/2195] Compiling C object libcommon.fa.p/hw_display_vhost-user-gpu-pci.c.o
+[1212/2195] Compiling C object libcommon.fa.p/hw_display_virtio-vga.c.o
+[1213/2195] Compiling C object libcommon.fa.p/ui_curses.c.o
+[1214/2195] Compiling C object libcommon.fa.p/hw_display_vhost-user-vga.c.o
+[1215/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/meson-generated_.._qapi_qapi-commands-misc-target.c.o
+[1216/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/meson-generated_.._qapi_qapi-commands-machine-target.c.o
+[1217/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/meson-generated_.._qapi_qapi-emit-events.c.o
+[1218/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/meson-generated_.._qapi_qapi-introspect.c.o
+[1219/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/meson-generated_.._trace_generated-helpers.c.o
+[1220/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/meson-generated_.._qapi_qapi-events-misc-target.c.o
+[1221/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/meson-generated_.._qapi_qapi-events.c.o
+[1222/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/meson-generated_.._qapi_qapi-types.c.o
+[1223/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/meson-generated_.._qapi_qapi-visit.c.o
+[1224/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/target_riscv_arch_dump.c.o
+[1225/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/meson-generated_.._qapi_qapi-init-commands.c.o
+[1226/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_virtio_vhost-user-vsock.c.o
+[1227/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/meson-generated_.._qapi_qapi-events-machine-target.c.o
+[1228/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/meson-generated_.._qapi_qapi-commands.c.o
+[1229/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_virtio_virtio-rng.c.o
+[1230/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/meson-generated_.._qapi_qapi-visit-machine-target.c.o
+[1231/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/meson-generated_.._qapi_qapi-types-machine-target.c.o
+[1232/2195] Compiling C object qga/qemu-ga.p/guest-agent-command-state.c.o
+[1233/2195] Compiling C object qga/qemu-ga.p/meson-generated_.._qga-qapi-visit.c.o
+[1234/2195] Compiling C object qga/qemu-ga.p/main.c.o
+[1235/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/target_riscv_pmp.c.o
+[1236/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/target_riscv_machine.c.o
+[1237/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/target_riscv_monitor.c.o
+[1238/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_riscv_boot.c.o
+[1239/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_riscv_riscv_hart.c.o
+[1240/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_riscv_numa.c.o
+[1241/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_riscv_virt.c.o
+[1242/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_riscv_shakti_c.c.o
+[1243/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_riscv_sifive_e.c.o
+[1244/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_riscv_spike.c.o
+[1245/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_riscv_sifive_u.c.o
+[1246/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_riscv_microchip_pfsoc.c.o
+[1247/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/target_riscv_cpu.c.o
+[1248/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/target_riscv_csr.c.o
+[1249/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/target_riscv_fpu_helper.c.o
+[1250/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/target_riscv_gdbstub.c.o
+[1251/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/target_riscv_cpu_helper.c.o
+[1252/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/target_riscv_op_helper.c.o
+[1253/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/target_riscv_bitmanip_helper.c.o
+[1254/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/trace_control-target.c.o
+[1255/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/dump_dump.c.o
+[1256/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/softmmu_arch_init.c.o
+[1257/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/softmmu_balloon.c.o
+[1258/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/softmmu_cpus.c.o
+[1259/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/softmmu_cpu-throttle.c.o
+[1260/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/softmmu_datadir.c.o
+[1261/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/target_riscv_vector_helper.c.o
+[1262/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/softmmu_globals.c.o
+[1263/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/softmmu_ioport.c.o
+[1264/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/softmmu_rtc.c.o
+[1265/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/softmmu_physmem.c.o
+[1266/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/softmmu_runstate.c.o
+[1267/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/target_riscv_translate.c.o
+[1268/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/softmmu_memory_mapping.c.o
+[1269/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/softmmu_memory.c.o
+[1270/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/softmmu_cpu-timers.c.o
+[1271/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/softmmu_qtest.c.o
+[1272/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/softmmu_runstate-action.c.o
+[1273/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/softmmu_icount.c.o
+[1274/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/softmmu_vl.c.o
+[1275/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/cpu.c.o
+[1276/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/disas.c.o
+[1277/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/page-vary.c.o
+[1278/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/gdbstub.c.o
+[1279/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/migration_dirtyrate.c.o
+[1280/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/migration_target.c.o
+[1281/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/semihosting_config.c.o
+[1282/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/migration_ram.c.o
+[1283/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/semihosting_console.c.o
+[1284/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/monitor_misc.c.o
+[1285/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/semihosting_arm-compat-semi.c.o
+[1286/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_block_vhost-user-blk.c.o
+[1287/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_block_virtio-blk.c.o
+[1288/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_block_dataplane_virtio-blk.c.o
+[1289/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_char_riscv_htif.c.o
+[1290/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_core_machine-qmp-cmds.c.o
+[1291/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_char_virtio-serial-bus.c.o
+[1292/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_core_numa.c.o
+[1293/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_intc_riscv_aclint.c.o
+[1294/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_display_vga.c.o
+[1295/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_intc_sifive_plic.c.o
+[1296/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_scsi_virtio-scsi-dataplane.c.o
+[1297/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_net_virtio-net.c.o
+[1298/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_scsi_virtio-scsi.c.o
+[1299/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_scsi_vhost-scsi-common.c.o
+[1300/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_scsi_vhost-scsi.c.o
+[1301/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_scsi_vhost-user-scsi.c.o
+[1302/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_vfio_spapr.c.o
+[1303/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_vfio_common.c.o
+[1304/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_vfio_migration.c.o
+[1305/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_vfio_display.c.o
+[1306/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_vfio_pci-quirks.c.o
+[1307/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_vfio_pci.c.o
+[1308/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_virtio_virtio.c.o
+[1309/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_virtio_vhost-backend.c.o
+[1310/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_virtio_vhost.c.o
+[1311/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_virtio_vhost-user.c.o
+[1312/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_virtio_vhost-vdpa.c.o
+[1313/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_virtio_virtio-balloon.c.o
+[1314/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_virtio_virtio-crypto.c.o
+[1315/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_virtio_virtio-crypto-pci.c.o
+[1316/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_virtio_vhost-user-fs.c.o
+[1317/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_virtio_vhost-vsock.c.o
+[1318/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_virtio_vhost-user-fs-pci.c.o
+[1319/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_virtio_virtio-input-host-pci.c.o
+[1320/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_virtio_virtio-input-pci.c.o
+[1321/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_virtio_vhost-scsi-pci.c.o
+[1322/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_virtio_vhost-vsock-common.c.o
+[1323/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_virtio_virtio-rng-pci.c.o
+[1324/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_virtio_virtio-balloon-pci.c.o
+[1325/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_virtio_virtio-scsi-pci.c.o
+[1326/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_virtio_virtio-blk-pci.c.o
+[1327/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_virtio_virtio-net-pci.c.o
+[1328/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_virtio_virtio-serial-pci.c.o
+[1329/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/hw_virtio_virtio-iommu-pci.c.o
+[1330/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/tcg_region.c.o
+[1331/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/tcg_tcg-common.c.o
+[1332/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/tcg_optimize.c.o
+[1333/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/tcg_tcg-op-vec.c.o
+[1334/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/tcg_tcg-op-gvec.c.o
+[1335/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/tcg_tcg.c.o
+[1336/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/accel_accel-common.c.o
+[1337/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/accel_tcg_tcg-all.c.o
+[1338/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/accel_tcg_cpu-exec-common.c.o
+[1339/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/fpu_softfloat.c.o
+[1340/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/accel_tcg_cpu-exec.c.o
+[1341/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/accel_tcg_tcg-runtime-gvec.c.o
+[1342/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/accel_tcg_tcg-runtime.c.o
+[1343/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/accel_tcg_translate-all.c.o
+[1344/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/accel_tcg_translator.c.o
+[1345/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/accel_tcg_plugin-gen.c.o
+[1346/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/accel_stubs_hax-stub.c.o
+[1347/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/accel_tcg_hmp.c.o
+[1348/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/accel_stubs_xen-stub.c.o
+[1349/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/accel_tcg_cputlb.c.o
+[1350/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/accel_stubs_kvm-stub.c.o
+[1351/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/accel_dummy-cpus.c.o
+[1352/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/plugins_loader.c.o
+[1353/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/plugins_api.c.o
+[1354/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/accel_tcg_tcg-accel-ops.c.o
+[1355/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/plugins_core.c.o
+[1356/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/accel_tcg_tcg-accel-ops-mttcg.c.o
+[1357/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/accel_tcg_tcg-accel-ops-icount.c.o
+[1358/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/accel_qtest_qtest.c.o
+[1359/2195] Compiling C object qemu-system-riscv64.p/softmmu_main.c.o
+[1360/2195] Compiling C object libqemu-riscv64-softmmu.fa.p/accel_tcg_tcg-accel-ops-rr.c.o
+[1361/2195] Compiling C object qga/qemu-ga.p/meson-generated_.._qga-qapi-events.c.o
+[1362/2195] Compiling C object qga/qemu-ga.p/meson-generated_.._qga-qapi-introspect.c.o
+[1363/2195] Compiling C object qga/qemu-ga.p/channel-posix.c.o
+[1364/2195] Compiling C object qga/qemu-ga.p/meson-generated_.._qga-qapi-init-commands.c.o
+[1365/2195] Compiling C object qga/qemu-ga.p/meson-generated_.._qga-qapi-types.c.o
+[1366/2195] Compiling C object qga/qemu-ga.p/meson-generated_.._qga-qapi-emit-events.c.o
+[1367/2195] Compiling C object qga/qemu-ga.p/commands.c.o
+[1368/2195] Compiling C object qga/qemu-ga.p/commands-posix-ssh.c.o
+[1369/2195] Compiling C object qga/qemu-ga.p/commands-posix.c.o
+[1370/2195] Compiling C object qemu-keymap.p/qemu-keymap.c.o
+[1371/2195] Compiling C object qemu-nbd.p/qemu-nbd.c.o
+[1372/2195] Generating QAPI files for qemu-storage-daemon with a custom command
+[1373/2195] Compiling C object storage-daemon/qemu-storage-daemon.p/meson-generated_.._qapi_qapi-init-commands.c.o
+[1374/2195] Linking target qemu-system-riscv64
+[1375/2195] Linking target qemu-nbd
+[1376/2195] Compiling C object qemu-keymap.p/ui_input-keymap.c.o
+[1377/2195] Linking target qga/qemu-ga
+[1378/2195] Compiling C object qemu-img.p/qemu-img.c.o
+[1379/2195] Compiling C object qemu-io.p/qemu-io.c.o
+[1380/2195] Linking target qemu-keymap
+[1381/2195] Compiling C object storage-daemon/qemu-storage-daemon.p/meson-generated_.._qapi_qapi-introspect.c.o
+[1382/2195] Linking target qemu-img
+[1383/2195] Linking target qemu-io
+[1384/2195] Compiling C object storage-daemon/qemu-storage-daemon.p/meson-generated_.._qapi_qapi-types.c.o
+[1385/2195] Compiling C object storage-daemon/qemu-storage-daemon.p/meson-generated_.._qapi_qapi-visit.c.o
+[1386/2195] Compiling C object storage-daemon/qemu-storage-daemon.p/meson-generated_.._qapi_qapi-commands.c.o
+[1387/2195] Compiling C object storage-daemon/qemu-storage-daemon.p/meson-generated_.._qapi_qapi-emit-events.c.o
+[1388/2195] Compiling C object storage-daemon/qemu-storage-daemon.p/meson-generated_.._qapi_qapi-events.c.o
+[1389/2195] Compiling C object qemu-edid.p/qemu-edid.c.o
+[1390/2195] Compiling C object qemu-edid.p/hw_display_edid-generate.c.o
+[1391/2195] Compiling C object storage-daemon/qemu-storage-daemon.p/qemu-storage-daemon.c.o
+[1392/2195] Compiling C object contrib/vhost-user-input/vhost-user-input.p/main.c.o
+[1393/2195] Linking target qemu-edid
+[1394/2195] Linking target contrib/vhost-user-input/vhost-user-input
+[1395/2195] Compiling C object qemu-bridge-helper.p/qemu-bridge-helper.c.o
+[1396/2195] Compiling C object contrib/ivshmem-client/ivshmem-client.p/ivshmem-client.c.o
+[1397/2195] Linking target storage-daemon/qemu-storage-daemon
+[1398/2195] Compiling C object qemu-pr-helper.p/scsi_utils.c.o
+[1399/2195] Compiling C object qemu-pr-helper.p/scsi_qemu-pr-helper.c.o
+[1400/2195] Compiling C object contrib/ivshmem-client/ivshmem-client.p/main.c.o
+[1401/2195] Linking target qemu-bridge-helper
+[1402/2195] Generating ar with a custom command
+[1403/2195] Compiling C object contrib/ivshmem-server/ivshmem-server.p/ivshmem-server.c.o
+[1404/2195] Compiling C object contrib/ivshmem-server/ivshmem-server.p/main.c.o
+[1405/2195] Linking target contrib/ivshmem-client/ivshmem-client
+[1406/2195] Generating bepo with a custom command
+[1407/2195] Generating cz with a custom command
+[1408/2195] Linking target qemu-pr-helper
+[1409/2195] Generating da with a custom command
+[1410/2195] Generating de with a custom command
+[1411/2195] Generating de-ch with a custom command
+[1412/2195] Generating en-gb with a custom command
+[1413/2195] Generating en-us with a custom command
+[1414/2195] Generating es with a custom command
+[1415/2195] Generating et with a custom command
+[1416/2195] Generating fi with a custom command
+[1417/2195] Generating fo with a custom command
+[1418/2195] Generating fr with a custom command
+[1419/2195] Generating fr-be with a custom command
+[1420/2195] Generating fr-ca with a custom command
+[1421/2195] Generating fr-ch with a custom command
+[1422/2195] Generating hu with a custom command
+[1423/2195] Generating hr with a custom command
+[1424/2195] Generating is with a custom command
+[1425/2195] Generating it with a custom command
+[1426/2195] Generating ja with a custom command
+[1427/2195] Generating lt with a custom command
+[1428/2195] Generating lv with a custom command
+[1429/2195] Generating mk with a custom command
+[1430/2195] Generating nl with a custom command
+[1431/2195] Generating no with a custom command
+[1432/2195] Generating pl with a custom command
+[1433/2195] Generating pt with a custom command
+[1434/2195] Generating pt-br with a custom command
+[1435/2195] Generating ru with a custom command
+[1436/2195] Generating th with a custom command
+[1437/2195] Generating tr with a custom command
+[1438/2195] Generating Test QAPI files with a custom command
+[1439/2195] Generating QAPI test (include) with a custom command
+[1440/2195] Compiling C object tests/bench/qht-bench.p/qht-bench.c.o
+[1441/2195] Compiling C object tests/bench/benchmark-crypto-cipher.p/benchmark-crypto-cipher.c.o
+[1442/2195] Linking target contrib/ivshmem-server/ivshmem-server
+[1443/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_genCases_ui64.c.o
+[1444/2195] Compiling C object tests/bench/benchmark-crypto-hash.p/benchmark-crypto-hash.c.o
+[1445/2195] Linking target tests/bench/qht-bench
+[1446/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_uint128.c.o
+[1447/2195] Linking target tests/bench/benchmark-crypto-cipher
+[1448/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_uint128_inline.c.o
+[1449/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_genCases_common.c.o
+[1450/2195] Compiling C object tests/bench/benchmark-crypto-hmac.p/benchmark-crypto-hmac.c.o
+[1451/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_genCases_i64.c.o
+[1452/2195] Compiling C object tests/libtestqapi.a.p/meson-generated_.._test-qapi-events.c.o
+[1453/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_genCases_i32.c.o
+[1454/2195] Linking target tests/bench/benchmark-crypto-hash
+[1455/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_random.c.o
+[1456/2195] Compiling C object tests/libtestqapi.a.p/meson-generated_.._qapi-builtin-types.c.o
+[1457/2195] Compiling C object tests/libtestqapi.a.p/meson-generated_.._test-qapi-events-sub-sub-module.c.o
+[1458/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_functions_common.c.o
+[1459/2195] Linking target tests/bench/benchmark-crypto-hmac
+[1460/2195] Compiling C object tests/libtestqapi.a.p/meson-generated_.._test-qapi-commands-sub-sub-module.c.o
+[1461/2195] Compiling C object tests/libtestqapi.a.p/meson-generated_.._qapi-builtin-visit.c.o
+[1462/2195] Compiling C object tests/libtestqapi.a.p/meson-generated_.._test-qapi-init-commands.c.o
+[1463/2195] Compiling C object tests/libtestqapi.a.p/meson-generated_.._test-qapi-commands.c.o
+[1464/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_standardFunctionInfos.c.o
+[1465/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_functionInfos.c.o
+[1466/2195] Compiling C object tests/libtestqapi.a.p/meson-generated_.._test-qapi-emit-events.c.o
+[1467/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_genCases_ui32.c.o
+[1468/2195] Compiling C object tests/libtestqapi.a.p/meson-generated_.._test-qapi-introspect.c.o
+[1469/2195] Compiling C object tests/libtestqapi.a.p/meson-generated_.._test-qapi-types-sub-sub-module.c.o
+[1470/2195] Compiling C object tests/libtestqapi.a.p/meson-generated_.._test-qapi-visit-sub-sub-module.c.o
+[1471/2195] Compiling C object tests/libtestqapi.a.p/meson-generated_.._test-qapi-types.c.o
+[1472/2195] Compiling C object tests/libtestqapi.a.p/meson-generated_.._include_test-qapi-commands-sub-module.c.o
+[1473/2195] Compiling C object tests/libtestqapi.a.p/meson-generated_.._include_test-qapi-events-sub-module.c.o
+[1474/2195] Compiling C object tests/libtestqapi.a.p/meson-generated_.._include_test-qapi-types-sub-module.c.o
+[1475/2195] Compiling C object tests/libtestqapi.a.p/meson-generated_.._test-qapi-visit.c.o
+[1476/2195] Compiling C object tests/libtestqapi.a.p/meson-generated_.._include_test-qapi-visit-sub-module.c.o
+[1477/2195] Linking static target tests/libtestqapi.a
+[1478/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_fail.c.o
+[1479/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_genCases_f16.c.o
+[1480/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_genCases_f32.c.o
+[1481/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_genCases_f64.c.o
+[1482/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_genCases_extF80.c.o
+[1483/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_genCases_writeTestsTotal.c.o
+[1484/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_genCases_f128.c.o
+[1485/2195] Compiling C object tests/vhost-user-bridge.p/vhost-user-bridge.c.o
+[1486/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_verCases_inline.c.o
+[1487/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_verCases_common.c.o
+[1488/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_verCases_writeFunctionName.c.o
+[1489/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_readHex.c.o
+[1490/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_writeHex.c.o
+[1491/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_writeCase_a_ui32.c.o
+[1492/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_writeCase_a_ui64.c.o
+[1493/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_writeCase_a_f16.c.o
+[1494/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_writeCase_abc_f16.c.o
+[1495/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_writeCase_ab_f16.c.o
+[1496/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_writeCase_ab_f32.c.o
+[1497/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_writeCase_a_f32.c.o
+[1498/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_writeCase_abc_f32.c.o
+[1499/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_writeCase_a_f64.c.o
+[1500/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_writeCase_ab_f64.c.o
+[1501/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_writeCase_abc_f64.c.o
+[1502/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_writeCase_a_extF80M.c.o
+[1503/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_writeCase_ab_extF80M.c.o
+[1504/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_writeCase_a_f128M.c.o
+[1505/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_writeCase_ab_f128M.c.o
+[1506/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_writeCase_z_bool.c.o
+[1507/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_writeCase_abc_f128M.c.o
+[1508/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_writeCase_z_ui64.c.o
+[1509/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_writeCase_z_ui32.c.o
+[1510/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_writeCase_z_f16.c.o
+[1511/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_writeCase_z_f32.c.o
+[1512/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_writeCase_z_f64.c.o
+[1513/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_writeCase_z_extF80M.c.o
+[1514/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_testLoops_common.c.o
+[1515/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_writeCase_z_f128M.c.o
+[1516/2195] Linking target tests/vhost-user-bridge
+[1517/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_ui32_z_f16.c.o
+[1518/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_ui32_z_f32.c.o
+[1519/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_ui32_z_f64.c.o
+[1520/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_ui32_z_extF80.c.o
+[1521/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_ui32_z_f128.c.o
+[1522/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_ui64_z_f16.c.o
+[1523/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_ui64_z_f32.c.o
+[1524/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_ui64_z_f64.c.o
+[1525/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_ui64_z_extF80.c.o
+[1526/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_ui64_z_f128.c.o
+[1527/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_i32_z_f16.c.o
+[1528/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_i32_z_f32.c.o
+[1529/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_i32_z_extF80.c.o
+[1530/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_i32_z_f64.c.o
+[1531/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_i32_z_f128.c.o
+[1532/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_i64_z_f16.c.o
+[1533/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_i64_z_f32.c.o
+[1534/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_i64_z_f64.c.o
+[1535/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_i64_z_f128.c.o
+[1536/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_i64_z_extF80.c.o
+[1537/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_f16_z_ui32_rx.c.o
+[1538/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_f16_z_ui64_rx.c.o
+[1539/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_f16_z_i32_rx.c.o
+[1540/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_f16_z_i64_rx.c.o
+[1541/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_f16_z_ui32_x.c.o
+[1542/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_f16_z_ui64_x.c.o
+[1543/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_f16_z_i32_x.c.o
+[1544/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_f16_z_i64_x.c.o
+[1545/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_f16_z_f32.c.o
+[1546/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_f16_z_f64.c.o
+[1547/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_f16_z_extF80.c.o
+[1548/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_f16_z_f128.c.o
+[1549/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_az_f16.c.o
+[1550/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_az_f16_rx.c.o
+[1551/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_abz_f16.c.o
+[1552/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_abcz_f16.c.o
+[1553/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_ab_f16_z_bool.c.o
+[1554/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_f32_z_ui32_rx.c.o
+[1555/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_f32_z_ui64_rx.c.o
+[1556/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_f32_z_i32_rx.c.o
+[1557/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_f32_z_i64_rx.c.o
+[1558/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_f32_z_ui64_x.c.o
+[1559/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_f32_z_ui32_x.c.o
+[1560/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_f32_z_i32_x.c.o
+[1561/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_f32_z_i64_x.c.o
+[1562/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_f32_z_f16.c.o
+[1563/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_f32_z_f64.c.o
+[1564/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_f32_z_extF80.c.o
+[1565/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_f32_z_f128.c.o
+[1566/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_az_f32.c.o
+[1567/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_az_f32_rx.c.o
+[1568/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_abz_f32.c.o
+[1569/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_abcz_f32.c.o
+[1570/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_ab_f32_z_bool.c.o
+[1571/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_f64_z_ui32_rx.c.o
+[1572/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_f64_z_ui64_rx.c.o
+[1573/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_f64_z_i32_rx.c.o
+[1574/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_f64_z_i64_rx.c.o
+[1575/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_f64_z_ui32_x.c.o
+[1576/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_f64_z_ui64_x.c.o
+[1577/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_f64_z_i32_x.c.o
+[1578/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_f64_z_i64_x.c.o
+[1579/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_f64_z_f16.c.o
+[1580/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_f64_z_f32.c.o
+[1581/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_f64_z_extF80.c.o
+[1582/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_f64_z_f128.c.o
+[1583/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_az_f64.c.o
+[1584/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_az_f64_rx.c.o
+[1585/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_abz_f64.c.o
+[1586/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_abcz_f64.c.o
+[1587/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_ab_f64_z_bool.c.o
+[1588/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_extF80_z_ui32_rx.c.o
+[1589/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_extF80_z_ui64_rx.c.o
+[1590/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_extF80_z_i32_rx.c.o
+[1591/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_extF80_z_i64_rx.c.o
+[1592/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_extF80_z_ui32_x.c.o
+[1593/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_extF80_z_ui64_x.c.o
+[1594/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_extF80_z_i32_x.c.o
+[1595/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_extF80_z_i64_x.c.o
+[1596/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_extF80_z_f16.c.o
+[1597/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_extF80_z_f32.c.o
+[1598/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_extF80_z_f64.c.o
+[1599/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_extF80_z_f128.c.o
+[1600/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_az_extF80.c.o
+[1601/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_az_extF80_rx.c.o
+[1602/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_abz_extF80.c.o
+[1603/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_f128_z_ui32_rx.c.o
+[1604/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_ab_extF80_z_bool.c.o
+[1605/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_f128_z_ui64_rx.c.o
+[1606/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_f128_z_i64_rx.c.o
+[1607/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_f128_z_i32_rx.c.o
+[1608/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_f128_z_ui32_x.c.o
+[1609/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_f128_z_i32_x.c.o
+[1610/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_f128_z_ui64_x.c.o
+[1611/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_f128_z_i64_x.c.o
+[1612/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_f128_z_f16.c.o
+[1613/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_f128_z_f32.c.o
+[1614/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_f128_z_f64.c.o
+[1615/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_a_f128_z_extF80.c.o
+[1616/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_az_f128.c.o
+[1617/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_az_f128_rx.c.o
+[1618/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_abz_f128.c.o
+[1619/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_abcz_f128.c.o
+[1620/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_le128.c.o
+[1621/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_shortShiftRightJam64.c.o
+[1622/2195] Compiling C object tests/fp/libtestfloat.a.p/berkeley-testfloat-3_source_test_ab_f128_z_bool.c.o
+[1623/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_shortShiftRightJam64Extra.c.o
+[1624/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_shortShiftRightJam128Extra.c.o
+[1625/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_shortShiftRightJam128.c.o
+[1626/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_eq128.c.o
+[1627/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_lt128.c.o
+[1628/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_shortShiftLeft128.c.o
+[1629/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_shortShiftRight128.c.o
+[1630/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_shiftRightJam32.c.o
+[1631/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_shiftRightJam64.c.o
+[1632/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_shiftRightJam64Extra.c.o
+[1633/2195] Linking static target tests/fp/libtestfloat.a
+[1634/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_shiftRightJam128.c.o
+[1635/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_shiftRightJam128Extra.c.o
+[1636/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_shiftRightJam256M.c.o
+[1637/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_countLeadingZeros8.c.o
+[1638/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_countLeadingZeros16.c.o
+[1639/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_countLeadingZeros32.c.o
+[1640/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_countLeadingZeros64.c.o
+[1641/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_add128.c.o
+[1642/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_add256M.c.o
+[1643/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_sub128.c.o
+[1644/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_sub256M.c.o
+[1645/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_mul64ByShifted32To128.c.o
+[1646/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_mul64To128.c.o
+[1647/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_mul128By32.c.o
+[1648/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_mul128To256M.c.o
+[1649/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_approxRecip_1Ks.c.o
+[1650/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_approxRecip32_1.c.o
+[1651/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_approxRecipSqrt_1Ks.c.o
+[1652/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_approxRecipSqrt32_1.c.o
+[1653/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_roundToUI32.c.o
+[1654/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_roundToUI64.c.o
+[1655/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_roundToI32.c.o
+[1656/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_roundToI64.c.o
+[1657/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_normSubnormalF16Sig.c.o
+[1658/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_roundPackToF16.c.o
+[1659/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_normRoundPackToF16.c.o
+[1660/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_addMagsF16.c.o
+[1661/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_subMagsF16.c.o
+[1662/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_normSubnormalF32Sig.c.o
+[1663/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_mulAddF16.c.o
+[1664/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_roundPackToF32.c.o
+[1665/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_normRoundPackToF32.c.o
+[1666/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_addMagsF32.c.o
+[1667/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_subMagsF32.c.o
+[1668/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_normSubnormalF64Sig.c.o
+[1669/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_mulAddF32.c.o
+[1670/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_normRoundPackToF64.c.o
+[1671/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_roundPackToF64.c.o
+[1672/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_addMagsF64.c.o
+[1673/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_subMagsF64.c.o
+[1674/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_mulAddF64.c.o
+[1675/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_normSubnormalExtF80Sig.c.o
+[1676/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_normRoundPackToExtF80.c.o
+[1677/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_roundPackToExtF80.c.o
+[1678/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_addMagsExtF80.c.o
+[1679/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_normSubnormalF128Sig.c.o
+[1680/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_subMagsExtF80.c.o
+[1681/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_roundPackToF128.c.o
+[1682/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_normRoundPackToF128.c.o
+[1683/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_addMagsF128.c.o
+[1684/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_subMagsF128.c.o
+[1685/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_softfloat_state.c.o
+[1686/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_s_mulAddF128.c.o
+[1687/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_ui32_to_f16.c.o
+[1688/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_ui32_to_f32.c.o
+[1689/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_ui32_to_f64.c.o
+[1690/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_ui32_to_extF80.c.o
+[1691/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_ui32_to_extF80M.c.o
+[1692/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_ui32_to_f128M.c.o
+[1693/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_ui32_to_f128.c.o
+[1694/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_ui64_to_f16.c.o
+[1695/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_ui64_to_f32.c.o
+[1696/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_ui64_to_f64.c.o
+[1697/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_ui64_to_extF80.c.o
+[1698/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_ui64_to_extF80M.c.o
+[1699/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_ui64_to_f128.c.o
+[1700/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_ui64_to_f128M.c.o
+[1701/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_i32_to_f16.c.o
+[1702/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_i32_to_f32.c.o
+[1703/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_i32_to_f64.c.o
+[1704/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_i32_to_extF80.c.o
+[1705/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_i32_to_extF80M.c.o
+[1706/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_i32_to_f128.c.o
+[1707/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_i32_to_f128M.c.o
+[1708/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_i64_to_f16.c.o
+[1709/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_i64_to_f32.c.o
+[1710/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_i64_to_f64.c.o
+[1711/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_i64_to_extF80.c.o
+[1712/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_i64_to_extF80M.c.o
+[1713/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_i64_to_f128.c.o
+[1714/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_i64_to_f128M.c.o
+[1715/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f16_to_ui32.c.o
+[1716/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f16_to_ui64.c.o
+[1717/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f16_to_i32.c.o
+[1718/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f16_to_i64.c.o
+[1719/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f16_to_ui32_r_minMag.c.o
+[1720/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f16_to_ui64_r_minMag.c.o
+[1721/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f16_to_i32_r_minMag.c.o
+[1722/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f16_to_f32.c.o
+[1723/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f16_to_i64_r_minMag.c.o
+[1724/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f16_to_f64.c.o
+[1725/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f16_to_extF80.c.o
+[1726/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f16_to_extF80M.c.o
+[1727/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f16_to_f128.c.o
+[1728/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f16_to_f128M.c.o
+[1729/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f16_roundToInt.c.o
+[1730/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f16_add.c.o
+[1731/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f16_sub.c.o
+[1732/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f16_mul.c.o
+[1733/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f16_mulAdd.c.o
+[1734/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f16_div.c.o
+[1735/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f16_rem.c.o
+[1736/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f16_sqrt.c.o
+[1737/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f16_eq.c.o
+[1738/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f16_le.c.o
+[1739/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f16_lt.c.o
+[1740/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f16_eq_signaling.c.o
+[1741/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f16_le_quiet.c.o
+[1742/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f16_lt_quiet.c.o
+[1743/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f16_isSignalingNaN.c.o
+[1744/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f32_to_ui32.c.o
+[1745/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f32_to_ui64.c.o
+[1746/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f32_to_i32.c.o
+[1747/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f32_to_i64.c.o
+[1748/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f32_to_ui32_r_minMag.c.o
+[1749/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f32_to_ui64_r_minMag.c.o
+[1750/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f32_to_i32_r_minMag.c.o
+[1751/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f32_to_f16.c.o
+[1752/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f32_to_i64_r_minMag.c.o
+[1753/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f32_to_f64.c.o
+[1754/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f32_to_extF80M.c.o
+[1755/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f32_to_extF80.c.o
+[1756/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f32_to_f128M.c.o
+[1757/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f32_to_f128.c.o
+[1758/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f32_roundToInt.c.o
+[1759/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f32_add.c.o
+[1760/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f32_sub.c.o
+[1761/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f32_mul.c.o
+[1762/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f32_mulAdd.c.o
+[1763/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f32_div.c.o
+[1764/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f32_rem.c.o
+[1765/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f32_sqrt.c.o
+[1766/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f32_eq.c.o
+[1767/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f32_le.c.o
+[1768/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f32_lt.c.o
+[1769/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f32_eq_signaling.c.o
+[1770/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f32_le_quiet.c.o
+[1771/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f32_lt_quiet.c.o
+[1772/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f32_isSignalingNaN.c.o
+[1773/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f64_to_ui32.c.o
+[1774/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f64_to_ui64.c.o
+[1775/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f64_to_i32.c.o
+[1776/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f64_to_i64.c.o
+[1777/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f64_to_ui32_r_minMag.c.o
+[1778/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f64_to_ui64_r_minMag.c.o
+[1779/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f64_to_i32_r_minMag.c.o
+[1780/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f64_to_i64_r_minMag.c.o
+[1781/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f64_to_f16.c.o
+[1782/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f64_to_f32.c.o
+[1783/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f64_to_extF80.c.o
+[1784/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f64_to_extF80M.c.o
+[1785/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f64_to_f128.c.o
+[1786/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f64_to_f128M.c.o
+[1787/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f64_roundToInt.c.o
+[1788/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f64_add.c.o
+[1789/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f64_sub.c.o
+[1790/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f64_mul.c.o
+[1791/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f64_mulAdd.c.o
+[1792/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f64_div.c.o
+[1793/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f64_rem.c.o
+[1794/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f64_sqrt.c.o
+[1795/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f64_eq.c.o
+[1796/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f64_le.c.o
+[1797/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f64_lt.c.o
+[1798/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f64_eq_signaling.c.o
+[1799/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f64_le_quiet.c.o
+[1800/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f64_lt_quiet.c.o
+[1801/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f64_isSignalingNaN.c.o
+[1802/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_extF80_to_ui32.c.o
+[1803/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_extF80_to_ui64.c.o
+[1804/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_extF80_to_i32.c.o
+[1805/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_extF80_to_ui32_r_minMag.c.o
+[1806/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_extF80_to_i64.c.o
+[1807/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_extF80_to_ui64_r_minMag.c.o
+[1808/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_extF80_to_i32_r_minMag.c.o
+[1809/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_extF80_to_i64_r_minMag.c.o
+[1810/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_extF80_to_f16.c.o
+[1811/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_extF80_to_f32.c.o
+[1812/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_extF80_to_f64.c.o
+[1813/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_extF80_to_f128.c.o
+[1814/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_extF80_add.c.o
+[1815/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_extF80_roundToInt.c.o
+[1816/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_extF80_sub.c.o
+[1817/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_extF80_mul.c.o
+[1818/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_extF80_div.c.o
+[1819/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_extF80_rem.c.o
+[1820/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_extF80_eq.c.o
+[1821/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_extF80_sqrt.c.o
+[1822/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_extF80_le.c.o
+[1823/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_extF80_lt.c.o
+[1824/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_extF80_eq_signaling.c.o
+[1825/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_extF80_le_quiet.c.o
+[1826/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_extF80_lt_quiet.c.o
+[1827/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_extF80_isSignalingNaN.c.o
+[1828/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_extF80M_to_ui32.c.o
+[1829/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_extF80M_to_ui64.c.o
+[1830/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_extF80M_to_i32.c.o
+[1831/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_extF80M_to_i64.c.o
+[1832/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_extF80M_to_ui32_r_minMag.c.o
+[1833/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_extF80M_to_ui64_r_minMag.c.o
+[1834/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_extF80M_to_i32_r_minMag.c.o
+[1835/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_extF80M_to_i64_r_minMag.c.o
+[1836/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_extF80M_to_f16.c.o
+[1837/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_extF80M_to_f32.c.o
+[1838/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_extF80M_to_f64.c.o
+[1839/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_extF80M_to_f128M.c.o
+[1840/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_extF80M_roundToInt.c.o
+[1841/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_extF80M_add.c.o
+[1842/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_extF80M_sub.c.o
+[1843/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_extF80M_mul.c.o
+[1844/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_extF80M_rem.c.o
+[1845/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_extF80M_div.c.o
+[1846/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_extF80M_sqrt.c.o
+[1847/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_extF80M_le.c.o
+[1848/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_extF80M_eq.c.o
+[1849/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_extF80M_lt.c.o
+[1850/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_extF80M_eq_signaling.c.o
+[1851/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_extF80M_le_quiet.c.o
+[1852/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_extF80M_lt_quiet.c.o
+[1853/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f128_to_ui32.c.o
+[1854/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f128_to_ui64.c.o
+[1855/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f128_to_i32.c.o
+[1856/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f128_to_ui32_r_minMag.c.o
+[1857/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f128_to_i64.c.o
+[1858/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f128_to_ui64_r_minMag.c.o
+[1859/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f128_to_i32_r_minMag.c.o
+[1860/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f128_to_i64_r_minMag.c.o
+[1861/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f128_to_f16.c.o
+[1862/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f128_to_f32.c.o
+[1863/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f128_to_extF80.c.o
+[1864/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f128_to_f64.c.o
+[1865/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f128_add.c.o
+[1866/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f128_roundToInt.c.o
+[1867/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f128_sub.c.o
+[1868/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f128_mulAdd.c.o
+[1869/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f128_mul.c.o
+[1870/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f128_div.c.o
+[1871/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f128_rem.c.o
+[1872/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f128_sqrt.c.o
+[1873/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f128_eq.c.o
+[1874/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f128_le.c.o
+[1875/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f128_lt.c.o
+[1876/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f128_eq_signaling.c.o
+[1877/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f128_le_quiet.c.o
+[1878/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f128_lt_quiet.c.o
+[1879/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f128_isSignalingNaN.c.o
+[1880/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f128M_to_ui32.c.o
+[1881/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f128M_to_ui64.c.o
+[1882/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f128M_to_i64.c.o
+[1883/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f128M_to_i32.c.o
+[1884/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f128M_to_ui32_r_minMag.c.o
+[1885/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f128M_to_ui64_r_minMag.c.o
+[1886/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f128M_to_i32_r_minMag.c.o
+[1887/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f128M_to_i64_r_minMag.c.o
+[1888/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f128M_to_f16.c.o
+[1889/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f128M_to_f32.c.o
+[1890/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f128M_to_extF80M.c.o
+[1891/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f128M_to_f64.c.o
+[1892/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f128M_roundToInt.c.o
+[1893/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f128M_add.c.o
+[1894/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f128M_sub.c.o
+[1895/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f128M_mul.c.o
+[1896/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f128M_mulAdd.c.o
+[1897/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f128M_rem.c.o
+[1898/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f128M_div.c.o
+[1899/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f128M_sqrt.c.o
+[1900/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f128M_eq.c.o
+[1901/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f128M_le.c.o
+[1902/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f128M_eq_signaling.c.o
+[1903/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f128M_lt.c.o
+[1904/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f128M_le_quiet.c.o
+[1905/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_8086-SSE_softfloat_raiseFlags.c.o
+[1906/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_f128M_lt_quiet.c.o
+[1907/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_8086-SSE_s_f16UIToCommonNaN.c.o
+[1908/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_8086-SSE_s_commonNaNToF16UI.c.o
+[1909/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_8086-SSE_s_propagateNaNF16UI.c.o
+[1910/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_8086-SSE_s_f32UIToCommonNaN.c.o
+[1911/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_8086-SSE_s_commonNaNToF32UI.c.o
+[1912/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_8086-SSE_s_propagateNaNF32UI.c.o
+[1913/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_8086-SSE_s_f64UIToCommonNaN.c.o
+[1914/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_8086-SSE_s_commonNaNToF64UI.c.o
+[1915/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_8086-SSE_s_propagateNaNF64UI.c.o
+[1916/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_8086-SSE_extF80M_isSignalingNaN.c.o
+[1917/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_8086-SSE_s_extF80UIToCommonNaN.c.o
+[1918/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_8086-SSE_s_commonNaNToExtF80UI.c.o
+[1919/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_8086-SSE_s_propagateNaNExtF80UI.c.o
+[1920/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_8086-SSE_f128M_isSignalingNaN.c.o
+[1921/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_8086-SSE_s_f128UIToCommonNaN.c.o
+[1922/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_8086-SSE_s_propagateNaNF128UI.c.o
+[1923/2195] Compiling C object tests/fp/libsoftfloat.a.p/berkeley-softfloat-3_source_8086-SSE_s_commonNaNToF128UI.c.o
+[1924/2195] Compiling C object tests/plugin/libsyscall.so.p/syscall.c.o
+[1925/2195] Compiling C object tests/plugin/libinsn.so.p/insn.c.o
+[1926/2195] Linking target tests/plugin/libinsn.so
+[1927/2195] Linking target tests/plugin/libsyscall.so
+[1928/2195] Compiling C object tests/plugin/libbb.so.p/bb.c.o
+[1929/2195] Compiling C object tests/fp/fp-test.p/.._.._fpu_softfloat.c.o
+[1930/2195] Linking target tests/plugin/libbb.so
+[1931/2195] Compiling C object tests/plugin/libempty.so.p/empty.c.o
+[1932/2195] Compiling C object tests/fp/fp-bench.p/fp-bench.c.o
+[1933/2195] Compiling C object tests/plugin/libmem.so.p/mem.c.o
+[1934/2195] Compiling C object tests/fp/fp-test-log2.p/.._.._fpu_softfloat.c.o
+[1935/2195] Compiling C object tests/unit/rcutorture.p/rcutorture.c.o
+[1936/2195] Linking target tests/plugin/libempty.so
+[1937/2195] Linking target tests/plugin/libmem.so
+[1938/2195] Compiling C object tests/fp/fp-test.p/berkeley-testfloat-3_source_slowfloat.c.o
+[1939/2195] Compiling C object tests/fp/fp-test.p/fp-test.c.o
+[1940/2195] Compiling C object tests/fp/fp-test-log2.p/fp-test-log2.c.o
+[1941/2195] Linking static target tests/fp/libsoftfloat.a
+[1942/2195] Compiling C object tests/unit/check-qdict.p/check-qdict.c.o
+[1943/2195] Linking target tests/fp/fp-test
+[1944/2195] Linking target tests/fp/fp-test-log2
+[1945/2195] Compiling C object tests/fp/fp-bench.p/.._.._fpu_softfloat.c.o
+[1946/2195] Compiling C object tests/unit/check-block-qdict.p/check-block-qdict.c.o
+[1947/2195] Compiling C object tests/unit/check-qjson.p/check-qjson.c.o
+[1948/2195] Linking target tests/fp/fp-bench
+[1949/2195] Linking target tests/unit/check-block-qdict
+[1950/2195] Linking target tests/unit/check-qjson
+[1951/2195] Compiling C object tests/unit/check-qlist.p/check-qlist.c.o
+[1952/2195] Compiling C object tests/unit/ptimer-test.p/ptimer-test-stubs.c.o
+[1953/2195] Compiling C object tests/unit/check-qlit.p/check-qlit.c.o
+[1954/2195] Linking target tests/unit/check-qdict
+[1955/2195] Compiling C object tests/unit/test-aio.p/iothread.c.o
+[1956/2195] Linking target tests/unit/check-qlist
+[1957/2195] Compiling C object tests/unit/check-qnull.p/check-qnull.c.o
+[1958/2195] Compiling C object tests/unit/check-qnum.p/check-qnum.c.o
+[1959/2195] Linking target tests/unit/check-qlit
+[1960/2195] Compiling C object tests/unit/check-qobject.p/check-qobject.c.o
+[1961/2195] Linking target tests/unit/check-qnull
+[1962/2195] Linking target tests/unit/check-qnum
+[1963/2195] Compiling C object tests/unit/check-qom-interface.p/check-qom-interface.c.o
+[1964/2195] Compiling C object tests/unit/check-qom-proplist.p/check-qom-proplist.c.o
+[1965/2195] Linking target tests/unit/check-qobject
+[1966/2195] Compiling C object tests/unit/ptimer-test.p/_home_kighter_.cache_oslab_qemu-6.2.0_hw_core_ptimer.c.o
+[1967/2195] Linking target tests/unit/check-qom-interface
+[1968/2195] Compiling C object tests/unit/check-qstring.p/check-qstring.c.o
+[1969/2195] Linking target tests/unit/check-qom-proplist
+[1970/2195] Compiling C object tests/unit/ptimer-test.p/ptimer-test.c.o
+[1971/2195] Linking target tests/unit/check-qstring
+[1972/2195] Linking target tests/unit/rcutorture
+[1973/2195] Linking target tests/unit/ptimer-test
+[1974/2195] Compiling C object tests/unit/test-aio.p/test-aio.c.o
+[1975/2195] Compiling C object tests/unit/test-aio-multithread.p/test-aio-multithread.c.o
+[1976/2195] Compiling C object tests/unit/test-aio-multithread.p/iothread.c.o
+[1977/2195] Compiling C object tests/unit/test-authz-list.p/test-authz-list.c.o
+[1978/2195] Linking target tests/unit/test-aio
+[1979/2195] Linking target tests/unit/test-aio-multithread
+[1980/2195] Linking target tests/unit/test-authz-list
+[1981/2195] Compiling C object tests/unit/test-authz-listfile.p/test-authz-listfile.c.o
+[1982/2195] Compiling C object tests/unit/test-authz-simple.p/test-authz-simple.c.o
+[1983/2195] Compiling C object tests/unit/test-base64.p/test-base64.c.o
+[1984/2195] Linking target tests/unit/test-base64
+[1985/2195] Linking target tests/unit/test-authz-listfile
+[1986/2195] Linking target tests/unit/test-authz-simple
+[1987/2195] Compiling C object tests/unit/test-bdrv-drain.p/iothread.c.o
+[1988/2195] Compiling C object tests/unit/test-bdrv-graph-mod.p/test-bdrv-graph-mod.c.o
+[1989/2195] Compiling C object tests/unit/test-bdrv-graph-mod.p/iothread.c.o
+[1990/2195] Compiling C object tests/unit/test-bdrv-drain.p/test-bdrv-drain.c.o
+[1991/2195] Compiling C object tests/unit/test-bitcnt.p/test-bitcnt.c.o
+[1992/2195] Linking target tests/unit/test-bitcnt
+[1993/2195] Compiling C object tests/unit/test-bitmap.p/test-bitmap.c.o
+[1994/2195] Linking target tests/unit/test-bdrv-drain
+[1995/2195] Linking target tests/unit/test-bdrv-graph-mod
+[1996/2195] Compiling C object tests/unit/test-bitops.p/test-bitops.c.o
+[1997/2195] Compiling C object tests/unit/test-block-backend.p/test-block-backend.c.o
+[1998/2195] Compiling C object tests/unit/test-block-backend.p/iothread.c.o
+[1999/2195] Linking target tests/unit/test-bitmap
+[2000/2195] Linking target tests/unit/test-bitops
+[2001/2195] Compiling C object tests/unit/test-block-iothread.p/test-block-iothread.c.o
+[2002/2195] Compiling C object tests/unit/test-block-iothread.p/iothread.c.o
+[2003/2195] Compiling C object tests/unit/test-blockjob.p/test-blockjob.c.o
+[2004/2195] Compiling C object tests/unit/test-bufferiszero.p/test-bufferiszero.c.o
+[2005/2195] Linking target tests/unit/test-block-backend
+[2006/2195] Compiling C object tests/unit/test-char.p/socket-helpers.c.o
+[2007/2195] Compiling C object tests/unit/test-char.p/test-char.c.o
+[2008/2195] Linking target tests/unit/test-block-iothread
+[2009/2195] Compiling C object tests/unit/test-blockjob.p/iothread.c.o
+[2010/2195] Compiling C object tests/unit/test-blockjob-txn.p/test-blockjob-txn.c.o
+[2011/2195] Linking target tests/unit/test-bufferiszero
+[2012/2195] Linking target tests/unit/test-blockjob-txn
+[2013/2195] Linking target tests/unit/test-blockjob
+[2014/2195] Linking target tests/unit/test-char
+[2015/2195] Compiling C object tests/unit/test-clone-visitor.p/test-clone-visitor.c.o
+[2016/2195] Compiling C object tests/unit/test-coroutine.p/test-coroutine.c.o
+[2017/2195] Compiling C object tests/unit/test-coroutine.p/iothread.c.o
+[2018/2195] Compiling C object tests/unit/test-crypto-block.p/test-crypto-block.c.o
+[2019/2195] Linking target tests/unit/test-clone-visitor
+[2020/2195] Compiling C object tests/unit/test-crypto-cipher.p/test-crypto-cipher.c.o
+[2021/2195] Linking target tests/unit/test-crypto-block
+[2022/2195] Linking target tests/unit/test-coroutine
+[2023/2195] Compiling C object tests/unit/test-crypto-hash.p/test-crypto-hash.c.o
+[2024/2195] Compiling C object tests/unit/test-crypto-hmac.p/test-crypto-hmac.c.o
+[2025/2195] Linking target tests/unit/test-crypto-cipher
+[2026/2195] Compiling C object tests/unit/test-crypto-ivgen.p/test-crypto-ivgen.c.o
+[2027/2195] Linking target tests/unit/test-crypto-hash
+[2028/2195] Linking target tests/unit/test-crypto-hmac
+[2029/2195] Compiling C object tests/unit/test-io-channel-command.p/io-channel-helpers.c.o
+[2030/2195] Compiling C object tests/unit/test-crypto-secret.p/test-crypto-secret.c.o
+[2031/2195] Linking target tests/unit/test-crypto-ivgen
+[2032/2195] Compiling C object tests/unit/test-div128.p/test-div128.c.o
+[2033/2195] Compiling C object tests/unit/test-cutils.p/test-cutils.c.o
+[2034/2195] Linking target tests/unit/test-crypto-secret
+[2035/2195] Linking target tests/unit/test-div128
+[2036/2195] Linking target tests/unit/test-cutils
+[2037/2195] Compiling C object tests/unit/test-forward-visitor.p/test-forward-visitor.c.o
+[2038/2195] Compiling C object tests/unit/test-io-channel-buffer.p/io-channel-helpers.c.o
+[2039/2195] Compiling C object tests/unit/test-hbitmap.p/test-hbitmap.c.o
+[2040/2195] Compiling C object tests/unit/test-hbitmap.p/iothread.c.o
+[2041/2195] Compiling C object tests/unit/test-image-locking.p/test-image-locking.c.o
+[2042/2195] Linking target tests/unit/test-forward-visitor
+[2043/2195] Compiling C object tests/unit/test-image-locking.p/iothread.c.o
+[2044/2195] Compiling C object tests/unit/test-int128.p/test-int128.c.o
+[2045/2195] Linking target tests/unit/test-hbitmap
+[2046/2195] Linking target tests/unit/test-int128
+[2047/2195] Compiling C object tests/unit/test-io-channel-buffer.p/test-io-channel-buffer.c.o
+[2048/2195] Compiling C object tests/unit/test-io-channel-command.p/test-io-channel-command.c.o
+[2049/2195] Linking target tests/unit/test-image-locking
+[2050/2195] Compiling C object tests/unit/test-io-channel-file.p/test-io-channel-file.c.o
+[2051/2195] Compiling C object tests/unit/test-io-channel-file.p/io-channel-helpers.c.o
+[2052/2195] Linking target tests/unit/test-io-channel-buffer
+[2053/2195] Linking target tests/unit/test-io-channel-command
+[2054/2195] Compiling C object tests/unit/test-io-channel-socket.p/test-io-channel-socket.c.o
+[2055/2195] Compiling C object tests/unit/test-io-channel-socket.p/socket-helpers.c.o
+[2056/2195] Compiling C object tests/unit/test-io-channel-socket.p/io-channel-helpers.c.o
+[2057/2195] Compiling C object tests/unit/test-io-task.p/test-io-task.c.o
+[2058/2195] Linking target tests/unit/test-io-channel-file
+[2059/2195] Compiling C object tests/unit/test-io-task.p/iothread.c.o
+[2060/2195] Compiling C object tests/unit/test-iov.p/test-iov.c.o
+[2061/2195] Linking target tests/unit/test-io-channel-socket
+[2062/2195] Compiling C object tests/unit/test-qdist.p/test-qdist.c.o
+[2063/2195] Linking target tests/unit/test-iov
+[2064/2195] Linking target tests/unit/test-io-task
+[2065/2195] Compiling C object tests/unit/test-logging.p/test-logging.c.o
+[2066/2195] Compiling C object tests/unit/test-mul64.p/test-mul64.c.o
+[2067/2195] Compiling C object tests/unit/test-keyval.p/test-keyval.c.o
+[2068/2195] Linking target tests/unit/test-mul64
+[2069/2195] Linking target tests/unit/test-logging
+[2070/2195] Linking target tests/unit/test-keyval
+[2071/2195] Compiling C object tests/unit/test-opts-visitor.p/test-opts-visitor.c.o
+[2072/2195] Compiling C object tests/unit/test-qapi-util.p/test-qapi-util.c.o
+[2073/2195] Compiling C object tests/unit/test-qdev-global-props.p/test-qdev-global-props.c.o
+[2074/2195] Linking target tests/unit/test-qapi-util
+[2075/2195] Linking target tests/unit/test-opts-visitor
+[2076/2195] Compiling C object tests/unit/test-qemu-opts.p/test-qemu-opts.c.o
+[2077/2195] Linking target tests/unit/test-qdev-global-props
+[2078/2195] Linking target tests/unit/test-qdist
+[2079/2195] Compiling C object tests/unit/test-qga.p/test-qga.c.o
+[2080/2195] Compiling C object tests/unit/test-qga.p/.._qtest_libqtest.c.o
+[2081/2195] Linking target tests/unit/test-qemu-opts
+[2082/2195] Compiling C object tests/unit/test-qgraph.p/test-qgraph.c.o
+[2083/2195] Compiling C object tests/unit/test-qgraph.p/.._qtest_libqos_qgraph.c.o
+[2084/2195] Compiling C object tests/unit/test-qht.p/test-qht.c.o
+[2085/2195] Linking target tests/unit/test-qga
+[2086/2195] Linking target tests/unit/test-qgraph
+[2087/2195] Compiling C object tests/unit/test-qmp-cmds.p/test-qmp-cmds.c.o
+[2088/2195] Linking target tests/unit/test-qht
+[2089/2195] Compiling C object tests/unit/test-qmp-event.p/test-qmp-event.c.o
+[2090/2195] Compiling C object tests/unit/test-qobject-input-visitor.p/test-qobject-input-visitor.c.o
+[2091/2195] Linking target tests/unit/test-qmp-cmds
+[2092/2195] Linking target tests/unit/test-qmp-event
+[2093/2195] Compiling C object tests/unit/test-qobject-output-visitor.p/test-qobject-output-visitor.c.o
+[2094/2195] Compiling C object tests/unit/test-rcu-list.p/test-rcu-list.c.o
+[2095/2195] Linking target tests/unit/test-qobject-input-visitor
+[2096/2195] Compiling C object tests/unit/test-rcu-simpleq.p/test-rcu-simpleq.c.o
+[2097/2195] Linking target tests/unit/test-qobject-output-visitor
+[2098/2195] Linking target tests/unit/test-rcu-list
+[2099/2195] Compiling C object tests/unit/test-rcu-slist.p/test-rcu-slist.c.o
+[2100/2195] Compiling C object tests/unit/test-rcu-tailq.p/test-rcu-tailq.c.o
+[2101/2195] Linking target tests/unit/test-rcu-simpleq
+[2102/2195] Compiling C object tests/unit/test-replication.p/test-replication.c.o
+[2103/2195] Linking target tests/unit/test-rcu-tailq
+[2104/2195] Linking target tests/unit/test-rcu-slist
+[2105/2195] Compiling C object tests/unit/test-replication.p/iothread.c.o
+[2106/2195] Compiling C object tests/unit/test-shift128.p/test-shift128.c.o
+[2107/2195] Compiling C object tests/unit/test-smp-parse.p/test-smp-parse.c.o
+[2108/2195] Linking target tests/unit/test-shift128
+[2109/2195] Compiling C object tests/unit/test-smp-parse.p/_home_kighter_.cache_oslab_qemu-6.2.0_hw_core_machine-smp.c.o
+[2110/2195] Compiling C object tests/unit/test-string-input-visitor.p/test-string-input-visitor.c.o
+[2111/2195] Linking target tests/unit/test-replication
+[2112/2195] Compiling C object tests/unit/test-string-output-visitor.p/test-string-output-visitor.c.o
+[2113/2195] Linking target tests/unit/test-smp-parse
+[2114/2195] Linking target tests/unit/test-string-input-visitor
+[2115/2195] Compiling C object tests/unit/test-thread-pool.p/iothread.c.o
+[2116/2195] Compiling C object tests/unit/test-thread-pool.p/test-thread-pool.c.o
+[2117/2195] Linking target tests/unit/test-string-output-visitor
+[2118/2195] Compiling C object tests/unit/test-throttle.p/iothread.c.o
+[2119/2195] Compiling C object tests/unit/test-throttle.p/test-throttle.c.o
+[2120/2195] Compiling C object tests/unit/test-timed-average.p/test-timed-average.c.o
+[2121/2195] Linking target tests/unit/test-thread-pool
+[2122/2195] Linking target tests/unit/test-timed-average
+[2123/2195] Compiling C object tests/unit/test-util-sockets.p/test-util-sockets.c.o
+[2124/2195] Linking target tests/unit/test-throttle
+[2125/2195] Compiling C object tests/unit/test-util-sockets.p/socket-helpers.c.o
+[2126/2195] Compiling C object tests/unit/test-uuid.p/test-uuid.c.o
+[2127/2195] Compiling C object tests/unit/test-vmstate.p/test-vmstate.c.o
+[2128/2195] Linking target tests/unit/test-uuid
+[2129/2195] Linking target tests/unit/test-util-sockets
+[2130/2195] Compiling C object tests/unit/test-write-threshold.p/test-write-threshold.c.o
+[2131/2195] Compiling C object tests/unit/test-visitor-serialization.p/test-visitor-serialization.c.o
+[2132/2195] Linking target tests/unit/test-vmstate
+[2133/2195] Compiling C object tests/unit/test-write-threshold.p/iothread.c.o
+[2134/2195] Compiling C object tests/unit/test-x86-cpuid.p/test-x86-cpuid.c.o
+[2135/2195] Linking target tests/unit/test-visitor-serialization
+[2136/2195] Compiling C object tests/unit/test-xbzrle.p/test-xbzrle.c.o
+[2137/2195] Linking target tests/unit/test-x86-cpuid
+[2138/2195] Compiling C object tests/unit/test-yank.p/test-yank.c.o
+[2139/2195] Linking target tests/unit/test-write-threshold
+[2140/2195] Compiling C object tests/unit/test-yank.p/socket-helpers.c.o
+[2141/2195] Compiling C object tests/qtest/fuzz-virtio-scsi-test.p/fuzz-virtio-scsi-test.c.o
+[2142/2195] Compiling C object tests/qtest/fuzz-sdcard-test.p/fuzz-sdcard-test.c.o
+[2143/2195] Linking target tests/unit/test-xbzrle
+[2144/2195] Compiling C object tests/qtest/fuzz-megasas-test.p/fuzz-megasas-test.c.o
+[2145/2195] Linking target tests/unit/test-yank
+[2146/2195] Linking target tests/qtest/fuzz-sdcard-test
+[2147/2195] Compiling C object tests/qtest/cdrom-test.p/cdrom-test.c.o
+[2148/2195] Linking target tests/qtest/fuzz-megasas-test
+[2149/2195] Compiling C object tests/qtest/cdrom-test.p/boot-sector.c.o
+[2150/2195] Compiling C object tests/qtest/device-introspect-test.p/device-introspect-test.c.o
+[2151/2195] Linking target tests/qtest/fuzz-virtio-scsi-test
+[2152/2195] Compiling C object tests/qtest/machine-none-test.p/machine-none-test.c.o
+[2153/2195] Linking target tests/qtest/cdrom-test
+[2154/2195] Linking target tests/qtest/device-introspect-test
+[2155/2195] Compiling C object tests/qtest/qmp-test.p/qmp-test.c.o
+[2156/2195] Compiling C object tests/qtest/qmp-cmd-test.p/qmp-cmd-test.c.o
+[2157/2195] Linking target tests/qtest/machine-none-test
+[2158/2195] Compiling C object tests/qtest/qom-test.p/qom-test.c.o
+[2159/2195] Linking target tests/qtest/qmp-test
+[2160/2195] Linking target tests/qtest/qmp-cmd-test
+[2161/2195] Compiling C object tests/qtest/test-hmp.p/test-hmp.c.o
+[2162/2195] Compiling C object tests/qtest/qos-test.p/qos-test.c.o
+[2163/2195] Linking target tests/qtest/qom-test
+[2164/2195] Compiling C object tests/qtest/qos-test.p/ac97-test.c.o
+[2165/2195] Compiling C object tests/qtest/qos-test.p/ds1338-test.c.o
+[2166/2195] Compiling C object tests/qtest/qos-test.p/adm1272-test.c.o
+[2167/2195] Compiling C object tests/qtest/qos-test.p/e1000-test.c.o
+[2168/2195] Linking target tests/qtest/test-hmp
+[2169/2195] Compiling C object tests/qtest/qos-test.p/e1000e-test.c.o
+[2170/2195] Compiling C object tests/qtest/qos-test.p/eepro100-test.c.o
+[2171/2195] Compiling C object tests/qtest/qos-test.p/es1370-test.c.o
+[2172/2195] Compiling C object tests/qtest/qos-test.p/ipoctal232-test.c.o
+[2173/2195] Compiling C object tests/qtest/qos-test.p/megasas-test.c.o
+[2174/2195] Compiling C object tests/qtest/qos-test.p/max34451-test.c.o
+[2175/2195] Compiling C object tests/qtest/qos-test.p/ne2000-test.c.o
+[2176/2195] Compiling C object tests/qtest/qos-test.p/tulip-test.c.o
+[2177/2195] Compiling C object tests/qtest/qos-test.p/nvme-test.c.o
+[2178/2195] Compiling C object tests/qtest/qos-test.p/pca9552-test.c.o
+[2179/2195] Compiling C object tests/qtest/qos-test.p/pci-test.c.o
+[2180/2195] Compiling C object tests/qtest/qos-test.p/pcnet-test.c.o
+[2181/2195] Compiling C object tests/qtest/qos-test.p/spapr-phb-test.c.o
+[2182/2195] Compiling C object tests/qtest/qos-test.p/sdhci-test.c.o
+[2183/2195] Compiling C object tests/qtest/qos-test.p/tmp105-test.c.o
+[2184/2195] Compiling C object tests/qtest/qos-test.p/emc141x-test.c.o
+[2185/2195] Compiling C object tests/qtest/qos-test.p/usb-hcd-ohci-test.c.o
+[2186/2195] Compiling C object tests/qtest/qos-test.p/virtio-test.c.o
+[2187/2195] Compiling C object tests/qtest/qos-test.p/virtio-rng-test.c.o
+[2188/2195] Compiling C object tests/qtest/qos-test.p/virtio-blk-test.c.o
+[2189/2195] Compiling C object tests/qtest/qos-test.p/virtio-net-test.c.o
+[2190/2195] Compiling C object tests/qtest/qos-test.p/virtio-serial-test.c.o
+[2191/2195] Compiling C object tests/qtest/qos-test.p/virtio-scsi-test.c.o
+[2192/2195] Compiling C object tests/qtest/qos-test.p/vmxnet3-test.c.o
+[2193/2195] Compiling C object tests/qtest/qos-test.p/vhost-user-blk-test.c.o
+[2194/2195] Compiling C object tests/qtest/qos-test.p/vhost-user-test.c.o
+[2195/2195] Linking target tests/qtest/qos-test

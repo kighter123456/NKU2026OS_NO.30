@@ -1,0 +1,21 @@
+make: Nothing to be done for 'TARGETS'.
+PASS: boot-first_fit-64M
+PASS: boot-first_fit-128M
+PASS: boot-first_fit-256M
+make: Nothing to be done for 'TARGETS'.
+PASS: boot-best_fit-64M
+PASS: boot-best_fit-128M
+PASS: boot-best_fit-256M
+make: Nothing to be done for 'TARGETS'.
+PASS: boot-buddy-64M
+PASS: boot-buddy-128M
+PASS: boot-buddy-256M
+FAIL: protected file changed: lab1/code/evidence/manual-debug.log
+Traceback (most recent call last):
+  File "/mnt/e/桌面/OSLab/lab2/code/tools/integration.py", line 40, in <module>
+    main()
+  File "/mnt/e/桌面/OSLab/lab2/code/tools/integration.py", line 37, in main
+    subprocess.run(['python3','tools/check_submission.py'],cwd=ROOT,check=True)
+  File "/usr/lib/python3.10/subprocess.py", line 524, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['python3', 'tools/check_submission.py']' returned non-zero exit status 1.

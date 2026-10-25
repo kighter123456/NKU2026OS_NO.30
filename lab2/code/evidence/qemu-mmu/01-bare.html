@@ -1,0 +1,61 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Bare: software TLB miss and identity translation</title>
+<style>body{margin:0;padding:28px;background:#eef1f5;color:#172233;font:16px Arial,sans-serif}
+h1{font-size:23px;margin:0 0 12px}p{line-height:1.5}pre{padding:22px;background:#101a28;color:#dce8f5;
+font:14px/1.55 Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere;border-radius:8px}
+small{font-size:12px;overflow-wrap:anywhere}</style><h1>Bare: software TLB miss and identity translation</h1>
+<p>Screenshot of real GDB transcript excerpts, rendered in a browser. Not a live terminal capture.<br>
+Source: code/evidence/qemu-mmu/host-gdb.log. Original line numbers retained.</p>
+<small>Source SHA256: c70714657d669bda03505955fd36531ab92a2de59fa81529d2d60d0686f009eb</small><pre>0023  PASS: Bare first lookup misses software TLB
+0024  
+0025  === Bare single-step page translation ===
+0026  Breakpoint 2 at 0x555555a8d2b8: file ../target/riscv/cpu_helper.c, line 415.
+0027  
+0028  Thread 3 &quot;qemu-system-ris&quot; hit Breakpoint 2, get_physical_address (env=0x5555568a0540, physical=0x7ffff6155580, prot=0x7ffff615556c, addr=2149580800, fault_pte_addr=0x0, access_type=2, mmu_idx=1, first_stage=true, two_stage=false, is_debug=false) at ../target/riscv/cpu_helper.c:415
+0029  415	{
+0030  PASS: CPU access, not debugger memory read
+0031  #0  get_physical_address (env=0x5555568a0540, physical=0x7ffff6155580, prot=0x7ffff615556c, addr=2149580800, fault_pte_addr=0x0, access_type=2, mmu_idx=1, first_stage=true, two_stage=false, is_debug=false) at ../target/riscv/cpu_helper.c:415
+0032  #1  0x0000555555a8e6dd in riscv_cpu_tlb_fill (cs=0x5555568973b0, address=2149580800, size=0, access_type=MMU_INST_FETCH, mmu_idx=1, probe=false, retaddr=0) at ../target/riscv/cpu_helper.c:915
+0033  #2  0x0000555555c65a6c in tlb_fill (cpu=0x5555568973b0, addr=2149580800, size=0, access_type=MMU_INST_FETCH, mmu_idx=1, retaddr=0) at ../accel/tcg/cputlb.c:1304
+0034  #3  0x0000555555c6621f in get_page_addr_code_hostp (env=0x5555568a0540, addr=2149580800, hostp=0x0) at ../accel/tcg/cputlb.c:1508
+0035  #4  0x0000555555c66358 in get_page_addr_code (env=0x5555568a0540, addr=2149580800) at ../accel/tcg/cputlb.c:1540
+0036  420	    MemTxAttrs attrs = MEMTXATTRS_UNSPECIFIED;
+0037  421	    int mode = mmu_idx &amp; TB_FLAGS_PRIV_MMU_MASK;
+0038  422	    bool use_background = false;
+0039  431	    if (!riscv_cpu_virt_enabled(env) &amp;&amp; two_stage) {
+0040  437	    if (riscv_cpu_two_stage_lookup(mmu_idx)) {
+0041  439	    } else if (mode == PRV_M &amp;&amp; access_type != MMU_INST_FETCH) {
+0042  445	    if (first_stage == false) {
+0043  451	    if (mode == PRV_M || !riscv_feature(env, RISCV_FEATURE_MMU)) {
+0044  457	    *prot = 0;
+0045  462	    if (first_stage == true) {
+0046  463	        mxr = get_field(env-&gt;mstatus, MSTATUS_MXR);
+0047  468	    if (first_stage == true) {
+0048  469	        if (use_background) {
+0049  478	            if (riscv_cpu_mxl(env) == MXL_RV32) {
+0050  482	                base = (hwaddr)get_field(env-&gt;satp, SATP64_PPN) &lt;&lt; PGSHIFT;
+0051  483	                vm = get_field(env-&gt;satp, SATP64_MODE);
+0052  486	        widened = 0;
+0053  498	    sum = get_field(env-&gt;mstatus, MSTATUS_SUM) || use_background || is_debug;
+0054  499	    switch (vm) {
+0055  509	        *physical = addr;
+0056  SNAPSHOT cpu_helper.c:509
+0057  addr = 0x80200000
+0058  vm = 0x0
+0059  510	        *prot = PAGE_READ | PAGE_WRITE | PAGE_EXEC;
+0060  511	        return TRANSLATE_SUCCESS;
+0061  691	}
+0062  riscv_cpu_tlb_fill (cs=0x5555568973b0, address=2149580800, size=0, access_type=MMU_INST_FETCH, mmu_idx=1, probe=false, retaddr=0) at ../target/riscv/cpu_helper.c:918
+0063  918	        qemu_log_mask(CPU_LOG_MMU,
+0064  PASS: Bare VA=0x80200000 -&gt; PA=0x80200000 prot=R/W/X
+0065  Breakpoint 3 at 0x555555c65985: file ../accel/tcg/cputlb.c, line 1273.
+0066  
+0067  Thread 3 &quot;qemu-system-ris&quot; hit Breakpoint 3, tlb_set_page (cpu=0x5555568973b0, vaddr=2149580800, paddr=2149580800, prot=7, mmu_idx=1, size=4096) at ../accel/tcg/cputlb.c:1273
+0068  1273	    tlb_set_page_with_attrs(cpu, vaddr, paddr, MEMTXATTRS_UNSPECIFIED,
+0069  cpu = 0x5555568973b0
+0070  vaddr = 2149580800
+0071  paddr = 2149580800
+0072  prot = 7
+0073  mmu_idx = 1
+0074  size = 4096
+0075  PASS: Bare fills software TLB with translated physical page
+0076  </pre></html>

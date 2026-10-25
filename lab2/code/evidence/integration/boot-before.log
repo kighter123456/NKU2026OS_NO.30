@@ -1,0 +1,3 @@
+FAIL: Command '['gdb-multiarch', '-q', '-nx', '-batch', 'bin/best_fit/0/kernel', '-ex', 'target remote 127.0.0.1:45883', '-x', 'tools/boot.gdb']' timed out after 44.99995332100001 seconds
+Inspect evidence/boot/gdb.log and evidence/boot/qemu.log
+make: *** [Makefile:214: grade-boot] Error 1

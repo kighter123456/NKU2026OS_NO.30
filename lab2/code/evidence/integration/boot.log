@@ -1,0 +1,2 @@
+PASS: reset -> Bare physical entry -> Sv39 high entry -> SBI -> PMM/selftests
+Logs: evidence/boot/environment.txt, evidence/boot/gdb.log, evidence/boot/qemu.log

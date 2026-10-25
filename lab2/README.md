@@ -1,20 +1,15 @@
 # Lab2：物理内存管理与启动分页
 
-- [编译、运行和验证](code/README.md)
-- [B 实验报告](report/report.md)
-- [实施前 spec 与 prompt](report/prompt.md)
-- [A/C 接口交接](report/handoff.md)
-- [全部自建测试结果](code/evidence/selftest/summary-all.json)
-- [lab1 原始文件 SHA256](report/lab1-sha256.json)
+已集成 A 的 Sv39 启动分页和 B 的三种页分配器/简化 SLUB；C 完成集成回归、实际 QEMU 源码双 GDB 调试和报告汇总。
 
-负责人（B）：2414067—窦思微。开发分支：lab2-b-pmm。
+- [整合实验报告](report/report.md)
+- [编译与复现说明](code/README.md)
+- [C 对 A/B 完整性的核查](report/review-ab.md)
+- [C 的 QEMU 页表/TLB 调试记录与截图](report/gdb-mmu.md)
+- [测试记录](report/testing.md)
+- [AI 协作记录汇总](report/ai-collaboration.md)
+- [A 原始说明](report/report-a.md)、[B 原始报告](report/report-b.md)、[B 实施前提示词](report/prompt.md)
+- [35 个自建功能测试](code/evidence/selftest/summary-all.json)、[9 个 GDB 启动测试](code/evidence/integration/summary.json)
+- [提交边界检查](report/submission-check.json)
 
-## 分页机制（指导书实现）
-
-- [实现说明](report/report-a.md)
-- [启动日志](code/evidence/paging/boot.log)
-- [256 MiB DTB 日志](code/evidence/paging/boot-256M.log)
-- [GDB satp 记录](code/evidence/paging/gdb-boot.log)
-- [验证摘要](code/evidence/paging/summary.txt)
-
-验收范围：B 在 Bare 模式下完成物理内存管理；A 已按指导书接入启动分页（Sv39、启动页表、satp 打印），没有加入通用页表 API；C 的 QEMU 源码双重调试仍待完成。课程原测试尚未取得，不能据此声称完整实验已通过课程评分。代码与报告保留在 lab2，未修改 lab1；B 阶段的 lab2-b-pmm 分支通过 dowser47 的 fork 向原仓库提交 Pull Request（#2），具体状态以 GitHub PR 为准。
+本轮基于 main 的 `52ae7d0`，B PR #2、A PR #3 已合并。A 的启动分页可运行，但分工文档中的通用 map/unmap/query 和独立测试未交付；B 已完成自建验证，课程原测试仍缺失。当前结果不能称为所有分工条目或课程评分全部通过。修改限定 lab2，lab1 内容保持原样。

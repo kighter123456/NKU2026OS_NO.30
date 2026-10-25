@@ -1,0 +1,129 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Sv39: actual source stepping and 1 GiB leaf</title>
+<style>body{margin:0;padding:28px;background:#eef1f5;color:#172233;font:16px Arial,sans-serif}
+h1{font-size:23px;margin:0 0 12px}p{line-height:1.5}pre{padding:22px;background:#101a28;color:#dce8f5;
+font:14px/1.55 Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere;border-radius:8px}
+small{font-size:12px;overflow-wrap:anywhere}</style><h1>Sv39: actual source stepping and 1 GiB leaf</h1>
+<p>Screenshot of real GDB transcript excerpts, rendered in a browser. Not a live terminal capture.<br>
+Source: code/evidence/qemu-mmu/host-gdb.log. Original line numbers retained.</p>
+<small>Source SHA256: c70714657d669bda03505955fd36531ab92a2de59fa81529d2d60d0686f009eb</small><pre>0094  === Sv39 single-step page translation ===
+0095  Breakpoint 5 at 0x555555a8d2b8: file ../target/riscv/cpu_helper.c, line 415.
+0096  
+0097  Thread 3 &quot;qemu-system-ris&quot; hit Breakpoint 5, get_physical_address (env=0x5555568a0540, physical=0x7ffff6155580, prot=0x7ffff615556c, addr=18446744072637906994, fault_pte_addr=0x0, access_type=2, mmu_idx=1, first_stage=true, two_stage=false, is_debug=false) at ../target/riscv/cpu_helper.c:415
+0098  415	{
+0099  PASS: CPU access, not debugger memory read
+0100  #0  get_physical_address (env=0x5555568a0540, physical=0x7ffff6155580, prot=0x7ffff615556c, addr=18446744072637906994, fault_pte_addr=0x0, access_type=2, mmu_idx=1, first_stage=true, two_stage=false, is_debug=false) at ../target/riscv/cpu_helper.c:415
+0101  #1  0x0000555555a8e6dd in riscv_cpu_tlb_fill (cs=0x5555568973b0, address=18446744072637906994, size=0, access_type=MMU_INST_FETCH, mmu_idx=1, probe=false, retaddr=0) at ../target/riscv/cpu_helper.c:915
+0102  #2  0x0000555555c65a6c in tlb_fill (cpu=0x5555568973b0, addr=18446744072637906994, size=0, access_type=MMU_INST_FETCH, mmu_idx=1, retaddr=0) at ../accel/tcg/cputlb.c:1304
+0103  #3  0x0000555555c6621f in get_page_addr_code_hostp (env=0x5555568a0540, addr=18446744072637906994, hostp=0x0) at ../accel/tcg/cputlb.c:1508
+0104  #4  0x0000555555c66358 in get_page_addr_code (env=0x5555568a0540, addr=18446744072637906994) at ../accel/tcg/cputlb.c:1540
+0105  420	    MemTxAttrs attrs = MEMTXATTRS_UNSPECIFIED;
+0106  421	    int mode = mmu_idx &amp; TB_FLAGS_PRIV_MMU_MASK;
+0107  422	    bool use_background = false;
+0108  431	    if (!riscv_cpu_virt_enabled(env) &amp;&amp; two_stage) {
+0109  437	    if (riscv_cpu_two_stage_lookup(mmu_idx)) {
+0110  439	    } else if (mode == PRV_M &amp;&amp; access_type != MMU_INST_FETCH) {
+0111  445	    if (first_stage == false) {
+0112  451	    if (mode == PRV_M || !riscv_feature(env, RISCV_FEATURE_MMU)) {
+0113  457	    *prot = 0;
+0114  462	    if (first_stage == true) {
+0115  463	        mxr = get_field(env-&gt;mstatus, MSTATUS_MXR);
+0116  468	    if (first_stage == true) {
+0117  469	        if (use_background) {
+0118  478	            if (riscv_cpu_mxl(env) == MXL_RV32) {
+0119  482	                base = (hwaddr)get_field(env-&gt;satp, SATP64_PPN) &lt;&lt; PGSHIFT;
+0120  483	                vm = get_field(env-&gt;satp, SATP64_MODE);
+0121  486	        widened = 0;
+0122  498	    sum = get_field(env-&gt;mstatus, MSTATUS_SUM) || use_background || is_debug;
+0123  499	    switch (vm) {
+0124  503	      levels = 3; ptidxbits = 9; ptesize = 8; break;
+0125  516	    CPUState *cs = env_cpu(env);
+0126  517	    int va_bits = PGSHIFT + levels * ptidxbits + widened;
+0127  520	    if (TARGET_LONG_BITS &gt; (va_bits - 1)) {
+0128  521	        mask = (1L &lt;&lt; (TARGET_LONG_BITS - (va_bits - 1))) - 1;
+0129  525	    masked_msbs = (addr &gt;&gt; (va_bits - 1)) &amp; mask;
+0130  527	    if (masked_msbs != 0 &amp;&amp; masked_msbs != mask) {
+0131  531	    int ptshift = (levels - 1) * ptidxbits;
+0132  537	    for (i = 0; i &lt; levels; i++, ptshift -= ptidxbits) {
+0133  SNAPSHOT cpu_helper.c:537
+0134  addr = 0xffffffffc0200032
+0135  base = 0x80207000
+0136  vm = 0x8
+0137  levels = 0x3
+0138  ptidxbits = 0x9
+0139  ptesize = 0x8
+0140  ptshift = 0x12
+0141  539	        if (i == 0) {
+0142  540	            idx = (addr &gt;&gt; (PGSHIFT + ptshift)) &amp;
+0143  541	                           ((1 &lt;&lt; (ptidxbits + widened)) - 1);
+0144  540	            idx = (addr &gt;&gt; (PGSHIFT + ptshift)) &amp;
+0145  550	        if (two_stage &amp;&amp; first_stage) {
+0146  SNAPSHOT cpu_helper.c:550
+0147  addr = 0xffffffffc0200032
+0148  base = 0x80207000
+0149  i = 0x0
+0150  idx = 0x1ff
+0151  ptshift = 0x12
+0152  569	            pte_addr = base + idx * ptesize;
+0153  573	        int pmp_ret = get_physical_address_pmp(env, &amp;pmp_prot, NULL, pte_addr,
+0154  576	        if (pmp_ret != TRANSLATE_SUCCESS) {
+0155  581	        if (riscv_cpu_mxl(env) == MXL_RV32) {
+0156  584	            pte = address_space_ldq(cs-&gt;as, pte_addr, attrs, &amp;res);
+0157  587	        if (res != MEMTX_OK) {
+0158  SNAPSHOT cpu_helper.c:587
+0159  pte_addr = 0x80207ff8
+0160  pte = 0x200000cf
+0161  591	        hwaddr ppn = pte &gt;&gt; PTE_PPN_SHIFT;
+0162  593	        if (!(pte &amp; PTE_V)) {
+0163  SNAPSHOT cpu_helper.c:593
+0164  pte = 0x200000cf
+0165  ppn = 0x80000
+0166  596	        } else if (!(pte &amp; (PTE_R | PTE_W | PTE_X))) {
+0167  599	        } else if ((pte &amp; (PTE_R | PTE_W | PTE_X)) == PTE_W) {
+0168  602	        } else if ((pte &amp; (PTE_R | PTE_W | PTE_X)) == (PTE_W | PTE_X)) {
+0169  605	        } else if ((pte &amp; PTE_U) &amp;&amp; ((mode != PRV_U) &amp;&amp;
+0170  610	        } else if (!(pte &amp; PTE_U) &amp;&amp; (mode != PRV_S)) {
+0171  613	        } else if (ppn &amp; ((1ULL &lt;&lt; ptshift) - 1)) {
+0172  616	        } else if (access_type == MMU_DATA_LOAD &amp;&amp; !((pte &amp; PTE_R) ||
+0173  620	        } else if (access_type == MMU_DATA_STORE &amp;&amp; !(pte &amp; PTE_W)) {
+0174  623	        } else if (access_type == MMU_INST_FETCH &amp;&amp; !(pte &amp; PTE_X)) {
+0175  629	                (access_type == MMU_DATA_STORE ? PTE_D : 0);
+0176  628	            target_ulong updated_pte = pte | PTE_A |
+0177  632	            if (updated_pte != pte) {
+0178  670	            target_ulong vpn = addr &gt;&gt; PGSHIFT;
+0179  SNAPSHOT cpu_helper.c:670
+0180  addr = 0xffffffffc0200032
+0181  ppn = 0x80000
+0182  ptshift = 0x12
+0183  671	            *physical = ((ppn | (vpn &amp; ((1L &lt;&lt; ptshift) - 1))) &lt;&lt; PGSHIFT) |
+0184  672	                        (addr &amp; ~TARGET_PAGE_MASK);
+0185  671	            *physical = ((ppn | (vpn &amp; ((1L &lt;&lt; ptshift) - 1))) &lt;&lt; PGSHIFT) |
+0186  675	            if ((pte &amp; PTE_R) || ((pte &amp; PTE_X) &amp;&amp; mxr)) {
+0187  SNAPSHOT cpu_helper.c:675
+0188  *physical = 0x80200032
+0189  676	                *prot |= PAGE_READ;
+0190  678	            if ((pte &amp; PTE_X)) {
+0191  679	                *prot |= PAGE_EXEC;
+0192  683	            if ((pte &amp; PTE_W) &amp;&amp;
+0193  684	                    (access_type == MMU_DATA_STORE || (pte &amp; PTE_D))) {
+0194  685	                *prot |= PAGE_WRITE;
+0195  687	            return TRANSLATE_SUCCESS;
+0196  SNAPSHOT cpu_helper.c:687
+0197  *physical = 0x80200032
+0198  *prot = 0x7
+0199  691	}
+0200  riscv_cpu_tlb_fill (cs=0x5555568973b0, address=18446744072637906994, size=0, access_type=MMU_INST_FETCH, mmu_idx=1, probe=false, retaddr=0) at ../target/riscv/cpu_helper.c:918
+0201  918	        qemu_log_mask(CPU_LOG_MMU,
+0202  PASS: Sv39 VA=0xffffffffc0200032 -&gt; PA=0x80200032 prot=R/W/X
+0203  PASS: observed PTE permission checks and successful leaf return
+0204  Breakpoint 6 at 0x555555c65985: file ../accel/tcg/cputlb.c, line 1273.
+0205  
+0206  Thread 3 &quot;qemu-system-ris&quot; hit Breakpoint 6, tlb_set_page (cpu=0x5555568973b0, vaddr=18446744072637906944, paddr=2149580800, prot=7, mmu_idx=1, size=4096) at ../accel/tcg/cputlb.c:1273
+0207  1273	    tlb_set_page_with_attrs(cpu, vaddr, paddr, MEMTXATTRS_UNSPECIFIED,
+0208  cpu = 0x5555568973b0
+0209  vaddr = 18446744072637906944
+0210  paddr = 2149580800
+0211  prot = 7
+0212  mmu_idx = 1
+0213  size = 4096
+0214  PASS: Sv39 fills software TLB with translated physical page
+0215  </pre></html>

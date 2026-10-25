@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run the lab1 boot exercises and retain the actual QEMU/GDB output."""
+"""Check lab2 Sv39 boot, mappings, SBI and PMM using guest GDB."""
 
 import argparse
 import os
@@ -12,13 +12,15 @@ import time
 
 
 ROOT = Path(__file__).resolve().parent.parent
-MESSAGE = "(THU.CST) os is loading ..."
+MESSAGE = "LAB2 B SELFTESTS PASSED:"
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--qemu", default="qemu-system-riscv64")
     parser.add_argument("--gdb", default="gdb-multiarch")
+    parser.add_argument("--memory", default="128M")
+    parser.add_argument("--evidence", default="evidence/boot")
     parser.add_argument("--image", default="bin/best_fit/0/ucore.img")
     parser.add_argument("--kernel", default="bin/best_fit/0/kernel")
     args = parser.parse_args()
@@ -29,7 +31,7 @@ def main():
     if not Path(args.image).is_file():
         parser.error("Build the kernel with make first")
 
-    evidence = ROOT / "evidence" / "boot"
+    evidence = ROOT / args.evidence
     evidence.mkdir(parents=True, exist_ok=True)
     with (evidence / "environment.txt").open("w") as output:
         for command in (["uname", "-a"], ["make", "--version"],
@@ -43,7 +45,7 @@ def main():
         port = listener.getsockname()[1]
 
     command = [args.qemu, "-machine", "virt", "-nographic", "-bios", "default",
-               "-kernel", args.image,
+               "-m", args.memory, "-kernel", args.image,
                "-gdb", "tcp:127.0.0.1:" + str(port), "-S"]
     with (evidence / "qemu.log").open("w") as output:
         qemu = subprocess.Popen(command, stdout=output, stderr=subprocess.STDOUT)
@@ -67,10 +69,10 @@ def main():
                      "-x", "tools/boot.gdb"],
                     stdout=trace, stderr=subprocess.STDOUT, check=True, timeout=45)
 
-            deadline = time.monotonic() + 5
+            deadline = time.monotonic() + 20
             while MESSAGE not in (evidence / "qemu.log").read_text(errors="replace"):
                 if qemu.poll() is not None or time.monotonic() >= deadline:
-                    raise RuntimeError("The kernel did not print its startup message")
+                    raise RuntimeError("The kernel did not complete its PMM selftests")
                 time.sleep(0.05)
         finally:
             qemu.terminate()
@@ -81,10 +83,10 @@ def main():
                 qemu.wait(timeout=5)
 
     trace = (evidence / "gdb.log").read_text(errors="replace")
-    if "LAB1 BOOT CHECKS PASSED" not in trace:
+    if "LAB2 BOOT CHECKS PASSED" not in trace:
         raise RuntimeError("GDB did not complete the boot checks")
-    print("PASS: reset ROM -> OpenSBI -> kern_entry -> kern_init -> SBI console")
-    print("Logs: evidence/boot/environment.txt, evidence/boot/gdb.log, evidence/boot/qemu.log")
+    print("PASS: reset -> Bare physical entry -> Sv39 high entry -> SBI -> PMM/selftests")
+    print("Logs: " + str(evidence))
 
 
 if __name__ == "__main__":

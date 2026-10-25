@@ -108,7 +108,7 @@ void pmm_init(void) {
 #else
     pmm_manager=&best_fit_pmm_manager;
 #endif
-    cprintf("memory management: %s (Bare standalone)\n",pmm_manager->name);
+    cprintf("memory management: %s (Sv39 integrated)\n",pmm_manager->name);
     pmm_manager->init();
     page_init();
     assert(nr_free_pages()==(managed_end-free_begin)/PGSIZE);

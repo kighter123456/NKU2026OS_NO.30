@@ -1,12 +1,21 @@
 $ make -j2 PMM=buddy TEST_CASE=7
-make[1]: Entering directory '/home/dowser47/OS/NKU2026OS_NO.30/lab2/code'
+make[1]: Entering directory '/mnt/e/桌面/OSLab/lab2/code'
++ cc kern/init/entry.S
 + cc kern/init/init.c
++ cc kern/debug/panic.c
++ cc kern/libs/stdio.c
++ cc kern/driver/console.c
 + cc kern/driver/dtb.c
++ cc kern/mm/best_fit_pmm.c
++ cc kern/mm/buddy_pmm.c
++ cc kern/mm/default_pmm.c
 + cc kern/mm/pmm.c
 + cc kern/mm/selftest.c
 + cc kern/mm/slub.c
 + cc libs/printfmt.c
++ cc libs/readline.c
++ cc libs/sbi.c
 + cc libs/string.c
 + ld bin/buddy/7/kernel
 riscv64-unknown-elf-objcopy bin/buddy/7/kernel --strip-all -O binary bin/buddy/7/ucore.img
-make[1]: Leaving directory '/home/dowser47/OS/NKU2026OS_NO.30/lab2/code'
+make[1]: Leaving directory '/mnt/e/桌面/OSLab/lab2/code'

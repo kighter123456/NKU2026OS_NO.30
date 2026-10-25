@@ -1,5 +1,7 @@
 # Lab2 提示词
 
+> 这是 B 在 Bare 独立阶段的原始规格。当前整合内核已使用 Sv39；B 的历史“不写 satp”约束不适用于 A/C。C 与三方汇总记录见 [ai-collaboration.md](ai-collaboration.md)。
+
 ## 共同约束
 
 以本仓库 lab1/code 的副本为基础开发，所有仓库修改仅限 lab2，禁止修改 lab1。独立验证使用 Bare 模式，不实现页表或写 satp；补齐必需的公共接口、DTB 解析、启动参数传递和测试入口，并列出交给后续协作者的接口。署名注释为 lab2: 2414067，默认使用 Best-Fit，同时支持构建 First-Fit 和 Buddy。

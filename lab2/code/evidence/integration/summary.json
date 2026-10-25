@@ -1,0 +1,61 @@
+{
+  "self_written": true,
+  "complete": true,
+  "pmm_scenarios": 35,
+  "boot_gdb_results": [
+    {
+      "backend": "first_fit",
+      "memory": "64M",
+      "result": "passed",
+      "evidence": "boot-first_fit-64M"
+    },
+    {
+      "backend": "first_fit",
+      "memory": "128M",
+      "result": "passed",
+      "evidence": "boot-first_fit-128M"
+    },
+    {
+      "backend": "first_fit",
+      "memory": "256M",
+      "result": "passed",
+      "evidence": "boot-first_fit-256M"
+    },
+    {
+      "backend": "best_fit",
+      "memory": "64M",
+      "result": "passed",
+      "evidence": "boot-best_fit-64M"
+    },
+    {
+      "backend": "best_fit",
+      "memory": "128M",
+      "result": "passed",
+      "evidence": "boot-best_fit-128M"
+    },
+    {
+      "backend": "best_fit",
+      "memory": "256M",
+      "result": "passed",
+      "evidence": "boot-best_fit-256M"
+    },
+    {
+      "backend": "buddy",
+      "memory": "64M",
+      "result": "passed",
+      "evidence": "boot-buddy-64M"
+    },
+    {
+      "backend": "buddy",
+      "memory": "128M",
+      "result": "passed",
+      "evidence": "boot-buddy-128M"
+    },
+    {
+      "backend": "buddy",
+      "memory": "256M",
+      "result": "passed",
+      "evidence": "boot-buddy-256M"
+    }
+  ]
+}

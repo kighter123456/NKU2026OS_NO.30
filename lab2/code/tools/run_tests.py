@@ -11,6 +11,7 @@ import time
 
 ROOT = Path(__file__).resolve().parent.parent
 EVIDENCE = ROOT / "evidence" / "selftest"
+QEMU = "qemu-system-riscv64"
 MANAGERS = {"first_fit": "default_pmm_manager", "best_fit": "best_fit_pmm_manager", "buddy": "buddy_pmm_manager"}
 NEGATIVE = {
     1: ("zero-allocation", "n>0"),
@@ -22,7 +23,8 @@ NEGATIVE = {
     7: ("invalid-dtb", "dtb_parse(bad,sizeof(bad),&info)==0"),
     8: ("descriptor-outside", "index<npage-nbase"),
     9: ("buddy-interior", "base->alloc_span"),
-    10: ("object-outside", "pa>=DRAM_BASE"),
+    # Under the high mapping, 0x1000 is rejected by the VA guard before PA validation.
+    10: ("object-outside", "v>=va_pa_offset"),
 }
 
 def build(backend, case):
@@ -37,7 +39,7 @@ def run(backend, memory, case=0):
     name = f"{backend}-{memory}-case{case}"
     logfile = EVIDENCE / f"{name}.log"
     image = ROOT / "bin" / backend / str(case) / "ucore.img"
-    command = ["qemu-system-riscv64", "-machine", "virt", "-m", memory,
+    command = [QEMU, "-machine", "virt", "-m", memory,
                "-nographic", "-bios", "default", "-kernel", str(image), "-no-reboot"]
     with logfile.open("w", encoding="utf-8") as output:
         output.write("$ " + " ".join(command) + "\n"); output.flush()
@@ -60,7 +62,7 @@ def run(backend, memory, case=0):
             except subprocess.TimeoutExpired:
                 proc.kill(); proc.wait(timeout=5)
     text = logfile.read_text(errors="replace")
-    if f"memory management: {MANAGERS[backend]} (Bare standalone)" not in text:
+    if f"memory management: {MANAGERS[backend]} (Sv39 integrated)" not in text:
         raise RuntimeError(f"{name}: wrong manager")
     if case:
         label, condition = NEGATIVE[case]
@@ -93,11 +95,14 @@ def run(backend, memory, case=0):
             "result": "expected rejection" if case else "passed", "log": logfile.name}
 
 def main():
+    global QEMU
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--all", action="store_true")
+    parser.add_argument("--qemu", default=QEMU)
     parser.add_argument("--backend", choices=MANAGERS, default="best_fit")
     parser.add_argument("--memory", choices=("64M", "128M", "256M"), default="128M")
     args = parser.parse_args()
+    QEMU = args.qemu
     EVIDENCE.mkdir(parents=True, exist_ok=True)
     results = []
     try:

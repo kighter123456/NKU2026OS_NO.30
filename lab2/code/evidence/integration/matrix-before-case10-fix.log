@@ -1,0 +1,18 @@
+PASS: first_fit-64M-case0
+PASS: first_fit-128M-case0
+PASS: first_fit-256M-case0
+PASS: best_fit-64M-case0
+PASS: best_fit-128M-case0
+PASS: best_fit-256M-case0
+PASS: buddy-64M-case0
+PASS: buddy-128M-case0
+PASS: buddy-256M-case0
+PASS: first_fit-128M-case1
+PASS: first_fit-128M-case2
+PASS: first_fit-128M-case3
+PASS: first_fit-128M-case5
+PASS: first_fit-128M-case6
+PASS: first_fit-128M-case7
+PASS: first_fit-128M-case8
+FAIL: first_fit-128M-case10: unexpected panic: [PANIC] kern/mm/pmm.c:16: v>=va_pa_offset
+make: *** [Makefile:217: grade-all] Error 1

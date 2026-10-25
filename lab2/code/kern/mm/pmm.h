@@ -1,4 +1,4 @@
-/* lab2: 2414067 - provisional B/C interface, Bare standalone validation. */
+/* B/C contract: initialize after boot Sv39 and DTB discovery; addresses are high VA. */
 #ifndef LAB2_PMM_H
 #define LAB2_PMM_H
 #include <memlayout.h>

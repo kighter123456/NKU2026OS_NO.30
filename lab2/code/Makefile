@@ -207,14 +207,22 @@ TOUCH_FILES		:= kern/trap/trap.c
 MAKEOPTS		:= --quiet --no-print-directory
 
 grade: $(UCOREIMG)
-	$(V)$(PYTHON) tools/run_tests.py --backend $(PMM) --memory $(MEMORY)
+	$(V)$(PYTHON) tools/run_tests.py --qemu $(QEMU) --backend $(PMM) --memory $(MEMORY)
 
 .PHONY: grade-boot grade-all
 grade-boot: $(UCOREIMG)
-	$(V)$(PYTHON) tools/verify.py --qemu $(QEMU) --gdb $(GDB) --image $(UCOREIMG) --kernel $(kernel)
+	$(V)$(PYTHON) tools/verify.py --qemu $(QEMU) --gdb $(GDB) --memory $(MEMORY) --image $(UCOREIMG) --kernel $(kernel)
 
 grade-all:
-	$(V)$(PYTHON) tools/run_tests.py --all
+	$(V)$(PYTHON) tools/run_tests.py --qemu $(QEMU) --all
+
+QEMU_DEBUG ?= $(HOME)/.cache/oslab/qemu-6.2.0/build-debug/qemu-system-riscv64
+.PHONY: grade-integration grade-source
+grade-integration:
+	$(V)$(PYTHON) tools/integration.py --qemu $(QEMU) --gdb $(GDB)
+
+grade-source:
+	$(V)$(PYTHON) tools/qemu_mmu_debug.py --qemu $(QEMU_DEBUG)
 
 touch:
 	$(V)$(foreach f,$(TOUCH_FILES),$(TOUCH) $(f))
