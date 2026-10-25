@@ -112,4 +112,11 @@ void pmm_init(void) {
     pmm_manager->init();
     page_init();
     assert(nr_free_pages()==(managed_end-free_begin)/PGSIZE);
+
+    /* The guide prints the boot page table addresses after PMM setup. */
+    extern char boot_page_table_sv39[];
+    uintptr_t *satp_virtual=(uintptr_t *)boot_page_table_sv39;
+    uintptr_t satp_physical=PADDR(satp_virtual);
+    cprintf("satp virtual address: 0x%016lx\n",(uintptr_t)satp_virtual);
+    cprintf("satp physical address: 0x%016lx\n",satp_physical);
 }

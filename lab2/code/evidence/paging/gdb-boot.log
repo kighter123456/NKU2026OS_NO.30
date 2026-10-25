@@ -1,0 +1,11 @@
+0x0000000000001000 in ?? ()
+Hardware assisted breakpoint 1 at 0xffffffffc0200032: file kern/init/init.c, line 12.
+
+Breakpoint 1, kern_init (hartid=0, dtb_pa=2279604224) at kern/init/init.c:12
+12	    memset(edata, 0, end - edata);
+AT kern_init: pc=0xffffffffc0200032 sp=0xffffffffc0207000 satp=0x8000000000080207
+satp MODE=8 PPN=0x80207
+boot PTE[2]=0x200000cf PTE[511]=0x200000cf
+=> 0xffffffffc0200032 <kern_init>:	addi	sp,sp,-32
+   0xffffffffc0200034 <kern_init+2>:	auipc	a5,0x8
+[Inferior 1 (process 1) detached]
