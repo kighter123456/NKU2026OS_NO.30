@@ -1,0 +1,15 @@
+# 复现 QEMU 10.2 对非叶 PTE 保留位（D/A/U）的严格检查
+#
+# 复现条件：get_pte() 创建中间级页表项时使用 PTE_U | PTE_V（骨架原始写法）
+# 运行命令：qemu-system-riscv64 -machine virt -nographic -bios default \
+#           -kernel bin/ucore.img -d int,guest_errors -D qemu_int.log
+#
+# 现象：check_pgdir() 通过后，check_boot_pgdir() 执行
+#       strcpy((void *)0x100, ...) 时触发 store_page_fault；
+#       随后 QEMU 反复复位，串口重复输出 "DTB Init"。
+riscv_cpu_do_interrupt: hart:0, async:0, cause:000000000000000f, epc=0xffffffffc0203db0, tval=0x0000000000000100, desc=store_page_fault
+
+# 修复：中间级页表项只设置 PTE_V（RISC-V 规范要求非叶 PTE 的 D/A/U 为 0）
+# 修复后同一位置的输出：
+check_pgdir() succeeded!
+check_boot_pgdir() succeeded!
